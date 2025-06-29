@@ -1,0 +1,10 @@
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/el_center_splash_logo.png
+  # branding: assets/images/Group 15.png
+  android_12:
+    image: assets/images/el_center_splash_logo.png
+    color: "#ffffff"
+    # branding: assets/images/Group 15.png
+
+    
