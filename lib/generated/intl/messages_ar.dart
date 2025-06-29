@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a en locale. All the
+// This is a library that provides messages for a ar locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,38 +18,38 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'en';
+  String get localeName => 'ar';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "changeLanguage": MessageLookupByLibrary.simpleMessage("ع"),
+    "changeLanguage": MessageLookupByLibrary.simpleMessage("En"),
     "onboarding_boldTitle1": MessageLookupByLibrary.simpleMessage(
-      "Best choice for",
+      "الخيار الأمثل لـ",
     ),
     "onboarding_boldTitle2": MessageLookupByLibrary.simpleMessage(
-      "Teachers & Learners",
+      "المعلّمين والمتعلّمين",
     ),
     "onboarding_boldTitle3": MessageLookupByLibrary.simpleMessage(
-      "Anywhere. Accelerate",
+      "ومن أي مكان، طوّر",
     ),
     "onboarding_highlightedTitle1": MessageLookupByLibrary.simpleMessage(
-      "everyone.",
+      "الجميع.",
     ),
     "onboarding_highlightedTitle2": MessageLookupByLibrary.simpleMessage(
-      "Teachers & Learners.",
+      "المعلّمين والمتعلّمين.",
     ),
     "onboarding_highlightedTitle3": MessageLookupByLibrary.simpleMessage(
-      "Your Future and beyond..",
+      "مستقبلك وما هو أبعد من ذلك.",
     ),
     "onboarding_thinTitle1": MessageLookupByLibrary.simpleMessage(
-      "Online Study is the",
+      "التعلُّم عبر الإنترنت هو",
     ),
     "onboarding_thinTitle2": MessageLookupByLibrary.simpleMessage(
-      "Best platform for both",
+      "أفضل منصة لكل من",
     ),
     "onboarding_thinTitle3": MessageLookupByLibrary.simpleMessage(
-      "Learn Anytime,",
+      "تعلّم في أي وقت،",
     ),
-    "startLearning": MessageLookupByLibrary.simpleMessage("Start learning!"),
+    "startLearning": MessageLookupByLibrary.simpleMessage("ابدأ التعلم!"),
   };
 }
