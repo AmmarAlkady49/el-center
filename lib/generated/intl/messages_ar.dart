@@ -23,6 +23,12 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "changeLanguage": MessageLookupByLibrary.simpleMessage("En"),
+    "continueWithGoogle": MessageLookupByLibrary.simpleMessage(
+      "متابعة باستخدام جوجل",
+    ),
+    "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
     "onboarding_boldTitle1": MessageLookupByLibrary.simpleMessage(
       "الخيار الأمثل لـ",
     ),
@@ -50,6 +56,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboarding_thinTitle3": MessageLookupByLibrary.simpleMessage(
       "تعلّم في أي وقت،",
     ),
+    "orLoginWith": MessageLookupByLibrary.simpleMessage(
+      "أو تسجيل الدخول باستخدام",
+    ),
+    "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+    "signin": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "signinToYourAccount": MessageLookupByLibrary.simpleMessage(
+      "تسجيل الدخول إلى \nحسابك",
+    ),
+    "signup": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "startLearning": MessageLookupByLibrary.simpleMessage("ابدأ التعلم!"),
+    "typeYourEmail": MessageLookupByLibrary.simpleMessage(
+      "ادخل البريد الالكتروني",
+    ),
+    "typeYourPassword": MessageLookupByLibrary.simpleMessage(
+      "ادخل كلمة المرور",
+    ),
   };
 }

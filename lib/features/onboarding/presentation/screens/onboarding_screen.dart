@@ -1,4 +1,5 @@
 import 'package:e_learning_app/core/helpers/extensions.dart';
+import 'package:e_learning_app/core/routing/app_routes.dart';
 import 'package:e_learning_app/features/onboarding/presentation/widgets/floating_progress_indecator.dart';
 import 'package:e_learning_app/features/onboarding/presentation/widgets/onboarding_image_and_title.dart';
 import 'package:flutter/material.dart';
@@ -63,7 +64,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               currentPage: _currentPage,
               onNextPressed: () {
                 _currentPage == onboardingPages.length - 1
-                    ? null
+                    ? Navigator.pushReplacementNamed(
+                        context,
+                        AppRoutes.loginScreen,
+                      )
                     : _onboardingPageController.nextPage(
                         duration: const Duration(milliseconds: 300),
                         curve: Curves.easeInOut,

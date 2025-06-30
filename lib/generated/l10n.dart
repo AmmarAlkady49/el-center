@@ -159,6 +159,101 @@ class S {
   String get changeLanguage {
     return Intl.message('ع', name: 'changeLanguage', desc: '', args: []);
   }
+
+  /// `Sign in to your \nAccount`
+  String get signinToYourAccount {
+    return Intl.message(
+      'Sign in to your \nAccount',
+      name: 'signinToYourAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account?`
+  String get dontHaveAnAccount {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'dontHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up`
+  String get signup {
+    return Intl.message('Sign up', name: 'signup', desc: '', args: []);
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message('Password', name: 'password', desc: '', args: []);
+  }
+
+  /// `Type your email`
+  String get typeYourEmail {
+    return Intl.message(
+      'Type your email',
+      name: 'typeYourEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Type your password`
+  String get typeYourPassword {
+    return Intl.message(
+      'Type your password',
+      name: 'typeYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password?`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot Password?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remember me`
+  String get rememberMe {
+    return Intl.message('Remember me', name: 'rememberMe', desc: '', args: []);
+  }
+
+  /// `Sign in`
+  String get signin {
+    return Intl.message('Sign in', name: 'signin', desc: '', args: []);
+  }
+
+  /// `Or login with`
+  String get orLoginWith {
+    return Intl.message(
+      'Or login with',
+      name: 'orLoginWith',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue with Google`
+  String get continueWithGoogle {
+    return Intl.message(
+      'Continue with Google',
+      name: 'continueWithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
