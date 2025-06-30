@@ -9,6 +9,17 @@
     "onboarding_highlightedTitle2": "المعلّمين والمتعلّمين.",
     "onboarding_highlightedTitle3": "مستقبلك وما هو أبعد من ذلك.",
     "startLearning": "ابدأ التعلم!",
-    "changeLanguage": "En"
-
+    "changeLanguage": "En",
+    "signinToYourAccount": "تسجيل الدخول إلى \nحسابك",
+    "dontHaveAnAccount": "ليس لديك حساب؟",
+    "signup": "إنشاء حساب",
+    "email": "البريد الالكتروني",
+    "password": "كلمة المرور",
+    "typeYourEmail": "ادخل البريد الالكتروني",
+    "typeYourPassword": "ادخل كلمة المرور",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "rememberMe": "تذكرني",
+    "signin": "تسجيل الدخول",
+    "orLoginWith": "أو تسجيل الدخول باستخدام",
+    "continueWithGoogle": "متابعة باستخدام جوجل"
 }

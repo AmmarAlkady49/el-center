@@ -1,3 +1,4 @@
+
 import 'package:e_learning_app/core/helpers/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,7 +28,7 @@ class ChangeLanguage extends StatelessWidget {
             children: [
               Text(
                 context.loc.changeLanguage,
-                style: FontHelper.font16thinWeight300(context).copyWith(
+                style: FontHelper.font18Black45W300(context).copyWith(
                   color: AppColors.darkBlue,
                   fontWeight: FontWeight.w500,
                 ),

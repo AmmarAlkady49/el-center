@@ -21,6 +21,7 @@ class ElCenterApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         locale: Locale("ar"),
+        // locale: locator<Locale>(),
         localizationsDelegates: [
           S.delegate,
           GlobalMaterialLocalizations.delegate,

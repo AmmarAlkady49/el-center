@@ -23,6 +23,14 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "changeLanguage": MessageLookupByLibrary.simpleMessage("ع"),
+    "continueWithGoogle": MessageLookupByLibrary.simpleMessage(
+      "Continue with Google",
+    ),
+    "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage(
+      "Don\'t have an account?",
+    ),
+    "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
     "onboarding_boldTitle1": MessageLookupByLibrary.simpleMessage(
       "Best choice for",
     ),
@@ -50,6 +58,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboarding_thinTitle3": MessageLookupByLibrary.simpleMessage(
       "Learn Anytime,",
     ),
+    "orLoginWith": MessageLookupByLibrary.simpleMessage("Or login with"),
+    "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
+    "signin": MessageLookupByLibrary.simpleMessage("Sign in"),
+    "signinToYourAccount": MessageLookupByLibrary.simpleMessage(
+      "Sign in to your \nAccount",
+    ),
+    "signup": MessageLookupByLibrary.simpleMessage("Sign up"),
     "startLearning": MessageLookupByLibrary.simpleMessage("Start learning!"),
+    "typeYourEmail": MessageLookupByLibrary.simpleMessage("Type your email"),
+    "typeYourPassword": MessageLookupByLibrary.simpleMessage(
+      "Type your password",
+    ),
   };
 }

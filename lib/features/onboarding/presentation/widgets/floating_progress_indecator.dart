@@ -29,7 +29,7 @@ class FloatingProgressIndecator extends StatelessWidget {
             visible: currentPage == totalPages - 1,
             child: Text(
               context.loc.startLearning,
-              style: FontHelper.font20thinWeight700(context),
+              style: FontHelper.font20BlackW700(context),
             ),
           ),
           CircularPercentIndicator(

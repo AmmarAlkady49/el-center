@@ -28,14 +28,14 @@ class OnBoardingText extends StatelessWidget {
         children: [
           Text(
             thinTitle,
-            style: FontHelper.font24thinWeight300(context),
+            style: FontHelper.font24Black45W300(context),
           ),
           SizedBox(height: 7.h),
           Visibility(
             visible: isBoldTitleNeeded,
             child: Text(
               boldTitle,
-              style: FontHelper.font24thinWeight700(context).copyWith(
+              style: FontHelper.font24BlackW700(context).copyWith(
                 height: 0.8,
               ),
             ),
@@ -45,15 +45,15 @@ class OnBoardingText extends StatelessWidget {
               Positioned(
                 bottom: 0,
                 child: Container(
-                  width: HelperFunctions.getWordWidth(highlightedTitle,
-                      FontHelper.font24thinWeight700(context)),
+                  width: HelperFunctions.getWordWidth(
+                      highlightedTitle, FontHelper.font24BlackW700(context)),
                   height: 10.h,
                   decoration: BoxDecoration(color: AppColors.mainBlue),
                 ),
               ),
               Text(
                 highlightedTitle,
-                style: FontHelper.font24thinWeight700(context).copyWith(
+                style: FontHelper.font24BlackW700(context).copyWith(
                   height: 1.4,
                 ),
               ),

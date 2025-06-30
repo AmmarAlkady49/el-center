@@ -9,5 +9,17 @@
     "onboarding_highlightedTitle2": "Teachers & Learners.",
     "onboarding_highlightedTitle3": "Your Future and beyond..",
     "startLearning": "Start learning!",
-    "changeLanguage": "ع"
+    "changeLanguage": "ع",
+    "signinToYourAccount": "Sign in to your \nAccount",
+    "dontHaveAnAccount": "Don't have an account?",
+    "signup": "Sign up",
+    "email": "Email",
+    "password": "Password",
+    "typeYourEmail": "Type your email",
+    "typeYourPassword": "Type your password",
+    "forgotPassword": "Forgot Password?",
+    "rememberMe": "Remember me",
+    "signin": "Sign in",
+    "orLoginWith": "Or login with",
+    "continueWithGoogle": "Continue with Google"
 }
