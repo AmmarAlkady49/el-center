@@ -21,5 +21,11 @@
     "rememberMe": "Remember me",
     "signin": "Sign in",
     "orLoginWith": "Or login with",
-    "continueWithGoogle": "Continue with Google"
+    "continueWithGoogle": "Continue with Google",
+    "pleaseEnterYourEmail": "Please enter your email",
+    "pleaseEnterYourPassword": "Please enter your password",
+    "pleaseEnterAvalidEmail": "Please enter a valid email address",
+    "pleaseEnterAvalidPassword": "Please enter a valid password",
+    "loading": "Loading..."
+
 }

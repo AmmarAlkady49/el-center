@@ -20,7 +20,7 @@ class ElCenterApp extends StatelessWidget {
       splitScreenMode: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        locale: Locale("ar"), 
+        locale: Locale("ar"),
         // locale: locator<Locale>(),
         localizationsDelegates: [
           S.delegate,

@@ -64,9 +64,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               currentPage: _currentPage,
               onNextPressed: () {
                 _currentPage == onboardingPages.length - 1
-                    ? Navigator.pushReplacementNamed(
+                    ? Navigator.pushNamedAndRemoveUntil(
                         context,
                         AppRoutes.loginScreen,
+                        (route) => false,
                       )
                     : _onboardingPageController.nextPage(
                         duration: const Duration(milliseconds: 300),

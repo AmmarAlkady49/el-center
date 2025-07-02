@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
+    "loading": MessageLookupByLibrary.simpleMessage("جاري التحميل..."),
     "onboarding_boldTitle1": MessageLookupByLibrary.simpleMessage(
       "الخيار الأمثل لـ",
     ),
@@ -60,6 +61,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "أو تسجيل الدخول باستخدام",
     ),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "pleaseEnterAvalidEmail": MessageLookupByLibrary.simpleMessage(
+      "يرجى ادخال بريد الكتروني صالح",
+    ),
+    "pleaseEnterAvalidPassword": MessageLookupByLibrary.simpleMessage(
+      "يرجى ادخال كلمة المرور صالحة",
+    ),
+    "pleaseEnterYourEmail": MessageLookupByLibrary.simpleMessage(
+      "يرجى ادخال البريد الالكتروني",
+    ),
+    "pleaseEnterYourPassword": MessageLookupByLibrary.simpleMessage(
+      "يرجى ادخال كلمة المرور",
+    ),
     "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
     "signin": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "signinToYourAccount": MessageLookupByLibrary.simpleMessage(

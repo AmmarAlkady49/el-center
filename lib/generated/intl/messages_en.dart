@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+    "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
     "onboarding_boldTitle1": MessageLookupByLibrary.simpleMessage(
       "Best choice for",
     ),
@@ -60,6 +61,18 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "orLoginWith": MessageLookupByLibrary.simpleMessage("Or login with"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "pleaseEnterAvalidEmail": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid email address",
+    ),
+    "pleaseEnterAvalidPassword": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid password",
+    ),
+    "pleaseEnterYourEmail": MessageLookupByLibrary.simpleMessage(
+      "Please enter your email",
+    ),
+    "pleaseEnterYourPassword": MessageLookupByLibrary.simpleMessage(
+      "Please enter your password",
+    ),
     "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
     "signin": MessageLookupByLibrary.simpleMessage("Sign in"),
     "signinToYourAccount": MessageLookupByLibrary.simpleMessage(

@@ -37,6 +37,12 @@ class FontHelper {
     );
   }
 
+  static TextStyle font12lackW400(BuildContext context) {
+    return _localizedFont(context, FontWeight.w400).copyWith(
+      fontSize: 12.sp,
+      color: Colors.black,
+    );
+  }
   static TextStyle font14BlackW500(BuildContext context) {
     return _localizedFont(context, FontWeight.w500).copyWith(
       fontSize: 14.sp,

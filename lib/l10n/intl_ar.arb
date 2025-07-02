@@ -21,5 +21,10 @@
     "rememberMe": "تذكرني",
     "signin": "تسجيل الدخول",
     "orLoginWith": "أو تسجيل الدخول باستخدام",
-    "continueWithGoogle": "متابعة باستخدام جوجل"
+    "continueWithGoogle": "متابعة باستخدام جوجل",
+    "pleaseEnterYourEmail": "يرجى ادخال البريد الالكتروني",
+    "pleaseEnterYourPassword": "يرجى ادخال كلمة المرور",
+    "pleaseEnterAvalidEmail": "يرجى ادخال بريد الكتروني صالح",
+    "pleaseEnterAvalidPassword": "يرجى ادخال كلمة المرور صالحة",
+    "loading": "جاري التحميل..."
 }

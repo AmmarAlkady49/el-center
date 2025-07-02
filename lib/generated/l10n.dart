@@ -254,6 +254,51 @@ class S {
       args: [],
     );
   }
+
+  /// `Please enter your email`
+  String get pleaseEnterYourEmail {
+    return Intl.message(
+      'Please enter your email',
+      name: 'pleaseEnterYourEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your password`
+  String get pleaseEnterYourPassword {
+    return Intl.message(
+      'Please enter your password',
+      name: 'pleaseEnterYourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email address`
+  String get pleaseEnterAvalidEmail {
+    return Intl.message(
+      'Please enter a valid email address',
+      name: 'pleaseEnterAvalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid password`
+  String get pleaseEnterAvalidPassword {
+    return Intl.message(
+      'Please enter a valid password',
+      name: 'pleaseEnterAvalidPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Loading...`
+  String get loading {
+    return Intl.message('Loading...', name: 'loading', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
