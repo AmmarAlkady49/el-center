@@ -1,4 +1,6 @@
+import 'package:e_learning_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -17,11 +19,17 @@ class EmailAndPasswordTextFormField extends StatefulWidget {
 
 class _EmailAndPasswordTextFormFieldState
     extends State<EmailAndPasswordTextFormField> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  late TextEditingController _emailController;
+  late TextEditingController _passwordController;
 
   bool _isObscureText = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _emailController = context.read<LoginCubit>().emailController;
+    _passwordController = context.read<LoginCubit>().passwordController;
+  }
 
   @override
   void dispose() {
@@ -33,8 +41,7 @@ class _EmailAndPasswordTextFormFieldState
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formKey,
-      autovalidateMode: AutovalidateMode.onUserInteraction,
+      key: context.read<LoginCubit>().formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -47,6 +54,9 @@ class _EmailAndPasswordTextFormFieldState
             hintText: S.of(context).typeYourEmail,
             controller: _emailController,
             keyboardType: TextInputType.emailAddress,
+            textInputAction: TextInputAction.next,
+            validator: (value) =>
+                context.read<LoginCubit>().validateEmail(value, context),
           ),
           verticalSpacing(20),
           Text(
@@ -57,6 +67,8 @@ class _EmailAndPasswordTextFormFieldState
           AppTextFormField(
             hintText: S.of(context).typeYourPassword,
             controller: _passwordController,
+            validator: (value) =>
+                context.read<LoginCubit>().validatePassword(value, context),
             keyboardType: TextInputType.visiblePassword,
             textInputAction: TextInputAction.done,
             isObscureText: _isObscureText,
