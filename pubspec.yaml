@@ -30,6 +30,7 @@ dependencies:
   retrofit: ^4.4.2
   retrofit_generator: ^9.2.0
   shared_preferences: ^2.5.3
+  country_code_picker: ^3.3.0
 
 dev_dependencies:
   build_runner: ^2.4.15

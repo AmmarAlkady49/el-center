@@ -22,7 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
+      "Already have an account?",
+    ),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("ع"),
+    "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "continueWithGoogle": MessageLookupByLibrary.simpleMessage(
       "Continue with Google",
     ),
@@ -30,8 +34,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Don\'t have an account?",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "female": MessageLookupByLibrary.simpleMessage("Female"),
+    "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+    "lastName": MessageLookupByLibrary.simpleMessage("Last Name"),
     "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
+    "male": MessageLookupByLibrary.simpleMessage("Male"),
+    "noCountryFound": MessageLookupByLibrary.simpleMessage("No country found"),
     "onboarding_boldTitle1": MessageLookupByLibrary.simpleMessage(
       "Best choice for",
     ),
@@ -61,26 +70,58 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "orLoginWith": MessageLookupByLibrary.simpleMessage("Or login with"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "passwordTooWeak": MessageLookupByLibrary.simpleMessage(
+      "Password too weak",
+    ),
+    "passwordsDoNotMatch": MessageLookupByLibrary.simpleMessage(
+      "Passwords do not match",
+    ),
+    "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
     "pleaseEnterAvalidEmail": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid email address",
     ),
     "pleaseEnterAvalidPassword": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid password",
     ),
+    "pleaseEnterAvalidPhoneNumber": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid phone number",
+    ),
+    "pleaseEnterYourConfirmPassword": MessageLookupByLibrary.simpleMessage(
+      "Please enter your confirm password",
+    ),
     "pleaseEnterYourEmail": MessageLookupByLibrary.simpleMessage(
       "Please enter your email",
+    ),
+    "pleaseEnterYourFirstName": MessageLookupByLibrary.simpleMessage(
+      "Please enter your first name",
+    ),
+    "pleaseEnterYourLastName": MessageLookupByLibrary.simpleMessage(
+      "Please enter your last name",
     ),
     "pleaseEnterYourPassword": MessageLookupByLibrary.simpleMessage(
       "Please enter your password",
     ),
+    "pleaseEnterYourPhoneNumber": MessageLookupByLibrary.simpleMessage(
+      "Please enter your phone number",
+    ),
+    "register": MessageLookupByLibrary.simpleMessage("Register"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
+    "selectCountry": MessageLookupByLibrary.simpleMessage("Select Country"),
     "signin": MessageLookupByLibrary.simpleMessage("Sign in"),
     "signinToYourAccount": MessageLookupByLibrary.simpleMessage(
       "Sign in to your \nAccount",
     ),
     "signup": MessageLookupByLibrary.simpleMessage("Sign up"),
     "startLearning": MessageLookupByLibrary.simpleMessage("Start learning!"),
+    "student": MessageLookupByLibrary.simpleMessage("Student"),
+    "teacher": MessageLookupByLibrary.simpleMessage("Teacher"),
     "typeYourEmail": MessageLookupByLibrary.simpleMessage("Type your email"),
+    "typeYourFirstName": MessageLookupByLibrary.simpleMessage(
+      "Type your first name",
+    ),
+    "typeYourLastName": MessageLookupByLibrary.simpleMessage(
+      "Type your last name",
+    ),
     "typeYourPassword": MessageLookupByLibrary.simpleMessage(
       "Type your password",
     ),

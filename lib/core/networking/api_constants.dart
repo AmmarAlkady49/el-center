@@ -1,10 +1,11 @@
+import 'package:dio/dio.dart';
+
 class ApiConstants {
   static const String apiBaseUrl = "https://elcentre-api.runasp.net/";
 
   static const String login = "Account/login";
   static const String register = "Account/register";
 }
-
 
 class ApiErrors {
   static const String badRequestError = "badRequestError";
@@ -22,4 +23,9 @@ class ApiErrors {
   static const String loadingMessage = "loading_message";
   static const String retryAgainMessage = "retry_again_message";
   static const String ok = "Ok";
+}
+
+abstract class ParseErrorLogger {
+  void logError(
+      Object error, StackTrace stackTrace, RequestOptions requestOptions);
 }

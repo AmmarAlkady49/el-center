@@ -22,14 +22,27 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
+      "لديك حساب بالفعل؟",
+    ),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("En"),
+    "confirmPassword": MessageLookupByLibrary.simpleMessage(
+      "تاكيد كلمة المرور",
+    ),
     "continueWithGoogle": MessageLookupByLibrary.simpleMessage(
       "متابعة باستخدام جوجل",
     ),
     "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
+    "female": MessageLookupByLibrary.simpleMessage("انثي"),
+    "firstName": MessageLookupByLibrary.simpleMessage("الاسم الاول"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
+    "lastName": MessageLookupByLibrary.simpleMessage("الاسم الاخير"),
     "loading": MessageLookupByLibrary.simpleMessage("جاري التحميل..."),
+    "male": MessageLookupByLibrary.simpleMessage("ذكر"),
+    "noCountryFound": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على دولة",
+    ),
     "onboarding_boldTitle1": MessageLookupByLibrary.simpleMessage(
       "الخيار الأمثل لـ",
     ),
@@ -61,27 +74,59 @@ class MessageLookup extends MessageLookupByLibrary {
       "أو تسجيل الدخول باستخدام",
     ),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "passwordTooWeak": MessageLookupByLibrary.simpleMessage(
+      "كلمة المرور ضعيفة جداً",
+    ),
+    "passwordsDoNotMatch": MessageLookupByLibrary.simpleMessage(
+      "كلمات المرور لا تتطابق",
+    ),
+    "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
     "pleaseEnterAvalidEmail": MessageLookupByLibrary.simpleMessage(
       "يرجى ادخال بريد الكتروني صالح",
     ),
     "pleaseEnterAvalidPassword": MessageLookupByLibrary.simpleMessage(
       "يرجى ادخال كلمة المرور صالحة",
     ),
+    "pleaseEnterAvalidPhoneNumber": MessageLookupByLibrary.simpleMessage(
+      "يرجى ادخال رقم هاتف صالح",
+    ),
+    "pleaseEnterYourConfirmPassword": MessageLookupByLibrary.simpleMessage(
+      "يرجى ادخال تاكيد كلمة المرور",
+    ),
     "pleaseEnterYourEmail": MessageLookupByLibrary.simpleMessage(
       "يرجى ادخال البريد الالكتروني",
+    ),
+    "pleaseEnterYourFirstName": MessageLookupByLibrary.simpleMessage(
+      "يرجى ادخال الاسم الاول",
+    ),
+    "pleaseEnterYourLastName": MessageLookupByLibrary.simpleMessage(
+      "يرجى ادخال الاسم الاخير",
     ),
     "pleaseEnterYourPassword": MessageLookupByLibrary.simpleMessage(
       "يرجى ادخال كلمة المرور",
     ),
+    "pleaseEnterYourPhoneNumber": MessageLookupByLibrary.simpleMessage(
+      "يرجى ادخال رقم الهاتف",
+    ),
+    "register": MessageLookupByLibrary.simpleMessage("تسجيل حساب جديد"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+    "selectCountry": MessageLookupByLibrary.simpleMessage("إختر الدولة"),
     "signin": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "signinToYourAccount": MessageLookupByLibrary.simpleMessage(
       "تسجيل الدخول إلى \nحسابك",
     ),
     "signup": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "startLearning": MessageLookupByLibrary.simpleMessage("ابدأ التعلم!"),
+    "student": MessageLookupByLibrary.simpleMessage("طالب"),
+    "teacher": MessageLookupByLibrary.simpleMessage("معلم"),
     "typeYourEmail": MessageLookupByLibrary.simpleMessage(
       "ادخل البريد الالكتروني",
+    ),
+    "typeYourFirstName": MessageLookupByLibrary.simpleMessage(
+      "ادخل الاسم الاول",
+    ),
+    "typeYourLastName": MessageLookupByLibrary.simpleMessage(
+      "ادخل الاسم الاخير",
     ),
     "typeYourPassword": MessageLookupByLibrary.simpleMessage(
       "ادخل كلمة المرور",

@@ -19,27 +19,12 @@ class EmailAndPasswordTextFormField extends StatefulWidget {
 
 class _EmailAndPasswordTextFormFieldState
     extends State<EmailAndPasswordTextFormField> {
-  late TextEditingController _emailController;
-  late TextEditingController _passwordController;
-
   bool _isObscureText = true;
 
   @override
-  void initState() {
-    super.initState();
-    _emailController = context.read<LoginCubit>().emailController;
-    _passwordController = context.read<LoginCubit>().passwordController;
-  }
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final emailController = context.read<LoginCubit>().emailController;
+    final passwordController = context.read<LoginCubit>().passwordController;
     return Form(
       key: context.read<LoginCubit>().formKey,
       child: Column(
@@ -52,7 +37,7 @@ class _EmailAndPasswordTextFormFieldState
           verticalSpacing(8),
           AppTextFormField(
             hintText: S.of(context).typeYourEmail,
-            controller: _emailController,
+            controller: emailController,
             keyboardType: TextInputType.emailAddress,
             textInputAction: TextInputAction.next,
             validator: (value) =>
@@ -66,7 +51,7 @@ class _EmailAndPasswordTextFormFieldState
           verticalSpacing(8),
           AppTextFormField(
             hintText: S.of(context).typeYourPassword,
-            controller: _passwordController,
+            controller: passwordController,
             validator: (value) =>
                 context.read<LoginCubit>().validatePassword(value, context),
             keyboardType: TextInputType.visiblePassword,

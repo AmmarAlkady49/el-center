@@ -29,13 +29,19 @@ class FontHelper {
       color: Colors.black,
     );
   }
-
+  static TextStyle font31WhiteW800(BuildContext context) {
+    return _localizedFont(context, FontWeight.w800).copyWith(
+      fontSize: 32.sp,
+      color: Colors.white,
+    );
+  }
   static TextStyle font36WhiteW700(BuildContext context) {
     return _localizedFont(context, FontWeight.w700).copyWith(
       fontSize: 36.sp,
       color: Colors.white,
     );
   }
+
 
   static TextStyle font12lackW400(BuildContext context) {
     return _localizedFont(context, FontWeight.w400).copyWith(
@@ -52,6 +58,12 @@ class FontHelper {
 
   static TextStyle font15BlackW400(BuildContext context) {
     return _localizedFont(context, FontWeight.w400).copyWith(
+      fontSize: 15.sp,
+      color: Colors.black,
+    );
+  }
+  static TextStyle font15BlackW600(BuildContext context) {
+    return _localizedFont(context, FontWeight.w600).copyWith(
       fontSize: 15.sp,
       color: Colors.black,
     );

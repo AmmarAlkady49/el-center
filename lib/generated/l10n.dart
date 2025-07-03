@@ -299,6 +299,181 @@ class S {
   String get loading {
     return Intl.message('Loading...', name: 'loading', desc: '', args: []);
   }
+
+  /// `Already have an account?`
+  String get alreadyHaveAnAccount {
+    return Intl.message(
+      'Already have an account?',
+      name: 'alreadyHaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register`
+  String get register {
+    return Intl.message('Register', name: 'register', desc: '', args: []);
+  }
+
+  /// `First Name`
+  String get firstName {
+    return Intl.message('First Name', name: 'firstName', desc: '', args: []);
+  }
+
+  /// `Last Name`
+  String get lastName {
+    return Intl.message('Last Name', name: 'lastName', desc: '', args: []);
+  }
+
+  /// `Type your first name`
+  String get typeYourFirstName {
+    return Intl.message(
+      'Type your first name',
+      name: 'typeYourFirstName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Type your last name`
+  String get typeYourLastName {
+    return Intl.message(
+      'Type your last name',
+      name: 'typeYourLastName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Password`
+  String get confirmPassword {
+    return Intl.message(
+      'Confirm Password',
+      name: 'confirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Male`
+  String get male {
+    return Intl.message('Male', name: 'male', desc: '', args: []);
+  }
+
+  /// `Female`
+  String get female {
+    return Intl.message('Female', name: 'female', desc: '', args: []);
+  }
+
+  /// `Phone Number`
+  String get phoneNumber {
+    return Intl.message(
+      'Phone Number',
+      name: 'phoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Country`
+  String get selectCountry {
+    return Intl.message(
+      'Select Country',
+      name: 'selectCountry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No country found`
+  String get noCountryFound {
+    return Intl.message(
+      'No country found',
+      name: 'noCountryFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Student`
+  String get student {
+    return Intl.message('Student', name: 'student', desc: '', args: []);
+  }
+
+  /// `Teacher`
+  String get teacher {
+    return Intl.message('Teacher', name: 'teacher', desc: '', args: []);
+  }
+
+  /// `Please enter your phone number`
+  String get pleaseEnterYourPhoneNumber {
+    return Intl.message(
+      'Please enter your phone number',
+      name: 'pleaseEnterYourPhoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid phone number`
+  String get pleaseEnterAvalidPhoneNumber {
+    return Intl.message(
+      'Please enter a valid phone number',
+      name: 'pleaseEnterAvalidPhoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your first name`
+  String get pleaseEnterYourFirstName {
+    return Intl.message(
+      'Please enter your first name',
+      name: 'pleaseEnterYourFirstName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your last name`
+  String get pleaseEnterYourLastName {
+    return Intl.message(
+      'Please enter your last name',
+      name: 'pleaseEnterYourLastName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your confirm password`
+  String get pleaseEnterYourConfirmPassword {
+    return Intl.message(
+      'Please enter your confirm password',
+      name: 'pleaseEnterYourConfirmPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords do not match`
+  String get passwordsDoNotMatch {
+    return Intl.message(
+      'Passwords do not match',
+      name: 'passwordsDoNotMatch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password too weak`
+  String get passwordTooWeak {
+    return Intl.message(
+      'Password too weak',
+      name: 'passwordTooWeak',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
