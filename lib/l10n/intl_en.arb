@@ -26,6 +26,30 @@
     "pleaseEnterYourPassword": "Please enter your password",
     "pleaseEnterAvalidEmail": "Please enter a valid email address",
     "pleaseEnterAvalidPassword": "Please enter a valid password",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "alreadyHaveAnAccount" : "Already have an account?",
+    "register" : "Register",
+    "firstName" : "First Name",
+    "lastName" : "Last Name",
+    "typeYourFirstName" : "Type your first name",
+    "typeYourLastName" : "Type your last name",
+    "confirmPassword" : "Confirm Password",
+    "male" : "Male",
+    "female" : "Female",
+    "phoneNumber" : "Phone Number",
+    "selectCountry" : "Select Country",
+    "noCountryFound" : "No country found",
+    "student" : "Student",
+    "teacher" : "Teacher",
+    "pleaseEnterYourPhoneNumber" : "Please enter your phone number",
+    "pleaseEnterAvalidPhoneNumber" : "Please enter a valid phone number",
+    "pleaseEnterYourFirstName" : "Please enter your first name",
+    "pleaseEnterYourLastName" : "Please enter your last name",
+    "pleaseEnterYourConfirmPassword" : "Please enter your confirm password",
+    "passwordsDoNotMatch" : "Passwords do not match",
+    "passwordTooWeak" : "Password too weak"
+    
+
+    
 
 }

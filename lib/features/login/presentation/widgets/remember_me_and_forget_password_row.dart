@@ -54,7 +54,7 @@ class _RememberMeAndForgotPasswordRowState
               overlayColor: Colors.black45),
           child: Text(
             S.of(context).forgotPassword,
-            style: FontHelper.font15BlackW400(context).copyWith(
+            style: FontHelper.font15BlackW600(context).copyWith(
               color: Colors.blue,
             ),
           ),

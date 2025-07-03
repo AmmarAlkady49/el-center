@@ -21,7 +21,6 @@ class ElCenterApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         locale: Locale("ar"),
-        // locale: locator<Locale>(),
         localizationsDelegates: [
           S.delegate,
           GlobalMaterialLocalizations.delegate,
@@ -33,7 +32,7 @@ class ElCenterApp extends StatelessWidget {
           primaryColor: AppColors.mainBlue,
           scaffoldBackgroundColor: AppColors.backgroundWiteColor,
         ),
-        initialRoute: AppRoutes.onBoardingScreen,
+        initialRoute: AppRoutes.loginScreen,
         onGenerateRoute: AppRouter.onGenerateRoute,
       ),
     );
