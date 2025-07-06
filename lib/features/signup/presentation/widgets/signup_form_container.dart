@@ -1,3 +1,5 @@
+import 'package:e_learning_app/core/helpers/helper_functions.dart';
+import 'package:e_learning_app/core/helpers/modern_dialog_sheet.dart';
 import 'package:e_learning_app/features/signup/logic/cubit/signup_cubit.dart';
 import 'package:e_learning_app/features/signup/presentation/widgets/password_and_confirm_password_statfull_widget.dart';
 import 'package:flutter/material.dart';
@@ -48,18 +50,38 @@ class SignupFormContainer extends StatelessWidget {
             const SizedBox(height: 24),
             BlocConsumer<SignupCubit, SignupState>(
               bloc: cubit,
-              listenWhen: (previous, current) => current is Success,
+              listenWhen: (previous, current) =>
+                  current is Success || current is Error,
               listener: (context, state) {
                 if (state is Success) {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                      AppRoutes.loginScreen, (route) => false);
+                  ModernDialogSheet.showInfo(
+                    context: context,
+                    title: S.of(context).emailVerification,
+                    message: S.of(context).emailVerificationMessage,
+                    buttonText: S.of(context).ok,
+                    onPressed: () async {
+                      await Navigator.of(context).pushNamedAndRemoveUntil(
+                          arguments: cubit.emailController.text,
+                          AppRoutes.verifyEmail,
+                          (route) => false);
+                      cubit.clear();
+                    },
+                  );
+                } else if (state is Error) {
+                  HelperFunctions.showError(state.error.toString(), context);
                 }
               },
-              buildWhen: (previous, current) =>
-                  current is Loading || current is Error,
+              buildWhen: (previous, current) => true,
               builder: (context, state) {
                 if (state is Loading) {
-                  return const Center(child: CircularProgressIndicator());
+                  return SizedBox(
+                    width: double.infinity,
+                    child: AppTextButton(
+                      onPressed: null,
+                      text: S.of(context).loading,
+                      isLoading: true,
+                    ),
+                  );
                 }
                 return SizedBox(
                   width: double.infinity,
@@ -69,7 +91,9 @@ class SignupFormContainer extends StatelessWidget {
                         cubit.emitSignupState();
                       }
                     },
-                    text: S.of(context).register,
+                    text: state is Error
+                        ? S.of(context).tryAgain
+                        : S.of(context).signup,
                   ),
                 );
               },

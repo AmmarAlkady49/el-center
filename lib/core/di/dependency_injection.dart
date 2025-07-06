@@ -7,6 +7,9 @@ import 'package:e_learning_app/features/signup/data/repo/signup_repo.dart';
 import 'package:e_learning_app/features/signup/logic/cubit/signup_cubit.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../features/authVerification/data/repo/active_account_repo.dart';
+import '../../features/authVerification/logic/cubit/verification_account_cubit.dart';
+
 final GetIt getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
@@ -21,4 +24,10 @@ Future<void> setupGetIt() async {
   // signup
   getIt.registerLazySingleton<SignupRepo>(() => SignupRepo(getIt()));
   getIt.registerLazySingleton<SignupCubit>(() => SignupCubit(getIt()));
+
+  // active account
+  getIt.registerLazySingleton<ActiveAccountRepo>(
+      () => ActiveAccountRepo(getIt()));
+  getIt.registerLazySingleton<VerificationAccountCubit>(
+      () => VerificationAccountCubit(getIt()));
 }

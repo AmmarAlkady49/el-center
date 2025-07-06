@@ -1,5 +1,6 @@
 import 'package:e_learning_app/core/di/dependency_injection.dart';
 import 'package:e_learning_app/core/routing/app_routes.dart';
+import 'package:e_learning_app/features/authVerification/presentation/screens/verify_account.dart';
 import 'package:e_learning_app/features/home/presentation/screens/home_page.dart';
 import 'package:e_learning_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:e_learning_app/features/login/presentation/screens/login_page.dart';
@@ -8,6 +9,8 @@ import 'package:e_learning_app/features/signup/logic/cubit/signup_cubit.dart';
 import 'package:e_learning_app/features/signup/presentation/screens/signup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../features/authVerification/logic/cubit/verification_account_cubit.dart';
 
 class AppRouter {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
@@ -25,6 +28,13 @@ class AppRouter {
             builder: (_) => BlocProvider(
                   create: (context) => getIt<SignupCubit>(),
                   child: const SignupPage(),
+                ));
+      case AppRoutes.verifyEmail:
+        // final email = settings.arguments as String;
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<VerificationAccountCubit>(),
+                  child: VerifyAccount(),
                 ));
       case AppRoutes.homeScreen:
         return MaterialPageRoute(builder: (_) => const HomePage());

@@ -47,5 +47,22 @@
     "pleaseEnterYourLastName": "يرجى ادخال الاسم الاخير",
     "pleaseEnterYourConfirmPassword": "يرجى ادخال تاكيد كلمة المرور",
     "passwordsDoNotMatch": "كلمات المرور لا تتطابق",
-    "passwordTooWeak": "كلمة المرور ضعيفة جداً"
+    "passwordTooWeak": "كلمة المرور ضعيفة جداً",
+    "tryAgain": "حاول مرة اخرى",
+    "emailVerification": "تحقق من البريد الالكتروني",
+    "emailVerificationMessage": "يرجى التحقق من بريدك الالكتروني للتحقق من حسابك",
+    "ok": "حسناً",
+    "otpVerification": "تحقق من OTP",
+    "otpVerificationMessage": "ادخل الكود المرسل ل",
+    "resendOTP": "اعادة ارسال OTP",
+    "verified": "تم التحقق",
+    "verifiedMessage": "تم التحقق من حسابك بنجاح",
+    "verificationFailed": "فشل التحقق",
+    "verificationFailedMessage": "الرمز المرسل غير صحيح، يرجى المحاولة مرة اخرى.",
+    "verify": "تحقق",
+    "resend": "اعادة ارسال",
+    "pleaseEnterOtpCode" : "يرجى ادخال رمز التحقق",
+    "pleaseEnterAvalidOtpCode" : "يرجى ادخال رمز التحقق صالح",
+    "didnotReceiveCode" : "لم تستلم الكود؟"
+
 }

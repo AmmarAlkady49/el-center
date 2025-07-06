@@ -5,6 +5,8 @@ class ApiConstants {
 
   static const String login = "Account/login";
   static const String register = "Account/register";
+  static const String activeAccount = "Account/active-account";
+
 }
 
 class ApiErrors {

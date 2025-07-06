@@ -47,7 +47,23 @@
     "pleaseEnterYourLastName" : "Please enter your last name",
     "pleaseEnterYourConfirmPassword" : "Please enter your confirm password",
     "passwordsDoNotMatch" : "Passwords do not match",
-    "passwordTooWeak" : "Password too weak"
+    "passwordTooWeak" : "Password too weak",
+    "tryAgain" : "Try again",
+    "emailVerification" : "Email Verification",
+    "emailVerificationMessage" : "Please check your email to verify your account",
+    "ok" : "OK",
+    "otpVerification" : "OTP Verification",
+    "otpVerificationMessage" : "Enter the OTP sent to ",
+    "resendOTP" : "Resend OTP",
+    "verified" : "Verified",
+    "verifiedMessage" : "Your account has been verified successfully",
+    "verificationFailed" : "Verification failed",
+    "verificationFailedMessage" : "The verification code is incorrect, please try again.",
+    "verify" : "Verify",
+    "resend" : "Resend",
+    "pleaseEnterOtpCode" : "Please enter OTP code",
+    "pleaseEnterAvalidOtpCode" : "Please enter a valid OTP code",
+    "didnotReceiveCode" : "Didn't receive code?"
     
 
     

@@ -1,7 +1,7 @@
-import 'package:e_learning_app/core/data/login_signup_response_body.dart';
 import 'package:e_learning_app/core/networking/api_error_handler.dart';
 import 'package:e_learning_app/core/networking/api_result.dart';
 import 'package:e_learning_app/core/networking/api_service.dart';
+import 'package:e_learning_app/features/signup/data/models/signup_response_body.dart';
 
 import '../models/signup_request_body.dart';
 
@@ -10,14 +10,14 @@ class SignupRepo {
 
   SignupRepo(this._apiService);
 
-  Future<ApiResult<LoginSignupResponseBody>> register(
+  Future<ApiResult<SignupResponseBody>> register(
       SignupRequestBody signupRequestBody) async {
     try {
       final response = await _apiService.register(signupRequestBody);
 
       return ApiResult.success(response);
-    } catch (e) {
-      return ApiResult.failure(ErrorHandler.handle(e));
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
 }
