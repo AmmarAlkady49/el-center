@@ -32,7 +32,7 @@ class ElCenterApp extends StatelessWidget {
           primaryColor: AppColors.mainBlue,
           scaffoldBackgroundColor: AppColors.backgroundWiteColor,
         ),
-        initialRoute: AppRoutes.verifyEmail,
+        initialRoute: AppRoutes.loginScreen,
         onGenerateRoute: AppRouter.onGenerateRoute,
       ),
     );
