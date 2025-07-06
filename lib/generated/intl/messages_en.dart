@@ -30,10 +30,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "continueWithGoogle": MessageLookupByLibrary.simpleMessage(
       "Continue with Google",
     ),
+    "didnotReceiveCode": MessageLookupByLibrary.simpleMessage(
+      "Didn\'t receive code?",
+    ),
     "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "emailVerification": MessageLookupByLibrary.simpleMessage(
+      "Email Verification",
+    ),
+    "emailVerificationMessage": MessageLookupByLibrary.simpleMessage(
+      "Please check your email to verify your account",
+    ),
     "female": MessageLookupByLibrary.simpleMessage("Female"),
     "firstName": MessageLookupByLibrary.simpleMessage("First Name"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
@@ -41,6 +50,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
     "male": MessageLookupByLibrary.simpleMessage("Male"),
     "noCountryFound": MessageLookupByLibrary.simpleMessage("No country found"),
+    "ok": MessageLookupByLibrary.simpleMessage("OK"),
     "onboarding_boldTitle1": MessageLookupByLibrary.simpleMessage(
       "Best choice for",
     ),
@@ -69,6 +79,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Learn Anytime,",
     ),
     "orLoginWith": MessageLookupByLibrary.simpleMessage("Or login with"),
+    "otpVerification": MessageLookupByLibrary.simpleMessage("OTP Verification"),
+    "otpVerificationMessage": MessageLookupByLibrary.simpleMessage(
+      "Enter the OTP sent to ",
+    ),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordTooWeak": MessageLookupByLibrary.simpleMessage(
       "Password too weak",
@@ -80,11 +94,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseEnterAvalidEmail": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid email address",
     ),
+    "pleaseEnterAvalidOtpCode": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid OTP code",
+    ),
     "pleaseEnterAvalidPassword": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid password",
     ),
     "pleaseEnterAvalidPhoneNumber": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid phone number",
+    ),
+    "pleaseEnterOtpCode": MessageLookupByLibrary.simpleMessage(
+      "Please enter OTP code",
     ),
     "pleaseEnterYourConfirmPassword": MessageLookupByLibrary.simpleMessage(
       "Please enter your confirm password",
@@ -106,6 +126,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
+    "resend": MessageLookupByLibrary.simpleMessage("Resend"),
+    "resendOTP": MessageLookupByLibrary.simpleMessage("Resend OTP"),
     "selectCountry": MessageLookupByLibrary.simpleMessage("Select Country"),
     "signin": MessageLookupByLibrary.simpleMessage("Sign in"),
     "signinToYourAccount": MessageLookupByLibrary.simpleMessage(
@@ -115,6 +137,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "startLearning": MessageLookupByLibrary.simpleMessage("Start learning!"),
     "student": MessageLookupByLibrary.simpleMessage("Student"),
     "teacher": MessageLookupByLibrary.simpleMessage("Teacher"),
+    "tryAgain": MessageLookupByLibrary.simpleMessage("Try again"),
     "typeYourEmail": MessageLookupByLibrary.simpleMessage("Type your email"),
     "typeYourFirstName": MessageLookupByLibrary.simpleMessage(
       "Type your first name",
@@ -125,5 +148,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "typeYourPassword": MessageLookupByLibrary.simpleMessage(
       "Type your password",
     ),
+    "verificationFailed": MessageLookupByLibrary.simpleMessage(
+      "Verification failed",
+    ),
+    "verificationFailedMessage": MessageLookupByLibrary.simpleMessage(
+      "The verification code is incorrect, please try again.",
+    ),
+    "verified": MessageLookupByLibrary.simpleMessage("Verified"),
+    "verifiedMessage": MessageLookupByLibrary.simpleMessage(
+      "Your account has been verified successfully",
+    ),
+    "verify": MessageLookupByLibrary.simpleMessage("Verify"),
   };
 }

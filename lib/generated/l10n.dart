@@ -474,6 +474,136 @@ class S {
       args: [],
     );
   }
+
+  /// `Try again`
+  String get tryAgain {
+    return Intl.message('Try again', name: 'tryAgain', desc: '', args: []);
+  }
+
+  /// `Email Verification`
+  String get emailVerification {
+    return Intl.message(
+      'Email Verification',
+      name: 'emailVerification',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check your email to verify your account`
+  String get emailVerificationMessage {
+    return Intl.message(
+      'Please check your email to verify your account',
+      name: 'emailVerificationMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OK`
+  String get ok {
+    return Intl.message('OK', name: 'ok', desc: '', args: []);
+  }
+
+  /// `OTP Verification`
+  String get otpVerification {
+    return Intl.message(
+      'OTP Verification',
+      name: 'otpVerification',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the OTP sent to `
+  String get otpVerificationMessage {
+    return Intl.message(
+      'Enter the OTP sent to ',
+      name: 'otpVerificationMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resend OTP`
+  String get resendOTP {
+    return Intl.message('Resend OTP', name: 'resendOTP', desc: '', args: []);
+  }
+
+  /// `Verified`
+  String get verified {
+    return Intl.message('Verified', name: 'verified', desc: '', args: []);
+  }
+
+  /// `Your account has been verified successfully`
+  String get verifiedMessage {
+    return Intl.message(
+      'Your account has been verified successfully',
+      name: 'verifiedMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verification failed`
+  String get verificationFailed {
+    return Intl.message(
+      'Verification failed',
+      name: 'verificationFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The verification code is incorrect, please try again.`
+  String get verificationFailedMessage {
+    return Intl.message(
+      'The verification code is incorrect, please try again.',
+      name: 'verificationFailedMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify`
+  String get verify {
+    return Intl.message('Verify', name: 'verify', desc: '', args: []);
+  }
+
+  /// `Resend`
+  String get resend {
+    return Intl.message('Resend', name: 'resend', desc: '', args: []);
+  }
+
+  /// `Please enter OTP code`
+  String get pleaseEnterOtpCode {
+    return Intl.message(
+      'Please enter OTP code',
+      name: 'pleaseEnterOtpCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid OTP code`
+  String get pleaseEnterAvalidOtpCode {
+    return Intl.message(
+      'Please enter a valid OTP code',
+      name: 'pleaseEnterAvalidOtpCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Didn't receive code?`
+  String get didnotReceiveCode {
+    return Intl.message(
+      'Didn\'t receive code?',
+      name: 'didnotReceiveCode',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

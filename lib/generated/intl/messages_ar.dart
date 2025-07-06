@@ -32,8 +32,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "continueWithGoogle": MessageLookupByLibrary.simpleMessage(
       "متابعة باستخدام جوجل",
     ),
+    "didnotReceiveCode": MessageLookupByLibrary.simpleMessage(
+      "لم تستلم الكود؟",
+    ),
     "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
+    "emailVerification": MessageLookupByLibrary.simpleMessage(
+      "تحقق من البريد الالكتروني",
+    ),
+    "emailVerificationMessage": MessageLookupByLibrary.simpleMessage(
+      "يرجى التحقق من بريدك الالكتروني للتحقق من حسابك",
+    ),
     "female": MessageLookupByLibrary.simpleMessage("انثي"),
     "firstName": MessageLookupByLibrary.simpleMessage("الاسم الاول"),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
@@ -43,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noCountryFound": MessageLookupByLibrary.simpleMessage(
       "لم يتم العثور على دولة",
     ),
+    "ok": MessageLookupByLibrary.simpleMessage("حسناً"),
     "onboarding_boldTitle1": MessageLookupByLibrary.simpleMessage(
       "الخيار الأمثل لـ",
     ),
@@ -73,6 +83,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "orLoginWith": MessageLookupByLibrary.simpleMessage(
       "أو تسجيل الدخول باستخدام",
     ),
+    "otpVerification": MessageLookupByLibrary.simpleMessage("تحقق من OTP"),
+    "otpVerificationMessage": MessageLookupByLibrary.simpleMessage(
+      "ادخل الكود المرسل ل",
+    ),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "passwordTooWeak": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور ضعيفة جداً",
@@ -84,11 +98,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseEnterAvalidEmail": MessageLookupByLibrary.simpleMessage(
       "يرجى ادخال بريد الكتروني صالح",
     ),
+    "pleaseEnterAvalidOtpCode": MessageLookupByLibrary.simpleMessage(
+      "يرجى ادخال رمز التحقق صالح",
+    ),
     "pleaseEnterAvalidPassword": MessageLookupByLibrary.simpleMessage(
       "يرجى ادخال كلمة المرور صالحة",
     ),
     "pleaseEnterAvalidPhoneNumber": MessageLookupByLibrary.simpleMessage(
       "يرجى ادخال رقم هاتف صالح",
+    ),
+    "pleaseEnterOtpCode": MessageLookupByLibrary.simpleMessage(
+      "يرجى ادخال رمز التحقق",
     ),
     "pleaseEnterYourConfirmPassword": MessageLookupByLibrary.simpleMessage(
       "يرجى ادخال تاكيد كلمة المرور",
@@ -110,6 +130,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "register": MessageLookupByLibrary.simpleMessage("تسجيل حساب جديد"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+    "resend": MessageLookupByLibrary.simpleMessage("اعادة ارسال"),
+    "resendOTP": MessageLookupByLibrary.simpleMessage("اعادة ارسال OTP"),
     "selectCountry": MessageLookupByLibrary.simpleMessage("إختر الدولة"),
     "signin": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "signinToYourAccount": MessageLookupByLibrary.simpleMessage(
@@ -119,6 +141,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "startLearning": MessageLookupByLibrary.simpleMessage("ابدأ التعلم!"),
     "student": MessageLookupByLibrary.simpleMessage("طالب"),
     "teacher": MessageLookupByLibrary.simpleMessage("معلم"),
+    "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة اخرى"),
     "typeYourEmail": MessageLookupByLibrary.simpleMessage(
       "ادخل البريد الالكتروني",
     ),
@@ -131,5 +154,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "typeYourPassword": MessageLookupByLibrary.simpleMessage(
       "ادخل كلمة المرور",
     ),
+    "verificationFailed": MessageLookupByLibrary.simpleMessage("فشل التحقق"),
+    "verificationFailedMessage": MessageLookupByLibrary.simpleMessage(
+      "الرمز المرسل غير صحيح، يرجى المحاولة مرة اخرى.",
+    ),
+    "verified": MessageLookupByLibrary.simpleMessage("تم التحقق"),
+    "verifiedMessage": MessageLookupByLibrary.simpleMessage(
+      "تم التحقق من حسابك بنجاح",
+    ),
+    "verify": MessageLookupByLibrary.simpleMessage("تحقق"),
   };
 }

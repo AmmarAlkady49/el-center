@@ -4,7 +4,10 @@ import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/networking/api_error_handler.dart';
+import 'package:e_learning_app/core/networking/api_result.dart' as api_result;
 import '../../data/models/signup_request_body.dart';
+import '../../data/models/signup_response_body.dart';
 
 class SignupCubit extends Cubit<SignupState> {
   final SignupRepo signupRepo;
@@ -84,20 +87,33 @@ class SignupCubit extends Cubit<SignupState> {
 
   Future<void> emitSignupState() async {
     emit(SignupState.loading());
+    // await Future.delayed(const Duration(seconds: 10));
     try {
       final response = await signupRepo.register(SignupRequestBody(
         email: emailController.text,
         password: passwordController.text,
         firstName: firstNameController.text,
         lastName: lastNameController.text,
-        phoneNumber: phoneNumberController.text,
+        phoneNumber: "$selectedCountryCode${phoneNumberController.text}",
         gender: selectedGender,
         userType: selectedRole,
         dateOfBirth: dateOfBirth,
       ));
-      emit(SignupState.success(response));
+      if (response is api_result.Success<SignupResponseBody>) {
+        emit(SignupState.success({
+          'statusCode': response.data.statusCode,
+          'message': response.data.message,
+        }));
+      } else if (response is api_result.Failure<SignupResponseBody>) {
+        emit(SignupState.error(
+            error: response.error.apiErrorModel.message ?? "Unknown Error"));
+      }
     } catch (error) {
-      emit(SignupState.error(error: error.toString()));
+      if (error is ErrorHandler) {
+        emit(SignupState.error(error: error.apiErrorModel.message!));
+      } else {
+        emit(SignupState.error(error: error.toString()));
+      }
     }
   }
 
