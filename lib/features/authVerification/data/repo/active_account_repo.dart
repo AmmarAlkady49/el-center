@@ -7,7 +7,7 @@ import '../../../../core/networking/api_service.dart';
 class ActiveAccountRepo {
   final ApiService _apiService;
   ActiveAccountRepo(this._apiService);
-
+  // TODO : add the returned type of ApiResult<ActiveAccountResponseBody >
   Future<ApiResult> acctiveAccount(
       ActiveAccountRequestBody activeAccountRequestBody) async {
     try {
