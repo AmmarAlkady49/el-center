@@ -1,6 +1,7 @@
 import 'package:e_learning_app/core/di/dependency_injection.dart';
 import 'package:e_learning_app/core/routing/app_routes.dart';
 import 'package:e_learning_app/features/authVerification/presentation/screens/verify_account.dart';
+import 'package:e_learning_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:e_learning_app/features/home/presentation/screens/home_page.dart';
 import 'package:e_learning_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:e_learning_app/features/login/presentation/screens/login_page.dart';
@@ -37,7 +38,12 @@ class AppRouter {
                   child: VerifyAccount(),
                 ));
       case AppRoutes.homeScreen:
-        return MaterialPageRoute(builder: (_) => const HomePage());
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  //create: (context) => getIt<HomeCubit>()..getAppBarData(),
+                   create: (context) => getIt<HomeCubit>(),
+                  child: const HomePage(),
+                ));
       default:
         return MaterialPageRoute(
           builder: (context) => Scaffold(

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:e_learning_app/core/data/models/profile_account_model.dart';
 import 'package:e_learning_app/core/networking/api_constants.dart';
 import 'package:e_learning_app/features/login/data/models/login_response_body.dart';
 import 'package:retrofit/http.dart';
@@ -25,4 +26,7 @@ abstract class ApiService {
   @POST(ApiConstants.activeAccount)
   Future<ActiveAccountResponseBody> acctiveAccount(
       @Body() ActiveAccountRequestBody activeAccountRequestBody);
+
+  @GET(ApiConstants.profile)
+  Future<ProfileAccountModel> getProfile();
 }

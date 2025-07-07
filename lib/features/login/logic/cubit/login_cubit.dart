@@ -1,11 +1,16 @@
+import 'package:e_learning_app/core/helpers/shared_pref_helper.dart';
+import 'package:e_learning_app/core/networking/dio_factory.dart';
 import 'package:e_learning_app/features/login/data/models/login_request_body.dart';
 import 'package:e_learning_app/features/login/data/repo/login_repo.dart';
 import 'package:e_learning_app/features/login/logic/cubit/login_state.dart';
+
+import 'package:e_learning_app/core/networking/api_result.dart' as api_result;
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../generated/l10n.dart';
+import '../../data/models/login_response_body.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   final LoginRepo loginRepo;
@@ -19,10 +24,20 @@ class LoginCubit extends Cubit<LoginState> {
     emit(LoginState.loading());
     try {
       final response = await loginRepo.login(loginRequestBody);
-      emit(LoginState.success(response));
+      if (response is api_result.Failure<LoginResponseBody>) {
+        emit(LoginState.error(error: response.error.apiErrorModel.message!));
+      } else if (response is api_result.Success<LoginResponseBody>) {
+        await saveUserToken(response.data.message);
+        emit(LoginState.success(response));
+      }
     } catch (error) {
       emit(LoginState.error(error: error.toString()));
     }
+  }
+
+  Future<void> saveUserToken(String token) async {
+    await SharedPrefHelper.setSecuredString("token", token);
+    DioFactory.setTokenIntoHeaderAfterLogin(token);
   }
 
   // Function to validate email
