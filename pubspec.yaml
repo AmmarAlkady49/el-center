@@ -2,7 +2,7 @@ name: e_learning_app
 description: "A new Flutter project."
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 1.0.1+1
 
 environment:
   sdk: ^3.6.1
@@ -12,6 +12,7 @@ dependencies:
   country_code_picker: ^3.3.0
   cupertino_icons: ^1.0.8
   dio: ^5.8.0+1
+  firebase_core: ^3.15.1
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1

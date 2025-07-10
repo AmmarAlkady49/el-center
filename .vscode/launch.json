@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "El center dev",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main_dev.dart",
+            "args": ["--flavor", "dev", "-t", "lib/main_dev.dart"]
+        },
+        {
+            "name": "El center prod",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main_prod.dart",
+            "args": ["--flavor", "prod", "-t", "lib/main_prod.dart"]
+        }
+    ]
+}
