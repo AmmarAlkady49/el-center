@@ -98,4 +98,42 @@ class HelperFunctions {
     );
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
+
+  // Helper method to format duration
+  static String formatDuration(int? minutes) {
+    if (minutes == null || minutes == 0) return '';
+
+    if (minutes < 60) {
+      return '${minutes}min';
+    } else {
+      final hours = minutes ~/ 60;
+      final remainingMinutes = minutes % 60;
+      return remainingMinutes > 0
+          ? '${hours}h ${remainingMinutes}min'
+          : '${hours}h';
+    }
+  }
+
+  // Helper method to format date
+  static String formatDate(String dateString) {
+    try {
+      final date = DateTime.parse(dateString);
+      final now = DateTime.now();
+      final difference = now.difference(date);
+
+      if (difference.inDays > 30) {
+        return '${date.day}/${date.month}/${date.year}';
+      } else if (difference.inDays > 0) {
+        return '${difference.inDays} days ago';
+      } else if (difference.inHours > 0) {
+        return '${difference.inHours} hours ago';
+      } else if (difference.inMinutes > 0) {
+        return '${difference.inMinutes} minutes ago';
+      } else {
+        return 'Just now';
+      }
+    } catch (e) {
+      return dateString;
+    }
+  }
 }

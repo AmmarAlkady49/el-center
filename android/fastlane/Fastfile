@@ -10,8 +10,8 @@ platform :android do
       firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
       android_artifact_type: "APK",
       android_artifact_path: "../build/app/outputs/flutter-apk/app-prod-release.apk",
-      testers: "ammaralkady987654@gmail.com",
-      release_notes: "First fastlane release"
+      testers: "ammaralkady987654@gmail.com , walidtawfik362@gmail.com",
+      release_notes: "- Added the ability for users to submit their reviews for the course..\n- Fix some issues"
     )
   end
 end

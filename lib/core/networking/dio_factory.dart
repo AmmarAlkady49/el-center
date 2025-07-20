@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import 'api_constants.dart';
 
 class DioFactory {
   /// private constructor as I don't want to allow creating an instance of this class
@@ -12,16 +13,18 @@ class DioFactory {
     Duration timeOut = const Duration(seconds: 30);
 
     if (dio == null) {
-      dio = Dio();
-      dio!
-        ..options.connectTimeout = timeOut
-        ..options.receiveTimeout = timeOut;
-      // addDioHeaders();
+      dio = Dio(BaseOptions(
+        baseUrl: ApiConstants.apiBaseUrl,
+        connectTimeout: timeOut,
+        receiveTimeout: timeOut,
+        headers: {
+          'Accept': 'application/json',
+        },
+      ));
       addDioInterceptor();
-      return dio!;
-    } else {
-      return dio!;
     }
+
+    return dio!;
   }
 
   // static void addDioHeaders() async {
@@ -32,10 +35,15 @@ class DioFactory {
   //   };
   // }
 
+  // static void setTokenIntoHeaderAfterLogin(String token) {
+  //   dio?.options.headers = {
+  //     'Authorization': 'Bearer $token',
+  //   };
+  // }
   static void setTokenIntoHeaderAfterLogin(String token) {
-    dio?.options.headers = {
+    dio?.options.headers.addAll({
       'Authorization': 'Bearer $token',
-    };
+    });
   }
 
   static void addDioInterceptor() {

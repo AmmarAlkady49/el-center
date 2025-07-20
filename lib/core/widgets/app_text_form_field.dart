@@ -20,6 +20,7 @@ class AppTextFormField extends StatelessWidget {
   final bool? isObscureText;
   final int? maxLength;
   final TextDirection? textDirection;
+  final List<String>? autofillHints;
   const AppTextFormField({
     super.key,
     this.title,
@@ -35,6 +36,7 @@ class AppTextFormField extends StatelessWidget {
     this.enabledBorder,
     this.isObscureText,
     this.maxLength,
+    this.autofillHints,
     this.textDirection,
   });
 
@@ -55,6 +57,7 @@ class AppTextFormField extends StatelessWidget {
           obscureText: isObscureText ?? false,
           style: FontHelper.font16BlackW500(context),
           keyboardType: keyboardType ?? TextInputType.text,
+          autofillHints: autofillHints,
           textInputAction: textInputAction ?? TextInputAction.next,
           cursorColor: Colors.black,
           textDirection: textDirection,

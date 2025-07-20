@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -33,6 +32,339 @@ mixin _$HomeState<T> {
 /// @nodoc
 class $HomeStateCopyWith<T, $Res> {
   $HomeStateCopyWith(HomeState<T> _, $Res Function(HomeState<T>) __);
+}
+
+/// Adds pattern-matching-related methods to [HomeState].
+extension HomeStatePatterns<T> on HomeState<T> {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(HomeScreenLoading<T> value)? homeScreenLoading,
+    TResult Function(HomeScreenLoaded<T> value)? homeScreenLoaded,
+    TResult Function(HomeScreenLoadedError<T> value)? homeScreenLoadedError,
+    TResult Function(GettingCourses<T> value)? gettingCourses,
+    TResult Function(CoursesLoaded<T> value)? coursesLoaded,
+    TResult Function(CoursesLoadedError<T> value)? coursesLoadedError,
+    TResult Function(GettingCoursesByCategory<T> value)?
+        gettingCoursesByCategory,
+    TResult Function(CoursesByCategoryLoaded<T> value)? coursesByCategoryLoaded,
+    TResult Function(CoursesByCategoryLoadedError<T> value)?
+        coursesByCategoryLoadedError,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial(_that);
+      case HomeScreenLoading() when homeScreenLoading != null:
+        return homeScreenLoading(_that);
+      case HomeScreenLoaded() when homeScreenLoaded != null:
+        return homeScreenLoaded(_that);
+      case HomeScreenLoadedError() when homeScreenLoadedError != null:
+        return homeScreenLoadedError(_that);
+      case GettingCourses() when gettingCourses != null:
+        return gettingCourses(_that);
+      case CoursesLoaded() when coursesLoaded != null:
+        return coursesLoaded(_that);
+      case CoursesLoadedError() when coursesLoadedError != null:
+        return coursesLoadedError(_that);
+      case GettingCoursesByCategory() when gettingCoursesByCategory != null:
+        return gettingCoursesByCategory(_that);
+      case CoursesByCategoryLoaded() when coursesByCategoryLoaded != null:
+        return coursesByCategoryLoaded(_that);
+      case CoursesByCategoryLoadedError()
+          when coursesByCategoryLoadedError != null:
+        return coursesByCategoryLoadedError(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(HomeScreenLoading<T> value) homeScreenLoading,
+    required TResult Function(HomeScreenLoaded<T> value) homeScreenLoaded,
+    required TResult Function(HomeScreenLoadedError<T> value)
+        homeScreenLoadedError,
+    required TResult Function(GettingCourses<T> value) gettingCourses,
+    required TResult Function(CoursesLoaded<T> value) coursesLoaded,
+    required TResult Function(CoursesLoadedError<T> value) coursesLoadedError,
+    required TResult Function(GettingCoursesByCategory<T> value)
+        gettingCoursesByCategory,
+    required TResult Function(CoursesByCategoryLoaded<T> value)
+        coursesByCategoryLoaded,
+    required TResult Function(CoursesByCategoryLoadedError<T> value)
+        coursesByCategoryLoadedError,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial():
+        return initial(_that);
+      case HomeScreenLoading():
+        return homeScreenLoading(_that);
+      case HomeScreenLoaded():
+        return homeScreenLoaded(_that);
+      case HomeScreenLoadedError():
+        return homeScreenLoadedError(_that);
+      case GettingCourses():
+        return gettingCourses(_that);
+      case CoursesLoaded():
+        return coursesLoaded(_that);
+      case CoursesLoadedError():
+        return coursesLoadedError(_that);
+      case GettingCoursesByCategory():
+        return gettingCoursesByCategory(_that);
+      case CoursesByCategoryLoaded():
+        return coursesByCategoryLoaded(_that);
+      case CoursesByCategoryLoadedError():
+        return coursesByCategoryLoadedError(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(HomeScreenLoading<T> value)? homeScreenLoading,
+    TResult? Function(HomeScreenLoaded<T> value)? homeScreenLoaded,
+    TResult? Function(HomeScreenLoadedError<T> value)? homeScreenLoadedError,
+    TResult? Function(GettingCourses<T> value)? gettingCourses,
+    TResult? Function(CoursesLoaded<T> value)? coursesLoaded,
+    TResult? Function(CoursesLoadedError<T> value)? coursesLoadedError,
+    TResult? Function(GettingCoursesByCategory<T> value)?
+        gettingCoursesByCategory,
+    TResult? Function(CoursesByCategoryLoaded<T> value)?
+        coursesByCategoryLoaded,
+    TResult? Function(CoursesByCategoryLoadedError<T> value)?
+        coursesByCategoryLoadedError,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial(_that);
+      case HomeScreenLoading() when homeScreenLoading != null:
+        return homeScreenLoading(_that);
+      case HomeScreenLoaded() when homeScreenLoaded != null:
+        return homeScreenLoaded(_that);
+      case HomeScreenLoadedError() when homeScreenLoadedError != null:
+        return homeScreenLoadedError(_that);
+      case GettingCourses() when gettingCourses != null:
+        return gettingCourses(_that);
+      case CoursesLoaded() when coursesLoaded != null:
+        return coursesLoaded(_that);
+      case CoursesLoadedError() when coursesLoadedError != null:
+        return coursesLoadedError(_that);
+      case GettingCoursesByCategory() when gettingCoursesByCategory != null:
+        return gettingCoursesByCategory(_that);
+      case CoursesByCategoryLoaded() when coursesByCategoryLoaded != null:
+        return coursesByCategoryLoaded(_that);
+      case CoursesByCategoryLoadedError()
+          when coursesByCategoryLoadedError != null:
+        return coursesByCategoryLoadedError(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? homeScreenLoading,
+    TResult Function(ProfileAccountModel profileData)? homeScreenLoaded,
+    TResult Function(String error)? homeScreenLoadedError,
+    TResult Function()? gettingCourses,
+    TResult Function(List<CourseInfoModel> courses)? coursesLoaded,
+    TResult Function(String error)? coursesLoadedError,
+    TResult Function()? gettingCoursesByCategory,
+    TResult Function(List<CourseInfoModel> courses)? coursesByCategoryLoaded,
+    TResult Function(String error)? coursesByCategoryLoadedError,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial();
+      case HomeScreenLoading() when homeScreenLoading != null:
+        return homeScreenLoading();
+      case HomeScreenLoaded() when homeScreenLoaded != null:
+        return homeScreenLoaded(_that.profileData);
+      case HomeScreenLoadedError() when homeScreenLoadedError != null:
+        return homeScreenLoadedError(_that.error);
+      case GettingCourses() when gettingCourses != null:
+        return gettingCourses();
+      case CoursesLoaded() when coursesLoaded != null:
+        return coursesLoaded(_that.courses);
+      case CoursesLoadedError() when coursesLoadedError != null:
+        return coursesLoadedError(_that.error);
+      case GettingCoursesByCategory() when gettingCoursesByCategory != null:
+        return gettingCoursesByCategory();
+      case CoursesByCategoryLoaded() when coursesByCategoryLoaded != null:
+        return coursesByCategoryLoaded(_that.courses);
+      case CoursesByCategoryLoadedError()
+          when coursesByCategoryLoadedError != null:
+        return coursesByCategoryLoadedError(_that.error);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() homeScreenLoading,
+    required TResult Function(ProfileAccountModel profileData) homeScreenLoaded,
+    required TResult Function(String error) homeScreenLoadedError,
+    required TResult Function() gettingCourses,
+    required TResult Function(List<CourseInfoModel> courses) coursesLoaded,
+    required TResult Function(String error) coursesLoadedError,
+    required TResult Function() gettingCoursesByCategory,
+    required TResult Function(List<CourseInfoModel> courses)
+        coursesByCategoryLoaded,
+    required TResult Function(String error) coursesByCategoryLoadedError,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial():
+        return initial();
+      case HomeScreenLoading():
+        return homeScreenLoading();
+      case HomeScreenLoaded():
+        return homeScreenLoaded(_that.profileData);
+      case HomeScreenLoadedError():
+        return homeScreenLoadedError(_that.error);
+      case GettingCourses():
+        return gettingCourses();
+      case CoursesLoaded():
+        return coursesLoaded(_that.courses);
+      case CoursesLoadedError():
+        return coursesLoadedError(_that.error);
+      case GettingCoursesByCategory():
+        return gettingCoursesByCategory();
+      case CoursesByCategoryLoaded():
+        return coursesByCategoryLoaded(_that.courses);
+      case CoursesByCategoryLoadedError():
+        return coursesByCategoryLoadedError(_that.error);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? homeScreenLoading,
+    TResult? Function(ProfileAccountModel profileData)? homeScreenLoaded,
+    TResult? Function(String error)? homeScreenLoadedError,
+    TResult? Function()? gettingCourses,
+    TResult? Function(List<CourseInfoModel> courses)? coursesLoaded,
+    TResult? Function(String error)? coursesLoadedError,
+    TResult? Function()? gettingCoursesByCategory,
+    TResult? Function(List<CourseInfoModel> courses)? coursesByCategoryLoaded,
+    TResult? Function(String error)? coursesByCategoryLoadedError,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial();
+      case HomeScreenLoading() when homeScreenLoading != null:
+        return homeScreenLoading();
+      case HomeScreenLoaded() when homeScreenLoaded != null:
+        return homeScreenLoaded(_that.profileData);
+      case HomeScreenLoadedError() when homeScreenLoadedError != null:
+        return homeScreenLoadedError(_that.error);
+      case GettingCourses() when gettingCourses != null:
+        return gettingCourses();
+      case CoursesLoaded() when coursesLoaded != null:
+        return coursesLoaded(_that.courses);
+      case CoursesLoadedError() when coursesLoadedError != null:
+        return coursesLoadedError(_that.error);
+      case GettingCoursesByCategory() when gettingCoursesByCategory != null:
+        return gettingCoursesByCategory();
+      case CoursesByCategoryLoaded() when coursesByCategoryLoaded != null:
+        return coursesByCategoryLoaded(_that.courses);
+      case CoursesByCategoryLoadedError()
+          when coursesByCategoryLoadedError != null:
+        return coursesByCategoryLoadedError(_that.error);
+      case _:
+        return null;
+    }
+  }
 }
 
 /// @nodoc
@@ -197,6 +529,322 @@ class _$HomeScreenLoadedErrorCopyWithImpl<T, $Res>
     Object? error = null,
   }) {
     return _then(HomeScreenLoadedError<T>(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class GettingCourses<T> implements HomeState<T> {
+  const GettingCourses();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is GettingCourses<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.gettingCourses()';
+  }
+}
+
+/// @nodoc
+
+class CoursesLoaded<T> implements HomeState<T> {
+  const CoursesLoaded({required final List<CourseInfoModel> courses})
+      : _courses = courses;
+
+  final List<CourseInfoModel> _courses;
+  List<CourseInfoModel> get courses {
+    if (_courses is EqualUnmodifiableListView) return _courses;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_courses);
+  }
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $CoursesLoadedCopyWith<T, CoursesLoaded<T>> get copyWith =>
+      _$CoursesLoadedCopyWithImpl<T, CoursesLoaded<T>>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CoursesLoaded<T> &&
+            const DeepCollectionEquality().equals(other._courses, _courses));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_courses));
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.coursesLoaded(courses: $courses)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $CoursesLoadedCopyWith<T, $Res>
+    implements $HomeStateCopyWith<T, $Res> {
+  factory $CoursesLoadedCopyWith(
+          CoursesLoaded<T> value, $Res Function(CoursesLoaded<T>) _then) =
+      _$CoursesLoadedCopyWithImpl;
+  @useResult
+  $Res call({List<CourseInfoModel> courses});
+}
+
+/// @nodoc
+class _$CoursesLoadedCopyWithImpl<T, $Res>
+    implements $CoursesLoadedCopyWith<T, $Res> {
+  _$CoursesLoadedCopyWithImpl(this._self, this._then);
+
+  final CoursesLoaded<T> _self;
+  final $Res Function(CoursesLoaded<T>) _then;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? courses = null,
+  }) {
+    return _then(CoursesLoaded<T>(
+      courses: null == courses
+          ? _self._courses
+          : courses // ignore: cast_nullable_to_non_nullable
+              as List<CourseInfoModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class CoursesLoadedError<T> implements HomeState<T> {
+  const CoursesLoadedError({required this.error});
+
+  final String error;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $CoursesLoadedErrorCopyWith<T, CoursesLoadedError<T>> get copyWith =>
+      _$CoursesLoadedErrorCopyWithImpl<T, CoursesLoadedError<T>>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CoursesLoadedError<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.coursesLoadedError(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $CoursesLoadedErrorCopyWith<T, $Res>
+    implements $HomeStateCopyWith<T, $Res> {
+  factory $CoursesLoadedErrorCopyWith(CoursesLoadedError<T> value,
+          $Res Function(CoursesLoadedError<T>) _then) =
+      _$CoursesLoadedErrorCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$CoursesLoadedErrorCopyWithImpl<T, $Res>
+    implements $CoursesLoadedErrorCopyWith<T, $Res> {
+  _$CoursesLoadedErrorCopyWithImpl(this._self, this._then);
+
+  final CoursesLoadedError<T> _self;
+  final $Res Function(CoursesLoadedError<T>) _then;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(CoursesLoadedError<T>(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class GettingCoursesByCategory<T> implements HomeState<T> {
+  const GettingCoursesByCategory();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GettingCoursesByCategory<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.gettingCoursesByCategory()';
+  }
+}
+
+/// @nodoc
+
+class CoursesByCategoryLoaded<T> implements HomeState<T> {
+  const CoursesByCategoryLoaded({required final List<CourseInfoModel> courses})
+      : _courses = courses;
+
+  final List<CourseInfoModel> _courses;
+  List<CourseInfoModel> get courses {
+    if (_courses is EqualUnmodifiableListView) return _courses;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_courses);
+  }
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $CoursesByCategoryLoadedCopyWith<T, CoursesByCategoryLoaded<T>>
+      get copyWith =>
+          _$CoursesByCategoryLoadedCopyWithImpl<T, CoursesByCategoryLoaded<T>>(
+              this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CoursesByCategoryLoaded<T> &&
+            const DeepCollectionEquality().equals(other._courses, _courses));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_courses));
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.coursesByCategoryLoaded(courses: $courses)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $CoursesByCategoryLoadedCopyWith<T, $Res>
+    implements $HomeStateCopyWith<T, $Res> {
+  factory $CoursesByCategoryLoadedCopyWith(CoursesByCategoryLoaded<T> value,
+          $Res Function(CoursesByCategoryLoaded<T>) _then) =
+      _$CoursesByCategoryLoadedCopyWithImpl;
+  @useResult
+  $Res call({List<CourseInfoModel> courses});
+}
+
+/// @nodoc
+class _$CoursesByCategoryLoadedCopyWithImpl<T, $Res>
+    implements $CoursesByCategoryLoadedCopyWith<T, $Res> {
+  _$CoursesByCategoryLoadedCopyWithImpl(this._self, this._then);
+
+  final CoursesByCategoryLoaded<T> _self;
+  final $Res Function(CoursesByCategoryLoaded<T>) _then;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? courses = null,
+  }) {
+    return _then(CoursesByCategoryLoaded<T>(
+      courses: null == courses
+          ? _self._courses
+          : courses // ignore: cast_nullable_to_non_nullable
+              as List<CourseInfoModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class CoursesByCategoryLoadedError<T> implements HomeState<T> {
+  const CoursesByCategoryLoadedError({required this.error});
+
+  final String error;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $CoursesByCategoryLoadedErrorCopyWith<T, CoursesByCategoryLoadedError<T>>
+      get copyWith => _$CoursesByCategoryLoadedErrorCopyWithImpl<T,
+          CoursesByCategoryLoadedError<T>>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CoursesByCategoryLoadedError<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.coursesByCategoryLoadedError(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $CoursesByCategoryLoadedErrorCopyWith<T, $Res>
+    implements $HomeStateCopyWith<T, $Res> {
+  factory $CoursesByCategoryLoadedErrorCopyWith(
+          CoursesByCategoryLoadedError<T> value,
+          $Res Function(CoursesByCategoryLoadedError<T>) _then) =
+      _$CoursesByCategoryLoadedErrorCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$CoursesByCategoryLoadedErrorCopyWithImpl<T, $Res>
+    implements $CoursesByCategoryLoadedErrorCopyWith<T, $Res> {
+  _$CoursesByCategoryLoadedErrorCopyWithImpl(this._self, this._then);
+
+  final CoursesByCategoryLoadedError<T> _self;
+  final $Res Function(CoursesByCategoryLoadedError<T>) _then;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(CoursesByCategoryLoadedError<T>(
       error: null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable

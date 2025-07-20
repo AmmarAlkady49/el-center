@@ -2,11 +2,21 @@ import 'package:dio/dio.dart';
 
 class ApiConstants {
   static const String apiBaseUrl = "https://elcentre-api.runasp.net/";
+  static const String baseUrlOfTheImage =
+      "https://elcentre-learn.vercel.app/api";
 
   static const String login = "Account/login";
   static const String register = "Account/register";
   static const String activeAccount = "Account/active-account";
   static const String profile = "Account/profile";
+  static const String getAllCourses = "Course/get-all-courses";
+  static const String isEnrolled = "/Enrollment/is-enrolled";
+  static const String getAllCourseModules =
+      "/CourseModule/get-all-course-modules";
+  static const String getModuleLessons = "/Lesson/get-module-lessons";
+  static const String createPaymentToken = "/Payment/create-payment-token";
+  static const String getCourseReview = "CourseReview/get-course-review";
+  static const String addCourseReview = "/CourseReview/add-course-review";
 }
 
 class ApiErrors {
