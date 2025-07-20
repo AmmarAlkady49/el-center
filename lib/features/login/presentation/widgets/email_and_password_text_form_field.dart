@@ -27,50 +27,54 @@ class _EmailAndPasswordTextFormFieldState
     final passwordController = context.read<LoginCubit>().passwordController;
     return Form(
       key: context.read<LoginCubit>().formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            '${S.of(context).email}:',
-            style: FontHelper.font16BlackW600(context),
-          ),
-          verticalSpacing(8),
-          AppTextFormField(
-            hintText: S.of(context).typeYourEmail,
-            controller: emailController,
-            keyboardType: TextInputType.emailAddress,
-            textInputAction: TextInputAction.next,
-            validator: (value) =>
-                context.read<LoginCubit>().validateEmail(value, context),
-          ),
-          verticalSpacing(20),
-          Text(
-            '${S.of(context).password}:',
-            style: FontHelper.font16BlackW600(context),
-          ),
-          verticalSpacing(8),
-          AppTextFormField(
-            hintText: S.of(context).typeYourPassword,
-            controller: passwordController,
-            validator: (value) =>
-                context.read<LoginCubit>().validatePassword(value, context),
-            keyboardType: TextInputType.visiblePassword,
-            textInputAction: TextInputAction.done,
-            isObscureText: _isObscureText,
-            suffixIcon: InkWell(
-              onTap: () {
-                setState(() {
-                  _isObscureText = !_isObscureText;
-                });
-              },
-              child: Icon(
-                _isObscureText ? Iconsax.eye_slash : Iconsax.eye,
-                color: Colors.black54,
-                size: 22.sp,
+      child: AutofillGroup(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '${S.of(context).email}:',
+              style: FontHelper.font16BlackW600(context),
+            ),
+            verticalSpacing(8),
+            AppTextFormField(
+              hintText: S.of(context).typeYourEmail,
+              controller: emailController,
+              keyboardType: TextInputType.emailAddress,
+              autofillHints: [AutofillHints.email],
+              textInputAction: TextInputAction.next,
+              validator: (value) =>
+                  context.read<LoginCubit>().validateEmail(value, context),
+            ),
+            verticalSpacing(20),
+            Text(
+              '${S.of(context).password}:',
+              style: FontHelper.font16BlackW600(context),
+            ),
+            verticalSpacing(8),
+            AppTextFormField(
+              hintText: S.of(context).typeYourPassword,
+              controller: passwordController,
+              validator: (value) =>
+                  context.read<LoginCubit>().validatePassword(value, context),
+              keyboardType: TextInputType.visiblePassword,
+              autofillHints: [AutofillHints.password],
+              textInputAction: TextInputAction.done,
+              isObscureText: _isObscureText,
+              suffixIcon: InkWell(
+                onTap: () {
+                  setState(() {
+                    _isObscureText = !_isObscureText;
+                  });
+                },
+                child: Icon(
+                  _isObscureText ? Iconsax.eye_slash : Iconsax.eye,
+                  color: Colors.black54,
+                  size: 22.sp,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -1,0 +1,37 @@
+import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../../../core/data/models/course_module_model.dart';
+import '../../../../core/data/models/course_review_model.dart';
+
+part 'course_details_state.freezed.dart';
+
+@Freezed()
+abstract class CourseDetailsState with _$CourseDetailsState {
+  const factory CourseDetailsState.initial() = _Initial;
+  const factory CourseDetailsState.courseDetailsLoading() =
+      CourseDetailsLoading;
+  const factory CourseDetailsState.courseDetailsLoaded({
+    required bool isEnrolled,
+    required List<CourseModuleModel> courseModules,
+    required List<Map<String, dynamic>> modulesWithLessons,
+    required List<CourseReviewModel> courseReviews,
+  }) = CourseDetailsLoaded;
+  const factory CourseDetailsState.courseDetailsLoadedError({
+    required String error,
+  }) = CourseDetailsLoadedError;
+  const factory CourseDetailsState.paymentLoading() = PaymentLoading;
+  const factory CourseDetailsState.paymentSuccess(
+      Map<String, String> redirectData) = PaymentSuccess;
+  const factory CourseDetailsState.paymentFailure({
+    required String error,
+  }) = PaymentFailure;
+  const factory CourseDetailsState.paymentRedirectUrl(String url) =
+      PaymentRedirectUrl;
+  const factory CourseDetailsState.courseReviewLoading() = CourseReviewLoading;
+  const factory CourseDetailsState.courseReviewSuccess(String review) =
+      CourseReviewSuccess;
+  const factory CourseDetailsState.courseReviewFailure({
+    required String error,
+  }) = CourseReviewFailure;
+}

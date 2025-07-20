@@ -9,7 +9,12 @@ import 'package:get_it/get_it.dart';
 
 import '../../features/authVerification/data/repo/active_account_repo.dart';
 import '../../features/authVerification/logic/cubit/verification_account_cubit.dart';
+import '../../features/course_details/data/repos/course_details_repo.dart';
+import '../../features/course_details/logic/cubit/course_details_cubit.dart';
+import '../../features/home/data/repo/home_repo.dart';
 import '../../features/home/logic/cubit/home_cubit.dart';
+import '../../features/payment/data/repo/payment_repo.dart';
+import '../../features/payment/logic/cubit/payment_cubit.dart';
 import '../data/repo/profile_repo.dart';
 
 final GetIt getIt = GetIt.instance;
@@ -38,6 +43,18 @@ Future<void> setupGetIt() async {
   // getIt.registerFactory<ProfileCubit>(() => ProfileCubit(getIt()));
 
   // home
-  // getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
-  getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
+  getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
+  getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt(), getIt()));
+
+  // course details
+  getIt.registerLazySingleton<CourseDetailsRepo>(
+      () => CourseDetailsRepo(getIt()));
+  getIt.registerFactory<CourseDetailsCubit>(() => CourseDetailsCubit(
+        getIt(),
+        getIt(),
+      ));
+
+  // payment
+  getIt.registerLazySingleton<PaymentRepo>(() => PaymentRepo(getIt()));
+  getIt.registerFactory<PaymentCubit>(() => PaymentCubit(getIt()));
 }

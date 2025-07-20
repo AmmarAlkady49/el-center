@@ -5,4 +5,10 @@ class AppRoutes {
   static const String signUpScreen = '/signUpScreen';
   static const String forgotPasswordScreen = '/forgotPasswordScreen';
   static const String verifyEmail = '/verifyEmail';
+  static const String bottomNavigation = '/bottomNavigation';
+  static const String coursesByCategory = '/coursesByCategory';
+  static const String courseDetails = '/courseDetails';
+  static const String paymentWebView = '/payment_webview';
+  static const String writeReview = '/writeReview';
+
 }

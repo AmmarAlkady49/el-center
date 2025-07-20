@@ -1,10 +1,13 @@
 import 'package:e_learning_app/core/di/dependency_injection.dart';
 import 'package:e_learning_app/core/routing/app_routes.dart';
 import 'package:e_learning_app/features/authVerification/presentation/screens/verify_account.dart';
+import 'package:e_learning_app/features/course_details/logic/cubit/course_details_cubit.dart';
+import 'package:e_learning_app/features/course_details/presentation/screens/write_review_page.dart';
 import 'package:e_learning_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:e_learning_app/features/home/presentation/screens/home_page.dart';
 import 'package:e_learning_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:e_learning_app/features/login/presentation/screens/login_page.dart';
+import 'package:e_learning_app/features/main_bottom_nav_bar.dart';
 import 'package:e_learning_app/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:e_learning_app/features/signup/logic/cubit/signup_cubit.dart';
 import 'package:e_learning_app/features/signup/presentation/screens/signup_page.dart';
@@ -12,6 +15,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/authVerification/logic/cubit/verification_account_cubit.dart';
+import '../../features/course_details/presentation/screens/course_details_page.dart';
+import '../../features/home/presentation/screens/courses_by_category.dart';
+import '../data/models/course_info_model.dart';
 
 class AppRouter {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
@@ -31,19 +37,56 @@ class AppRouter {
                   child: const SignupPage(),
                 ));
       case AppRoutes.verifyEmail:
-        // final email = settings.arguments as String;
+        final email = settings.arguments as String;
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
                   create: (context) => getIt<VerificationAccountCubit>(),
-                  child: VerifyAccount(),
+                  child: VerifyAccount(email: email),
+                ));
+      case AppRoutes.bottomNavigation:
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<HomeCubit>()
+                    ..getAllCourses()
+                    ..getAppBarData(),
+                  child: const MainBottomNavBar(),
                 ));
       case AppRoutes.homeScreen:
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
                   //create: (context) => getIt<HomeCubit>()..getAppBarData(),
-                   create: (context) => getIt<HomeCubit>(),
+                  create: (context) => getIt<HomeCubit>(),
                   child: const HomePage(),
                 ));
+      case AppRoutes.coursesByCategory:
+        final category = settings.arguments as int;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) =>
+                getIt<HomeCubit>()..getCoursesByCategory(category),
+            child: CoursesByCategory(categoryId: category),
+          ),
+        );
+      case AppRoutes.courseDetails:
+        final courseBasicInfo = settings.arguments as CourseInfoModel;
+        return MaterialPageRoute(
+            builder: (_) => BlocProvider(
+                  create: (context) => getIt<CourseDetailsCubit>()
+                    ..getCourseDetails(courseBasicInfo.id),
+                  child: CourseDetailsPage(courseBasicInfo: courseBasicInfo),
+                ));
+
+      case AppRoutes.writeReview:
+        final args = settings.arguments as Map<String, dynamic>;
+        final courseBasicInfo = args['courseBasicInfo'] as CourseInfoModel;
+        final courseDetailsCubit = args['courseDetailsCubit'] as CourseDetailsCubit;
+
+        return MaterialPageRoute(
+          builder: (context) =>
+              WriteReviewPage(courseBasicInfo: courseBasicInfo, 
+              courseDetailsCubit: courseDetailsCubit),
+        );
+
       default:
         return MaterialPageRoute(
           builder: (context) => Scaffold(

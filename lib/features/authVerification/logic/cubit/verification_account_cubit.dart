@@ -27,9 +27,8 @@ class VerificationAccountCubit extends Cubit<VerificationAccountState> {
     try {
       final response =
           await activeAccountRepo.acctiveAccount(activeAccountRequestBody);
-      // log(response.toString());
-      // emit(VerificationAccountState.activeAccountSuccess(response));
       if (response is api_result.Success<ActiveAccountResponseBody>) {
+        log(response.data.statusCode.toString());
         emit(
           VerificationAccountState.activeAccountSuccess({
             'statusCode': response.data.statusCode,
@@ -37,14 +36,17 @@ class VerificationAccountCubit extends Cubit<VerificationAccountState> {
           }),
         );
       } else if (response is api_result.Failure<ActiveAccountResponseBody>) {
+        log(response.error.apiErrorModel.message.toString());
         emit(VerificationAccountState.activeAccountError(
             error: response.error.apiErrorModel.message ?? "Unknown Error"));
       }
     } catch (error) {
       if (error is ErrorHandler) {
+        log(error.apiErrorModel.message.toString());
         emit(VerificationAccountState.activeAccountError(
             error: error.apiErrorModel.message!));
       } else {
+        log(error.toString());
         emit(VerificationAccountState.activeAccountError(
             error: error.toString()));
       }

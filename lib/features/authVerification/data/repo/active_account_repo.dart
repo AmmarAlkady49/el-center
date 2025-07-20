@@ -3,12 +3,12 @@ import 'package:e_learning_app/core/networking/api_result.dart';
 import 'package:e_learning_app/features/authVerification/data/model/active_account_request_body.dart';
 
 import '../../../../core/networking/api_service.dart';
+import '../model/active_account_response_body.dart';
 
 class ActiveAccountRepo {
   final ApiService _apiService;
   ActiveAccountRepo(this._apiService);
-  // TODO : add the returned type of ApiResult<ActiveAccountResponseBody >
-  Future<ApiResult> acctiveAccount(
+  Future<ApiResult<ActiveAccountResponseBody>> acctiveAccount(
       ActiveAccountRequestBody activeAccountRequestBody) async {
     try {
       final response =

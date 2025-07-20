@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'core/helpers/app_constants.dart';
 import 'generated/l10n.dart';
 
 class ElCenterApp extends StatelessWidget {
@@ -20,7 +21,7 @@ class ElCenterApp extends StatelessWidget {
       splitScreenMode: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        locale: Locale("ar"),
+        locale: Locale("en"),
         localizationsDelegates: [
           S.delegate,
           GlobalMaterialLocalizations.delegate,
@@ -32,7 +33,9 @@ class ElCenterApp extends StatelessWidget {
           primaryColor: AppColors.mainBlue,
           scaffoldBackgroundColor: AppColors.backgroundWiteColor,
         ),
-        initialRoute: AppRoutes.onBoardingScreen,
+        initialRoute: isLoggedInUser
+            ? AppRoutes.bottomNavigation
+            : AppRoutes.onBoardingScreen,
         onGenerateRoute: AppRouter.onGenerateRoute,
       ),
     );

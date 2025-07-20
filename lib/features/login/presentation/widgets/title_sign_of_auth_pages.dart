@@ -64,8 +64,7 @@ class TitleSignOfAuthPages extends StatelessWidget {
                     ..onTap = () {
                       isRegister!
                           ? context.pop()
-                          : context
-                              .pushNamedAndRemoveUntil(AppRoutes.signUpScreen);
+                          : context.pushNamed(AppRoutes.signUpScreen);
                     },
                 ),
               ],

@@ -39,41 +39,47 @@ class OnboardingImageAndTitle extends StatelessWidget {
             ),
           ),
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-                height: isFirstPage
-                    ? context.screenHeight * 0.04
-                    : isOnboardingTextWidgetAboveTheImage != true
-                        ? context.screenHeight * 0.0
-                        : context.screenHeight * 0.05),
-            Visibility(
-              visible: isOnboardingTextWidgetAboveTheImage == true,
-              child: OnBoardingText(
-                thinTitle: thinTitle,
-                boldTitle: boldTitle,
-                highlightedTitle: highlightedTitle,
-                isBoldTitleNeeded: isBoldTitleNeeded,
-              ),
+        SizedBox(
+          height: context.screenHeight,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                    height: isFirstPage
+                        ? context.screenHeight * 0.04
+                        : isOnboardingTextWidgetAboveTheImage != true
+                            ? context.screenHeight * 0.0
+                            : context.screenHeight * 0.05),
+                Visibility(
+                  visible: isOnboardingTextWidgetAboveTheImage == true,
+                  child: OnBoardingText(
+                    thinTitle: thinTitle,
+                    boldTitle: boldTitle,
+                    highlightedTitle: highlightedTitle,
+                    isBoldTitleNeeded: isBoldTitleNeeded,
+                  ),
+                ),
+                SvgPicture.asset(
+                  alignment: Alignment.center,
+                  imagePath,
+                  width: double.infinity,
+                  height: context.screenHeight * 0.62,
+                  fit: BoxFit.fitHeight,
+                ),
+                Visibility(
+                  visible: isOnboardingTextWidgetAboveTheImage == false,
+                  child: OnBoardingText(
+                    thinTitle: thinTitle,
+                    boldTitle: boldTitle,
+                    highlightedTitle: highlightedTitle,
+                    isBoldTitleNeeded: isBoldTitleNeeded,
+                  ),
+                ),
+              ],
             ),
-            SvgPicture.asset(
-              alignment: Alignment.center,
-              imagePath,
-              width: double.infinity,
-              height: context.screenHeight * 0.62,
-              fit: BoxFit.fitHeight,
-            ),
-            Visibility(
-              visible: isOnboardingTextWidgetAboveTheImage == false,
-              child: OnBoardingText(
-                thinTitle: thinTitle,
-                boldTitle: boldTitle,
-                highlightedTitle: highlightedTitle,
-                isBoldTitleNeeded: isBoldTitleNeeded,
-              ),
-            ),
-          ],
+          ),
         ),
       ],
     );
