@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/data/models/course_info_model.dart';
 import '../../../../core/data/models/course_module_model.dart';
+import '../../../../core/data/models/course_modules_with_lessons.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/font_helper.dart';
@@ -15,7 +16,7 @@ import '../../../../generated/l10n.dart';
 class BuildTabSection extends StatefulWidget {
   final CourseInfoModel courseBasicInfo;
   final List<CourseModuleModel> courseModules;
-  final List<Map<String, dynamic>> modulesWithLessons;
+  final List<CourseModulesWithLessons> modulesWithLessons;
   final List<CourseReviewModel> courseReviews;
   final bool isEnrolled;
   final CourseDetailsCubit cubit;

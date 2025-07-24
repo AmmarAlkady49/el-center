@@ -10,5 +10,7 @@ class AppRoutes {
   static const String courseDetails = '/courseDetails';
   static const String paymentWebView = '/payment_webview';
   static const String writeReview = '/writeReview';
+  static const String lessonPlayer = '/lessonPlayer';
+  static const String lessonQuiz = '/lessonQuizScreen';
 
 }

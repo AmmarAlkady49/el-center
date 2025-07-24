@@ -5,14 +5,18 @@ import '../theming/app_colors.dart';
 import '../theming/font_helper.dart';
 
 PreferredSizeWidget buildGenericAppBar(BuildContext context,
-        {required String title}) =>
+        {required String title,
+        Color? backgroundColor,
+        double? elevation,
+        TextStyle? textStyle,
+        Color? iconColor}) =>
     AppBar(
-      backgroundColor: AppColors.mainBlue,
-      elevation: 4,
+      backgroundColor: backgroundColor ?? AppColors.mainBlue,
+      elevation: elevation ?? 4,
       leading: IconButton(
-        icon: const Icon(
+        icon: Icon(
           Icons.arrow_back_ios_new_rounded,
-          color: Colors.white,
+          color: iconColor ?? Colors.white,
         ),
         onPressed: () {
           Navigator.pop(context);
@@ -28,17 +32,18 @@ PreferredSizeWidget buildGenericAppBar(BuildContext context,
       ),
       title: Text(
         title,
-        style: FontHelper.font16WhiteW600(context).copyWith(
-          shadows: const [
-            Shadow(
-              offset: Offset(0, 2),
-              blurRadius: 4,
-              color: Colors.black26,
-            )
-          ],
-          color: Colors.white,
-          fontSize: 19.sp,
-        ),
+        style: textStyle ??
+            FontHelper.font16WhiteW600(context).copyWith(
+              shadows: const [
+                Shadow(
+                  offset: Offset(0, 2),
+                  blurRadius: 4,
+                  color: Colors.black26,
+                )
+              ],
+              color: Colors.white,
+              fontSize: 19.sp,
+            ),
       ),
       centerTitle: true,
       bottom: PreferredSize(

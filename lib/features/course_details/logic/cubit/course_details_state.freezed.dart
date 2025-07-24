@@ -229,7 +229,7 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     TResult Function(
             bool isEnrolled,
             List<CourseModuleModel> courseModules,
-            List<Map<String, dynamic>> modulesWithLessons,
+            List<CourseModulesWithLessons> modulesWithLessons,
             List<CourseReviewModel> courseReviews)?
         courseDetailsLoaded,
     TResult Function(String error)? courseDetailsLoadedError,
@@ -292,7 +292,7 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     required TResult Function(
             bool isEnrolled,
             List<CourseModuleModel> courseModules,
-            List<Map<String, dynamic>> modulesWithLessons,
+            List<CourseModulesWithLessons> modulesWithLessons,
             List<CourseReviewModel> courseReviews)
         courseDetailsLoaded,
     required TResult Function(String error) courseDetailsLoadedError,
@@ -353,7 +353,7 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     TResult? Function(
             bool isEnrolled,
             List<CourseModuleModel> courseModules,
-            List<Map<String, dynamic>> modulesWithLessons,
+            List<CourseModulesWithLessons> modulesWithLessons,
             List<CourseReviewModel> courseReviews)?
         courseDetailsLoaded,
     TResult? Function(String error)? courseDetailsLoadedError,
@@ -458,7 +458,7 @@ class CourseDetailsLoaded
   const CourseDetailsLoaded(
       {required this.isEnrolled,
       required final List<CourseModuleModel> courseModules,
-      required final List<Map<String, dynamic>> modulesWithLessons,
+      required final List<CourseModulesWithLessons> modulesWithLessons,
       required final List<CourseReviewModel> courseReviews})
       : _courseModules = courseModules,
         _modulesWithLessons = modulesWithLessons,
@@ -472,8 +472,8 @@ class CourseDetailsLoaded
     return EqualUnmodifiableListView(_courseModules);
   }
 
-  final List<Map<String, dynamic>> _modulesWithLessons;
-  List<Map<String, dynamic>> get modulesWithLessons {
+  final List<CourseModulesWithLessons> _modulesWithLessons;
+  List<CourseModulesWithLessons> get modulesWithLessons {
     if (_modulesWithLessons is EqualUnmodifiableListView)
       return _modulesWithLessons;
     // ignore: implicit_dynamic_type
@@ -544,7 +544,7 @@ abstract mixin class $CourseDetailsLoadedCopyWith<$Res>
   $Res call(
       {bool isEnrolled,
       List<CourseModuleModel> courseModules,
-      List<Map<String, dynamic>> modulesWithLessons,
+      List<CourseModulesWithLessons> modulesWithLessons,
       List<CourseReviewModel> courseReviews});
 }
 
@@ -577,7 +577,7 @@ class _$CourseDetailsLoadedCopyWithImpl<$Res>
       modulesWithLessons: null == modulesWithLessons
           ? _self._modulesWithLessons
           : modulesWithLessons // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
+              as List<CourseModulesWithLessons>,
       courseReviews: null == courseReviews
           ? _self._courseReviews
           : courseReviews // ignore: cast_nullable_to_non_nullable

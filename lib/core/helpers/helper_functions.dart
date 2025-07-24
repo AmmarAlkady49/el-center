@@ -2,6 +2,9 @@ import 'package:e_learning_app/core/theming/font_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../data/models/course_modules_with_lessons.dart';
+import '../data/models/lesson_module.dart';
+
 class HelperFunctions {
   /// Calculates the width of a word with a given [TextStyle].
   static double getWordWidth(String word, TextStyle style) {
@@ -134,6 +137,50 @@ class HelperFunctions {
       }
     } catch (e) {
       return dateString;
+    }
+  }
+
+  
+  static String formatDate2(DateTime date) {
+    return '${date.day}/${date.month}/${date.year}';
+  }
+
+   static String getTotalLessons(List<CourseModulesWithLessons> modulesWithLessons) {
+    final total = modulesWithLessons.fold(
+        0, (sum, module) => sum + module.lessons.length);
+    return total.toString();
+  }
+
+  static String getTotalDuration(List<CourseModulesWithLessons> modulesWithLessons) {
+    final total = modulesWithLessons.fold(
+        0,
+        (sum, module) =>
+            sum +
+            module.lessons.fold(0,
+                (lessonSum, lesson) => lessonSum + lesson.durationInMinutes!));
+    return "${total.toString()} min";
+  }
+
+   static String calculateSectionDuration(List<LessonModule> lessons) {
+    final total =
+        lessons.fold(0, (sum, module) => sum + module.durationInMinutes!);
+    return "${total}min";
+  }
+
+   static String getLessonDuration(LessonModule lesson) {
+    return "${lesson.durationInMinutes.toString()} min";
+  }
+
+  static IconData getContentTypeIcon(String? contentType) {
+    switch (contentType?.toLowerCase()) {
+      case 'video':
+        return Icons.play_arrow_outlined;
+      case 'audio':
+        return Icons.headphones;
+      case 'text':
+        return Icons.article_outlined;
+      default:
+        return Icons.play_circle_outline;
     }
   }
 }

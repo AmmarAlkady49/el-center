@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/data/models/course_info_model.dart';
-import '../../../../core/data/models/lesson_module.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../generated/l10n.dart';
 import '../../logic/cubit/course_details_state.dart';
@@ -52,6 +51,7 @@ class CourseDetailsPage extends StatelessWidget {
               child: Text(state.error),
             );
           } else if (state is CourseDetailsLoaded) {
+            cubit.courseModules = state.courseModules;
             return CustomScrollView(
               slivers: [
                 BuildSliverAppBarForCourseDetailsPage(
@@ -73,7 +73,7 @@ class CourseDetailsPage extends StatelessWidget {
                             cubit: cubit,
                             lessons: state.modulesWithLessons
                                 .expand((module) =>
-                                    module['lessons'] as List<LessonModule>)
+                                    module.lessons)
                                 .toList(),
                             isEnrolled: state.isEnrolled,
                           ),

@@ -13,6 +13,8 @@ import '../../features/course_details/data/repos/course_details_repo.dart';
 import '../../features/course_details/logic/cubit/course_details_cubit.dart';
 import '../../features/home/data/repo/home_repo.dart';
 import '../../features/home/logic/cubit/home_cubit.dart';
+import '../../features/learning_centre/data/repo/learning_centre_repo.dart';
+import '../../features/learning_centre/logic/cubit/learning_centre_cubit.dart';
 import '../../features/payment/data/repo/payment_repo.dart';
 import '../../features/payment/logic/cubit/payment_cubit.dart';
 import '../data/repo/profile_repo.dart';
@@ -57,4 +59,11 @@ Future<void> setupGetIt() async {
   // payment
   getIt.registerLazySingleton<PaymentRepo>(() => PaymentRepo(getIt()));
   getIt.registerFactory<PaymentCubit>(() => PaymentCubit(getIt()));
+
+  // learning lessons El Centre
+  getIt.registerLazySingleton<LearningCentreRepo>(
+      () => LearningCentreRepo(getIt()));
+
+  getIt
+      .registerFactory<LearningCentreCubit>(() => LearningCentreCubit(getIt()));
 }

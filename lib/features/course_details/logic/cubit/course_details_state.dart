@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../core/data/models/course_module_model.dart';
+import '../../../../core/data/models/course_modules_with_lessons.dart';
 import '../../../../core/data/models/course_review_model.dart';
 
 part 'course_details_state.freezed.dart';
@@ -14,7 +15,7 @@ abstract class CourseDetailsState with _$CourseDetailsState {
   const factory CourseDetailsState.courseDetailsLoaded({
     required bool isEnrolled,
     required List<CourseModuleModel> courseModules,
-    required List<Map<String, dynamic>> modulesWithLessons,
+    required List<CourseModulesWithLessons> modulesWithLessons,
     required List<CourseReviewModel> courseReviews,
   }) = CourseDetailsLoaded;
   const factory CourseDetailsState.courseDetailsLoadedError({

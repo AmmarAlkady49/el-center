@@ -17,6 +17,9 @@ class ApiConstants {
   static const String createPaymentToken = "/Payment/create-payment-token";
   static const String getCourseReview = "CourseReview/get-course-review";
   static const String addCourseReview = "/CourseReview/add-course-review";
+  static const String getAllCourseQuizzes = "/Quiz/get-all-course-quizzes";
+  static const String completeLesson = "/Enrollment/complete-lesson";
+  static const String completedLessons = "/Enrollment/completed-lessons";
 }
 
 class ApiErrors {

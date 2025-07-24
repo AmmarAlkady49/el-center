@@ -1,11 +1,11 @@
 import 'package:e_learning_app/core/data/models/lesson_module.dart';
 import 'package:e_learning_app/features/course_details/logic/cubit/course_details_cubit.dart';
-import 'package:e_learning_app/features/course_details/presentation/screens/lesson_module.dart';
 import 'package:e_learning_app/features/course_details/presentation/widgets/payment_method_modal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/data/models/course_info_model.dart';
+import '../../../../core/routing/app_routes.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/font_helper.dart';
 import '../../../../generated/l10n.dart';
@@ -14,7 +14,7 @@ class BuildPriceAndActions extends StatelessWidget {
   final CourseInfoModel courseBasicInfo;
   final bool isEnrolled;
   final CourseDetailsCubit cubit;
-  final List<LessonModule> lessons; // Pass the lessons list here>
+  final List<LessonModule> lessons;
 
   const BuildPriceAndActions(
       {super.key,
@@ -30,14 +30,14 @@ class BuildPriceAndActions extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {
           isEnrolled
-              ? Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (_) => ModuleLessonsPage(
-                            moduleTitle: courseBasicInfo.title!,
-                            moduleId: 1,
-                            lessons: lessons,
-                          )))
+              ? Navigator.pushNamed(context, AppRoutes.lessonPlayer,
+                  arguments: {
+                      "courseInfo": courseBasicInfo,
+                      "courseModules": cubit.courseModules,
+                      "lessons": lessons,
+                      "modulesWithLessons": cubit.modulesWithLessons,
+                      "courseReview": cubit.courseReviews,
+                    })
               : showPaymentModal(context,
                   courseTitle: courseBasicInfo.title!,
                   courseID: courseBasicInfo.id,

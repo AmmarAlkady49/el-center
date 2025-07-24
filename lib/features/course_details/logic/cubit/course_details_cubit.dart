@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:e_learning_app/features/payment/data/repo/payment_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/data/models/course_module_model.dart';
+import '../../../../core/data/models/course_modules_with_lessons.dart';
 import '../../../../core/data/models/course_review_model.dart';
 import '../../../../core/data/models/lesson_module.dart';
 import '../../../../core/networking/api_result.dart';
@@ -15,6 +17,11 @@ class CourseDetailsCubit extends Cubit<CourseDetailsState> {
   CourseDetailsCubit(this.courseDetailsRepo, this.paymentRepo)
       : super(CourseDetailsState.initial());
 
+  List<CourseModuleModel> courseModules = [];
+  List<CourseReviewModel> courseReviews = [];
+  List<CourseModulesWithLessons> modulesWithLessons = [];
+  List<CourseReviewModel> courseReview = [];
+
   void getCourseDetails(int courseId) async {
     emit(CourseDetailsState.courseDetailsLoading());
     try {
@@ -25,34 +32,36 @@ class CourseDetailsCubit extends Cubit<CourseDetailsState> {
 
       final courseReviewResult =
           await courseDetailsRepo.getCourseReviews(courseId);
-      log(courseReviewResult.toString());
-      List<CourseReviewModel> courseReview = [];
+      // List<CourseReviewModel> courseReview = [];
 
       if (courseReviewResult is Success<List<CourseReviewModel>>) {
         courseReview = courseReviewResult.data;
+        courseReviews = courseReview;
       } else {
         courseReview = [];
+        courseReviews = [];
       }
 
       // Fetch lessons for each module
-      final modulesWithLessons =
-          await Future.wait(courseModules.map((module) async {
-        final lessonsResult =
-            await courseDetailsRepo.getModuleLessons(module.id);
+      modulesWithLessons = await Future.wait(
+        courseModules.map(
+          (module) async {
+            final lessonsResult =
+                await courseDetailsRepo.getModuleLessons(module.id);
 
-        List<LessonModule> lessons = [];
+            List<LessonModule> lessons = [];
 
-        if (lessonsResult is Success<List<LessonModule>?>) {
-          lessons = lessonsResult.data ?? [];
-        } else {
-          lessons = [];
-        }
+            if (lessonsResult is Success<List<LessonModule>?>) {
+              lessons = lessonsResult.data ?? [];
+            } else {
+              lessons = [];
+            }
 
-        return {
-          'module': module,
-          'lessons': lessons,
-        };
-      }));
+            return CourseModulesWithLessons(
+                courseModules: module, lessons: lessons);
+          },
+        ),
+      );
 
       emit(CourseDetailsState.courseDetailsLoaded(
         isEnrolled: isEnrolledResponse,
@@ -60,6 +69,7 @@ class CourseDetailsCubit extends Cubit<CourseDetailsState> {
         modulesWithLessons: modulesWithLessons,
         courseReviews: courseReview,
       ));
+      modulesWithLessons = modulesWithLessons;
     } catch (error) {
       emit(
           CourseDetailsState.courseDetailsLoadedError(error: error.toString()));

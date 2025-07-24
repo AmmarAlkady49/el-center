@@ -3,6 +3,7 @@ import 'package:e_learning_app/core/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/data/models/course_modules_with_lessons.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/font_helper.dart';
@@ -10,7 +11,7 @@ import '../../../../generated/l10n.dart';
 
 class BuildCurriculumTab extends StatefulWidget {
   final List<CourseModuleModel> courseModules;
-  final List<Map<String, dynamic>> modulesWithLessons;
+  final List<CourseModulesWithLessons> modulesWithLessons;
 
   const BuildCurriculumTab({
     super.key,
@@ -42,11 +43,11 @@ class _BuildCurriculumTabState extends State<BuildCurriculumTab> {
 
   List<Widget> _buildLessonsForModule(int moduleId, int moduleIndex) {
     final module = widget.modulesWithLessons.firstWhere(
-      (item) => item['module'].id == moduleId,
-      orElse: () => {},
+      (item) => item.courseModules.id == moduleId,
+      // orElse: () => {},
     );
 
-    final lessons = module['lessons'] ?? [];
+    final lessons = module.lessons;
 
     if (lessons.isEmpty) {
       return [
@@ -99,16 +100,17 @@ class _BuildCurriculumTabState extends State<BuildCurriculumTab> {
                     ),
                   ),
                   horizontalSpacing(8),
-                  Text(
-                    lesson.title,
-                    style: FontHelper.font12lackW400(context).copyWith(
-                      color: AppColors.darkBlue.withAlpha(200),
-                      fontSize: 14.sp,
+                  Expanded(
+                    child: Text(
+                      lesson.title ?? 'No title available',
+                      style: FontHelper.font12lackW400(context).copyWith(
+                        color: AppColors.darkBlue.withAlpha(200),
+                        fontSize: 14.sp,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
                   ),
-                  const Spacer(),
                   if (duration.isNotEmpty) ...[
                     if (lesson.contentType != null) const SizedBox(width: 8),
                     Icon(
@@ -141,7 +143,7 @@ class _BuildCurriculumTabState extends State<BuildCurriculumTab> {
   }
 
   Widget _buildCurriculumTab(BuildContext context, List courseModules,
-      List<Map<String, dynamic>> modulesWithLessons) {
+      List<CourseModulesWithLessons> modulesWithLessons) {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

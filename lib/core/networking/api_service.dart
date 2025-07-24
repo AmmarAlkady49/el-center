@@ -8,11 +8,13 @@ import 'package:retrofit/http.dart';
 import '../../features/authVerification/data/model/active_account_request_body.dart';
 import '../../features/authVerification/data/model/active_account_response_body.dart';
 import '../../features/course_details/data/models/add_course_review_request_body.dart';
+import '../../features/learning_centre/data/model/quiz_model.dart';
 import '../../features/login/data/models/login_request_body.dart';
 import '../../features/signup/data/models/signup_request_body.dart';
 import '../../features/signup/data/models/signup_response_body.dart';
 import '../data/models/course_review_model.dart';
 import '../data/models/lesson_module.dart';
+import '../data/models/standard_response_body.dart';
 
 part 'api_service.g.dart';
 
@@ -66,4 +68,13 @@ abstract class ApiService {
   Future<LoginResponseBody> addCourseReview(
     @Body() AddCourseReviewRequestBody addCourseReviewRequestBody,
   );
+
+  @GET(ApiConstants.getAllCourseQuizzes)
+  Future<List<QuizModel>> getAllCourseQuizzes(@Query('courseId') int courseId);
+
+  @POST("${ApiConstants.completeLesson}/{lessonId}")
+  Future<StandardResponseBody> completeLesson(@Path("lessonId") int lessonId);
+
+  @GET("${ApiConstants.completedLessons}/{courseId}")
+  Future<List<int>> getCompletedLessons(@Path("courseId") int courseId);
 }

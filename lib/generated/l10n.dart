@@ -1189,6 +1189,381 @@ class S {
       args: [],
     );
   }
+
+  /// `Course Content`
+  String get course_content {
+    return Intl.message(
+      'Course Content',
+      name: 'course_content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quizzes`
+  String get quizzes {
+    return Intl.message('Quizzes', name: 'quizzes', desc: '', args: []);
+  }
+
+  /// `Q&A`
+  String get q_and_a {
+    return Intl.message('Q&A', name: 'q_and_a', desc: '', args: []);
+  }
+
+  /// `Ratings`
+  String get ratings {
+    return Intl.message('Ratings', name: 'ratings', desc: '', args: []);
+  }
+
+  /// `hours`
+  String get hours {
+    return Intl.message('hours', name: 'hours', desc: '', args: []);
+  }
+
+  /// `Total`
+  String get total {
+    return Intl.message('Total', name: 'total', desc: '', args: []);
+  }
+
+  /// `Course Description`
+  String get course_description {
+    return Intl.message(
+      'Course Description',
+      name: 'course_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remaining`
+  String get remaining {
+    return Intl.message('Remaining', name: 'remaining', desc: '', args: []);
+  }
+
+  /// `Lessons Completed`
+  String get lessons_completed {
+    return Intl.message(
+      'Lessons Completed',
+      name: 'lessons_completed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Progress`
+  String get your_progress {
+    return Intl.message(
+      'Your Progress',
+      name: 'your_progress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Course Details`
+  String get course_details {
+    return Intl.message(
+      'Course Details',
+      name: 'course_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Created`
+  String get created {
+    return Intl.message('Created', name: 'created', desc: '', args: []);
+  }
+
+  /// `Status`
+  String get status {
+    return Intl.message('Status', name: 'status', desc: '', args: []);
+  }
+
+  /// `of`
+  String get of_of {
+    return Intl.message('of', name: 'of_of', desc: '', args: []);
+  }
+
+  /// `Free`
+  String get free {
+    return Intl.message('Free', name: 'free', desc: '', args: []);
+  }
+
+  /// `Complete lessons to unlock their quizzes and test your knowledge.`
+  String get complete_lessons_to_unlock {
+    return Intl.message(
+      'Complete lessons to unlock their quizzes and test your knowledge.',
+      name: 'complete_lessons_to_unlock',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Loading quizzes...`
+  String get loading_quizzes {
+    return Intl.message(
+      'Loading quizzes...',
+      name: 'loading_quizzes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to load quizzes. Please try again.`
+  String get failed_to_load_quizzes {
+    return Intl.message(
+      'Failed to load quizzes. Please try again.',
+      name: 'failed_to_load_quizzes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No quizzes available`
+  String get no_quizzes_available {
+    return Intl.message(
+      'No quizzes available',
+      name: 'no_quizzes_available',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Complete lessons to unlock quizzes`
+  String get complete_lessons_to_unlock_quizzes {
+    return Intl.message(
+      'Complete lessons to unlock quizzes',
+      name: 'complete_lessons_to_unlock_quizzes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Questions`
+  String get questions {
+    return Intl.message('Questions', name: 'questions', desc: '', args: []);
+  }
+
+  /// `Question`
+  String get question {
+    return Intl.message('Question', name: 'question', desc: '', args: []);
+  }
+
+  /// `Answer`
+  String get answer {
+    return Intl.message('Answer', name: 'answer', desc: '', args: []);
+  }
+
+  /// `Answered`
+  String get answered {
+    return Intl.message('Answered', name: 'answered', desc: '', args: []);
+  }
+
+  /// `Total Quizzes`
+  String get total_quizzes {
+    return Intl.message(
+      'Total Quizzes',
+      name: 'total_quizzes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `previous`
+  String get previous {
+    return Intl.message('previous', name: 'previous', desc: '', args: []);
+  }
+
+  /// `next`
+  String get next {
+    return Intl.message('next', name: 'next', desc: '', args: []);
+  }
+
+  /// `Choose the correct answer:`
+  String get choose_the_correct_answer {
+    return Intl.message(
+      'Choose the correct answer:',
+      name: 'choose_the_correct_answer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Explanation`
+  String get explanation {
+    return Intl.message('Explanation', name: 'explanation', desc: '', args: []);
+  }
+
+  /// `Correct Answer`
+  String get correct_answer {
+    return Intl.message(
+      'Correct Answer',
+      name: 'correct_answer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Incorrect. Correct answer is`
+  String get incorrect_correct_answer_is {
+    return Intl.message(
+      'Incorrect. Correct answer is',
+      name: 'incorrect_correct_answer_is',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `lectures`
+  String get lectures {
+    return Intl.message('lectures', name: 'lectures', desc: '', args: []);
+  }
+
+  /// `Loading video...`
+  String get loading_video {
+    return Intl.message(
+      'Loading video...',
+      name: 'loading_video',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `'Failed to load video`
+  String get failed_to_load_video {
+    return Intl.message(
+      '\'Failed to load video',
+      name: 'failed_to_load_video',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Video`
+  String get video {
+    return Intl.message('Video', name: 'video', desc: '', args: []);
+  }
+
+  /// `Audio`
+  String get audio {
+    return Intl.message('Audio', name: 'audio', desc: '', args: []);
+  }
+
+  /// `Text`
+  String get text {
+    return Intl.message('Text', name: 'text', desc: '', args: []);
+  }
+
+  /// `Start Quiz`
+  String get start_quiz {
+    return Intl.message('Start Quiz', name: 'start_quiz', desc: '', args: []);
+  }
+
+  /// `Quiz is ready!`
+  String get quiz_ready {
+    return Intl.message(
+      'Quiz is ready!',
+      name: 'quiz_ready',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quiz is available for this lesson.`
+  String get quiz_available_for_this_lesson {
+    return Intl.message(
+      'Quiz is available for this lesson.',
+      name: 'quiz_available_for_this_lesson',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There is a quiz for this lesson.`
+  String get there_is_quiz_for_this_lesson {
+    return Intl.message(
+      'There is a quiz for this lesson.',
+      name: 'there_is_quiz_for_this_lesson',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit Quiz`
+  String get submit_quiz {
+    return Intl.message('Submit Quiz', name: 'submit_quiz', desc: '', args: []);
+  }
+
+  /// `Next Question`
+  String get next_question {
+    return Intl.message(
+      'Next Question',
+      name: 'next_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Excellent`
+  String get Excellent {
+    return Intl.message('Excellent', name: 'Excellent', desc: '', args: []);
+  }
+
+  /// `Good Job`
+  String get Good_Job {
+    return Intl.message('Good Job', name: 'Good_Job', desc: '', args: []);
+  }
+
+  /// `Keep Practicing`
+  String get Keep_Practicing {
+    return Intl.message(
+      'Keep Practicing',
+      name: 'Keep_Practicing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You scored`
+  String get You_scored {
+    return Intl.message('You scored', name: 'You_scored', desc: '', args: []);
+  }
+
+  /// `out of`
+  String get out_of {
+    return Intl.message('out of', name: 'out_of', desc: '', args: []);
+  }
+
+  /// `Retake Quiz`
+  String get retake_quiz {
+    return Intl.message('Retake Quiz', name: 'retake_quiz', desc: '', args: []);
+  }
+
+  /// `Score`
+  String get Score {
+    return Intl.message('Score', name: 'Score', desc: '', args: []);
+  }
+
+  /// `Correct`
+  String get Correct {
+    return Intl.message('Correct', name: 'Correct', desc: '', args: []);
+  }
+
+  /// `Wrong`
+  String get Wrong {
+    return Intl.message('Wrong', name: 'Wrong', desc: '', args: []);
+  }
+
+  /// `AI Assistant`
+  String get ai_assistant {
+    return Intl.message(
+      'AI Assistant',
+      name: 'ai_assistant',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -5,6 +5,7 @@ import 'package:e_learning_app/features/course_details/logic/cubit/course_detail
 import 'package:e_learning_app/features/course_details/presentation/screens/write_review_page.dart';
 import 'package:e_learning_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:e_learning_app/features/home/presentation/screens/home_page.dart';
+import 'package:e_learning_app/features/learning_centre/logic/cubit/learning_centre_cubit.dart';
 import 'package:e_learning_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:e_learning_app/features/login/presentation/screens/login_page.dart';
 import 'package:e_learning_app/features/main_bottom_nav_bar.dart';
@@ -17,7 +18,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/authVerification/logic/cubit/verification_account_cubit.dart';
 import '../../features/course_details/presentation/screens/course_details_page.dart';
 import '../../features/home/presentation/screens/courses_by_category.dart';
+import '../../features/learning_centre/data/model/quiz_model.dart';
+import '../../features/learning_centre/presentation/screens/lesson_player_page.dart';
+import '../../features/learning_centre/presentation/screens/lesson_quiz_page.dart';
 import '../data/models/course_info_model.dart';
+import '../data/models/course_module_model.dart';
+import '../data/models/course_modules_with_lessons.dart';
+import '../data/models/course_review_model.dart';
+import '../data/models/lesson_module.dart';
 
 class AppRouter {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
@@ -79,12 +87,42 @@ class AppRouter {
       case AppRoutes.writeReview:
         final args = settings.arguments as Map<String, dynamic>;
         final courseBasicInfo = args['courseBasicInfo'] as CourseInfoModel;
-        final courseDetailsCubit = args['courseDetailsCubit'] as CourseDetailsCubit;
+        final courseDetailsCubit =
+            args['courseDetailsCubit'] as CourseDetailsCubit;
 
         return MaterialPageRoute(
-          builder: (context) =>
-              WriteReviewPage(courseBasicInfo: courseBasicInfo, 
+          builder: (context) => WriteReviewPage(
+              courseBasicInfo: courseBasicInfo,
               courseDetailsCubit: courseDetailsCubit),
+        );
+      case AppRoutes.lessonPlayer:
+        final args = settings.arguments as Map<String, dynamic>;
+        final courseInfo = args['courseInfo'] as CourseInfoModel;
+        final courseModules = args['courseModules'] as List<CourseModuleModel>;
+        final lessons = args['lessons'] as List<LessonModule>;
+        final courseReview = args['courseReview'] as List<CourseReviewModel>;
+        final modulesWithLessons =
+            args['modulesWithLessons'] as List<CourseModulesWithLessons>;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<LearningCentreCubit>(),
+            child: LessonPlayerPage(
+              courseInfo: courseInfo,
+              courseModules: courseModules,
+              lessons: lessons,
+              modulesWithLessons: modulesWithLessons,
+              courseReview: courseReview,
+            ),
+          ),
+        );
+
+      case AppRoutes.lessonQuiz:
+        final quizzes = settings.arguments as List<QuizModel>;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<LearningCentreCubit>(),
+            child: LessonQuizPage(quizzes: quizzes),
+          ),
         );
 
       default:
