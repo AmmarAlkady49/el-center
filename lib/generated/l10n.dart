@@ -475,9 +475,9 @@ class S {
     );
   }
 
-  /// `Try again`
+  /// `Try Again`
   String get tryAgain {
-    return Intl.message('Try again', name: 'tryAgain', desc: '', args: []);
+    return Intl.message('Try Again', name: 'tryAgain', desc: '', args: []);
   }
 
   /// `Email Verification`
@@ -600,6 +600,1591 @@ class S {
     return Intl.message(
       'Didn\'t receive code?',
       name: 'didnotReceiveCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Good Morning`
+  String get good_morning {
+    return Intl.message(
+      'Good Morning',
+      name: 'good_morning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Good Afternoon`
+  String get good_afternoon {
+    return Intl.message(
+      'Good Afternoon',
+      name: 'good_afternoon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Good Evening`
+  String get good_evening {
+    return Intl.message(
+      'Good Evening',
+      name: 'good_evening',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Discover Your Learning Path with ElCentre`
+  String get discover_your_learning {
+    return Intl.message(
+      'Discover Your Learning Path with ElCentre',
+      name: 'discover_your_learning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Popular Courses`
+  String get popular_courses {
+    return Intl.message(
+      'Popular Courses',
+      name: 'popular_courses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `See All`
+  String get see_all {
+    return Intl.message('See All', name: 'see_all', desc: '', args: []);
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message('Home', name: 'home', desc: '', args: []);
+  }
+
+  /// `Search`
+  String get search {
+    return Intl.message('Search', name: 'search', desc: '', args: []);
+  }
+
+  /// `My Courses`
+  String get my_courses {
+    return Intl.message('My Courses', name: 'my_courses', desc: '', args: []);
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message('Profile', name: 'profile', desc: '', args: []);
+  }
+
+  /// `Sign out`
+  String get sign_out {
+    return Intl.message('Sign out', name: 'sign_out', desc: '', args: []);
+  }
+
+  /// `My Profile`
+  String get my_profile {
+    return Intl.message('My Profile', name: 'my_profile', desc: '', args: []);
+  }
+
+  /// `My Learning`
+  String get my_learning {
+    return Intl.message('My Learning', name: 'my_learning', desc: '', args: []);
+  }
+
+  /// `All Categories`
+  String get all_categories {
+    return Intl.message(
+      'All Categories',
+      name: 'all_categories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price`
+  String get price {
+    return Intl.message('Price', name: 'price', desc: '', args: []);
+  }
+
+  /// `Join Now`
+  String get join_now {
+    return Intl.message('Join Now', name: 'join_now', desc: '', args: []);
+  }
+
+  /// `No Courses Available`
+  String get no_courses_available_title {
+    return Intl.message(
+      'No Courses Available',
+      name: 'no_courses_available_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `we're working hard to bring you amazing courses is this category. check back soon or expolre other categories!`
+  String get no_courses_available_body {
+    return Intl.message(
+      'we\'re working hard to bring you amazing courses is this category. check back soon or expolre other categories!',
+      name: 'no_courses_available_body',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Browse Categories`
+  String get browse_categories {
+    return Intl.message(
+      'Browse Categories',
+      name: 'browse_categories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong`
+  String get something_went_wrong {
+    return Intl.message(
+      'Something went wrong',
+      name: 'something_went_wrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Go Back`
+  String get go_back {
+    return Intl.message('Go Back', name: 'go_back', desc: '', args: []);
+  }
+
+  /// `EGP`
+  String get egp_currency {
+    return Intl.message('EGP', name: 'egp_currency', desc: '', args: []);
+  }
+
+  /// `Courses`
+  String get courses {
+    return Intl.message('Courses', name: 'courses', desc: '', args: []);
+  }
+
+  /// `Course`
+  String get course {
+    return Intl.message('Course', name: 'course', desc: '', args: []);
+  }
+
+  /// `Instructor`
+  String get instructor {
+    return Intl.message('Instructor', name: 'instructor', desc: '', args: []);
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message('Description', name: 'description', desc: '', args: []);
+  }
+
+  /// `Requirements`
+  String get requirements {
+    return Intl.message(
+      'Requirements',
+      name: 'requirements',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reviews`
+  String get reviews {
+    return Intl.message('Reviews', name: 'reviews', desc: '', args: []);
+  }
+
+  /// `Enroll Now`
+  String get enroll_now {
+    return Intl.message('Enroll Now', name: 'enroll_now', desc: '', args: []);
+  }
+
+  /// `Overview`
+  String get overView {
+    return Intl.message('Overview', name: 'overView', desc: '', args: []);
+  }
+
+  /// `Curriculum`
+  String get curriculum {
+    return Intl.message('Curriculum', name: 'curriculum', desc: '', args: []);
+  }
+
+  /// `About This Course`
+  String get about_this_course {
+    return Intl.message(
+      'About This Course',
+      name: 'about_this_course',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `modules`
+  String get modules {
+    return Intl.message('modules', name: 'modules', desc: '', args: []);
+  }
+
+  /// `lessons`
+  String get lessons {
+    return Intl.message('lessons', name: 'lessons', desc: '', args: []);
+  }
+
+  /// `total length`
+  String get total_length {
+    return Intl.message(
+      'total length',
+      name: 'total_length',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue Learning`
+  String get continue_learning {
+    return Intl.message(
+      'Continue Learning',
+      name: 'continue_learning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No lessons available for this module.`
+  String get no_lessons_available_for_this_module {
+    return Intl.message(
+      'No lessons available for this module.',
+      name: 'no_lessons_available_for_this_module',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose Payment Method`
+  String get choose_payment_method {
+    return Intl.message(
+      'Choose Payment Method',
+      name: 'choose_payment_method',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Complete your enrollment for`
+  String get complete_your_enrollment_for {
+    return Intl.message(
+      'Complete your enrollment for',
+      name: 'complete_your_enrollment_for',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Credit Card`
+  String get cridet_card {
+    return Intl.message('Credit Card', name: 'cridet_card', desc: '', args: []);
+  }
+
+  /// `Credit/Debit Card`
+  String get cridet_card_or_debit {
+    return Intl.message(
+      'Credit/Debit Card',
+      name: 'cridet_card_or_debit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pay with your credit or debit card`
+  String get pay_with_your_cridet_card {
+    return Intl.message(
+      'Pay with your credit or debit card',
+      name: 'pay_with_your_cridet_card',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mobile Wallet`
+  String get mobile_wallet {
+    return Intl.message(
+      'Mobile Wallet',
+      name: 'mobile_wallet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pay with your mobile wallet`
+  String get pay_with_your_mobile_wallet {
+    return Intl.message(
+      'Pay with your mobile wallet',
+      name: 'pay_with_your_mobile_wallet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
+  }
+
+  /// `Pay Now`
+  String get pay_now {
+    return Intl.message('Pay Now', name: 'pay_now', desc: '', args: []);
+  }
+
+  /// `Payment completed successfully`
+  String get payment_success {
+    return Intl.message(
+      'Payment completed successfully',
+      name: 'payment_success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment failed: `
+  String get payment_failed {
+    return Intl.message(
+      'Payment failed: ',
+      name: 'payment_failed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Browse by Category`
+  String get browse_by_category {
+    return Intl.message(
+      'Browse by Category',
+      name: 'browse_by_category',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View All`
+  String get view_all {
+    return Intl.message('View All', name: 'view_all', desc: '', args: []);
+  }
+
+  /// `View Course`
+  String get view_course {
+    return Intl.message('View Course', name: 'view_course', desc: '', args: []);
+  }
+
+  /// `review`
+  String get review {
+    return Intl.message('review', name: 'review', desc: '', args: []);
+  }
+
+  /// `No reviews yet.`
+  String get no_reviews_yet {
+    return Intl.message(
+      'No reviews yet.',
+      name: 'no_reviews_yet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Be the first to share your thoughts\nabout this course!`
+  String get be_the_first_one_to_review {
+    return Intl.message(
+      'Be the first to share your thoughts\nabout this course!',
+      name: 'be_the_first_one_to_review',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write a Review`
+  String get write_a_review {
+    return Intl.message(
+      'Write a Review',
+      name: 'write_a_review',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You're reviewing'`
+  String get you_are_reviewing {
+    return Intl.message(
+      'You\'re reviewing\'',
+      name: 'you_are_reviewing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `How would you rate this course?`
+  String get how_would_you_rate_this_course {
+    return Intl.message(
+      'How would you rate this course?',
+      name: 'how_would_you_rate_this_course',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tap the stars to rate your experience with this course.`
+  String get tap_the_stars_to_rate_your_experience {
+    return Intl.message(
+      'Tap the stars to rate your experience with this course.',
+      name: 'tap_the_stars_to_rate_your_experience',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Share your thoughts`
+  String get share_your_thoughts {
+    return Intl.message(
+      'Share your thoughts',
+      name: 'share_your_thoughts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tell others about your experience with this course.`
+  String get tell_others_about_your_experience_with_this_course {
+    return Intl.message(
+      'Tell others about your experience with this course.',
+      name: 'tell_others_about_your_experience_with_this_course',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Poor`
+  String get poor {
+    return Intl.message('Poor', name: 'poor', desc: '', args: []);
+  }
+
+  /// `Fair`
+  String get fair {
+    return Intl.message('Fair', name: 'fair', desc: '', args: []);
+  }
+
+  /// `Good`
+  String get good {
+    return Intl.message('Good', name: 'good', desc: '', args: []);
+  }
+
+  /// `Very Good`
+  String get very_good {
+    return Intl.message('Very Good', name: 'very_good', desc: '', args: []);
+  }
+
+  /// `Excellent`
+  String get excellent {
+    return Intl.message('Excellent', name: 'excellent', desc: '', args: []);
+  }
+
+  /// `Submit Review`
+  String get submit_review {
+    return Intl.message(
+      'Submit Review',
+      name: 'submit_review',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Write your review here...`
+  String get write_your_review_here {
+    return Intl.message(
+      'Write your review here...',
+      name: 'write_your_review_here',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tips for a helpful review`
+  String get tips_for_a_helpful_review {
+    return Intl.message(
+      'Tips for a helpful review',
+      name: 'tips_for_a_helpful_review',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `• Be specific about what you liked or didn't like`
+  String get be_specific {
+    return Intl.message(
+      '• Be specific about what you liked or didn\'t like',
+      name: 'be_specific',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `• Mention the course content, instructor, and difficulty level`
+  String get mention_the_course_content {
+    return Intl.message(
+      '• Mention the course content, instructor, and difficulty level',
+      name: 'mention_the_course_content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `• Help others understand if this course is right for them`
+  String get help_others_understand {
+    return Intl.message(
+      '• Help others understand if this course is right for them',
+      name: 'help_others_understand',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `• Keep it constructive and honest`
+  String get keep_it_constructive {
+    return Intl.message(
+      '• Keep it constructive and honest',
+      name: 'keep_it_constructive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please provide a rating and write a review`
+  String get please_provide_a_rating {
+    return Intl.message(
+      'Please provide a rating and write a review',
+      name: 'please_provide_a_rating',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Review submitted successfully!`
+  String get review_submitted {
+    return Intl.message(
+      'Review submitted successfully!',
+      name: 'review_submitted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to submit review. Please try again.`
+  String get failed_to_submit {
+    return Intl.message(
+      'Failed to submit review. Please try again.',
+      name: 'failed_to_submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Course Content`
+  String get course_content {
+    return Intl.message(
+      'Course Content',
+      name: 'course_content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quizzes`
+  String get quizzes {
+    return Intl.message('Quizzes', name: 'quizzes', desc: '', args: []);
+  }
+
+  /// `Q&A`
+  String get q_and_a {
+    return Intl.message('Q&A', name: 'q_and_a', desc: '', args: []);
+  }
+
+  /// `Ratings`
+  String get ratings {
+    return Intl.message('Ratings', name: 'ratings', desc: '', args: []);
+  }
+
+  /// `hours`
+  String get hours {
+    return Intl.message('hours', name: 'hours', desc: '', args: []);
+  }
+
+  /// `Total`
+  String get total {
+    return Intl.message('Total', name: 'total', desc: '', args: []);
+  }
+
+  /// `Course Description`
+  String get course_description {
+    return Intl.message(
+      'Course Description',
+      name: 'course_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remaining`
+  String get remaining {
+    return Intl.message('Remaining', name: 'remaining', desc: '', args: []);
+  }
+
+  /// `Lessons Completed`
+  String get lessons_completed {
+    return Intl.message(
+      'Lessons Completed',
+      name: 'lessons_completed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Progress`
+  String get your_progress {
+    return Intl.message(
+      'Your Progress',
+      name: 'your_progress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Course Details`
+  String get course_details {
+    return Intl.message(
+      'Course Details',
+      name: 'course_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Created`
+  String get created {
+    return Intl.message('Created', name: 'created', desc: '', args: []);
+  }
+
+  /// `Status`
+  String get status {
+    return Intl.message('Status', name: 'status', desc: '', args: []);
+  }
+
+  /// `of`
+  String get of_of {
+    return Intl.message('of', name: 'of_of', desc: '', args: []);
+  }
+
+  /// `Free`
+  String get free {
+    return Intl.message('Free', name: 'free', desc: '', args: []);
+  }
+
+  /// `Complete lessons to unlock their quizzes and test your knowledge.`
+  String get complete_lessons_to_unlock {
+    return Intl.message(
+      'Complete lessons to unlock their quizzes and test your knowledge.',
+      name: 'complete_lessons_to_unlock',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Loading quizzes...`
+  String get loading_quizzes {
+    return Intl.message(
+      'Loading quizzes...',
+      name: 'loading_quizzes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to load quizzes. Please try again.`
+  String get failed_to_load_quizzes {
+    return Intl.message(
+      'Failed to load quizzes. Please try again.',
+      name: 'failed_to_load_quizzes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No quizzes available`
+  String get no_quizzes_available {
+    return Intl.message(
+      'No quizzes available',
+      name: 'no_quizzes_available',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Complete lessons to unlock quizzes`
+  String get complete_lessons_to_unlock_quizzes {
+    return Intl.message(
+      'Complete lessons to unlock quizzes',
+      name: 'complete_lessons_to_unlock_quizzes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Questions`
+  String get questions {
+    return Intl.message('Questions', name: 'questions', desc: '', args: []);
+  }
+
+  /// `Question`
+  String get question {
+    return Intl.message('Question', name: 'question', desc: '', args: []);
+  }
+
+  /// `Answer`
+  String get answer {
+    return Intl.message('Answer', name: 'answer', desc: '', args: []);
+  }
+
+  /// `Answered`
+  String get answered {
+    return Intl.message('Answered', name: 'answered', desc: '', args: []);
+  }
+
+  /// `Total Quizzes`
+  String get total_quizzes {
+    return Intl.message(
+      'Total Quizzes',
+      name: 'total_quizzes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `previous`
+  String get previous {
+    return Intl.message('previous', name: 'previous', desc: '', args: []);
+  }
+
+  /// `next`
+  String get next {
+    return Intl.message('next', name: 'next', desc: '', args: []);
+  }
+
+  /// `Choose the correct answer:`
+  String get choose_the_correct_answer {
+    return Intl.message(
+      'Choose the correct answer:',
+      name: 'choose_the_correct_answer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Explanation`
+  String get explanation {
+    return Intl.message('Explanation', name: 'explanation', desc: '', args: []);
+  }
+
+  /// `Correct Answer`
+  String get correct_answer {
+    return Intl.message(
+      'Correct Answer',
+      name: 'correct_answer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Incorrect. Correct answer is`
+  String get incorrect_correct_answer_is {
+    return Intl.message(
+      'Incorrect. Correct answer is',
+      name: 'incorrect_correct_answer_is',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `lectures`
+  String get lectures {
+    return Intl.message('lectures', name: 'lectures', desc: '', args: []);
+  }
+
+  /// `Loading video...`
+  String get loading_video {
+    return Intl.message(
+      'Loading video...',
+      name: 'loading_video',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `'Failed to load video`
+  String get failed_to_load_video {
+    return Intl.message(
+      '\'Failed to load video',
+      name: 'failed_to_load_video',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Video`
+  String get video {
+    return Intl.message('Video', name: 'video', desc: '', args: []);
+  }
+
+  /// `Audio`
+  String get audio {
+    return Intl.message('Audio', name: 'audio', desc: '', args: []);
+  }
+
+  /// `Text`
+  String get text {
+    return Intl.message('Text', name: 'text', desc: '', args: []);
+  }
+
+  /// `Start Quiz`
+  String get start_quiz {
+    return Intl.message('Start Quiz', name: 'start_quiz', desc: '', args: []);
+  }
+
+  /// `Quiz is ready!`
+  String get quiz_ready {
+    return Intl.message(
+      'Quiz is ready!',
+      name: 'quiz_ready',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Quiz is available for this lesson.`
+  String get quiz_available_for_this_lesson {
+    return Intl.message(
+      'Quiz is available for this lesson.',
+      name: 'quiz_available_for_this_lesson',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There is a quiz for this lesson.`
+  String get there_is_quiz_for_this_lesson {
+    return Intl.message(
+      'There is a quiz for this lesson.',
+      name: 'there_is_quiz_for_this_lesson',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit Quiz`
+  String get submit_quiz {
+    return Intl.message('Submit Quiz', name: 'submit_quiz', desc: '', args: []);
+  }
+
+  /// `Next Question`
+  String get next_question {
+    return Intl.message(
+      'Next Question',
+      name: 'next_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Excellent`
+  String get Excellent {
+    return Intl.message('Excellent', name: 'Excellent', desc: '', args: []);
+  }
+
+  /// `Good Job`
+  String get Good_Job {
+    return Intl.message('Good Job', name: 'Good_Job', desc: '', args: []);
+  }
+
+  /// `Keep Practicing`
+  String get Keep_Practicing {
+    return Intl.message(
+      'Keep Practicing',
+      name: 'Keep_Practicing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You scored`
+  String get You_scored {
+    return Intl.message('You scored', name: 'You_scored', desc: '', args: []);
+  }
+
+  /// `out of`
+  String get out_of {
+    return Intl.message('out of', name: 'out_of', desc: '', args: []);
+  }
+
+  /// `Retake Quiz`
+  String get retake_quiz {
+    return Intl.message('Retake Quiz', name: 'retake_quiz', desc: '', args: []);
+  }
+
+  /// `Score`
+  String get Score {
+    return Intl.message('Score', name: 'Score', desc: '', args: []);
+  }
+
+  /// `Correct`
+  String get Correct {
+    return Intl.message('Correct', name: 'Correct', desc: '', args: []);
+  }
+
+  /// `Wrong`
+  String get Wrong {
+    return Intl.message('Wrong', name: 'Wrong', desc: '', args: []);
+  }
+
+  /// `AI Assistant`
+  String get ai_assistant {
+    return Intl.message(
+      'AI Assistant',
+      name: 'ai_assistant',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Monday`
+  String get Monday {
+    return Intl.message('Monday', name: 'Monday', desc: '', args: []);
+  }
+
+  /// `Tuesday`
+  String get Tuesday {
+    return Intl.message('Tuesday', name: 'Tuesday', desc: '', args: []);
+  }
+
+  /// `Wednesday`
+  String get Wednesday {
+    return Intl.message('Wednesday', name: 'Wednesday', desc: '', args: []);
+  }
+
+  /// `Thursday`
+  String get Thursday {
+    return Intl.message('Thursday', name: 'Thursday', desc: '', args: []);
+  }
+
+  /// `Friday`
+  String get Friday {
+    return Intl.message('Friday', name: 'Friday', desc: '', args: []);
+  }
+
+  /// `Saturday`
+  String get Saturday {
+    return Intl.message('Saturday', name: 'Saturday', desc: '', args: []);
+  }
+
+  /// `Sunday`
+  String get Sunday {
+    return Intl.message('Sunday', name: 'Sunday', desc: '', args: []);
+  }
+
+  /// `Sun`
+  String get sun {
+    return Intl.message('Sun', name: 'sun', desc: '', args: []);
+  }
+
+  /// `Mon`
+  String get mon {
+    return Intl.message('Mon', name: 'mon', desc: '', args: []);
+  }
+
+  /// `Tue`
+  String get tue {
+    return Intl.message('Tue', name: 'tue', desc: '', args: []);
+  }
+
+  /// `Wed`
+  String get wed {
+    return Intl.message('Wed', name: 'wed', desc: '', args: []);
+  }
+
+  /// `Thu`
+  String get thu {
+    return Intl.message('Thu', name: 'thu', desc: '', args: []);
+  }
+
+  /// `Fri`
+  String get fri {
+    return Intl.message('Fri', name: 'fri', desc: '', args: []);
+  }
+
+  /// `Sat`
+  String get sat {
+    return Intl.message('Sat', name: 'sat', desc: '', args: []);
+  }
+
+  /// `No enrolled courses`
+  String get no_enrolled_courses {
+    return Intl.message(
+      'No enrolled courses',
+      name: 'no_enrolled_courses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start learning today`
+  String get start_learning_today {
+    return Intl.message(
+      'Start learning today',
+      name: 'start_learning_today',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Browse Courses`
+  String get browse_courses {
+    return Intl.message(
+      'Browse Courses',
+      name: 'browse_courses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Learning Journey`
+  String get my_learning_journey {
+    return Intl.message(
+      'My Learning Journey',
+      name: 'my_learning_journey',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enrolled Courses`
+  String get enrolled_courses {
+    return Intl.message(
+      'Enrolled Courses',
+      name: 'enrolled_courses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enrolled`
+  String get enrolled {
+    return Intl.message('Enrolled', name: 'enrolled', desc: '', args: []);
+  }
+
+  /// `Your Courses`
+  String get your_courses {
+    return Intl.message(
+      'Your Courses',
+      name: 'your_courses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Completed`
+  String get completed {
+    return Intl.message('Completed', name: 'completed', desc: '', args: []);
+  }
+
+  /// `In Progress`
+  String get in_progress {
+    return Intl.message('In Progress', name: 'in_progress', desc: '', args: []);
+  }
+
+  /// `Progress`
+  String get progress {
+    return Intl.message('Progress', name: 'progress', desc: '', args: []);
+  }
+
+  /// `Review Course`
+  String get review_course {
+    return Intl.message(
+      'Review Course',
+      name: 'review_course',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Active`
+  String get active {
+    return Intl.message('Active', name: 'active', desc: '', args: []);
+  }
+
+  /// `Account`
+  String get account {
+    return Intl.message('Account', name: 'account', desc: '', args: []);
+  }
+
+  /// `Personal Information`
+  String get personal_information {
+    return Intl.message(
+      'Personal Information',
+      name: 'personal_information',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change Language`
+  String get change_language {
+    return Intl.message(
+      'Change Language',
+      name: 'change_language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Logout`
+  String get logout {
+    return Intl.message('Logout', name: 'logout', desc: '', args: []);
+  }
+
+  /// `Change Password`
+  String get change_password {
+    return Intl.message(
+      'Change Password',
+      name: 'change_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message('Language', name: 'language', desc: '', args: []);
+  }
+
+  /// `Loading your profile...`
+  String get loading_your_profile {
+    return Intl.message(
+      'Loading your profile...',
+      name: 'loading_your_profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account Settings`
+  String get account_settings {
+    return Intl.message(
+      'Account Settings',
+      name: 'account_settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Manage your personal information`
+  String get manage_your_personal_information {
+    return Intl.message(
+      'Manage your personal information',
+      name: 'manage_your_personal_information',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update your password`
+  String get update_your_password {
+    return Intl.message(
+      'Update your password',
+      name: 'update_your_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose your preferred language`
+  String get choose_your_preferred_language {
+    return Intl.message(
+      'Choose your preferred language',
+      name: 'choose_your_preferred_language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Other`
+  String get other {
+    return Intl.message('Other', name: 'other', desc: '', args: []);
+  }
+
+  /// `Sign out of your account`
+  String get sign_out_of_your_account {
+    return Intl.message(
+      'Sign out of your account',
+      name: 'sign_out_of_your_account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message('Settings', name: 'settings', desc: '', args: []);
+  }
+
+  /// `Weekly Progress`
+  String get weekly_progess {
+    return Intl.message(
+      'Weekly Progress',
+      name: 'weekly_progess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lessons completed this week`
+  String get lessons_completed_this_week {
+    return Intl.message(
+      'Lessons completed this week',
+      name: 'lessons_completed_this_week',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date of Birth`
+  String get date_of_birth {
+    return Intl.message(
+      'Date of Birth',
+      name: 'date_of_birth',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bio`
+  String get bio {
+    return Intl.message('Bio', name: 'bio', desc: '', args: []);
+  }
+
+  /// `Save Changes`
+  String get save_changes {
+    return Intl.message(
+      'Save Changes',
+      name: 'save_changes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No bio provided`
+  String get no_bio_provided {
+    return Intl.message(
+      'No bio provided',
+      name: 'no_bio_provided',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter`
+  String get enter {
+    return Intl.message('Enter', name: 'enter', desc: '', args: []);
+  }
+
+  /// `Language Settings`
+  String get language_settings {
+    return Intl.message(
+      'Language Settings',
+      name: 'language_settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Available Languages`
+  String get available_languages {
+    return Intl.message(
+      'Available Languages',
+      name: 'available_languages',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language changed successfully`
+  String get language_changed_successfully {
+    return Intl.message(
+      'Language changed successfully',
+      name: 'language_changed_successfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search for courses`
+  String get search_for_courses {
+    return Intl.message(
+      'Search for courses',
+      name: 'search_for_courses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Coupon Code`
+  String get coupon_code {
+    return Intl.message('Coupon Code', name: 'coupon_code', desc: '', args: []);
+  }
+
+  /// `Apply`
+  String get apply {
+    return Intl.message('Apply', name: 'apply', desc: '', args: []);
+  }
+
+  /// `Have a coupon code?`
+  String get have_a_coupon_code {
+    return Intl.message(
+      'Have a coupon code?',
+      name: 'have_a_coupon_code',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Coupon applied`
+  String get coupon_applied {
+    return Intl.message(
+      'Coupon applied',
+      name: 'coupon_applied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Coupon code is invalid`
+  String get coupon_code_is_invalid {
+    return Intl.message(
+      'Coupon code is invalid',
+      name: 'coupon_code_is_invalid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Found`
+  String get found {
+    return Intl.message('Found', name: 'found', desc: '', args: []);
+  }
+
+  /// `No courses found`
+  String get no_courses_found {
+    return Intl.message(
+      'No courses found',
+      name: 'no_courses_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try adjusting your search terms\nor explore our categories below`
+  String get try_adjusting_your_search {
+    return Intl.message(
+      'Try adjusting your search terms\nor explore our categories below',
+      name: 'try_adjusting_your_search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Popular Categories`
+  String get popular_categories {
+    return Intl.message(
+      'Popular Categories',
+      name: 'popular_categories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Explore courses in trending categories`
+  String get explore_courses_in_trending_categories {
+    return Intl.message(
+      'Explore courses in trending categories',
+      name: 'explore_courses_in_trending_categories',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Data Science`
+  String get data_science {
+    return Intl.message(
+      'Data Science',
+      name: 'data_science',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Web Development`
+  String get web_development {
+    return Intl.message(
+      'Web Development',
+      name: 'web_development',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mobile Development`
+  String get mobile_development {
+    return Intl.message(
+      'Mobile Development',
+      name: 'mobile_development',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `IT and Software`
+  String get it_and_software {
+    return Intl.message(
+      'IT and Software',
+      name: 'it_and_software',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Learn data analysis, ML, and AI`
+  String get learn_data_analysis {
+    return Intl.message(
+      'Learn data analysis, ML, and AI',
+      name: 'learn_data_analysis',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Frontend, backend, and full-stack`
+  String get frontend_and_backend {
+    return Intl.message(
+      'Frontend, backend, and full-stack',
+      name: 'frontend_and_backend',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `iOS, Android, and cross-platform`
+  String get iso_android_cross_platform {
+    return Intl.message(
+      'iOS, Android, and cross-platform',
+      name: 'iso_android_cross_platform',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Networking, DevOps, and more`
+  String get network_devops {
+    return Intl.message(
+      'Networking, DevOps, and more',
+      name: 'network_devops',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `by`
+  String get by {
+    return Intl.message('by', name: 'by', desc: '', args: []);
+  }
+
+  /// `was`
+  String get was {
+    return Intl.message('was', name: 'was', desc: '', args: []);
+  }
+
+  /// `now`
+  String get now {
+    return Intl.message('now', name: 'now', desc: '', args: []);
+  }
+
+  /// `you save`
+  String get you_save {
+    return Intl.message('you save', name: 'you_save', desc: '', args: []);
+  }
+
+  /// `Cybersecurity`
+  String get cybersecurity {
+    return Intl.message(
+      'Cybersecurity',
+      name: 'cybersecurity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Learn cybersecurity, network security, and web security`
+  String get learn_cybersecurity {
+    return Intl.message(
+      'Learn cybersecurity, network security, and web security',
+      name: 'learn_cybersecurity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Categories`
+  String get categories {
+    return Intl.message('Categories', name: 'categories', desc: '', args: []);
+  }
+
+  /// `Explore`
+  String get explore {
+    return Intl.message('Explore', name: 'explore', desc: '', args: []);
+  }
+
+  /// `All Courses`
+  String get all_courses {
+    return Intl.message('All Courses', name: 'all_courses', desc: '', args: []);
+  }
+
+  /// `Start your free course`
+  String get start_your_free_course {
+    return Intl.message(
+      'Start your free course',
+      name: 'start_your_free_course',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Details`
+  String get details {
+    return Intl.message('Details', name: 'details', desc: '', args: []);
+  }
+
+  /// `More Details`
+  String get more_details {
+    return Intl.message(
+      'More Details',
+      name: 'more_details',
       desc: '',
       args: [],
     );

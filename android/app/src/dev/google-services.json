@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "699411488492",
+    "project_id": "el-center-f8abe",
+    "storage_bucket": "el-center-f8abe.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699411488492:android:7656bef2b5807e7b0d4fc9",
+        "android_client_info": {
+          "package_name": "com.example.e_learning_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCni1Ch9VKHKpj0gTpP9bFx61KHLuAHcYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699411488492:android:b0e4b72770ebe8730d4fc9",
+        "android_client_info": {
+          "package_name": "com.example.e_learning_app.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCni1Ch9VKHKpj0gTpP9bFx61KHLuAHcYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

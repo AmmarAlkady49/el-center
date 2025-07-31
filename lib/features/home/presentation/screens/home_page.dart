@@ -1,36 +1,27 @@
-import 'dart:developer';
-
-import 'package:e_learning_app/features/home/logic/cubit/home_cubit.dart';
+import 'package:e_learning_app/core/helpers/spacing.dart';
+import 'package:e_learning_app/features/home/presentation/widgets/category_section.dart';
+import 'package:e_learning_app/features/home/presentation/widgets/popular_products.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../widgets/build_app_bar_for_home_page.dart';
+import '../widgets/build_bar_chart_for_home_page.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<HomeCubit>().getAppBarData();
-    log('initState');
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(
-      // mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+    return CustomScrollView(
+      slivers: [
         BuildAppBarForHomePage(),
-        Text('Home'),
+        SliverToBoxAdapter(child: verticalSpacing(20)),
+        SliverToBoxAdapter(child: ModernBarChartForHomePage()),
+        SliverToBoxAdapter(child: verticalSpacing(20)),
+        SliverToBoxAdapter(child: PopularProducts()),
+        SliverToBoxAdapter(child: verticalSpacing(20)),
+        SliverToBoxAdapter(child: CategorySection()),
+        SliverToBoxAdapter(child: verticalSpacing(100)),
       ],
-    ));
+    );
   }
 }

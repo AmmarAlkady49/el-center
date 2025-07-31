@@ -2,6 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class FontHelper {
+  static TextStyle font10BlackW500(BuildContext context) {
+    return _localizedFont(context, FontWeight.w500).copyWith(
+      fontSize: 10.sp,
+      color: Colors.black,
+    );
+  }
+  static TextStyle font10BlackW600(BuildContext context) {
+    return _localizedFont(context, FontWeight.w600).copyWith(
+      fontSize: 10.sp,
+      color: Colors.black,
+    );
+  }
+
   static TextStyle font24Black45W300(BuildContext context) {
     return _localizedFont(context, FontWeight.w300).copyWith(
       fontSize: 24.sp,
@@ -29,12 +42,14 @@ class FontHelper {
       color: Colors.black,
     );
   }
+
   static TextStyle font31WhiteW800(BuildContext context) {
     return _localizedFont(context, FontWeight.w800).copyWith(
       fontSize: 32.sp,
       color: Colors.white,
     );
   }
+
   static TextStyle font36WhiteW700(BuildContext context) {
     return _localizedFont(context, FontWeight.w700).copyWith(
       fontSize: 36.sp,
@@ -42,13 +57,13 @@ class FontHelper {
     );
   }
 
-
   static TextStyle font12lackW400(BuildContext context) {
     return _localizedFont(context, FontWeight.w400).copyWith(
       fontSize: 12.sp,
       color: Colors.black,
     );
   }
+
   static TextStyle font14BlackW500(BuildContext context) {
     return _localizedFont(context, FontWeight.w500).copyWith(
       fontSize: 14.sp,
@@ -62,6 +77,7 @@ class FontHelper {
       color: Colors.black,
     );
   }
+
   static TextStyle font15BlackW600(BuildContext context) {
     return _localizedFont(context, FontWeight.w600).copyWith(
       fontSize: 15.sp,
