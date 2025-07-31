@@ -133,9 +133,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "discover_your_learning": MessageLookupByLibrary.simpleMessage(
       "Discover Your Learning Path with ElCentre",
     ),
+    "discover_your_learning": MessageLookupByLibrary.simpleMessage(
+      "Discover Your Learning Path with ElCentre",
+    ),
     "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
+    "egp_currency": MessageLookupByLibrary.simpleMessage("EGP"),
     "egp_currency": MessageLookupByLibrary.simpleMessage("EGP"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailVerification": MessageLookupByLibrary.simpleMessage(
@@ -321,6 +325,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "out_of": MessageLookupByLibrary.simpleMessage("out of"),
     "overView": MessageLookupByLibrary.simpleMessage("Overview"),
+    "out_of": MessageLookupByLibrary.simpleMessage("out of"),
+    "overView": MessageLookupByLibrary.simpleMessage("Overview"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordTooWeak": MessageLookupByLibrary.simpleMessage(
       "Password too weak",
@@ -399,7 +405,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "ratings": MessageLookupByLibrary.simpleMessage("Ratings"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "remaining": MessageLookupByLibrary.simpleMessage("Remaining"),
+    "remaining": MessageLookupByLibrary.simpleMessage("Remaining"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
+    "requirements": MessageLookupByLibrary.simpleMessage("Requirements"),
     "requirements": MessageLookupByLibrary.simpleMessage("Requirements"),
     "resend": MessageLookupByLibrary.simpleMessage("Resend"),
     "resendOTP": MessageLookupByLibrary.simpleMessage("Resend OTP"),
@@ -431,6 +439,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Sign in to your \nAccount",
     ),
     "signup": MessageLookupByLibrary.simpleMessage("Sign up"),
+    "something_went_wrong": MessageLookupByLibrary.simpleMessage(
+      "Something went wrong",
+    ),
     "something_went_wrong": MessageLookupByLibrary.simpleMessage(
       "Something went wrong",
     ),

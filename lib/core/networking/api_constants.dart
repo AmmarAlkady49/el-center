@@ -4,6 +4,8 @@ class ApiConstants {
   static const String apiBaseUrl = "https://elcentre-api.runasp.net/";
   static const String baseUrlOfTheImage =
       "https://elcentre-learn.vercel.app/api";
+  static const String baseUrlOfTheImage =
+      "https://elcentre-learn.vercel.app/api";
 
   static const String login = "Account/login";
   static const String register = "Account/register";

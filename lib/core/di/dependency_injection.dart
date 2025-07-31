@@ -12,6 +12,9 @@ import '../../features/authVerification/logic/cubit/verification_account_cubit.d
 import '../../features/course_details/data/repos/course_details_repo.dart';
 import '../../features/course_details/logic/cubit/course_details_cubit.dart';
 import '../../features/home/data/repo/home_repo.dart';
+import '../../features/course_details/data/repos/course_details_repo.dart';
+import '../../features/course_details/logic/cubit/course_details_cubit.dart';
+import '../../features/home/data/repo/home_repo.dart';
 import '../../features/home/logic/cubit/home_cubit.dart';
 import '../../features/learning_centre/data/repo/learning_centre_repo.dart';
 import '../../features/learning_centre/logic/cubit/learning_centre_cubit.dart';

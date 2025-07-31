@@ -130,7 +130,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "discover_your_learning": MessageLookupByLibrary.simpleMessage(
       "اكتشف مسارك للتعلم مع ElCentre",
     ),
+    "discover_your_learning": MessageLookupByLibrary.simpleMessage(
+      "اكتشف مسارك للتعلم مع ElCentre",
+    ),
     "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "egp_currency": MessageLookupByLibrary.simpleMessage("ج.م"),
     "egp_currency": MessageLookupByLibrary.simpleMessage("ج.م"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "emailVerification": MessageLookupByLibrary.simpleMessage(
@@ -314,6 +318,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "out_of": MessageLookupByLibrary.simpleMessage("من"),
     "overView": MessageLookupByLibrary.simpleMessage("نظرة عامة"),
+    "out_of": MessageLookupByLibrary.simpleMessage("من"),
+    "overView": MessageLookupByLibrary.simpleMessage("نظرة عامة"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "passwordTooWeak": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور ضعيفة جداً",
@@ -392,7 +398,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "ratings": MessageLookupByLibrary.simpleMessage("تقييمات"),
     "register": MessageLookupByLibrary.simpleMessage("تسجيل حساب جديد"),
     "remaining": MessageLookupByLibrary.simpleMessage("المتبقي"),
+    "remaining": MessageLookupByLibrary.simpleMessage("المتبقي"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+    "requirements": MessageLookupByLibrary.simpleMessage("المتطلبات"),
     "requirements": MessageLookupByLibrary.simpleMessage("المتطلبات"),
     "resend": MessageLookupByLibrary.simpleMessage("اعادة ارسال"),
     "resendOTP": MessageLookupByLibrary.simpleMessage("اعادة ارسال OTP"),
@@ -424,6 +432,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تسجيل الدخول إلى \nحسابك",
     ),
     "signup": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "something_went_wrong": MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
     "something_went_wrong": MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
     "startLearning": MessageLookupByLibrary.simpleMessage("ابدأ التعلم!"),
     "start_learning_today": MessageLookupByLibrary.simpleMessage(
