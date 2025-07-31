@@ -49,7 +49,7 @@ class CoursesByCategory extends StatelessWidget {
             appBar = buildModernAppBar(
                 context: context,
                 categoryName: categoryId == 0
-                    ? S.of(context).all_categories
+                    ? S.of(context).all_courses
                     : state.courses[0].categoryName!,
                 coursesCount: state.courses.length);
           }

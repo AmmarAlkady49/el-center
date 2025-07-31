@@ -12,11 +12,20 @@ import '../../features/authVerification/logic/cubit/verification_account_cubit.d
 import '../../features/course_details/data/repos/course_details_repo.dart';
 import '../../features/course_details/logic/cubit/course_details_cubit.dart';
 import '../../features/home/data/repo/home_repo.dart';
+import '../../features/course_details/data/repos/course_details_repo.dart';
+import '../../features/course_details/logic/cubit/course_details_cubit.dart';
+import '../../features/home/data/repo/home_repo.dart';
 import '../../features/home/logic/cubit/home_cubit.dart';
 import '../../features/learning_centre/data/repo/learning_centre_repo.dart';
 import '../../features/learning_centre/logic/cubit/learning_centre_cubit.dart';
+import '../../features/my_courses/data/repo/my_courses_repo.dart';
+import '../../features/my_courses/logic/cubit/my_courses_cubit.dart';
 import '../../features/payment/data/repo/payment_repo.dart';
 import '../../features/payment/logic/cubit/payment_cubit.dart';
+import '../../features/search/data/repo/search_repo.dart';
+import '../../features/search/logic/cubit/search_cubit.dart';
+import '../../features/settings/data/repo/settings_repo.dart';
+import '../../features/settings/logic/cubit/settings_cubit.dart';
 import '../data/repo/profile_repo.dart';
 
 final GetIt getIt = GetIt.instance;
@@ -63,7 +72,20 @@ Future<void> setupGetIt() async {
   // learning lessons El Centre
   getIt.registerLazySingleton<LearningCentreRepo>(
       () => LearningCentreRepo(getIt()));
-
   getIt
       .registerFactory<LearningCentreCubit>(() => LearningCentreCubit(getIt()));
+
+  // my courses
+  getIt.registerLazySingleton<MyCoursesRepo>(() => MyCoursesRepo(getIt()));
+  getIt.registerFactory<MyCoursesCubit>(
+      () => MyCoursesCubit(myCoursesRepo: getIt()));
+
+  // settings page
+  getIt.registerLazySingleton<SettingsRepo>(
+      () => SettingsRepo(apiService: getIt()));
+  getIt.registerFactory<SettingsCubit>(() => SettingsCubit(getIt()));
+
+  // search page
+  getIt.registerLazySingleton<SearchRepo>(() => SearchRepo(apiService:  getIt()));
+  getIt.registerFactory<SearchCubit>(() => SearchCubit(getIt()));
 }

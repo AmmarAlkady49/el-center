@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../generated/l10n.dart';
 
 import '../../../../core/theming/app_colors.dart';
+import '../screens/all_categories_page.dart';
 
 class CategorySection extends StatelessWidget {
   const CategorySection({super.key});
@@ -64,11 +65,13 @@ class CategorySection extends StatelessWidget {
             itemBuilder: (context, index) => InkWell(
               borderRadius: BorderRadius.circular(16.r),
               onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  AppRoutes.coursesByCategory,
-                  arguments: categories[index]['categoryId'],
-                );
+                index != 3
+                    ? Navigator.pushNamed(
+                        context,
+                        AppRoutes.coursesByCategory,
+                        arguments: categories[index]['categoryId'],
+                      )
+                    : Navigator.pushNamed(context, AppRoutes.getAllCategories);
               },
               child: _buildCategoryItem(
                 context: context,

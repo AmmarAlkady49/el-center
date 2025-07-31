@@ -1,4 +1,5 @@
 import 'package:e_learning_app/core/data/models/lesson_module.dart';
+import 'package:e_learning_app/core/data/models/standard_response_body.dart';
 import 'package:e_learning_app/core/networking/api_result.dart';
 
 import '../../../../core/data/models/course_module_model.dart';
@@ -61,6 +62,16 @@ class CourseDetailsRepo {
         reviewContent: review,
       ));
       return ApiResult.success(response.message);
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  Future<ApiResult<StandardResponseBody>> applyCoupon(
+      String couponCode, int courseId) async {
+    try {
+      final response = await apiService.applyCoupon(couponCode, courseId);
+      return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));
     }

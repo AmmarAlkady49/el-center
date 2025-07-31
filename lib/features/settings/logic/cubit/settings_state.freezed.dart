@@ -1,0 +1,509 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'settings_state.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+// dart format off
+T _$identity<T>(T value) => value;
+
+/// @nodoc
+mixin _$SettingsState<T> {
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SettingsState<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'SettingsState<$T>()';
+  }
+}
+
+/// @nodoc
+class $SettingsStateCopyWith<T, $Res> {
+  $SettingsStateCopyWith(
+      SettingsState<T> _, $Res Function(SettingsState<T>) __);
+}
+
+/// Adds pattern-matching-related methods to [SettingsState].
+extension SettingsStatePatterns<T> on SettingsState<T> {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(LoadingsettingsPage<T> value)? loadingsettingsPage,
+    TResult Function(LoadedSettingsPage<T> value)? loadedSettingsPage,
+    TResult Function(LoadingSettingsPageError<T> value)?
+        loadingSettingsPageError,
+    TResult Function(ChangeLanguageSuccess<T> value)? changeLanguageSuccess,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial(_that);
+      case LoadingsettingsPage() when loadingsettingsPage != null:
+        return loadingsettingsPage(_that);
+      case LoadedSettingsPage() when loadedSettingsPage != null:
+        return loadedSettingsPage(_that);
+      case LoadingSettingsPageError() when loadingSettingsPageError != null:
+        return loadingSettingsPageError(_that);
+      case ChangeLanguageSuccess() when changeLanguageSuccess != null:
+        return changeLanguageSuccess(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(LoadingsettingsPage<T> value) loadingsettingsPage,
+    required TResult Function(LoadedSettingsPage<T> value) loadedSettingsPage,
+    required TResult Function(LoadingSettingsPageError<T> value)
+        loadingSettingsPageError,
+    required TResult Function(ChangeLanguageSuccess<T> value)
+        changeLanguageSuccess,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial():
+        return initial(_that);
+      case LoadingsettingsPage():
+        return loadingsettingsPage(_that);
+      case LoadedSettingsPage():
+        return loadedSettingsPage(_that);
+      case LoadingSettingsPageError():
+        return loadingSettingsPageError(_that);
+      case ChangeLanguageSuccess():
+        return changeLanguageSuccess(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(LoadingsettingsPage<T> value)? loadingsettingsPage,
+    TResult? Function(LoadedSettingsPage<T> value)? loadedSettingsPage,
+    TResult? Function(LoadingSettingsPageError<T> value)?
+        loadingSettingsPageError,
+    TResult? Function(ChangeLanguageSuccess<T> value)? changeLanguageSuccess,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial(_that);
+      case LoadingsettingsPage() when loadingsettingsPage != null:
+        return loadingsettingsPage(_that);
+      case LoadedSettingsPage() when loadedSettingsPage != null:
+        return loadedSettingsPage(_that);
+      case LoadingSettingsPageError() when loadingSettingsPageError != null:
+        return loadingSettingsPageError(_that);
+      case ChangeLanguageSuccess() when changeLanguageSuccess != null:
+        return changeLanguageSuccess(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadingsettingsPage,
+    TResult Function(ProfileAccountModel profileInfo)? loadedSettingsPage,
+    TResult Function(String error)? loadingSettingsPageError,
+    TResult Function(String language)? changeLanguageSuccess,
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial();
+      case LoadingsettingsPage() when loadingsettingsPage != null:
+        return loadingsettingsPage();
+      case LoadedSettingsPage() when loadedSettingsPage != null:
+        return loadedSettingsPage(_that.profileInfo);
+      case LoadingSettingsPageError() when loadingSettingsPageError != null:
+        return loadingSettingsPageError(_that.error);
+      case ChangeLanguageSuccess() when changeLanguageSuccess != null:
+        return changeLanguageSuccess(_that.language);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadingsettingsPage,
+    required TResult Function(ProfileAccountModel profileInfo)
+        loadedSettingsPage,
+    required TResult Function(String error) loadingSettingsPageError,
+    required TResult Function(String language) changeLanguageSuccess,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial():
+        return initial();
+      case LoadingsettingsPage():
+        return loadingsettingsPage();
+      case LoadedSettingsPage():
+        return loadedSettingsPage(_that.profileInfo);
+      case LoadingSettingsPageError():
+        return loadingSettingsPageError(_that.error);
+      case ChangeLanguageSuccess():
+        return changeLanguageSuccess(_that.language);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadingsettingsPage,
+    TResult? Function(ProfileAccountModel profileInfo)? loadedSettingsPage,
+    TResult? Function(String error)? loadingSettingsPageError,
+    TResult? Function(String language)? changeLanguageSuccess,
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _Initial() when initial != null:
+        return initial();
+      case LoadingsettingsPage() when loadingsettingsPage != null:
+        return loadingsettingsPage();
+      case LoadedSettingsPage() when loadedSettingsPage != null:
+        return loadedSettingsPage(_that.profileInfo);
+      case LoadingSettingsPageError() when loadingSettingsPageError != null:
+        return loadingSettingsPageError(_that.error);
+      case ChangeLanguageSuccess() when changeLanguageSuccess != null:
+        return changeLanguageSuccess(_that.language);
+      case _:
+        return null;
+    }
+  }
+}
+
+/// @nodoc
+
+class _Initial<T> implements SettingsState<T> {
+  const _Initial();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Initial<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'SettingsState<$T>.initial()';
+  }
+}
+
+/// @nodoc
+
+class LoadingsettingsPage<T> implements SettingsState<T> {
+  const LoadingsettingsPage();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is LoadingsettingsPage<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'SettingsState<$T>.loadingsettingsPage()';
+  }
+}
+
+/// @nodoc
+
+class LoadedSettingsPage<T> implements SettingsState<T> {
+  const LoadedSettingsPage({required this.profileInfo});
+
+  final ProfileAccountModel profileInfo;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $LoadedSettingsPageCopyWith<T, LoadedSettingsPage<T>> get copyWith =>
+      _$LoadedSettingsPageCopyWithImpl<T, LoadedSettingsPage<T>>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LoadedSettingsPage<T> &&
+            (identical(other.profileInfo, profileInfo) ||
+                other.profileInfo == profileInfo));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, profileInfo);
+
+  @override
+  String toString() {
+    return 'SettingsState<$T>.loadedSettingsPage(profileInfo: $profileInfo)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $LoadedSettingsPageCopyWith<T, $Res>
+    implements $SettingsStateCopyWith<T, $Res> {
+  factory $LoadedSettingsPageCopyWith(LoadedSettingsPage<T> value,
+          $Res Function(LoadedSettingsPage<T>) _then) =
+      _$LoadedSettingsPageCopyWithImpl;
+  @useResult
+  $Res call({ProfileAccountModel profileInfo});
+}
+
+/// @nodoc
+class _$LoadedSettingsPageCopyWithImpl<T, $Res>
+    implements $LoadedSettingsPageCopyWith<T, $Res> {
+  _$LoadedSettingsPageCopyWithImpl(this._self, this._then);
+
+  final LoadedSettingsPage<T> _self;
+  final $Res Function(LoadedSettingsPage<T>) _then;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? profileInfo = null,
+  }) {
+    return _then(LoadedSettingsPage<T>(
+      profileInfo: null == profileInfo
+          ? _self.profileInfo
+          : profileInfo // ignore: cast_nullable_to_non_nullable
+              as ProfileAccountModel,
+    ));
+  }
+}
+
+/// @nodoc
+
+class LoadingSettingsPageError<T> implements SettingsState<T> {
+  const LoadingSettingsPageError({required this.error});
+
+  final String error;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $LoadingSettingsPageErrorCopyWith<T, LoadingSettingsPageError<T>>
+      get copyWith => _$LoadingSettingsPageErrorCopyWithImpl<T,
+          LoadingSettingsPageError<T>>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LoadingSettingsPageError<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'SettingsState<$T>.loadingSettingsPageError(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $LoadingSettingsPageErrorCopyWith<T, $Res>
+    implements $SettingsStateCopyWith<T, $Res> {
+  factory $LoadingSettingsPageErrorCopyWith(LoadingSettingsPageError<T> value,
+          $Res Function(LoadingSettingsPageError<T>) _then) =
+      _$LoadingSettingsPageErrorCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$LoadingSettingsPageErrorCopyWithImpl<T, $Res>
+    implements $LoadingSettingsPageErrorCopyWith<T, $Res> {
+  _$LoadingSettingsPageErrorCopyWithImpl(this._self, this._then);
+
+  final LoadingSettingsPageError<T> _self;
+  final $Res Function(LoadingSettingsPageError<T>) _then;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(LoadingSettingsPageError<T>(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ChangeLanguageSuccess<T> implements SettingsState<T> {
+  const ChangeLanguageSuccess({required this.language});
+
+  final String language;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ChangeLanguageSuccessCopyWith<T, ChangeLanguageSuccess<T>> get copyWith =>
+      _$ChangeLanguageSuccessCopyWithImpl<T, ChangeLanguageSuccess<T>>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ChangeLanguageSuccess<T> &&
+            (identical(other.language, language) ||
+                other.language == language));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, language);
+
+  @override
+  String toString() {
+    return 'SettingsState<$T>.changeLanguageSuccess(language: $language)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ChangeLanguageSuccessCopyWith<T, $Res>
+    implements $SettingsStateCopyWith<T, $Res> {
+  factory $ChangeLanguageSuccessCopyWith(ChangeLanguageSuccess<T> value,
+          $Res Function(ChangeLanguageSuccess<T>) _then) =
+      _$ChangeLanguageSuccessCopyWithImpl;
+  @useResult
+  $Res call({String language});
+}
+
+/// @nodoc
+class _$ChangeLanguageSuccessCopyWithImpl<T, $Res>
+    implements $ChangeLanguageSuccessCopyWith<T, $Res> {
+  _$ChangeLanguageSuccessCopyWithImpl(this._self, this._then);
+
+  final ChangeLanguageSuccess<T> _self;
+  final $Res Function(ChangeLanguageSuccess<T>) _then;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? language = null,
+  }) {
+    return _then(ChangeLanguageSuccess<T>(
+      language: null == language
+          ? _self.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

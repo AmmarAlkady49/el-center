@@ -12,5 +12,8 @@ class AppRoutes {
   static const String writeReview = '/writeReview';
   static const String lessonPlayer = '/lessonPlayer';
   static const String lessonQuiz = '/lessonQuizScreen';
+  static const String personalInformation = '/personalInformation';
+  static const String changeLanguage = '/changeLanguage';
+  static const String getAllCategories = '/getAllCategories';
 
 }

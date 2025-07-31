@@ -9,20 +9,23 @@ import 'core/helpers/app_constants.dart';
 import 'generated/l10n.dart';
 
 class ElCenterApp extends StatelessWidget {
-  const ElCenterApp({super.key});
+  final String languageCode;
+  const ElCenterApp({
+    super.key,
+    required this.languageCode,
+  });
 
   @override
-  Widget build(
-    BuildContext context,
-  ) {
+  Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        locale: Locale("en"),
-        localizationsDelegates: [
+        locale: Locale(languageCode.isNotEmpty ? languageCode : 'en'),
+        // locale: Locale('ar'),
+        localizationsDelegates: const [
           S.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,

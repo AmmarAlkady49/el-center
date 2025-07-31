@@ -1,6 +1,7 @@
 import 'package:e_learning_app/core/networking/api_result.dart';
 import 'package:e_learning_app/core/networking/api_service.dart';
 
+import '../../../../core/data/models/completed_lesson_model.dart';
 import '../../../../core/data/models/standard_response_body.dart';
 import '../../../../core/networking/api_error_handler.dart';
 import '../model/quiz_model.dart';
@@ -28,7 +29,7 @@ class LearningCentreRepo {
     }
   }
 
-  Future<List<int>> getCompletedLessons(int courseId) async {
+  Future<List<CompletedLessonModel>> getCompletedLessons(int courseId) async {
     try {
       final response = await apiService.getCompletedLessons(courseId);
       return response;

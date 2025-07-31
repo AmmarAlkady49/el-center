@@ -24,6 +24,8 @@ abstract class CourseDetailsState with _$CourseDetailsState {
   const factory CourseDetailsState.paymentLoading() = PaymentLoading;
   const factory CourseDetailsState.paymentSuccess(
       Map<String, String> redirectData) = PaymentSuccess;
+  const factory CourseDetailsState.freePaymentSuccess(
+      {required String message}) = FreePaymentSuccess;
   const factory CourseDetailsState.paymentFailure({
     required String error,
   }) = PaymentFailure;
@@ -35,4 +37,11 @@ abstract class CourseDetailsState with _$CourseDetailsState {
   const factory CourseDetailsState.courseReviewFailure({
     required String error,
   }) = CourseReviewFailure;
+
+  const factory CourseDetailsState.couponLoading() = CouponLoading;
+  const factory CourseDetailsState.couponSuccess(String returnFinalPrice) =
+      CouponSuccess;
+  const factory CourseDetailsState.couponFailure({
+    required String error,
+  }) = CouponFailure;
 }

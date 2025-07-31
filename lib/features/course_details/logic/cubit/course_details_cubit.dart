@@ -1,12 +1,14 @@
 import 'dart:developer';
 
 import 'package:e_learning_app/features/payment/data/repo/payment_repo.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/data/models/course_module_model.dart';
 import '../../../../core/data/models/course_modules_with_lessons.dart';
 import '../../../../core/data/models/course_review_model.dart';
 import '../../../../core/data/models/lesson_module.dart';
+import '../../../../core/data/models/standard_response_body.dart';
 import '../../../../core/networking/api_result.dart';
 import '../../data/repos/course_details_repo.dart';
 import 'course_details_state.dart';
@@ -21,6 +23,9 @@ class CourseDetailsCubit extends Cubit<CourseDetailsState> {
   List<CourseReviewModel> courseReviews = [];
   List<CourseModulesWithLessons> modulesWithLessons = [];
   List<CourseReviewModel> courseReview = [];
+  final TextEditingController couponController = TextEditingController();
+  String couponCode = '';
+  String finalPrice = '';
 
   void getCourseDetails(int courseId) async {
     emit(CourseDetailsState.courseDetailsLoading());
@@ -77,14 +82,18 @@ class CourseDetailsCubit extends Cubit<CourseDetailsState> {
   }
 
   // payment
-  Future<void> emitPaymentState(int courseID, String paymentMethod) async {
+  Future<void> emitPaymentState(int courseID, String paymentMethod,
+      String? couponCode, int totalPrice) async {
     emit(CourseDetailsState.paymentLoading());
 
-    final result =
-        await paymentRepo.createPaymentToken(courseID, paymentMethod);
+    final result = await paymentRepo.createPaymentToken(
+        courseID, paymentMethod, couponCode);
 
-    if (result is Success<Map<String, String>>) {
+    if (result is Success<Map<String, String>> && totalPrice > 0) {
       emit(CourseDetailsState.paymentRedirectUrl(result.data['redirectUrl']!));
+    } else if (result is Success<Map<String, String>> && totalPrice == 0) {
+      emit(CourseDetailsState.freePaymentSuccess(
+          message: result.data['message']!));
     } else {
       emit(CourseDetailsState.paymentFailure(error: result.toString()));
     }
@@ -101,6 +110,23 @@ class CourseDetailsCubit extends Cubit<CourseDetailsState> {
       emit(CourseDetailsState.courseReviewSuccess(result.data));
     } else {
       emit(CourseDetailsState.courseReviewFailure(error: result.toString()));
+    }
+  }
+
+  // apply coupon code for discount
+  void emitApplyCouponState(int courseId, String couponCode) async {
+    emit(CourseDetailsState.couponLoading());
+    try {
+      final result = await courseDetailsRepo.applyCoupon(couponCode, courseId);
+      if (result is Success<StandardResponseBody>) {
+        this.couponCode = couponCode;
+        emit(CourseDetailsState.couponSuccess(result.data.message));
+      } else if (result is Failure<StandardResponseBody>) {
+        emit(CourseDetailsState.couponFailure(
+            error: result.error.apiErrorModel.message.toString()));
+      }
+    } catch (e) {
+      emit(CourseDetailsState.couponFailure(error: e.toString()));
     }
   }
 }

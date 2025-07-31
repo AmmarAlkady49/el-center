@@ -8,7 +8,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 
 PreferredSizeWidget buildModernAppBar(
-   {required BuildContext context, String? categoryName, int? coursesCount, bool basicAppBar = false}) {
+    {required BuildContext context,
+    String? categoryName,
+    int? coursesCount,
+    bool basicAppBar = false,
+    bool showAction = true}) {
   return AppBar(
     elevation: 4,
     // scrolledUnderElevation: 0,
@@ -35,85 +39,89 @@ PreferredSizeWidget buildModernAppBar(
         ),
       ),
     ),
-    title: basicAppBar ? null : Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          categoryName ?? "",
-          style: FontHelper.font16BlackW600(context).copyWith(
-            color: Colors.black87,
-            letterSpacing: -0.5,
+    title: basicAppBar
+        ? null
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                categoryName ?? "",
+                style: FontHelper.font16BlackW600(context).copyWith(
+                  color: Colors.black87,
+                  letterSpacing: -0.5,
+                ),
+              ),
+              Text(
+                "$coursesCount ${coursesCount == 1 ? S.of(context).course : S.of(context).courses}",
+                style: FontHelper.font12lackW400(context).copyWith(
+                  color: Colors.black54,
+                  letterSpacing: -0.5,
+                ),
+              ),
+            ],
           ),
-        ),
-        Text(
-          "$coursesCount ${coursesCount == 1 ? S.of(context).course : S.of(context).courses}",
-          style: FontHelper.font12lackW400(context).copyWith(
-            color: Colors.black54,
-            letterSpacing: -0.5,
-          ),
-        ),
-      ],
-    ),
-    actions: [
-      // Search Action
-      Container(
-        margin: EdgeInsets.only(right: 8.w),
-        child: IconButton(
-          style: ButtonStyle(
-            padding: WidgetStateProperty.all(EdgeInsets.zero),
-            shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.r),
+    actions: showAction
+        ? [
+            // Search Action
+            Container(
+              margin: EdgeInsets.only(right: 8.w),
+              child: IconButton(
+                style: ButtonStyle(
+                  padding: WidgetStateProperty.all(EdgeInsets.zero),
+                  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.r),
+                    ),
+                  ),
+                ),
+                onPressed: () {},
+                icon: Container(
+                  width: 40.w,
+                  height: 40.h,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade100,
+                    borderRadius: BorderRadius.circular(12.r),
+                  ),
+                  child: Icon(
+                    Iconsax.search_normal_1,
+                    color: Colors.black87,
+                    size: 22.sp,
+                  ),
+                ),
               ),
             ),
-          ),
-          onPressed: () {},
-          icon: Container(
-            width: 40.w,
-            height: 40.h,
-            decoration: BoxDecoration(
-              color: Colors.grey.shade100,
-              borderRadius: BorderRadius.circular(12.r),
-            ),
-            child: Icon(
-              Iconsax.search_normal_1,
-              color: Colors.black87,
-              size: 22.sp,
-            ),
-          ),
-        ),
-      ),
-      // Filter/Sort Action
-      Container(
-        margin: EdgeInsets.only(right: 12.w),
-        child: IconButton(
-          style: ButtonStyle(
-            padding: WidgetStateProperty.all(EdgeInsets.zero),
-            shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.r),
+            // Filter/Sort Action
+            Container(
+              margin: EdgeInsets.only(right: 12.w),
+              child: IconButton(
+                style: ButtonStyle(
+                  padding: WidgetStateProperty.all(EdgeInsets.zero),
+                  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.r),
+                    ),
+                  ),
+                ),
+                onPressed: () {
+                  _showFilterBottomSheet(context);
+                },
+                icon: Container(
+                  width: 40.w,
+                  height: 40.h,
+                  decoration: BoxDecoration(
+                    color: AppColors.mainBlue.withAlpha(30),
+                    borderRadius: BorderRadius.circular(12.r),
+                  ),
+                  child: Icon(
+                    Icons.tune_rounded,
+                    color: AppColors.mainBlue,
+                    size: 22.sp,
+                  ),
+                ),
               ),
             ),
-          ),
-          onPressed: () {
-            _showFilterBottomSheet(context);
-          },
-          icon: Container(
-            width: 40.w,
-            height: 40.h,
-            decoration: BoxDecoration(
-              color: AppColors.mainBlue.withAlpha(30),
-              borderRadius: BorderRadius.circular(12.r),
-            ),
-            child: Icon(
-              Icons.tune_rounded,
-              color: AppColors.mainBlue,
-              size: 22.sp,
-            ),
-          ),
-        ),
-      ),
-    ],
+          ]
+        : null,
     bottom: PreferredSize(
       preferredSize: Size.fromHeight(1.h),
       child: Container(

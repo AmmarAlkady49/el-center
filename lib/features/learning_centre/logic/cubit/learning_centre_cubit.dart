@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:video_player/video_player.dart';
 
+import '../../../../core/data/models/completed_lesson_model.dart';
 import '../../../../core/data/models/course_modules_with_lessons.dart';
 import '../../../../core/data/models/course_review_model.dart';
 import '../../../../core/data/models/lesson_module.dart';
@@ -59,11 +60,13 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
         courseInfo: courseInfo,
         modulesWithLessons: modulesWithLessons,
         lessons: modulesWithLessons.expand((module) => module.lessons).toList(),
-        courseReview:  courseReview,
+        courseReview: courseReview,
       );
-      final List<int> lessonIds =
+      final List<CompletedLessonModel> lessons =
           await learningCentreRepo.getCompletedLessons(courseInfo.id);
-      completedLessonIds = lessonIds.toSet();
+
+      completedLessonIds = lessons.map((lesson) => lesson.lessonId).toSet();
+
       emit(LearningCentreState.successGetCompletedLessons(
         completedLessonIds: completedLessonIds,
       ));

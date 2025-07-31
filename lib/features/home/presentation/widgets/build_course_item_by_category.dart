@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_learning_app/core/helpers/extensions.dart';
+import 'package:e_learning_app/core/helpers/helper_functions.dart';
 import 'package:e_learning_app/core/routing/app_routes.dart';
 import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/cupertino.dart';
@@ -157,41 +158,8 @@ class BuildCourseItemByCategory extends StatelessWidget {
                         // Instructor Info
                         Row(
                           children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: AppColors.mainBlue.withAlpha(175),
-                                  width: 3,
-                                ),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(50),
-                                child: CachedNetworkImage(
-                                  imageUrl:
-                                      "${ApiConstants.apiBaseUrl}${courseItem.instructorImage}",
-                                  width: 35.w,
-                                  height: 35.h,
-                                  fit: BoxFit.cover,
-                                  placeholder: (context, url) => Container(
-                                    width: 35.w,
-                                    height: 35.h,
-                                    color: Colors.grey.shade200,
-                                  ),
-                                  errorWidget: (context, url, error) =>
-                                      Container(
-                                    width: 35.w,
-                                    height: 35.h,
-                                    color: Colors.grey.shade200,
-                                    child: Icon(
-                                      Icons.person,
-                                      size: 20.sp,
-                                      color: Colors.black,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
+                            HelperFunctions.getInstructorImage(
+                                courseItem.instructorImage, 35.r),
                             horizontalSpacing(8),
                             Expanded(
                               child: Text(
@@ -250,29 +218,21 @@ class BuildCourseItemByCategory extends StatelessWidget {
                                   foregroundColor: Colors.white,
                                   elevation: 1,
                                   padding: EdgeInsets.symmetric(
-                                      horizontal: 20.w, vertical: 8.h),
+                                      horizontal: 8.w, vertical: 8.h),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(12.r),
                                   ),
                                 ),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      S.of(context).enroll_now,
-                                      style: FontHelper.font10BlackW500(context)
-                                          .copyWith(
-                                        color: Colors.white,
-                                        fontSize: 12.sp,
-                                      ),
-                                    ),
-                                    // horizontalSpacing(4),
-                                    // Icon(
-                                    //   Icons.arrow_forward_rounded,
-                                    //   size: 14.sp,
-                                    //   color: Colors.white,
-                                    // ),
-                                  ],
+                                child: Text(
+                                  S.of(context).more_details,
+                                  textAlign: TextAlign.center,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: FontHelper.font10BlackW500(context)
+                                      .copyWith(
+                                    color: Colors.white,
+                                    fontSize: 12.sp,
+                                  ),
                                 ),
                               ),
                             ),

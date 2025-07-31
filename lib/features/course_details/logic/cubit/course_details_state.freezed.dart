@@ -62,11 +62,15 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     TResult Function(CourseDetailsLoadedError value)? courseDetailsLoadedError,
     TResult Function(PaymentLoading value)? paymentLoading,
     TResult Function(PaymentSuccess value)? paymentSuccess,
+    TResult Function(FreePaymentSuccess value)? freePaymentSuccess,
     TResult Function(PaymentFailure value)? paymentFailure,
     TResult Function(PaymentRedirectUrl value)? paymentRedirectUrl,
     TResult Function(CourseReviewLoading value)? courseReviewLoading,
     TResult Function(CourseReviewSuccess value)? courseReviewSuccess,
     TResult Function(CourseReviewFailure value)? courseReviewFailure,
+    TResult Function(CouponLoading value)? couponLoading,
+    TResult Function(CouponSuccess value)? couponSuccess,
+    TResult Function(CouponFailure value)? couponFailure,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -83,6 +87,8 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return paymentLoading(_that);
       case PaymentSuccess() when paymentSuccess != null:
         return paymentSuccess(_that);
+      case FreePaymentSuccess() when freePaymentSuccess != null:
+        return freePaymentSuccess(_that);
       case PaymentFailure() when paymentFailure != null:
         return paymentFailure(_that);
       case PaymentRedirectUrl() when paymentRedirectUrl != null:
@@ -93,6 +99,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return courseReviewSuccess(_that);
       case CourseReviewFailure() when courseReviewFailure != null:
         return courseReviewFailure(_that);
+      case CouponLoading() when couponLoading != null:
+        return couponLoading(_that);
+      case CouponSuccess() when couponSuccess != null:
+        return couponSuccess(_that);
+      case CouponFailure() when couponFailure != null:
+        return couponFailure(_that);
       case _:
         return orElse();
     }
@@ -120,11 +132,15 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         courseDetailsLoadedError,
     required TResult Function(PaymentLoading value) paymentLoading,
     required TResult Function(PaymentSuccess value) paymentSuccess,
+    required TResult Function(FreePaymentSuccess value) freePaymentSuccess,
     required TResult Function(PaymentFailure value) paymentFailure,
     required TResult Function(PaymentRedirectUrl value) paymentRedirectUrl,
     required TResult Function(CourseReviewLoading value) courseReviewLoading,
     required TResult Function(CourseReviewSuccess value) courseReviewSuccess,
     required TResult Function(CourseReviewFailure value) courseReviewFailure,
+    required TResult Function(CouponLoading value) couponLoading,
+    required TResult Function(CouponSuccess value) couponSuccess,
+    required TResult Function(CouponFailure value) couponFailure,
   }) {
     final _that = this;
     switch (_that) {
@@ -140,6 +156,8 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return paymentLoading(_that);
       case PaymentSuccess():
         return paymentSuccess(_that);
+      case FreePaymentSuccess():
+        return freePaymentSuccess(_that);
       case PaymentFailure():
         return paymentFailure(_that);
       case PaymentRedirectUrl():
@@ -150,6 +168,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return courseReviewSuccess(_that);
       case CourseReviewFailure():
         return courseReviewFailure(_that);
+      case CouponLoading():
+        return couponLoading(_that);
+      case CouponSuccess():
+        return couponSuccess(_that);
+      case CouponFailure():
+        return couponFailure(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -175,11 +199,15 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     TResult? Function(CourseDetailsLoadedError value)? courseDetailsLoadedError,
     TResult? Function(PaymentLoading value)? paymentLoading,
     TResult? Function(PaymentSuccess value)? paymentSuccess,
+    TResult? Function(FreePaymentSuccess value)? freePaymentSuccess,
     TResult? Function(PaymentFailure value)? paymentFailure,
     TResult? Function(PaymentRedirectUrl value)? paymentRedirectUrl,
     TResult? Function(CourseReviewLoading value)? courseReviewLoading,
     TResult? Function(CourseReviewSuccess value)? courseReviewSuccess,
     TResult? Function(CourseReviewFailure value)? courseReviewFailure,
+    TResult? Function(CouponLoading value)? couponLoading,
+    TResult? Function(CouponSuccess value)? couponSuccess,
+    TResult? Function(CouponFailure value)? couponFailure,
   }) {
     final _that = this;
     switch (_that) {
@@ -195,6 +223,8 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return paymentLoading(_that);
       case PaymentSuccess() when paymentSuccess != null:
         return paymentSuccess(_that);
+      case FreePaymentSuccess() when freePaymentSuccess != null:
+        return freePaymentSuccess(_that);
       case PaymentFailure() when paymentFailure != null:
         return paymentFailure(_that);
       case PaymentRedirectUrl() when paymentRedirectUrl != null:
@@ -205,6 +235,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return courseReviewSuccess(_that);
       case CourseReviewFailure() when courseReviewFailure != null:
         return courseReviewFailure(_that);
+      case CouponLoading() when couponLoading != null:
+        return couponLoading(_that);
+      case CouponSuccess() when couponSuccess != null:
+        return couponSuccess(_that);
+      case CouponFailure() when couponFailure != null:
+        return couponFailure(_that);
       case _:
         return null;
     }
@@ -235,11 +271,15 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     TResult Function(String error)? courseDetailsLoadedError,
     TResult Function()? paymentLoading,
     TResult Function(Map<String, String> redirectData)? paymentSuccess,
+    TResult Function(String message)? freePaymentSuccess,
     TResult Function(String error)? paymentFailure,
     TResult Function(String url)? paymentRedirectUrl,
     TResult Function()? courseReviewLoading,
     TResult Function(String review)? courseReviewSuccess,
     TResult Function(String error)? courseReviewFailure,
+    TResult Function()? couponLoading,
+    TResult Function(String returnFinalPrice)? couponSuccess,
+    TResult Function(String error)? couponFailure,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -257,6 +297,8 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return paymentLoading();
       case PaymentSuccess() when paymentSuccess != null:
         return paymentSuccess(_that.redirectData);
+      case FreePaymentSuccess() when freePaymentSuccess != null:
+        return freePaymentSuccess(_that.message);
       case PaymentFailure() when paymentFailure != null:
         return paymentFailure(_that.error);
       case PaymentRedirectUrl() when paymentRedirectUrl != null:
@@ -267,6 +309,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return courseReviewSuccess(_that.review);
       case CourseReviewFailure() when courseReviewFailure != null:
         return courseReviewFailure(_that.error);
+      case CouponLoading() when couponLoading != null:
+        return couponLoading();
+      case CouponSuccess() when couponSuccess != null:
+        return couponSuccess(_that.returnFinalPrice);
+      case CouponFailure() when couponFailure != null:
+        return couponFailure(_that.error);
       case _:
         return orElse();
     }
@@ -298,11 +346,15 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     required TResult Function(String error) courseDetailsLoadedError,
     required TResult Function() paymentLoading,
     required TResult Function(Map<String, String> redirectData) paymentSuccess,
+    required TResult Function(String message) freePaymentSuccess,
     required TResult Function(String error) paymentFailure,
     required TResult Function(String url) paymentRedirectUrl,
     required TResult Function() courseReviewLoading,
     required TResult Function(String review) courseReviewSuccess,
     required TResult Function(String error) courseReviewFailure,
+    required TResult Function() couponLoading,
+    required TResult Function(String returnFinalPrice) couponSuccess,
+    required TResult Function(String error) couponFailure,
   }) {
     final _that = this;
     switch (_that) {
@@ -319,6 +371,8 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return paymentLoading();
       case PaymentSuccess():
         return paymentSuccess(_that.redirectData);
+      case FreePaymentSuccess():
+        return freePaymentSuccess(_that.message);
       case PaymentFailure():
         return paymentFailure(_that.error);
       case PaymentRedirectUrl():
@@ -329,6 +383,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return courseReviewSuccess(_that.review);
       case CourseReviewFailure():
         return courseReviewFailure(_that.error);
+      case CouponLoading():
+        return couponLoading();
+      case CouponSuccess():
+        return couponSuccess(_that.returnFinalPrice);
+      case CouponFailure():
+        return couponFailure(_that.error);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -359,11 +419,15 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     TResult? Function(String error)? courseDetailsLoadedError,
     TResult? Function()? paymentLoading,
     TResult? Function(Map<String, String> redirectData)? paymentSuccess,
+    TResult? Function(String message)? freePaymentSuccess,
     TResult? Function(String error)? paymentFailure,
     TResult? Function(String url)? paymentRedirectUrl,
     TResult? Function()? courseReviewLoading,
     TResult? Function(String review)? courseReviewSuccess,
     TResult? Function(String error)? courseReviewFailure,
+    TResult? Function()? couponLoading,
+    TResult? Function(String returnFinalPrice)? couponSuccess,
+    TResult? Function(String error)? couponFailure,
   }) {
     final _that = this;
     switch (_that) {
@@ -380,6 +444,8 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return paymentLoading();
       case PaymentSuccess() when paymentSuccess != null:
         return paymentSuccess(_that.redirectData);
+      case FreePaymentSuccess() when freePaymentSuccess != null:
+        return freePaymentSuccess(_that.message);
       case PaymentFailure() when paymentFailure != null:
         return paymentFailure(_that.error);
       case PaymentRedirectUrl() when paymentRedirectUrl != null:
@@ -390,6 +456,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return courseReviewSuccess(_that.review);
       case CourseReviewFailure() when courseReviewFailure != null:
         return courseReviewFailure(_that.error);
+      case CouponLoading() when couponLoading != null:
+        return couponLoading();
+      case CouponSuccess() when couponSuccess != null:
+        return couponSuccess(_that.returnFinalPrice);
+      case CouponFailure() when couponFailure != null:
+        return couponFailure(_that.error);
       case _:
         return null;
     }
@@ -772,6 +844,80 @@ class _$PaymentSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
+class FreePaymentSuccess
+    with DiagnosticableTreeMixin
+    implements CourseDetailsState {
+  const FreePaymentSuccess({required this.message});
+
+  final String message;
+
+  /// Create a copy of CourseDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $FreePaymentSuccessCopyWith<FreePaymentSuccess> get copyWith =>
+      _$FreePaymentSuccessCopyWithImpl<FreePaymentSuccess>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'CourseDetailsState.freePaymentSuccess'))
+      ..add(DiagnosticsProperty('message', message));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FreePaymentSuccess &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseDetailsState.freePaymentSuccess(message: $message)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $FreePaymentSuccessCopyWith<$Res>
+    implements $CourseDetailsStateCopyWith<$Res> {
+  factory $FreePaymentSuccessCopyWith(
+          FreePaymentSuccess value, $Res Function(FreePaymentSuccess) _then) =
+      _$FreePaymentSuccessCopyWithImpl;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class _$FreePaymentSuccessCopyWithImpl<$Res>
+    implements $FreePaymentSuccessCopyWith<$Res> {
+  _$FreePaymentSuccessCopyWithImpl(this._self, this._then);
+
+  final FreePaymentSuccess _self;
+  final $Res Function(FreePaymentSuccess) _then;
+
+  /// Create a copy of CourseDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(FreePaymentSuccess(
+      message: null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
 class PaymentFailure
     with DiagnosticableTreeMixin
     implements CourseDetailsState {
@@ -1086,6 +1232,175 @@ class _$CourseReviewFailureCopyWithImpl<$Res>
     Object? error = null,
   }) {
     return _then(CourseReviewFailure(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class CouponLoading with DiagnosticableTreeMixin implements CourseDetailsState {
+  const CouponLoading();
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'CourseDetailsState.couponLoading'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is CouponLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseDetailsState.couponLoading()';
+  }
+}
+
+/// @nodoc
+
+class CouponSuccess with DiagnosticableTreeMixin implements CourseDetailsState {
+  const CouponSuccess(this.returnFinalPrice);
+
+  final String returnFinalPrice;
+
+  /// Create a copy of CourseDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $CouponSuccessCopyWith<CouponSuccess> get copyWith =>
+      _$CouponSuccessCopyWithImpl<CouponSuccess>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'CourseDetailsState.couponSuccess'))
+      ..add(DiagnosticsProperty('returnFinalPrice', returnFinalPrice));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CouponSuccess &&
+            (identical(other.returnFinalPrice, returnFinalPrice) ||
+                other.returnFinalPrice == returnFinalPrice));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, returnFinalPrice);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseDetailsState.couponSuccess(returnFinalPrice: $returnFinalPrice)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $CouponSuccessCopyWith<$Res>
+    implements $CourseDetailsStateCopyWith<$Res> {
+  factory $CouponSuccessCopyWith(
+          CouponSuccess value, $Res Function(CouponSuccess) _then) =
+      _$CouponSuccessCopyWithImpl;
+  @useResult
+  $Res call({String returnFinalPrice});
+}
+
+/// @nodoc
+class _$CouponSuccessCopyWithImpl<$Res>
+    implements $CouponSuccessCopyWith<$Res> {
+  _$CouponSuccessCopyWithImpl(this._self, this._then);
+
+  final CouponSuccess _self;
+  final $Res Function(CouponSuccess) _then;
+
+  /// Create a copy of CourseDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? returnFinalPrice = null,
+  }) {
+    return _then(CouponSuccess(
+      null == returnFinalPrice
+          ? _self.returnFinalPrice
+          : returnFinalPrice // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class CouponFailure with DiagnosticableTreeMixin implements CourseDetailsState {
+  const CouponFailure({required this.error});
+
+  final String error;
+
+  /// Create a copy of CourseDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $CouponFailureCopyWith<CouponFailure> get copyWith =>
+      _$CouponFailureCopyWithImpl<CouponFailure>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'CourseDetailsState.couponFailure'))
+      ..add(DiagnosticsProperty('error', error));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CouponFailure &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseDetailsState.couponFailure(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $CouponFailureCopyWith<$Res>
+    implements $CourseDetailsStateCopyWith<$Res> {
+  factory $CouponFailureCopyWith(
+          CouponFailure value, $Res Function(CouponFailure) _then) =
+      _$CouponFailureCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$CouponFailureCopyWithImpl<$Res>
+    implements $CouponFailureCopyWith<$Res> {
+  _$CouponFailureCopyWithImpl(this._self, this._then);
+
+  final CouponFailure _self;
+  final $Res Function(CouponFailure) _then;
+
+  /// Create a copy of CourseDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(CouponFailure(
       error: null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable

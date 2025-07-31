@@ -1,5 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -62,6 +63,11 @@ extension HomeStatePatterns<T> on HomeState<T> {
     TResult Function(CoursesByCategoryLoaded<T> value)? coursesByCategoryLoaded,
     TResult Function(CoursesByCategoryLoadedError<T> value)?
         coursesByCategoryLoadedError,
+    TResult Function(WeeklyProgressLoaded<T> value)? weeklyProgressLoaded,
+    TResult Function(WeeklyProgressError<T> value)? weeklyProgressError,
+    TResult Function(GettingCategories<T> value)? gettingCategories,
+    TResult Function(CategoriesLoaded<T> value)? categoriesLoaded,
+    TResult Function(CategoriesLoadedError<T> value)? categoriesLoadedError,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -87,6 +93,16 @@ extension HomeStatePatterns<T> on HomeState<T> {
       case CoursesByCategoryLoadedError()
           when coursesByCategoryLoadedError != null:
         return coursesByCategoryLoadedError(_that);
+      case WeeklyProgressLoaded() when weeklyProgressLoaded != null:
+        return weeklyProgressLoaded(_that);
+      case WeeklyProgressError() when weeklyProgressError != null:
+        return weeklyProgressError(_that);
+      case GettingCategories() when gettingCategories != null:
+        return gettingCategories(_that);
+      case CategoriesLoaded() when categoriesLoaded != null:
+        return categoriesLoaded(_that);
+      case CategoriesLoadedError() when categoriesLoadedError != null:
+        return categoriesLoadedError(_that);
       case _:
         return orElse();
     }
@@ -121,6 +137,13 @@ extension HomeStatePatterns<T> on HomeState<T> {
         coursesByCategoryLoaded,
     required TResult Function(CoursesByCategoryLoadedError<T> value)
         coursesByCategoryLoadedError,
+    required TResult Function(WeeklyProgressLoaded<T> value)
+        weeklyProgressLoaded,
+    required TResult Function(WeeklyProgressError<T> value) weeklyProgressError,
+    required TResult Function(GettingCategories<T> value) gettingCategories,
+    required TResult Function(CategoriesLoaded<T> value) categoriesLoaded,
+    required TResult Function(CategoriesLoadedError<T> value)
+        categoriesLoadedError,
   }) {
     final _that = this;
     switch (_that) {
@@ -144,6 +167,16 @@ extension HomeStatePatterns<T> on HomeState<T> {
         return coursesByCategoryLoaded(_that);
       case CoursesByCategoryLoadedError():
         return coursesByCategoryLoadedError(_that);
+      case WeeklyProgressLoaded():
+        return weeklyProgressLoaded(_that);
+      case WeeklyProgressError():
+        return weeklyProgressError(_that);
+      case GettingCategories():
+        return gettingCategories(_that);
+      case CategoriesLoaded():
+        return categoriesLoaded(_that);
+      case CategoriesLoadedError():
+        return categoriesLoadedError(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -176,6 +209,11 @@ extension HomeStatePatterns<T> on HomeState<T> {
         coursesByCategoryLoaded,
     TResult? Function(CoursesByCategoryLoadedError<T> value)?
         coursesByCategoryLoadedError,
+    TResult? Function(WeeklyProgressLoaded<T> value)? weeklyProgressLoaded,
+    TResult? Function(WeeklyProgressError<T> value)? weeklyProgressError,
+    TResult? Function(GettingCategories<T> value)? gettingCategories,
+    TResult? Function(CategoriesLoaded<T> value)? categoriesLoaded,
+    TResult? Function(CategoriesLoadedError<T> value)? categoriesLoadedError,
   }) {
     final _that = this;
     switch (_that) {
@@ -200,6 +238,16 @@ extension HomeStatePatterns<T> on HomeState<T> {
       case CoursesByCategoryLoadedError()
           when coursesByCategoryLoadedError != null:
         return coursesByCategoryLoadedError(_that);
+      case WeeklyProgressLoaded() when weeklyProgressLoaded != null:
+        return weeklyProgressLoaded(_that);
+      case WeeklyProgressError() when weeklyProgressError != null:
+        return weeklyProgressError(_that);
+      case GettingCategories() when gettingCategories != null:
+        return gettingCategories(_that);
+      case CategoriesLoaded() when categoriesLoaded != null:
+        return categoriesLoaded(_that);
+      case CategoriesLoadedError() when categoriesLoadedError != null:
+        return categoriesLoadedError(_that);
       case _:
         return null;
     }
@@ -229,6 +277,11 @@ extension HomeStatePatterns<T> on HomeState<T> {
     TResult Function()? gettingCoursesByCategory,
     TResult Function(List<CourseInfoModel> courses)? coursesByCategoryLoaded,
     TResult Function(String error)? coursesByCategoryLoadedError,
+    TResult Function(Map<String, int> data)? weeklyProgressLoaded,
+    TResult Function(String error)? weeklyProgressError,
+    TResult Function()? gettingCategories,
+    TResult Function(List<CategoryModel> categories)? categoriesLoaded,
+    TResult Function(String error)? categoriesLoadedError,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -254,6 +307,16 @@ extension HomeStatePatterns<T> on HomeState<T> {
       case CoursesByCategoryLoadedError()
           when coursesByCategoryLoadedError != null:
         return coursesByCategoryLoadedError(_that.error);
+      case WeeklyProgressLoaded() when weeklyProgressLoaded != null:
+        return weeklyProgressLoaded(_that.data);
+      case WeeklyProgressError() when weeklyProgressError != null:
+        return weeklyProgressError(_that.error);
+      case GettingCategories() when gettingCategories != null:
+        return gettingCategories();
+      case CategoriesLoaded() when categoriesLoaded != null:
+        return categoriesLoaded(_that.categories);
+      case CategoriesLoadedError() when categoriesLoadedError != null:
+        return categoriesLoadedError(_that.error);
       case _:
         return orElse();
     }
@@ -285,6 +348,11 @@ extension HomeStatePatterns<T> on HomeState<T> {
     required TResult Function(List<CourseInfoModel> courses)
         coursesByCategoryLoaded,
     required TResult Function(String error) coursesByCategoryLoadedError,
+    required TResult Function(Map<String, int> data) weeklyProgressLoaded,
+    required TResult Function(String error) weeklyProgressError,
+    required TResult Function() gettingCategories,
+    required TResult Function(List<CategoryModel> categories) categoriesLoaded,
+    required TResult Function(String error) categoriesLoadedError,
   }) {
     final _that = this;
     switch (_that) {
@@ -308,6 +376,16 @@ extension HomeStatePatterns<T> on HomeState<T> {
         return coursesByCategoryLoaded(_that.courses);
       case CoursesByCategoryLoadedError():
         return coursesByCategoryLoadedError(_that.error);
+      case WeeklyProgressLoaded():
+        return weeklyProgressLoaded(_that.data);
+      case WeeklyProgressError():
+        return weeklyProgressError(_that.error);
+      case GettingCategories():
+        return gettingCategories();
+      case CategoriesLoaded():
+        return categoriesLoaded(_that.categories);
+      case CategoriesLoadedError():
+        return categoriesLoadedError(_that.error);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -337,6 +415,11 @@ extension HomeStatePatterns<T> on HomeState<T> {
     TResult? Function()? gettingCoursesByCategory,
     TResult? Function(List<CourseInfoModel> courses)? coursesByCategoryLoaded,
     TResult? Function(String error)? coursesByCategoryLoadedError,
+    TResult? Function(Map<String, int> data)? weeklyProgressLoaded,
+    TResult? Function(String error)? weeklyProgressError,
+    TResult? Function()? gettingCategories,
+    TResult? Function(List<CategoryModel> categories)? categoriesLoaded,
+    TResult? Function(String error)? categoriesLoadedError,
   }) {
     final _that = this;
     switch (_that) {
@@ -361,6 +444,16 @@ extension HomeStatePatterns<T> on HomeState<T> {
       case CoursesByCategoryLoadedError()
           when coursesByCategoryLoadedError != null:
         return coursesByCategoryLoadedError(_that.error);
+      case WeeklyProgressLoaded() when weeklyProgressLoaded != null:
+        return weeklyProgressLoaded(_that.data);
+      case WeeklyProgressError() when weeklyProgressError != null:
+        return weeklyProgressError(_that.error);
+      case GettingCategories() when gettingCategories != null:
+        return gettingCategories();
+      case CategoriesLoaded() when categoriesLoaded != null:
+        return categoriesLoaded(_that.categories);
+      case CategoriesLoadedError() when categoriesLoadedError != null:
+        return categoriesLoadedError(_that.error);
       case _:
         return null;
     }
@@ -845,6 +938,300 @@ class _$CoursesByCategoryLoadedErrorCopyWithImpl<T, $Res>
     Object? error = null,
   }) {
     return _then(CoursesByCategoryLoadedError<T>(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class WeeklyProgressLoaded<T> implements HomeState<T> {
+  const WeeklyProgressLoaded({required final Map<String, int> data})
+      : _data = data;
+
+  final Map<String, int> _data;
+  Map<String, int> get data {
+    if (_data is EqualUnmodifiableMapView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_data);
+  }
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $WeeklyProgressLoadedCopyWith<T, WeeklyProgressLoaded<T>> get copyWith =>
+      _$WeeklyProgressLoadedCopyWithImpl<T, WeeklyProgressLoaded<T>>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is WeeklyProgressLoaded<T> &&
+            const DeepCollectionEquality().equals(other._data, _data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.weeklyProgressLoaded(data: $data)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $WeeklyProgressLoadedCopyWith<T, $Res>
+    implements $HomeStateCopyWith<T, $Res> {
+  factory $WeeklyProgressLoadedCopyWith(WeeklyProgressLoaded<T> value,
+          $Res Function(WeeklyProgressLoaded<T>) _then) =
+      _$WeeklyProgressLoadedCopyWithImpl;
+  @useResult
+  $Res call({Map<String, int> data});
+}
+
+/// @nodoc
+class _$WeeklyProgressLoadedCopyWithImpl<T, $Res>
+    implements $WeeklyProgressLoadedCopyWith<T, $Res> {
+  _$WeeklyProgressLoadedCopyWithImpl(this._self, this._then);
+
+  final WeeklyProgressLoaded<T> _self;
+  final $Res Function(WeeklyProgressLoaded<T>) _then;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(WeeklyProgressLoaded<T>(
+      data: null == data
+          ? _self._data
+          : data // ignore: cast_nullable_to_non_nullable
+              as Map<String, int>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class WeeklyProgressError<T> implements HomeState<T> {
+  const WeeklyProgressError({required this.error});
+
+  final String error;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $WeeklyProgressErrorCopyWith<T, WeeklyProgressError<T>> get copyWith =>
+      _$WeeklyProgressErrorCopyWithImpl<T, WeeklyProgressError<T>>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is WeeklyProgressError<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.weeklyProgressError(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $WeeklyProgressErrorCopyWith<T, $Res>
+    implements $HomeStateCopyWith<T, $Res> {
+  factory $WeeklyProgressErrorCopyWith(WeeklyProgressError<T> value,
+          $Res Function(WeeklyProgressError<T>) _then) =
+      _$WeeklyProgressErrorCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$WeeklyProgressErrorCopyWithImpl<T, $Res>
+    implements $WeeklyProgressErrorCopyWith<T, $Res> {
+  _$WeeklyProgressErrorCopyWithImpl(this._self, this._then);
+
+  final WeeklyProgressError<T> _self;
+  final $Res Function(WeeklyProgressError<T>) _then;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(WeeklyProgressError<T>(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class GettingCategories<T> implements HomeState<T> {
+  const GettingCategories();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is GettingCategories<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.gettingCategories()';
+  }
+}
+
+/// @nodoc
+
+class CategoriesLoaded<T> implements HomeState<T> {
+  const CategoriesLoaded({required final List<CategoryModel> categories})
+      : _categories = categories;
+
+  final List<CategoryModel> _categories;
+  List<CategoryModel> get categories {
+    if (_categories is EqualUnmodifiableListView) return _categories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_categories);
+  }
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $CategoriesLoadedCopyWith<T, CategoriesLoaded<T>> get copyWith =>
+      _$CategoriesLoadedCopyWithImpl<T, CategoriesLoaded<T>>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CategoriesLoaded<T> &&
+            const DeepCollectionEquality()
+                .equals(other._categories, _categories));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_categories));
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.categoriesLoaded(categories: $categories)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $CategoriesLoadedCopyWith<T, $Res>
+    implements $HomeStateCopyWith<T, $Res> {
+  factory $CategoriesLoadedCopyWith(
+          CategoriesLoaded<T> value, $Res Function(CategoriesLoaded<T>) _then) =
+      _$CategoriesLoadedCopyWithImpl;
+  @useResult
+  $Res call({List<CategoryModel> categories});
+}
+
+/// @nodoc
+class _$CategoriesLoadedCopyWithImpl<T, $Res>
+    implements $CategoriesLoadedCopyWith<T, $Res> {
+  _$CategoriesLoadedCopyWithImpl(this._self, this._then);
+
+  final CategoriesLoaded<T> _self;
+  final $Res Function(CategoriesLoaded<T>) _then;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? categories = null,
+  }) {
+    return _then(CategoriesLoaded<T>(
+      categories: null == categories
+          ? _self._categories
+          : categories // ignore: cast_nullable_to_non_nullable
+              as List<CategoryModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class CategoriesLoadedError<T> implements HomeState<T> {
+  const CategoriesLoadedError({required this.error});
+
+  final String error;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $CategoriesLoadedErrorCopyWith<T, CategoriesLoadedError<T>> get copyWith =>
+      _$CategoriesLoadedErrorCopyWithImpl<T, CategoriesLoadedError<T>>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CategoriesLoadedError<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'HomeState<$T>.categoriesLoadedError(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $CategoriesLoadedErrorCopyWith<T, $Res>
+    implements $HomeStateCopyWith<T, $Res> {
+  factory $CategoriesLoadedErrorCopyWith(CategoriesLoadedError<T> value,
+          $Res Function(CategoriesLoadedError<T>) _then) =
+      _$CategoriesLoadedErrorCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$CategoriesLoadedErrorCopyWithImpl<T, $Res>
+    implements $CategoriesLoadedErrorCopyWith<T, $Res> {
+  _$CategoriesLoadedErrorCopyWithImpl(this._self, this._then);
+
+  final CategoriesLoadedError<T> _self;
+  final $Res Function(CategoriesLoadedError<T>) _then;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(CategoriesLoadedError<T>(
       error: null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable

@@ -9,27 +9,31 @@ PreferredSizeWidget buildGenericAppBar(BuildContext context,
         Color? backgroundColor,
         double? elevation,
         TextStyle? textStyle,
-        Color? iconColor}) =>
+        Color? iconColor,
+        bool hasIconLeading = true}) =>
     AppBar(
       backgroundColor: backgroundColor ?? AppColors.mainBlue,
       elevation: elevation ?? 4,
-      leading: IconButton(
-        icon: Icon(
-          Icons.arrow_back_ios_new_rounded,
-          color: iconColor ?? Colors.white,
-        ),
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        style: ButtonStyle(
-          padding: WidgetStateProperty.all(EdgeInsets.zero),
-          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12.r),
-            ),
-          ),
-        ),
-      ),
+      leading: hasIconLeading
+          ? IconButton(
+              icon: Icon(
+                Icons.arrow_back_ios_new_rounded,
+                color: iconColor ?? Colors.white,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              style: ButtonStyle(
+                padding: WidgetStateProperty.all(EdgeInsets.zero),
+                shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.r),
+                  ),
+                ),
+              ),
+            )
+          : null,
+      automaticallyImplyLeading: hasIconLeading,
       title: Text(
         title,
         style: textStyle ??

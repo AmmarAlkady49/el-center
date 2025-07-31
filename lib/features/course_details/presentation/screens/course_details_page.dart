@@ -1,5 +1,4 @@
-import 'package:e_learning_app/core/helpers/helper_functions.dart'
-    show HelperFunctions;
+import 'package:e_learning_app/core/helpers/helper_functions.dart';
 import 'package:e_learning_app/core/helpers/spacing.dart';
 import 'package:e_learning_app/features/course_details/logic/cubit/course_details_cubit.dart';
 import 'package:e_learning_app/features/course_details/presentation/widgets/build_course_details_header.dart';
@@ -72,8 +71,7 @@ class CourseDetailsPage extends StatelessWidget {
                             courseBasicInfo: courseBasicInfo,
                             cubit: cubit,
                             lessons: state.modulesWithLessons
-                                .expand((module) =>
-                                    module.lessons)
+                                .expand((module) => module.lessons)
                                 .toList(),
                             isEnrolled: state.isEnrolled,
                           ),

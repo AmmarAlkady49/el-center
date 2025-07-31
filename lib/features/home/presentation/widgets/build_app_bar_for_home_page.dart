@@ -1,10 +1,14 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_learning_app/core/helpers/helper_functions.dart';
 import 'package:e_learning_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:iconsax/iconsax.dart';
 
+import '../../../../core/helpers/spacing.dart';
+import '../../../../core/theming/app_colors.dart';
+import '../../../../core/theming/font_helper.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/font_helper.dart';
@@ -53,11 +57,13 @@ class BuildAppBarForHomePage extends StatelessWidget {
                           color: Colors.white, size: 26.sp),
                     ),
                     horizontalSpacing(15),
-                    CircleAvatar(
-                      radius: 24.r,
-                      backgroundImage: CachedNetworkImageProvider(
-                          "https://elcentre-learn.vercel.app/api${state.profileData.profilePicture}"),
-                    ),
+                    // CircleAvatar(
+                    //   radius: 24.r,
+                    //   backgroundImage: CachedNetworkImageProvider(
+                    //       "https://elcentre-learn.vercel.app/api${state.profileData.profilePicture}"),
+                    // ),
+                    HelperFunctions.showUserImage(
+                        state.profileData.profilePicture, 50.r, 50.w, 2.w),
                     horizontalSpacing(4),
                   ],
                 )
@@ -85,7 +91,12 @@ Widget _buildFlexibleContent(HomeState state, BuildContext context) {
           fit: BoxFit.cover,
         ),
         Positioned(
-          left: 17.w,
+          left: Localizations.localeOf(context).languageCode == 'en'
+              ? 17.w
+              : null,
+          right: Localizations.localeOf(context).languageCode == 'ar'
+              ? 17.w
+              : null,
           bottom: 20.h,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,13 +1,19 @@
+import 'package:e_learning_app/core/di/dependency_injection.dart';
 import 'package:e_learning_app/core/theming/app_colors.dart';
 import 'package:e_learning_app/core/theming/font_helper.dart';
+import 'package:e_learning_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:e_learning_app/features/home/presentation/screens/home_page.dart';
+import 'package:e_learning_app/features/my_courses/logic/cubit/my_courses_cubit.dart';
+import 'package:e_learning_app/features/search/logic/cubit/search_cubit.dart';
+import 'package:e_learning_app/features/settings/logic/cubit/settings_cubit.dart';
 import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:iconsax/iconsax.dart';
 
-import 'my_learning/presentation/screens/my_learning_page.dart';
+import 'my_courses/presentation/screens/my_learning_page.dart';
 import 'search/presentation/screens/search_page.dart';
 import 'settings/presentation/screens/settings_page.dart';
 
@@ -21,13 +27,28 @@ class MainBottomNavBar extends StatefulWidget {
 }
 
 class _MainBottomNavBarState extends State<MainBottomNavBar> {
-  // int _selectedIndex =  0;
   late int _selectedIndex;
+
   static List screenOptions = [
-    HomePage(),
-    SearchPage(),
-    MyLearningPage(),
-    SettingsPage(),
+    BlocProvider(
+      create: (context) => getIt<HomeCubit>()
+        ..getAllCourses()
+        ..getAppBarData()
+        ..getWeeklyProgress(),
+      child: HomePage(),
+    ),
+    BlocProvider(
+      create: (context) => getIt<SearchCubit>(),
+      child: SearchPage(),
+    ),
+    BlocProvider(
+      create: (context) => getIt<MyCoursesCubit>()..loadStudentEnrollments(),
+      child: MyCoursesPage(),
+    ),
+    BlocProvider(
+      create: (context) => getIt<SettingsCubit>()..emitSettingsPage(),
+      child: SettingsPage(),
+    ),
   ];
 
   @override
@@ -92,15 +113,19 @@ class _MainBottomNavBarState extends State<MainBottomNavBar> {
                   ),
                   GButton(
                     icon: _selectedIndex == 2 ? Iconsax.book : Iconsax.book,
-                    text: S.of(context).my_learning,
+                    text: S.of(context).my_courses,
                     iconActiveColor: _selectedIndex == 2 ? Colors.white : null,
                   ),
                   GButton(
                     icon: _selectedIndex == 3
                         ? Iconsax.setting_2
                         : Iconsax.setting_2,
-                    text: S.of(context).profile,
+                    // text: S.of(context).profile,
+                    text: S.of(context).settings,
                     iconActiveColor: _selectedIndex == 3 ? Colors.white : null,
+                    // icon: _selectedIndex == 3 ? Iconsax.user : Iconsax.user,
+                    // text: S.of(context).account,
+                    // iconActiveColor: _selectedIndex == 3 ? Colors.white : null,
                   ),
                 ],
                 selectedIndex: _selectedIndex,

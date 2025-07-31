@@ -8,10 +8,10 @@ class PaymentRepo {
   PaymentRepo(this.apiService);
 
   Future<ApiResult<Map<String, String>>> createPaymentToken(
-      int courseID, String paymentMethod) async {
+      int courseID, String paymentMethod, String? couponCode) async {
     try {
       final response =
-          await apiService.createPaymentToken(courseID, paymentMethod);
+          await apiService.createPaymentToken(courseID, paymentMethod, couponCode);
       return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));

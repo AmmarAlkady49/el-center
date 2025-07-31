@@ -10,8 +10,8 @@ platform :android do
       firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
       android_artifact_type: "APK",
       android_artifact_path: "../build/app/outputs/flutter-apk/app-prod-release.apk",
-      testers: "ammaralkady987654@gmail.com , walidtawfik362@gmail.com",
-      release_notes: "- semi finish course content page"
+      testers: "ammaralkady987654@gmail.com , walidtawfik362@gmail.com, mazen.mohamed1393@gmail.com",
+      release_notes: "- added coupon code\n- added search page\n- semi finish the settings page"
     )
   end
 end

@@ -12,6 +12,9 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
 
   await di.setupGetIt();
+  final fetchedLang = await SharedPrefHelper.getString("language_code");
+  final languageCode =
+      (fetchedLang != null && fetchedLang.isNotEmpty) ? fetchedLang : 'en';
 
   final token = await SharedPrefHelper.getSecuredString("token");
   if (token != null && token.isNotEmpty) {
@@ -21,7 +24,7 @@ void main() async {
     isLoggedInUser = false;
   }
   // await checkIfUserIsLoggedIn();
-  runApp(const ElCenterApp());
+  runApp(ElCenterApp(languageCode: languageCode));
 }
 
 Future<void> checkIfUserIsLoggedIn() async {
@@ -33,4 +36,3 @@ Future<void> checkIfUserIsLoggedIn() async {
     isLoggedInUser = false;
   }
 }
-
