@@ -58,23 +58,6 @@ class _ArticleReadingPageState extends State<ArticleReadingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundWiteColor,
-      // appBar: buildGenericAppBar(
-      //   context,
-      //   title: S.of(context).article,
-      //   bottom: PreferredSize(
-      //     preferredSize: Size.fromHeight(4.0),
-      //     child: Container(
-      //       height: 4.0,
-      //       color: AppColors.grey.withAlpha(60),
-      //       child: LinearProgressIndicator(
-      //         value: _scrollProgress,
-      //         backgroundColor: Colors.transparent,
-      //         valueColor:
-      //             AlwaysStoppedAnimation<Color>(AppColors.backgroundWiteColor),
-      //       ),
-      //     ),
-      //   ),
-      // ),
       appBar: AppBar(
         backgroundColor: AppColors.backgroundWiteColor,
         elevation: 0,
