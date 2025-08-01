@@ -57,4 +57,5 @@ class LearningCentreState<T> with _$LearningCentreState<T> {
   }) = SuccessGetCourseContent;
 
   const factory LearningCentreState.failedGetCourseContent({required String error}) = FailedGetCourseContent;
+  const factory LearningCentreState.lessonSelected() = LessonSelected;
 }

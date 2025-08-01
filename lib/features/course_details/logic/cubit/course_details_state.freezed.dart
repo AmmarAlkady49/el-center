@@ -71,6 +71,9 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     TResult Function(CouponLoading value)? couponLoading,
     TResult Function(CouponSuccess value)? couponSuccess,
     TResult Function(CouponFailure value)? couponFailure,
+    TResult Function(EnrollmentLoading value)? enrollmentLoading,
+    TResult Function(EnrollmentSuccess value)? enrollmentSuccess,
+    TResult Function(EnrollmentFailure value)? enrollmentFailure,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -105,6 +108,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return couponSuccess(_that);
       case CouponFailure() when couponFailure != null:
         return couponFailure(_that);
+      case EnrollmentLoading() when enrollmentLoading != null:
+        return enrollmentLoading(_that);
+      case EnrollmentSuccess() when enrollmentSuccess != null:
+        return enrollmentSuccess(_that);
+      case EnrollmentFailure() when enrollmentFailure != null:
+        return enrollmentFailure(_that);
       case _:
         return orElse();
     }
@@ -141,6 +150,9 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     required TResult Function(CouponLoading value) couponLoading,
     required TResult Function(CouponSuccess value) couponSuccess,
     required TResult Function(CouponFailure value) couponFailure,
+    required TResult Function(EnrollmentLoading value) enrollmentLoading,
+    required TResult Function(EnrollmentSuccess value) enrollmentSuccess,
+    required TResult Function(EnrollmentFailure value) enrollmentFailure,
   }) {
     final _that = this;
     switch (_that) {
@@ -174,6 +186,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return couponSuccess(_that);
       case CouponFailure():
         return couponFailure(_that);
+      case EnrollmentLoading():
+        return enrollmentLoading(_that);
+      case EnrollmentSuccess():
+        return enrollmentSuccess(_that);
+      case EnrollmentFailure():
+        return enrollmentFailure(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -208,6 +226,9 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     TResult? Function(CouponLoading value)? couponLoading,
     TResult? Function(CouponSuccess value)? couponSuccess,
     TResult? Function(CouponFailure value)? couponFailure,
+    TResult? Function(EnrollmentLoading value)? enrollmentLoading,
+    TResult? Function(EnrollmentSuccess value)? enrollmentSuccess,
+    TResult? Function(EnrollmentFailure value)? enrollmentFailure,
   }) {
     final _that = this;
     switch (_that) {
@@ -241,6 +262,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return couponSuccess(_that);
       case CouponFailure() when couponFailure != null:
         return couponFailure(_that);
+      case EnrollmentLoading() when enrollmentLoading != null:
+        return enrollmentLoading(_that);
+      case EnrollmentSuccess() when enrollmentSuccess != null:
+        return enrollmentSuccess(_that);
+      case EnrollmentFailure() when enrollmentFailure != null:
+        return enrollmentFailure(_that);
       case _:
         return null;
     }
@@ -280,6 +307,9 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     TResult Function()? couponLoading,
     TResult Function(String returnFinalPrice)? couponSuccess,
     TResult Function(String error)? couponFailure,
+    TResult Function()? enrollmentLoading,
+    TResult Function(String message)? enrollmentSuccess,
+    TResult Function(String error)? enrollmentFailure,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -315,6 +345,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return couponSuccess(_that.returnFinalPrice);
       case CouponFailure() when couponFailure != null:
         return couponFailure(_that.error);
+      case EnrollmentLoading() when enrollmentLoading != null:
+        return enrollmentLoading();
+      case EnrollmentSuccess() when enrollmentSuccess != null:
+        return enrollmentSuccess(_that.message);
+      case EnrollmentFailure() when enrollmentFailure != null:
+        return enrollmentFailure(_that.error);
       case _:
         return orElse();
     }
@@ -355,6 +391,9 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     required TResult Function() couponLoading,
     required TResult Function(String returnFinalPrice) couponSuccess,
     required TResult Function(String error) couponFailure,
+    required TResult Function() enrollmentLoading,
+    required TResult Function(String message) enrollmentSuccess,
+    required TResult Function(String error) enrollmentFailure,
   }) {
     final _that = this;
     switch (_that) {
@@ -389,6 +428,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return couponSuccess(_that.returnFinalPrice);
       case CouponFailure():
         return couponFailure(_that.error);
+      case EnrollmentLoading():
+        return enrollmentLoading();
+      case EnrollmentSuccess():
+        return enrollmentSuccess(_that.message);
+      case EnrollmentFailure():
+        return enrollmentFailure(_that.error);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -428,6 +473,9 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     TResult? Function()? couponLoading,
     TResult? Function(String returnFinalPrice)? couponSuccess,
     TResult? Function(String error)? couponFailure,
+    TResult? Function()? enrollmentLoading,
+    TResult? Function(String message)? enrollmentSuccess,
+    TResult? Function(String error)? enrollmentFailure,
   }) {
     final _that = this;
     switch (_that) {
@@ -462,6 +510,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return couponSuccess(_that.returnFinalPrice);
       case CouponFailure() when couponFailure != null:
         return couponFailure(_that.error);
+      case EnrollmentLoading() when enrollmentLoading != null:
+        return enrollmentLoading();
+      case EnrollmentSuccess() when enrollmentSuccess != null:
+        return enrollmentSuccess(_that.message);
+      case EnrollmentFailure() when enrollmentFailure != null:
+        return enrollmentFailure(_that.error);
       case _:
         return null;
     }
@@ -1401,6 +1455,181 @@ class _$CouponFailureCopyWithImpl<$Res>
     Object? error = null,
   }) {
     return _then(CouponFailure(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class EnrollmentLoading
+    with DiagnosticableTreeMixin
+    implements CourseDetailsState {
+  const EnrollmentLoading();
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'CourseDetailsState.enrollmentLoading'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is EnrollmentLoading);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseDetailsState.enrollmentLoading()';
+  }
+}
+
+/// @nodoc
+
+class EnrollmentSuccess
+    with DiagnosticableTreeMixin
+    implements CourseDetailsState {
+  const EnrollmentSuccess(this.message);
+
+  final String message;
+
+  /// Create a copy of CourseDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $EnrollmentSuccessCopyWith<EnrollmentSuccess> get copyWith =>
+      _$EnrollmentSuccessCopyWithImpl<EnrollmentSuccess>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'CourseDetailsState.enrollmentSuccess'))
+      ..add(DiagnosticsProperty('message', message));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is EnrollmentSuccess &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseDetailsState.enrollmentSuccess(message: $message)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $EnrollmentSuccessCopyWith<$Res>
+    implements $CourseDetailsStateCopyWith<$Res> {
+  factory $EnrollmentSuccessCopyWith(
+          EnrollmentSuccess value, $Res Function(EnrollmentSuccess) _then) =
+      _$EnrollmentSuccessCopyWithImpl;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class _$EnrollmentSuccessCopyWithImpl<$Res>
+    implements $EnrollmentSuccessCopyWith<$Res> {
+  _$EnrollmentSuccessCopyWithImpl(this._self, this._then);
+
+  final EnrollmentSuccess _self;
+  final $Res Function(EnrollmentSuccess) _then;
+
+  /// Create a copy of CourseDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(EnrollmentSuccess(
+      null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class EnrollmentFailure
+    with DiagnosticableTreeMixin
+    implements CourseDetailsState {
+  const EnrollmentFailure({required this.error});
+
+  final String error;
+
+  /// Create a copy of CourseDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $EnrollmentFailureCopyWith<EnrollmentFailure> get copyWith =>
+      _$EnrollmentFailureCopyWithImpl<EnrollmentFailure>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'CourseDetailsState.enrollmentFailure'))
+      ..add(DiagnosticsProperty('error', error));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is EnrollmentFailure &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseDetailsState.enrollmentFailure(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $EnrollmentFailureCopyWith<$Res>
+    implements $CourseDetailsStateCopyWith<$Res> {
+  factory $EnrollmentFailureCopyWith(
+          EnrollmentFailure value, $Res Function(EnrollmentFailure) _then) =
+      _$EnrollmentFailureCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$EnrollmentFailureCopyWithImpl<$Res>
+    implements $EnrollmentFailureCopyWith<$Res> {
+  _$EnrollmentFailureCopyWithImpl(this._self, this._then);
+
+  final EnrollmentFailure _self;
+  final $Res Function(EnrollmentFailure) _then;
+
+  /// Create a copy of CourseDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(EnrollmentFailure(
       error: null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable

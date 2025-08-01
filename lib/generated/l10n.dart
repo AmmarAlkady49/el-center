@@ -2189,6 +2189,71 @@ class S {
       args: [],
     );
   }
+
+  /// `Unsupported content type`
+  String get unsupported_content_type {
+    return Intl.message(
+      'Unsupported content type',
+      name: 'unsupported_content_type',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This lesson is an article`
+  String get this_lesson_is_an_article {
+    return Intl.message(
+      'This lesson is an article',
+      name: 'this_lesson_is_an_article',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `min`
+  String get min {
+    return Intl.message('min', name: 'min', desc: '', args: []);
+  }
+
+  /// `Read Article`
+  String get read_article {
+    return Intl.message(
+      'Read Article',
+      name: 'read_article',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Article`
+  String get article {
+    return Intl.message('Article', name: 'article', desc: '', args: []);
+  }
+
+  /// `Reading`
+  String get reading {
+    return Intl.message('Reading', name: 'reading', desc: '', args: []);
+  }
+
+  /// `Article Completed`
+  String get article_completed {
+    return Intl.message(
+      'Article Completed',
+      name: 'article_completed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Great job reading through this article. You can now continue to the next lesson.`
+  String get greadt_job_reading {
+    return Intl.message(
+      'Great job reading through this article. You can now continue to the next lesson.',
+      name: 'greadt_job_reading',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

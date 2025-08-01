@@ -10,7 +10,7 @@ PreferredSizeWidget buildGenericAppBar(BuildContext context,
         double? elevation,
         TextStyle? textStyle,
         Color? iconColor,
-        bool hasIconLeading = true}) =>
+        bool hasIconLeading = true, PreferredSize?  bottom}) =>
     AppBar(
       backgroundColor: backgroundColor ?? AppColors.mainBlue,
       elevation: elevation ?? 4,
@@ -50,7 +50,7 @@ PreferredSizeWidget buildGenericAppBar(BuildContext context,
             ),
       ),
       centerTitle: true,
-      bottom: PreferredSize(
+      bottom: bottom?? PreferredSize(
         preferredSize: Size.fromHeight(1.h),
         child: Container(
           height: 1.h,

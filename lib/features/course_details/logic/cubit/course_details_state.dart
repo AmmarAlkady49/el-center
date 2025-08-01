@@ -44,4 +44,11 @@ abstract class CourseDetailsState with _$CourseDetailsState {
   const factory CourseDetailsState.couponFailure({
     required String error,
   }) = CouponFailure;
+
+  const factory CourseDetailsState.enrollmentLoading() = EnrollmentLoading;
+  const factory CourseDetailsState.enrollmentSuccess(String message) =
+      EnrollmentSuccess;
+  const factory CourseDetailsState.enrollmentFailure({
+    required String error,
+  }) = EnrollmentFailure;
 }

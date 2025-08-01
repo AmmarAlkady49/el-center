@@ -4,6 +4,7 @@ import 'package:e_learning_app/features/course_details/presentation/widgets/buil
 import 'package:e_learning_app/features/course_details/presentation/widgets/build_curriclum_tap.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
 import '../../../../core/data/models/course_info_model.dart';
 import '../../../../core/data/models/course_module_model.dart';
@@ -127,10 +128,10 @@ Widget _buildOverViewTab(BuildContext context, final courseBasicInfo) {
           ),
         ),
         verticalSpacing(8),
-        Text(
+        HtmlWidget(
           courseBasicInfo.description ?? 'No description available.',
-          style: FontHelper.font14BlackW500(context).copyWith(
-            height: 1.6,
+          textStyle: FontHelper.font14BlackW500(context).copyWith(
+            height: 1.5,
             color: AppColors.greyBlue,
           ),
         ),

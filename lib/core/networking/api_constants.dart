@@ -4,8 +4,6 @@ class ApiConstants {
   static const String apiBaseUrl = "https://elcentre-api.runasp.net/";
   static const String baseUrlOfTheImage =
       "https://elcentre-learn.vercel.app/api";
-  static const String baseUrlOfTheImage =
-      "https://elcentre-learn.vercel.app/api";
 
   static const String login = "Account/login";
   static const String register = "Account/register";
@@ -25,9 +23,9 @@ class ApiConstants {
   static const String completedLessons = "Enrollment/completed-lessons";
   static const String getStudentEnrollments =
       "/Enrollment/get-student-enrollments";
-  static const String applyCoupon =
-      "/CouponCode/apply-coupon-code";
-      static const String getAllCategories = "/Category/get-all-categories";
+  static const String applyCoupon = "/CouponCode/apply-coupon-code";
+  static const String getAllCategories = "/Category/get-all-categories";
+  static const String enrollmentEnroll = "Enrollment/enroll";
 }
 
 class ApiErrors {

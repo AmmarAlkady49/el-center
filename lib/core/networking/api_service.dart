@@ -10,8 +10,6 @@ import '../../features/authVerification/data/model/active_account_request_body.d
 import '../../features/authVerification/data/model/active_account_response_body.dart';
 import '../../features/course_details/data/models/add_course_review_request_body.dart';
 import '../../features/learning_centre/data/model/quiz_model.dart';
-import '../../features/course_details/data/models/add_course_review_request_body.dart';
-import '../../features/learning_centre/data/model/quiz_model.dart';
 import '../../features/login/data/models/login_request_body.dart';
 import '../../features/my_courses/data/model/student_enrollments_model.dart';
 import '../../features/signup/data/models/signup_request_body.dart';
@@ -99,4 +97,7 @@ abstract class ApiService {
 
   @GET(ApiConstants.getAllCategories)
   Future<List<CategoryModel>> getAllCategories();
+
+  @POST(ApiConstants.enrollmentEnroll)
+  Future<String> enrollmentEnroll(@Query('courseId') int courseId);
 }

@@ -12,7 +12,7 @@ import '../../../../core/data/models/course_modules_with_lessons.dart';
 import '../../../../core/data/models/course_review_model.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../logic/cubit/learning_centre_state.dart';
-import '../widgets/build_video_player.dart';
+import '../widgets/build_content_player.dart';
 
 class LessonPlayerPage extends StatefulWidget {
   final CourseInfoModel courseInfo;
@@ -47,17 +47,6 @@ class _LessonPlayerPageState extends State<LessonPlayerPage> {
       modulesWithLessons: widget.modulesWithLessons,
       courseReview: widget.courseReview,
     );
-
-    if (widget.lessons.isNotEmpty) {
-      cubit.initializeVideo(widget.lessons[cubit.selectedLessonIndex].content!);
-    }
-  }
-
-  @override
-  void dispose() {
-    cubit.chewieController?.dispose();
-    cubit.videoPlayerController?.dispose();
-    super.dispose();
   }
 
   @override
@@ -78,12 +67,19 @@ class _LessonPlayerPageState extends State<LessonPlayerPage> {
               ),
             );
           }
+          // else if (state is LessonSelected) {
+          //   final currentLesson = cubit.currentLesson;
+          //   // if (currentLesson!.contentType == 'video') {
+          //   //   cubit.initializeVideo(currentLesson.content!);
+          //   // }
+          // }
         },
         buildWhen: (previous, current) {
           // Only rebuild for these specific states
           return current is LoadingCourseContent ||
               current is SuccessGetCourseContent ||
-              current is FailedGetCourseContent;
+              current is FailedGetCourseContent ||
+              current is LessonSelected;
         },
         builder: (context, state) {
           if (state is LoadingCourseContent && !isContentLoaded) {
@@ -140,7 +136,8 @@ class _LessonPlayerPageState extends State<LessonPlayerPage> {
           } else {
             return Column(
               children: [
-                BuildVideoPlayer(),
+                // Use the new BuildContentPlayer widget
+                BuildContentPlayer(lessons: widget.lessons, cubit: cubit),
                 Expanded(
                   child: BuildTapBarLesson(cubit: cubit),
                 ),

@@ -22,6 +22,7 @@ import '../../features/course_details/presentation/screens/course_details_page.d
 import '../../features/home/presentation/screens/all_categories_page.dart';
 import '../../features/home/presentation/screens/courses_by_category.dart';
 import '../../features/learning_centre/data/model/quiz_model.dart';
+import '../../features/learning_centre/presentation/screens/article_reading_page.dart';
 import '../../features/learning_centre/presentation/screens/lesson_player_page.dart';
 import '../../features/learning_centre/presentation/screens/lesson_quiz_page.dart';
 import '../../features/settings/presentation/screens/personal_info_screen.dart';
@@ -144,6 +145,15 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (context) => getIt<HomeCubit>()..getAllCategories(),
             child: const AllCategoriesPage(),
+          ),
+        );
+
+        case AppRoutes.articleReading:
+        final article = settings.arguments as LessonModule;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<LearningCentreCubit>(),
+            child: ArticleReadingPage(lesson: article),
           ),
         );
 

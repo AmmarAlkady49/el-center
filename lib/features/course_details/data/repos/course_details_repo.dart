@@ -76,4 +76,13 @@ class CourseDetailsRepo {
       return ApiResult.failure(ErrorHandler.handle(error));
     }
   }
+
+  Future<ApiResult<String>> enrollmentEnroll(int courseId) async {
+    try {
+      final response = await apiService.enrollmentEnroll(courseId);
+      return ApiResult.success(response);
+    } catch (error) {
+      throw ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
 }

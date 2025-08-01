@@ -53,6 +53,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "answer": MessageLookupByLibrary.simpleMessage("Answer"),
     "answered": MessageLookupByLibrary.simpleMessage("Answered"),
     "apply": MessageLookupByLibrary.simpleMessage("Apply"),
+    "article": MessageLookupByLibrary.simpleMessage("Article"),
+    "article_completed": MessageLookupByLibrary.simpleMessage(
+      "Article Completed",
+    ),
     "audio": MessageLookupByLibrary.simpleMessage("Audio"),
     "available_languages": MessageLookupByLibrary.simpleMessage(
       "Available Languages",
@@ -133,13 +137,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "discover_your_learning": MessageLookupByLibrary.simpleMessage(
       "Discover Your Learning Path with ElCentre",
     ),
-    "discover_your_learning": MessageLookupByLibrary.simpleMessage(
-      "Discover Your Learning Path with ElCentre",
-    ),
     "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
-    "egp_currency": MessageLookupByLibrary.simpleMessage("EGP"),
     "egp_currency": MessageLookupByLibrary.simpleMessage("EGP"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailVerification": MessageLookupByLibrary.simpleMessage(
@@ -185,6 +185,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "good_afternoon": MessageLookupByLibrary.simpleMessage("Good Afternoon"),
     "good_evening": MessageLookupByLibrary.simpleMessage("Good Evening"),
     "good_morning": MessageLookupByLibrary.simpleMessage("Good Morning"),
+    "greadt_job_reading": MessageLookupByLibrary.simpleMessage(
+      "Great job reading through this article. You can now continue to the next lesson.",
+    ),
     "have_a_coupon_code": MessageLookupByLibrary.simpleMessage(
       "Have a coupon code?",
     ),
@@ -247,6 +250,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "mention_the_course_content": MessageLookupByLibrary.simpleMessage(
       "• Mention the course content, instructor, and difficulty level",
     ),
+    "min": MessageLookupByLibrary.simpleMessage("min"),
     "mobile_development": MessageLookupByLibrary.simpleMessage(
       "Mobile Development",
     ),
@@ -325,8 +329,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "out_of": MessageLookupByLibrary.simpleMessage("out of"),
     "overView": MessageLookupByLibrary.simpleMessage("Overview"),
-    "out_of": MessageLookupByLibrary.simpleMessage("out of"),
-    "overView": MessageLookupByLibrary.simpleMessage("Overview"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "passwordTooWeak": MessageLookupByLibrary.simpleMessage(
       "Password too weak",
@@ -403,11 +405,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "quiz_ready": MessageLookupByLibrary.simpleMessage("Quiz is ready!"),
     "quizzes": MessageLookupByLibrary.simpleMessage("Quizzes"),
     "ratings": MessageLookupByLibrary.simpleMessage("Ratings"),
+    "read_article": MessageLookupByLibrary.simpleMessage("Read Article"),
+    "reading": MessageLookupByLibrary.simpleMessage("Reading"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "remaining": MessageLookupByLibrary.simpleMessage("Remaining"),
-    "remaining": MessageLookupByLibrary.simpleMessage("Remaining"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
-    "requirements": MessageLookupByLibrary.simpleMessage("Requirements"),
     "requirements": MessageLookupByLibrary.simpleMessage("Requirements"),
     "resend": MessageLookupByLibrary.simpleMessage("Resend"),
     "resendOTP": MessageLookupByLibrary.simpleMessage("Resend OTP"),
@@ -442,9 +444,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "something_went_wrong": MessageLookupByLibrary.simpleMessage(
       "Something went wrong",
     ),
-    "something_went_wrong": MessageLookupByLibrary.simpleMessage(
-      "Something went wrong",
-    ),
     "startLearning": MessageLookupByLibrary.simpleMessage("Start learning!"),
     "start_learning_today": MessageLookupByLibrary.simpleMessage(
       "Start learning today",
@@ -471,6 +470,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "there_is_quiz_for_this_lesson": MessageLookupByLibrary.simpleMessage(
       "There is a quiz for this lesson.",
     ),
+    "this_lesson_is_an_article": MessageLookupByLibrary.simpleMessage(
+      "This lesson is an article",
+    ),
     "thu": MessageLookupByLibrary.simpleMessage("Thu"),
     "tips_for_a_helpful_review": MessageLookupByLibrary.simpleMessage(
       "Tips for a helpful review",
@@ -492,6 +494,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "typeYourPassword": MessageLookupByLibrary.simpleMessage(
       "Type your password",
+    ),
+    "unsupported_content_type": MessageLookupByLibrary.simpleMessage(
+      "Unsupported content type",
     ),
     "update_your_password": MessageLookupByLibrary.simpleMessage(
       "Update your password",

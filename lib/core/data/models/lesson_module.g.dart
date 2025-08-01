@@ -16,6 +16,7 @@ LessonModule _$LessonModuleFromJson(Map<String, dynamic> json) => LessonModule(
       durationInMinutes: (json['durationInMinutes'] as num?)?.toInt(),
       description: json['description'] as String?,
       isPublished: json['isPublished'] as bool?,
+      isPreview: json['isPreview'] as bool?,
     );
 
 Map<String, dynamic> _$LessonModuleToJson(LessonModule instance) =>
@@ -29,4 +30,5 @@ Map<String, dynamic> _$LessonModuleToJson(LessonModule instance) =>
       'durationInMinutes': instance.durationInMinutes,
       'description': instance.description,
       'isPublished': instance.isPublished,
+      'isPreview': instance.isPreview,
     };

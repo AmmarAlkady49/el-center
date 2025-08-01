@@ -74,6 +74,7 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     TResult Function(LoadingCourseContent<T> value)? loadingCourseContent,
     TResult Function(SuccessGetCourseContent<T> value)? successGetCourseContent,
     TResult Function(FailedGetCourseContent<T> value)? failedGetCourseContent,
+    TResult Function(LessonSelected<T> value)? lessonSelected,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -114,6 +115,8 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return successGetCourseContent(_that);
       case FailedGetCourseContent() when failedGetCourseContent != null:
         return failedGetCourseContent(_that);
+      case LessonSelected() when lessonSelected != null:
+        return lessonSelected(_that);
       case _:
         return orElse();
     }
@@ -164,6 +167,7 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         successGetCourseContent,
     required TResult Function(FailedGetCourseContent<T> value)
         failedGetCourseContent,
+    required TResult Function(LessonSelected<T> value) lessonSelected,
   }) {
     final _that = this;
     switch (_that) {
@@ -201,6 +205,8 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return successGetCourseContent(_that);
       case FailedGetCourseContent():
         return failedGetCourseContent(_that);
+      case LessonSelected():
+        return lessonSelected(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -245,6 +251,7 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     TResult? Function(SuccessGetCourseContent<T> value)?
         successGetCourseContent,
     TResult? Function(FailedGetCourseContent<T> value)? failedGetCourseContent,
+    TResult? Function(LessonSelected<T> value)? lessonSelected,
   }) {
     final _that = this;
     switch (_that) {
@@ -284,6 +291,8 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return successGetCourseContent(_that);
       case FailedGetCourseContent() when failedGetCourseContent != null:
         return failedGetCourseContent(_that);
+      case LessonSelected() when lessonSelected != null:
+        return lessonSelected(_that);
       case _:
         return null;
     }
@@ -326,6 +335,7 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
             List<CourseModulesWithLessons> modulesWithLessons)?
         successGetCourseContent,
     TResult Function(String error)? failedGetCourseContent,
+    TResult Function()? lessonSelected,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -368,6 +378,8 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
             _that.courseInfo, _that.modulesWithLessons);
       case FailedGetCourseContent() when failedGetCourseContent != null:
         return failedGetCourseContent(_that.error);
+      case LessonSelected() when lessonSelected != null:
+        return lessonSelected();
       case _:
         return orElse();
     }
@@ -413,6 +425,7 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
             List<CourseModulesWithLessons> modulesWithLessons)
         successGetCourseContent,
     required TResult Function(String error) failedGetCourseContent,
+    required TResult Function() lessonSelected,
   }) {
     final _that = this;
     switch (_that) {
@@ -452,6 +465,8 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
             _that.courseInfo, _that.modulesWithLessons);
       case FailedGetCourseContent():
         return failedGetCourseContent(_that.error);
+      case LessonSelected():
+        return lessonSelected();
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -494,6 +509,7 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
             List<CourseModulesWithLessons> modulesWithLessons)?
         successGetCourseContent,
     TResult? Function(String error)? failedGetCourseContent,
+    TResult? Function()? lessonSelected,
   }) {
     final _that = this;
     switch (_that) {
@@ -535,6 +551,8 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
             _that.courseInfo, _that.modulesWithLessons);
       case FailedGetCourseContent() when failedGetCourseContent != null:
         return failedGetCourseContent(_that.error);
+      case LessonSelected() when lessonSelected != null:
+        return lessonSelected();
       case _:
         return null;
     }
@@ -1460,6 +1478,26 @@ class _$FailedGetCourseContentCopyWithImpl<T, $Res>
           : error // ignore: cast_nullable_to_non_nullable
               as String,
     ));
+  }
+}
+
+/// @nodoc
+
+class LessonSelected<T> implements LearningCentreState<T> {
+  const LessonSelected();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is LessonSelected<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.lessonSelected()';
   }
 }
 

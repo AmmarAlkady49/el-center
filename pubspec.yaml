@@ -2,14 +2,13 @@ name: e_learning_app
 description: "A new Flutter project."
 publish_to: 'none'
 
-version: 1.0.29+1
+version: 1.0.30+1
 
 environment:
   sdk: ^3.6.1
 
 dependencies:
   cached_network_image: ^3.4.1
-  chewie: ^1.12.1
   chewie: ^1.12.1
   country_code_picker: ^3.3.0
   cupertino_icons: ^1.0.8
@@ -26,15 +25,12 @@ dependencies:
   flutter_screenutil: ^5.9.3
   flutter_secure_storage: ^9.2.4
   flutter_svg: ^2.2.0
-  freezed: ^3.1.0
-  freezed_annotation: ^3.1.0
+  flutter_widget_from_html: ^0.17.0
   freezed: ^3.1.0
   freezed_annotation: ^3.1.0
   get_it: ^8.0.3
   google_nav_bar: ^5.0.7
-  google_nav_bar: ^5.0.7
   iconsax: ^0.0.8
-  intl: ^0.20.2
   intl: ^0.20.2
   json_annotation: ^4.9.0
   json_serializable: ^6.9.5
@@ -44,8 +40,6 @@ dependencies:
   retrofit: ^4.4.2
   retrofit_generator: ^9.2.0
   shared_preferences: ^2.5.3
-  video_player: ^2.10.0
-  webview_flutter: ^4.13.0
   video_player: ^2.10.0
   webview_flutter: ^4.13.0
 

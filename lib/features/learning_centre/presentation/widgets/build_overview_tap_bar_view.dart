@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:e_learning_app/generated/l10n.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
@@ -93,12 +94,11 @@ class BuildOverviewTapBarView extends StatelessWidget {
             ],
           ),
           verticalSpacing(12.h),
-          Text(
+          HtmlWidget(
             cubit.conurseInfo?.description ?? 'No description available',
-            style: FontHelper.font14BlackW500(context).copyWith(
-              height: 1.6,
+            textStyle: FontHelper.font14BlackW500(context).copyWith(
+              height: 1.5,
               color: AppColors.greyBlue,
-              fontSize: 14.sp,
             ),
           ),
         ],

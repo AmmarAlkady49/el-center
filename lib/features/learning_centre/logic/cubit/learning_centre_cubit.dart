@@ -36,6 +36,7 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
   int selectedmoduleIndex = 0;
 
   Set<int> completedLessonIds = {};
+  LessonModule? currentLesson;
 
   void selectContentOfTheCourse({
     required CourseInfoModel courseInfo,
@@ -47,6 +48,12 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
     this.lessons = lessons;
     this.modulesWithLessons = modulesWithLessons;
     this.courseReview = courseReview;
+    if (modulesWithLessons.isNotEmpty &&
+        modulesWithLessons[0].lessons.isNotEmpty) {
+      currentLesson = modulesWithLessons[0].lessons[0];
+    } else {
+      currentLesson = null;
+    }
   }
 
   void getCourseContent({
@@ -127,9 +134,15 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
     final lesson = modulesWithLessons[selectedmoduleIndex].lessons[lessonIndex];
 
     this.selectedmoduleIndex = selectedmoduleIndex;
-    this.selectedLessonIndex = lessonIndex;
+    selectedLessonIndex = lessonIndex;
+    currentLesson = lesson;
 
-    initializeVideo(lesson.content!);
+    emit(LearningCentreState.lessonSelected());
+
+    // Only initialize video if the content type is video
+    if (lesson.contentType == 'video' && lesson.content != null) {
+      initializeVideo(lesson.content!);
+    }
   }
 
   void toggleModuleExpanded(int index) {

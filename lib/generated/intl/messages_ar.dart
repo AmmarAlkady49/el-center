@@ -50,6 +50,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "answer": MessageLookupByLibrary.simpleMessage("اجابة"),
     "answered": MessageLookupByLibrary.simpleMessage("تم الاجابة"),
     "apply": MessageLookupByLibrary.simpleMessage("تطبيق"),
+    "article": MessageLookupByLibrary.simpleMessage("مقالة"),
+    "article_completed": MessageLookupByLibrary.simpleMessage(
+      "تم الانتهاء من المقالة",
+    ),
     "audio": MessageLookupByLibrary.simpleMessage("صوتي"),
     "available_languages": MessageLookupByLibrary.simpleMessage(
       "اللغات المتاحة",
@@ -130,11 +134,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "discover_your_learning": MessageLookupByLibrary.simpleMessage(
       "اكتشف مسارك للتعلم مع ElCentre",
     ),
-    "discover_your_learning": MessageLookupByLibrary.simpleMessage(
-      "اكتشف مسارك للتعلم مع ElCentre",
-    ),
     "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
-    "egp_currency": MessageLookupByLibrary.simpleMessage("ج.م"),
     "egp_currency": MessageLookupByLibrary.simpleMessage("ج.م"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "emailVerification": MessageLookupByLibrary.simpleMessage(
@@ -178,6 +178,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "good_afternoon": MessageLookupByLibrary.simpleMessage("صباح الخير"),
     "good_evening": MessageLookupByLibrary.simpleMessage("مساء الخير"),
     "good_morning": MessageLookupByLibrary.simpleMessage("صباح الخير"),
+    "greadt_job_reading": MessageLookupByLibrary.simpleMessage(
+      "مبروك لقد قرأت هذه المقالة بنجاح, يمكنك الانتقال إلى الدرس التالي.",
+    ),
     "have_a_coupon_code": MessageLookupByLibrary.simpleMessage("لديك كود خصم؟"),
     "help_others_understand": MessageLookupByLibrary.simpleMessage(
       "• ساعد الآخرين على معرفة ما إذا كانت هذه الدورة مناسبة لهم",
@@ -236,6 +239,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "mention_the_course_content": MessageLookupByLibrary.simpleMessage(
       "• اذكر محتوى الدورة، والمدرب، ومستوى الصعوبة",
     ),
+    "min": MessageLookupByLibrary.simpleMessage("د"),
     "mobile_development": MessageLookupByLibrary.simpleMessage("تطوير موبايل"),
     "mobile_wallet": MessageLookupByLibrary.simpleMessage("محفظة الهاتف"),
     "modules": MessageLookupByLibrary.simpleMessage("وحدات"),
@@ -318,8 +322,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "out_of": MessageLookupByLibrary.simpleMessage("من"),
     "overView": MessageLookupByLibrary.simpleMessage("نظرة عامة"),
-    "out_of": MessageLookupByLibrary.simpleMessage("من"),
-    "overView": MessageLookupByLibrary.simpleMessage("نظرة عامة"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "passwordTooWeak": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور ضعيفة جداً",
@@ -396,11 +398,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "quiz_ready": MessageLookupByLibrary.simpleMessage("الاختبار جاهز!"),
     "quizzes": MessageLookupByLibrary.simpleMessage("اختبارات"),
     "ratings": MessageLookupByLibrary.simpleMessage("تقييمات"),
+    "read_article": MessageLookupByLibrary.simpleMessage("قراءة المقالة"),
+    "reading": MessageLookupByLibrary.simpleMessage("قراءة"),
     "register": MessageLookupByLibrary.simpleMessage("تسجيل حساب جديد"),
     "remaining": MessageLookupByLibrary.simpleMessage("المتبقي"),
-    "remaining": MessageLookupByLibrary.simpleMessage("المتبقي"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
-    "requirements": MessageLookupByLibrary.simpleMessage("المتطلبات"),
     "requirements": MessageLookupByLibrary.simpleMessage("المتطلبات"),
     "resend": MessageLookupByLibrary.simpleMessage("اعادة ارسال"),
     "resendOTP": MessageLookupByLibrary.simpleMessage("اعادة ارسال OTP"),
@@ -433,7 +435,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "signup": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "something_went_wrong": MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
-    "something_went_wrong": MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
     "startLearning": MessageLookupByLibrary.simpleMessage("ابدأ التعلم!"),
     "start_learning_today": MessageLookupByLibrary.simpleMessage(
       "ابدأ التعلم اليوم",
@@ -460,6 +461,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "there_is_quiz_for_this_lesson": MessageLookupByLibrary.simpleMessage(
       "هناك اختبار لهذا الدرس.",
     ),
+    "this_lesson_is_an_article": MessageLookupByLibrary.simpleMessage(
+      "هذه الدرس مقالة",
+    ),
     "thu": MessageLookupByLibrary.simpleMessage("الخميس"),
     "tips_for_a_helpful_review": MessageLookupByLibrary.simpleMessage(
       "نصائح لتقديم تقييم مفيد",
@@ -483,6 +487,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "typeYourPassword": MessageLookupByLibrary.simpleMessage(
       "ادخل كلمة المرور",
+    ),
+    "unsupported_content_type": MessageLookupByLibrary.simpleMessage(
+      "نوع المحتوى غير مدعوم",
     ),
     "update_your_password": MessageLookupByLibrary.simpleMessage(
       "تحديث كلمة المرور الخاصة بك",

@@ -305,7 +305,7 @@ class HelperFunctions {
                   return 4;
                 }),
                 shadowColor: WidgetStateProperty.all(
-                  AppColors.mainBlue.withOpacity(0.3),
+                  AppColors.mainBlue.withAlpha(90),
                 ),
               ),
               cancelButtonStyle: ButtonStyle(
@@ -321,7 +321,7 @@ class HelperFunctions {
               ),
               // Enhanced day selection styling
               todayBorder: BorderSide(
-                color: AppColors.mainBlue.withOpacity(0.5),
+                color: AppColors.mainBlue.withAlpha(175),
                 width: 2,
               ),
               todayForegroundColor: WidgetStateProperty.resolveWith((states) {
@@ -395,7 +395,7 @@ class HelperFunctions {
         child: imageUrl == null
             ? Icon(
                 Icons.person,
-                size: radius,
+                size: radius! - 15.sp,
                 color: Colors.white,
               )
             : CachedNetworkImage(
@@ -408,7 +408,7 @@ class HelperFunctions {
                 ),
                 errorWidget: (context, url, error) => Icon(
                   Icons.person,
-                  size: radius!-5,
+                  size: radius! - 15.sp,
                   color: Colors.white,
                 ),
               ),

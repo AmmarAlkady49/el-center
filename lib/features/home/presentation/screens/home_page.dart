@@ -13,8 +13,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-    return CustomScrollView(
-      slivers: [
         BuildAppBarForHomePage(),
         SliverToBoxAdapter(child: verticalSpacing(20)),
         SliverToBoxAdapter(child: ModernBarChartForHomePage()),
@@ -24,7 +22,6 @@ class HomePage extends StatelessWidget {
         SliverToBoxAdapter(child: CategorySection()),
         SliverToBoxAdapter(child: verticalSpacing(100)),
       ],
-    );
     );
   }
 }

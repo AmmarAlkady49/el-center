@@ -15,5 +15,6 @@ class AppRoutes {
   static const String personalInformation = '/personalInformation';
   static const String changeLanguage = '/changeLanguage';
   static const String getAllCategories = '/getAllCategories';
+  static const String articleReading = '/articleReadingPage';
 
 }

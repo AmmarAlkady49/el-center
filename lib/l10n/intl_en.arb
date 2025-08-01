@@ -274,5 +274,14 @@
   "all_courses" : "All Courses",
   "start_your_free_course": "Start your free course",
   "details": "Details",
-  "more_details" : "More Details"
+  "more_details" : "More Details",
+  "unsupported_content_type":"Unsupported content type",
+  "this_lesson_is_an_article" : "This lesson is an article",
+  "min": "min",
+  "read_article" : "Read Article",
+  "article" : "Article",
+  "reading": "Reading",
+  "article_completed" : "Article Completed",
+  "greadt_job_reading" : "Great job reading through this article. You can now continue to the next lesson."
+
 }

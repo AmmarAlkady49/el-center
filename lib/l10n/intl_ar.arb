@@ -274,5 +274,17 @@
   "all_courses": "كل الكورسات",
   "start_your_free_course": "ابدأ كورسك المجاني",
   "details": "التفاصيل",
-  "more_details": "تفاصيل اكثر"
+  "more_details": "تفاصيل اكثر",
+  "unsupported_content_type": "نوع المحتوى غير مدعوم",
+  "this_lesson_is_an_article": "هذه الدرس مقالة",
+  "min": "د",
+  "read_article": "قراءة المقالة",
+  "article" : "مقالة",
+  "reading": "قراءة",
+  "article_completed" : "تم الانتهاء من المقالة",
+  "greadt_job_reading" : "مبروك لقد قرأت هذه المقالة بنجاح, يمكنك الانتقال إلى الدرس التالي."
+
+
+
+
 }

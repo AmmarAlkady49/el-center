@@ -99,6 +99,17 @@ class CourseDetailsCubit extends Cubit<CourseDetailsState> {
     }
   }
 
+  // Emit enrollment in a free course.
+  Future<void> emitEnrollmentState(int courseID) async {
+    emit(CourseDetailsState.enrollmentLoading());
+    final result = await courseDetailsRepo.enrollmentEnroll(courseID);
+    if (result is Success<String>) {
+      emit(CourseDetailsState.enrollmentSuccess(result.data));
+    } else {
+      emit(CourseDetailsState.enrollmentFailure(error: result.toString()));
+    }
+  }
+
   // course review submission
   Future<void> emitCourseReviewState(
       int courseId, String review, int rating) async {

@@ -13,6 +13,7 @@ class LessonModule {
   final int? durationInMinutes;
   final String? description;
   final bool? isPublished;
+  final bool? isPreview;
 
   LessonModule(
       {required this.id,
@@ -23,7 +24,8 @@ class LessonModule {
       required this.contentType,
       required this.durationInMinutes,
       required this.description,
-      required this.isPublished});
+      required this.isPublished,
+      required this.isPreview});
 
   factory LessonModule.fromJson(Map<String, dynamic> json) =>
       _$LessonModuleFromJson(json);
