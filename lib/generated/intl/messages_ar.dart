@@ -224,6 +224,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "دروس مكتملة هذا الاسبوع",
     ),
     "loading": MessageLookupByLibrary.simpleMessage("جاري التحميل..."),
+    "loading_content": MessageLookupByLibrary.simpleMessage("تحميل المحتوى..."),
     "loading_quizzes": MessageLookupByLibrary.simpleMessage(
       "تحميل الاختبارات...",
     ),

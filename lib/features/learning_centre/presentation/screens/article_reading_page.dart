@@ -1,20 +1,22 @@
 import 'package:e_learning_app/core/helpers/spacing.dart';
 import 'package:e_learning_app/core/theming/font_helper.dart';
+import 'package:e_learning_app/features/learning_centre/logic/cubit/learning_centre_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 
 import '../../../../core/data/models/lesson_module.dart';
 import '../../../../core/theming/app_colors.dart';
-import '../../../../core/widgets/build_geniric_app_bar.dart';
 import '../../../../generated/l10n.dart';
 
 class ArticleReadingPage extends StatefulWidget {
   final LessonModule lesson;
+  final LearningCentreCubit cubit;
 
   const ArticleReadingPage({
     super.key,
     required this.lesson,
+    required this.cubit,
   });
 
   @override
@@ -301,7 +303,10 @@ class _ArticleReadingPageState extends State<ArticleReadingPage> {
                   ),
                   verticalSpacing(16),
                   ElevatedButton(
-                    onPressed: () => Navigator.pop(context),
+                    onPressed: () {
+                      widget.cubit.completeLesson(widget.lesson.id);
+                      Navigator.pop(context);
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.mainBlue,
                       padding: EdgeInsets.symmetric(

@@ -66,13 +66,13 @@ class _LessonPlayerPageState extends State<LessonPlayerPage> {
                 backgroundColor: AppColors.red,
               ),
             );
+          } else if (state is LessonSelected) {
+            final currentLesson = cubit.currentLesson;
+            if (currentLesson!.contentType == 'video' &&
+                currentLesson.content != null) {
+              cubit.initializeVideo(currentLesson.content!);
+            }
           }
-          // else if (state is LessonSelected) {
-          //   final currentLesson = cubit.currentLesson;
-          //   // if (currentLesson!.contentType == 'video') {
-          //   //   cubit.initializeVideo(currentLesson.content!);
-          //   // }
-          // }
         },
         buildWhen: (previous, current) {
           // Only rebuild for these specific states

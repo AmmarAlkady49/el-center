@@ -282,6 +282,7 @@
   "article" : "Article",
   "reading": "Reading",
   "article_completed" : "Article Completed",
-  "greadt_job_reading" : "Great job reading through this article. You can now continue to the next lesson."
+  "greadt_job_reading" : "Great job reading through this article. You can now continue to the next lesson.",
+  "loading_content" : "Loading content..."
 
 }

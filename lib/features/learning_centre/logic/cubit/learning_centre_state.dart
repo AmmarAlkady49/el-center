@@ -47,6 +47,12 @@ class LearningCentreState<T> with _$LearningCentreState<T> {
     required Set<int> completedLessonIds,
   }) = SuccessGetCompletedLessons;
 
+  const factory LearningCentreState.loadingTextContent() = LoadingTextContent;
+
+  const factory LearningCentreState.successTextContent() = SuccessTextContent;
+
+  const factory LearningCentreState.failedTextContent() = FailedTextContent;
+
   const factory LearningCentreState.failedGetCompletedLessons({required String error}) = FailedGetCompletedLessons;
 
   const factory LearningCentreState.loadingCourseContent() = LoadingCourseContent;

@@ -347,7 +347,7 @@ Widget _buildModernCourseCard({
                           price == "0.0" ? "Free" : "$price EGP",
                           style: FontHelper.font20BlackW700(context).copyWith(
                             color: price == "0.0"
-                                ? AppColors.red.withAlpha(200)
+                                ? Colors.green.withAlpha(255)
                                 : Colors.black.withAlpha(200),
                             fontSize: 18.sp,
                             //fontWeight: FontWeight.w800,
