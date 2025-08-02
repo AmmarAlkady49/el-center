@@ -148,12 +148,14 @@ class AppRouter {
           ),
         );
 
-        case AppRoutes.articleReading:
-        final article = settings.arguments as LessonModule;
+      case AppRoutes.articleReading:
+        final args = settings.arguments as Map<String, dynamic>;
+        final article = args['lesson'] as LessonModule;
+        final cubit = args['cubit'] as LearningCentreCubit;
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => getIt<LearningCentreCubit>(),
-            child: ArticleReadingPage(lesson: article),
+            child: ArticleReadingPage(lesson: article, cubit: cubit),
           ),
         );
 

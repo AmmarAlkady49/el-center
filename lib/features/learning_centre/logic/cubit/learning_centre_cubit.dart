@@ -129,21 +129,39 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
     return selectedLessonQuizzes;
   }
 
-  void selectLesson(
-      {required int selectedmoduleIndex, required int lessonIndex}) {
-    final lesson = modulesWithLessons[selectedmoduleIndex].lessons[lessonIndex];
+void selectLesson({required int selectedmoduleIndex, required int lessonIndex}) {
+  final lesson = modulesWithLessons[selectedmoduleIndex].lessons[lessonIndex];
 
-    this.selectedmoduleIndex = selectedmoduleIndex;
-    selectedLessonIndex = lessonIndex;
-    currentLesson = lesson;
-
-    emit(LearningCentreState.lessonSelected());
-
-    // Only initialize video if the content type is video
-    if (lesson.contentType == 'video' && lesson.content != null) {
-      initializeVideo(lesson.content!);
-    }
+  if (chewieController != null) {
+    chewieController!.dispose();
+    chewieController = null;
   }
+  if (videoPlayerController != null) {
+    videoPlayerController!.dispose();
+    videoPlayerController = null;
+  }
+
+  this.selectedmoduleIndex = selectedmoduleIndex;
+  selectedLessonIndex = lessonIndex;
+  currentLesson = lesson;
+  log("selectedLessonIndex: $selectedLessonIndex");
+  log(currentLesson!.title!);
+  emit(LearningCentreState.lessonSelected());
+
+
+  // Initialize video if the content type is video
+  if (lesson.contentType == 'video' && lesson.content != null) {
+    initializeVideo(lesson.content!);
+  }
+}
+
+@override
+Future<void> close() {
+  // Dispose video controllers when cubit is closed
+  chewieController?.dispose();
+  videoPlayerController?.dispose();
+  return super.close();
+}
 
   void toggleModuleExpanded(int index) {
     if (expandedModules.contains(index)) {
@@ -154,6 +172,18 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
     log('toggleModuleExpanded: expandedModules = $expandedModules');
     // Force a new state emission to trigger rebuild
     emit(LearningCentreState.moduleExpandedStateChanged());
+  }
+
+  void initializeText(LessonModule lesson) {
+    emit(LearningCentreState.loadingTextContent());
+    if (lesson.content != null) {
+      
+    emit(LearningCentreState.successTextContent());
+    }
+    
+    else {
+      emit(LearningCentreState.failedTextContent());
+    }
   }
 
   void initializeVideo(String videoUrl) async {

@@ -235,6 +235,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Lessons completed this week",
     ),
     "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
+    "loading_content": MessageLookupByLibrary.simpleMessage(
+      "Loading content...",
+    ),
     "loading_quizzes": MessageLookupByLibrary.simpleMessage(
       "Loading quizzes...",
     ),

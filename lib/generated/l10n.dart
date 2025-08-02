@@ -2254,6 +2254,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Loading content...`
+  String get loading_content {
+    return Intl.message(
+      'Loading content...',
+      name: 'loading_content',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

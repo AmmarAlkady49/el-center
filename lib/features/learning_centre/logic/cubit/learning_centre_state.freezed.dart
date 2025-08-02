@@ -69,6 +69,9 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     TResult Function(LoadingCompletedLessons<T> value)? loadingCompletedLessons,
     TResult Function(SuccessGetCompletedLessons<T> value)?
         successGetCompletedLessons,
+    TResult Function(LoadingTextContent<T> value)? loadingTextContent,
+    TResult Function(SuccessTextContent<T> value)? successTextContent,
+    TResult Function(FailedTextContent<T> value)? failedTextContent,
     TResult Function(FailedGetCompletedLessons<T> value)?
         failedGetCompletedLessons,
     TResult Function(LoadingCourseContent<T> value)? loadingCourseContent,
@@ -107,6 +110,12 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return loadingCompletedLessons(_that);
       case SuccessGetCompletedLessons() when successGetCompletedLessons != null:
         return successGetCompletedLessons(_that);
+      case LoadingTextContent() when loadingTextContent != null:
+        return loadingTextContent(_that);
+      case SuccessTextContent() when successTextContent != null:
+        return successTextContent(_that);
+      case FailedTextContent() when failedTextContent != null:
+        return failedTextContent(_that);
       case FailedGetCompletedLessons() when failedGetCompletedLessons != null:
         return failedGetCompletedLessons(_that);
       case LoadingCourseContent() when loadingCourseContent != null:
@@ -159,6 +168,9 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         loadingCompletedLessons,
     required TResult Function(SuccessGetCompletedLessons<T> value)
         successGetCompletedLessons,
+    required TResult Function(LoadingTextContent<T> value) loadingTextContent,
+    required TResult Function(SuccessTextContent<T> value) successTextContent,
+    required TResult Function(FailedTextContent<T> value) failedTextContent,
     required TResult Function(FailedGetCompletedLessons<T> value)
         failedGetCompletedLessons,
     required TResult Function(LoadingCourseContent<T> value)
@@ -197,6 +209,12 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return loadingCompletedLessons(_that);
       case SuccessGetCompletedLessons():
         return successGetCompletedLessons(_that);
+      case LoadingTextContent():
+        return loadingTextContent(_that);
+      case SuccessTextContent():
+        return successTextContent(_that);
+      case FailedTextContent():
+        return failedTextContent(_that);
       case FailedGetCompletedLessons():
         return failedGetCompletedLessons(_that);
       case LoadingCourseContent():
@@ -245,6 +263,9 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         loadingCompletedLessons,
     TResult? Function(SuccessGetCompletedLessons<T> value)?
         successGetCompletedLessons,
+    TResult? Function(LoadingTextContent<T> value)? loadingTextContent,
+    TResult? Function(SuccessTextContent<T> value)? successTextContent,
+    TResult? Function(FailedTextContent<T> value)? failedTextContent,
     TResult? Function(FailedGetCompletedLessons<T> value)?
         failedGetCompletedLessons,
     TResult? Function(LoadingCourseContent<T> value)? loadingCourseContent,
@@ -283,6 +304,12 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return loadingCompletedLessons(_that);
       case SuccessGetCompletedLessons() when successGetCompletedLessons != null:
         return successGetCompletedLessons(_that);
+      case LoadingTextContent() when loadingTextContent != null:
+        return loadingTextContent(_that);
+      case SuccessTextContent() when successTextContent != null:
+        return successTextContent(_that);
+      case FailedTextContent() when failedTextContent != null:
+        return failedTextContent(_that);
       case FailedGetCompletedLessons() when failedGetCompletedLessons != null:
         return failedGetCompletedLessons(_that);
       case LoadingCourseContent() when loadingCourseContent != null:
@@ -329,6 +356,9 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     TResult Function(String error)? failedCompleteLesson,
     TResult Function()? loadingCompletedLessons,
     TResult Function(Set<int> completedLessonIds)? successGetCompletedLessons,
+    TResult Function()? loadingTextContent,
+    TResult Function()? successTextContent,
+    TResult Function()? failedTextContent,
     TResult Function(String error)? failedGetCompletedLessons,
     TResult Function()? loadingCourseContent,
     TResult Function(CourseInfoModel courseInfo,
@@ -369,6 +399,12 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return loadingCompletedLessons();
       case SuccessGetCompletedLessons() when successGetCompletedLessons != null:
         return successGetCompletedLessons(_that.completedLessonIds);
+      case LoadingTextContent() when loadingTextContent != null:
+        return loadingTextContent();
+      case SuccessTextContent() when successTextContent != null:
+        return successTextContent();
+      case FailedTextContent() when failedTextContent != null:
+        return failedTextContent();
       case FailedGetCompletedLessons() when failedGetCompletedLessons != null:
         return failedGetCompletedLessons(_that.error);
       case LoadingCourseContent() when loadingCourseContent != null:
@@ -419,6 +455,9 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     required TResult Function() loadingCompletedLessons,
     required TResult Function(Set<int> completedLessonIds)
         successGetCompletedLessons,
+    required TResult Function() loadingTextContent,
+    required TResult Function() successTextContent,
+    required TResult Function() failedTextContent,
     required TResult Function(String error) failedGetCompletedLessons,
     required TResult Function() loadingCourseContent,
     required TResult Function(CourseInfoModel courseInfo,
@@ -456,6 +495,12 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return loadingCompletedLessons();
       case SuccessGetCompletedLessons():
         return successGetCompletedLessons(_that.completedLessonIds);
+      case LoadingTextContent():
+        return loadingTextContent();
+      case SuccessTextContent():
+        return successTextContent();
+      case FailedTextContent():
+        return failedTextContent();
       case FailedGetCompletedLessons():
         return failedGetCompletedLessons(_that.error);
       case LoadingCourseContent():
@@ -503,6 +548,9 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     TResult? Function(String error)? failedCompleteLesson,
     TResult? Function()? loadingCompletedLessons,
     TResult? Function(Set<int> completedLessonIds)? successGetCompletedLessons,
+    TResult? Function()? loadingTextContent,
+    TResult? Function()? successTextContent,
+    TResult? Function()? failedTextContent,
     TResult? Function(String error)? failedGetCompletedLessons,
     TResult? Function()? loadingCourseContent,
     TResult? Function(CourseInfoModel courseInfo,
@@ -542,6 +590,12 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return loadingCompletedLessons();
       case SuccessGetCompletedLessons() when successGetCompletedLessons != null:
         return successGetCompletedLessons(_that.completedLessonIds);
+      case LoadingTextContent() when loadingTextContent != null:
+        return loadingTextContent();
+      case SuccessTextContent() when successTextContent != null:
+        return successTextContent();
+      case FailedTextContent() when failedTextContent != null:
+        return failedTextContent();
       case FailedGetCompletedLessons() when failedGetCompletedLessons != null:
         return failedGetCompletedLessons(_that.error);
       case LoadingCourseContent() when loadingCourseContent != null:
@@ -1241,6 +1295,66 @@ class _$SuccessGetCompletedLessonsCopyWithImpl<T, $Res>
           : completedLessonIds // ignore: cast_nullable_to_non_nullable
               as Set<int>,
     ));
+  }
+}
+
+/// @nodoc
+
+class LoadingTextContent<T> implements LearningCentreState<T> {
+  const LoadingTextContent();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is LoadingTextContent<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.loadingTextContent()';
+  }
+}
+
+/// @nodoc
+
+class SuccessTextContent<T> implements LearningCentreState<T> {
+  const SuccessTextContent();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SuccessTextContent<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.successTextContent()';
+  }
+}
+
+/// @nodoc
+
+class FailedTextContent<T> implements LearningCentreState<T> {
+  const FailedTextContent();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is FailedTextContent<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.failedTextContent()';
   }
 }
 
