@@ -28,20 +28,25 @@ class LearningCentreState<T> with _$LearningCentreState<T> {
   const factory LearningCentreState.faieldGettingQuizzedByCourse(
       {required String error}) = FaieldGettingQuizzedByCourse;
 
-      const factory LearningCentreState.loadingVideo() = LoadingVideo;
-      const factory LearningCentreState.moduleExpandedStateChanged() = ModuleExpandedStateChanged;
+  const factory LearningCentreState.loadingVideo() = LoadingVideo;
+  const factory LearningCentreState.moduleExpandedStateChanged() =
+      ModuleExpandedStateChanged;
 
   const factory LearningCentreState.videoLoaded({
     required VideoPlayerController videoPlayerController,
     required ChewieController chewieController,
   }) = VideoLoaded;
-  const factory LearningCentreState.videoLoadFailed({required String error}) = VideoLoadFailed;
+  const factory LearningCentreState.videoLoadFailed({required String error}) =
+      VideoLoadFailed;
 
-  const factory LearningCentreState.successCompleteLesson({required int lessonId}) = SuccessCompleteLesson;
+  const factory LearningCentreState.successCompleteLesson(
+      {required int lessonId}) = SuccessCompleteLesson;
 
-  const factory LearningCentreState.failedCompleteLesson({required String error}) = FailedCompleteLesson;
+  const factory LearningCentreState.failedCompleteLesson(
+      {required String error}) = FailedCompleteLesson;
 
-  const factory LearningCentreState.loadingCompletedLessons() = LoadingCompletedLessons;
+  const factory LearningCentreState.loadingCompletedLessons() =
+      LoadingCompletedLessons;
 
   const factory LearningCentreState.successGetCompletedLessons({
     required Set<int> completedLessonIds,
@@ -53,15 +58,43 @@ class LearningCentreState<T> with _$LearningCentreState<T> {
 
   const factory LearningCentreState.failedTextContent() = FailedTextContent;
 
-  const factory LearningCentreState.failedGetCompletedLessons({required String error}) = FailedGetCompletedLessons;
+  const factory LearningCentreState.failedGetCompletedLessons(
+      {required String error}) = FailedGetCompletedLessons;
 
-  const factory LearningCentreState.loadingCourseContent() = LoadingCourseContent;
+  const factory LearningCentreState.loadingCourseContent() =
+      LoadingCourseContent;
 
   const factory LearningCentreState.successGetCourseContent({
     required CourseInfoModel courseInfo,
     required List<CourseModulesWithLessons> modulesWithLessons,
   }) = SuccessGetCourseContent;
 
-  const factory LearningCentreState.failedGetCourseContent({required String error}) = FailedGetCourseContent;
+  const factory LearningCentreState.failedGetCourseContent(
+      {required String error}) = FailedGetCourseContent;
   const factory LearningCentreState.lessonSelected() = LessonSelected;
+
+  const factory LearningCentreState.loadingSendMessageToGroqAi() =
+      LoadingSendMessageToGroqAi;
+
+  const factory LearningCentreState.successSendMessageToGroqAi(
+      {required String response}) = SuccessSendMessageToGroqAi;
+
+  const factory LearningCentreState.failedSendMessageToGroqAi(
+      {required String error}) = FailedSendMessageToGroqAi;
+
+  const factory LearningCentreState.chatCleared() = ChatCleared;
+
+  const factory LearningCentreState.loadingTranscribeVideo() =
+      LoadingTranscribeVideo;
+
+  const factory LearningCentreState.successTranscribeVideo({
+    required String transcriptString,
+  }) = SuccessTranscribeVideo;
+
+  const factory LearningCentreState.failedTranscribeVideo({required String error}) =
+      FailedTranscribeVideo;
+
+  const factory LearningCentreState.contentReady() = ContentReady;
+
+  const factory LearningCentreState.contentNotReady() = ContentNotReady;
 }

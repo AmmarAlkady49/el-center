@@ -44,6 +44,7 @@ class _BuildContentPlayerState extends State<BuildContentPlayer> {
       if (currentLesson.contentType == 'video' &&
           currentLesson.content != null) {
         widget.cubit.initializeVideo(currentLesson.content!);
+        widget.cubit.transcribeVideo(currentLesson.content!, currentLesson);
       }
     }
   }
@@ -61,10 +62,12 @@ class _BuildContentPlayerState extends State<BuildContentPlayer> {
       if (currentLesson.contentType == 'video' &&
           currentLesson.content != null) {
         widget.cubit.initializeVideo(currentLesson.content!);
+        widget.cubit.transcribeVideo(currentLesson.content!, currentLesson);
         log("called initailzed video");
       } else if (currentLesson.contentType == 'text' &&
           currentLesson.content != null) {
         widget.cubit.initializeText(currentLesson);
+        widget.cubit.transcribeVideo(currentLesson.content!, currentLesson);
         log("called initailzed text");
       }
     }

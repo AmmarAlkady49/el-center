@@ -16,5 +16,6 @@ class AppRoutes {
   static const String changeLanguage = '/changeLanguage';
   static const String getAllCategories = '/getAllCategories';
   static const String articleReading = '/articleReadingPage';
+  static const String aiChatBot = '/aiChatBot';
 
 }

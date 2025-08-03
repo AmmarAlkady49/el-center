@@ -42,6 +42,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "account_settings": MessageLookupByLibrary.simpleMessage("اعدادات الحساب"),
     "active": MessageLookupByLibrary.simpleMessage("نشط"),
     "ai_assistant": MessageLookupByLibrary.simpleMessage("مساعدك الذكي"),
+    "ai_help_description": MessageLookupByLibrary.simpleMessage(
+      "قد يرتكب مساعد الذكاء الاصطناعي هذا أخطاءً. تأكد دائمًا من المعلومات المهمة واستخدم التفكير النقدي عند تطبيق الإجابات على تعلمك.",
+    ),
     "all_categories": MessageLookupByLibrary.simpleMessage("كل الاقسام"),
     "all_courses": MessageLookupByLibrary.simpleMessage("كل الكورسات"),
     "alreadyHaveAnAccount": MessageLookupByLibrary.simpleMessage(
@@ -54,6 +57,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "article_completed": MessageLookupByLibrary.simpleMessage(
       "تم الانتهاء من المقالة",
     ),
+    "ask_question_about_the_lesson_content":
+        MessageLookupByLibrary.simpleMessage(
+          "اسأل سؤال حول محتوى الدرس واحصل على اجابات رائعة",
+        ),
     "audio": MessageLookupByLibrary.simpleMessage("صوتي"),
     "available_languages": MessageLookupByLibrary.simpleMessage(
       "اللغات المتاحة",
@@ -78,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "change_password": MessageLookupByLibrary.simpleMessage(
       "تغيير كلمة المرور",
     ),
+    "chat_cleared": MessageLookupByLibrary.simpleMessage("تم حذف المحادثة"),
     "choose_payment_method": MessageLookupByLibrary.simpleMessage(
       "اختر طريقة الدفع",
     ),
@@ -150,6 +158,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "enter": MessageLookupByLibrary.simpleMessage("ادخل"),
     "excellent": MessageLookupByLibrary.simpleMessage("ممتاز"),
+    "explain_this_lesson": MessageLookupByLibrary.simpleMessage(
+      "اشرح هذا الدرس لي",
+    ),
     "explanation": MessageLookupByLibrary.simpleMessage("التوضيح"),
     "explore": MessageLookupByLibrary.simpleMessage("استكشف"),
     "explore_courses_in_trending_categories":
@@ -225,6 +236,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "loading": MessageLookupByLibrary.simpleMessage("جاري التحميل..."),
     "loading_content": MessageLookupByLibrary.simpleMessage("تحميل المحتوى..."),
+    "loading_lesson_content_for_ai_assistant":
+        MessageLookupByLibrary.simpleMessage(
+          "جاري تحميل محتوي الدرس للاجابة علي الاسئلة الخاصه بهاذا الدرس",
+        ),
     "loading_quizzes": MessageLookupByLibrary.simpleMessage(
       "تحميل الاختبارات...",
     ),
@@ -313,6 +328,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "onboarding_thinTitle3": MessageLookupByLibrary.simpleMessage(
       "تعلّم في أي وقت،",
     ),
+    "online": MessageLookupByLibrary.simpleMessage("متصل"),
     "orLoginWith": MessageLookupByLibrary.simpleMessage(
       "أو تسجيل الدخول باستخدام",
     ),
@@ -376,8 +392,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseEnterYourPhoneNumber": MessageLookupByLibrary.simpleMessage(
       "يرجى ادخال رقم الهاتف",
     ),
+    "please_note": MessageLookupByLibrary.simpleMessage("يرجى ملاحظة"),
     "please_provide_a_rating": MessageLookupByLibrary.simpleMessage(
       "يرجى اختيار تقييم وكتابة تقييم",
+    ),
+    "please_wait_for_lesson_content": MessageLookupByLibrary.simpleMessage(
+      "يرجى الانتظار حتى يتم تحميل محتوي الدرس",
     ),
     "poor": MessageLookupByLibrary.simpleMessage("ضعيف"),
     "popular_categories": MessageLookupByLibrary.simpleMessage(
@@ -385,6 +405,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "popular_courses": MessageLookupByLibrary.simpleMessage(
       "الكورسات الشائعة",
+    ),
+    "practice_questions": MessageLookupByLibrary.simpleMessage(
+      "اسئلة التمرين",
     ),
     "previous": MessageLookupByLibrary.simpleMessage("السابق"),
     "price": MessageLookupByLibrary.simpleMessage("السعر"),
@@ -437,8 +460,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "signup": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
     "something_went_wrong": MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
     "startLearning": MessageLookupByLibrary.simpleMessage("ابدأ التعلم!"),
+    "start_conversation": MessageLookupByLibrary.simpleMessage(
+      "ابدأ المحادثة",
+    ),
+    "start_conversation_ai": MessageLookupByLibrary.simpleMessage(
+      "ابدأ محادثة مع AI",
+    ),
     "start_learning_today": MessageLookupByLibrary.simpleMessage(
       "ابدأ التعلم اليوم",
+    ),
+    "start_message_with_ai": MessageLookupByLibrary.simpleMessage(
+      "ابدأ رسالة مع AI",
     ),
     "start_quiz": MessageLookupByLibrary.simpleMessage("ابدأ الاختبار"),
     "start_your_free_course": MessageLookupByLibrary.simpleMessage(
@@ -448,6 +480,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "student": MessageLookupByLibrary.simpleMessage("طالب"),
     "submit_quiz": MessageLookupByLibrary.simpleMessage("تقديم الاختبار"),
     "submit_review": MessageLookupByLibrary.simpleMessage("تقديم التقييم"),
+    "summarize_content": MessageLookupByLibrary.simpleMessage("لخص المحتوى لي"),
     "sun": MessageLookupByLibrary.simpleMessage("الاحد"),
     "tap_the_stars_to_rate_your_experience":
         MessageLookupByLibrary.simpleMessage(
@@ -489,6 +522,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "typeYourPassword": MessageLookupByLibrary.simpleMessage(
       "ادخل كلمة المرور",
     ),
+    "type_message": MessageLookupByLibrary.simpleMessage("اكتب رسالة"),
+    "typing": MessageLookupByLibrary.simpleMessage("يكتب..."),
     "unsupported_content_type": MessageLookupByLibrary.simpleMessage(
       "نوع المحتوى غير مدعوم",
     ),

@@ -283,6 +283,21 @@
   "reading": "Reading",
   "article_completed" : "Article Completed",
   "greadt_job_reading" : "Great job reading through this article. You can now continue to the next lesson.",
-  "loading_content" : "Loading content..."
+  "loading_content" : "Loading content...",
+  "start_message_with_ai" : "Start a message with AI",
+  "start_conversation" : "Start Conversation",
+  "ask_question_about_the_lesson_content" :"Ask questions about the lesson content and get intelligent responses",
+  "typing" : "Typing...",
+  "online" : "online",
+  "start_conversation_ai" : "Start a conversation with AI",
+  "ai_help_description" : "This AI assistant can make mistakes. Always verify important information and use critical thinking when applying the responses to your learning.",
+  "explain_this_lesson" : "Explain this lesson to me",
+  "practice_questions" : "Practice Questions",
+  "summarize_content" : "Summarize the content for me",
+  "type_message" : "Type Message",
+  "please_note" : "Please note",
+  "chat_cleared" : "Chat Cleared",
+  "loading_lesson_content_for_ai_assistant" : "Loading lesson content for AI assistant...",
+  "please_wait_for_lesson_content" : "Please wait for lesson content to load..."
 
 }

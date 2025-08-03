@@ -22,6 +22,7 @@ import '../../features/course_details/presentation/screens/course_details_page.d
 import '../../features/home/presentation/screens/all_categories_page.dart';
 import '../../features/home/presentation/screens/courses_by_category.dart';
 import '../../features/learning_centre/data/model/quiz_model.dart';
+import '../../features/learning_centre/presentation/screens/ai_chat_bot_page.dart';
 import '../../features/learning_centre/presentation/screens/article_reading_page.dart';
 import '../../features/learning_centre/presentation/screens/lesson_player_page.dart';
 import '../../features/learning_centre/presentation/screens/lesson_quiz_page.dart';
@@ -156,6 +157,15 @@ class AppRouter {
           builder: (context) => BlocProvider(
             create: (context) => getIt<LearningCentreCubit>(),
             child: ArticleReadingPage(lesson: article, cubit: cubit),
+          ),
+        );
+
+      case AppRoutes.aiChatBot:
+      final cubit = settings.arguments as LearningCentreCubit;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<LearningCentreCubit>(),
+            child:  AiChatBotPage(cubit:cubit ),
           ),
         );
 

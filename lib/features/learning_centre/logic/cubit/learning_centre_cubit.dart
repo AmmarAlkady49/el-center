@@ -15,6 +15,7 @@ import '../../../../core/networking/api_result.dart' as api_result;
 import '../../../../core/theming/app_colors.dart';
 import '../../data/model/quiz_model.dart';
 import '../../data/repo/learning_centre_repo.dart';
+import '../../presentation/screens/ai_chat_bot_page.dart';
 import 'learning_centre_state.dart';
 
 class LearningCentreCubit extends Cubit<LearningCentreState> {
@@ -37,6 +38,14 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
 
   Set<int> completedLessonIds = {};
   LessonModule? currentLesson;
+
+  final TextEditingController messageController = TextEditingController();
+  final ScrollController scrollController = ScrollController();
+  final List<ChatMessage> messages = [];
+
+  String? scriptContent;
+  bool isContentReady = false;
+
 
   void selectContentOfTheCourse({
     required CourseInfoModel courseInfo,
@@ -87,6 +96,77 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
     }
   }
 
+  // initalize groq ai assistant
+  void sendMessageToGroq(String userMessage) async {
+  
+  if (!isContentReady || scriptContent == null || scriptContent!.isEmpty) {
+    log("Content not ready for AI chat");
+    emit(LearningCentreState.failedSendMessageToGroqAi(
+      error: "Please wait for the lesson content to load completely before asking questions."
+    ));
+    return;
+  }
+  
+  emit(LearningCentreState.loadingSendMessageToGroqAi());
+  try {
+    final response = await learningCentreRepo.sendMessageToGroq(
+      userMessage,
+      scriptContent!,
+    );
+    final aiResponse = response.data['choices'][0]['message']['content'];
+    log("aiResponse: $aiResponse");
+    emit(
+      LearningCentreState.successSendMessageToGroqAi(response: aiResponse),
+    );
+  } catch (error) {
+    log(error.toString());
+    emit(
+      LearningCentreState.failedSendMessageToGroqAi(error: error.toString()),
+    );
+  }
+}
+
+  void clearMessages() {
+    messages.clear();
+    // Emit a state to trigger UI rebuild
+    emit(LearningCentreState.chatCleared());
+    log('Chat messages cleared');
+  }
+
+  // transcription video
+  Future<void> transcribeVideo(String videoUrl, LessonModule lesson) async {
+  log("here where transcribe video called");
+  isContentReady = false;
+  emit(LearningCentreState.contentNotReady()); // You'll need to add this state
+  
+  if (lesson.contentType == 'text') {
+    scriptContent = lesson.content ?? '';
+    isContentReady = true;
+    log("text transcripts: $scriptContent");
+    log("lesson content: ${lesson.content}");
+    emit(LearningCentreState.contentReady()); // You'll need to add this state
+    return;
+  }
+  
+  emit(LearningCentreState.loadingTranscribeVideo());
+  try {
+    final transcriptStringResult =
+        await learningCentreRepo.transcribeVideoFromUrl(videoUrl);
+    scriptContent = transcriptStringResult;
+    isContentReady = true;
+    log("scriptContent after transcription: $transcriptStringResult");
+    emit(LearningCentreState.successTranscribeVideo(
+        transcriptString: transcriptStringResult));
+    emit(LearningCentreState.contentReady()); // Signal that content is ready
+
+    log("inside transcribe video: $scriptContent");
+  } catch (error) {
+    log(error.toString());
+    isContentReady = false;
+    emit(LearningCentreState.failedTranscribeVideo(error: error.toString()));
+  }
+}
+
   void getAllCourseQuizzes(int courseId) async {
     emit(LearningCentreState.gettingQuizzesByCourse());
     try {
@@ -129,39 +209,46 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
     return selectedLessonQuizzes;
   }
 
-void selectLesson({required int selectedmoduleIndex, required int lessonIndex}) {
-  final lesson = modulesWithLessons[selectedmoduleIndex].lessons[lessonIndex];
+  Future<void> selectLesson(
+      {required int selectedmoduleIndex, required int lessonIndex}) async {
+    final lesson = modulesWithLessons[selectedmoduleIndex].lessons[lessonIndex];
 
-  if (chewieController != null) {
-    chewieController!.dispose();
-    chewieController = null;
+    if (chewieController != null) {
+      chewieController!.dispose();
+      chewieController = null;
+    }
+    if (videoPlayerController != null) {
+      videoPlayerController!.dispose();
+      videoPlayerController = null;
+    }
+
+    // Clear previous transcript
+    scriptContent = '';
+
+    this.selectedmoduleIndex = selectedmoduleIndex;
+    selectedLessonIndex = lessonIndex;
+    currentLesson = lesson;
+    log(currentLesson!.title!);
+    emit(LearningCentreState.lessonSelected());
+
+    // Handle both video and text content
+    if (lesson.contentType == 'video' && lesson.content != null) {
+      initializeVideo(lesson.content!);
+      await transcribeVideo(lesson.content!, lesson);
+    } else if (lesson.contentType == 'text') {
+      // ✅ this to handle text content
+      await transcribeVideo(lesson.content!, lesson);
+    }
+    log('transcriptString before sending: $scriptContent');
   }
-  if (videoPlayerController != null) {
-    videoPlayerController!.dispose();
-    videoPlayerController = null;
+
+  @override
+  Future<void> close() {
+    // Dispose video controllers when cubit is closed
+    chewieController?.dispose();
+    videoPlayerController?.dispose();
+    return super.close();
   }
-
-  this.selectedmoduleIndex = selectedmoduleIndex;
-  selectedLessonIndex = lessonIndex;
-  currentLesson = lesson;
-  log("selectedLessonIndex: $selectedLessonIndex");
-  log(currentLesson!.title!);
-  emit(LearningCentreState.lessonSelected());
-
-
-  // Initialize video if the content type is video
-  if (lesson.contentType == 'video' && lesson.content != null) {
-    initializeVideo(lesson.content!);
-  }
-}
-
-@override
-Future<void> close() {
-  // Dispose video controllers when cubit is closed
-  chewieController?.dispose();
-  videoPlayerController?.dispose();
-  return super.close();
-}
 
   void toggleModuleExpanded(int index) {
     if (expandedModules.contains(index)) {
@@ -177,11 +264,8 @@ Future<void> close() {
   void initializeText(LessonModule lesson) {
     emit(LearningCentreState.loadingTextContent());
     if (lesson.content != null) {
-      
-    emit(LearningCentreState.successTextContent());
-    }
-    
-    else {
+      emit(LearningCentreState.successTextContent());
+    } else {
       emit(LearningCentreState.failedTextContent());
     }
   }
