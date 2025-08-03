@@ -279,14 +279,26 @@
   "this_lesson_is_an_article": "هذه الدرس مقالة",
   "min": "د",
   "read_article": "قراءة المقالة",
-  "article" : "مقالة",
+  "article": "مقالة",
   "reading": "قراءة",
-  "article_completed" : "تم الانتهاء من المقالة",
-  "greadt_job_reading" : "مبروك لقد قرأت هذه المقالة بنجاح, يمكنك الانتقال إلى الدرس التالي.",
-  "loading_content" : "تحميل المحتوى..."
-
-
-
+  "article_completed": "تم الانتهاء من المقالة",
+  "greadt_job_reading": "مبروك لقد قرأت هذه المقالة بنجاح, يمكنك الانتقال إلى الدرس التالي.",
+  "loading_content": "تحميل المحتوى...",
+  "start_message_with_ai": "ابدأ رسالة مع AI",
+  "start_conversation": "ابدأ المحادثة",
+  "ask_question_about_the_lesson_content" :"اسأل سؤال حول محتوى الدرس واحصل على اجابات رائعة",
+  "typing" : "يكتب...",
+  "online" : "متصل",
+  "start_conversation_ai" : "ابدأ محادثة مع AI",
+  "ai_help_description" : "قد يرتكب مساعد الذكاء الاصطناعي هذا أخطاءً. تأكد دائمًا من المعلومات المهمة واستخدم التفكير النقدي عند تطبيق الإجابات على تعلمك.",
+  "explain_this_lesson" : "اشرح هذا الدرس لي",
+  "practice_questions" : "اسئلة التمرين",
+  "summarize_content" : "لخص المحتوى لي",
+  "type_message" : "اكتب رسالة",
+  "please_note" : "يرجى ملاحظة",
+  "chat_cleared" : "تم حذف المحادثة",
+  "loading_lesson_content_for_ai_assistant" : "جاري تحميل محتوي الدرس للاجابة علي الاسئلة الخاصه بهاذا الدرس",
+  "please_wait_for_lesson_content" : "يرجى الانتظار حتى يتم تحميل محتوي الدرس"
 
 
 }

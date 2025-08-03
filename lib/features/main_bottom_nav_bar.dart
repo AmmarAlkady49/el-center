@@ -68,7 +68,16 @@ class _MainBottomNavBarState extends State<MainBottomNavBar> {
       }),
       child: Scaffold(
         backgroundColor: AppColors.backgroundWiteColor,
-        body: screenOptions.elementAt(_selectedIndex),
+        // body: screenOptions.elementAt(_selectedIndex),
+        body: IndexedStack(
+          index: _selectedIndex,
+          children: [
+            screenOptions[0],
+            screenOptions[1],
+            screenOptions[2],
+            screenOptions[3],
+          ],
+        ),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
             color: AppColors.backgroundWiteColor,

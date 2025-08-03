@@ -2264,6 +2264,141 @@ class S {
       args: [],
     );
   }
+
+  /// `Start a message with AI`
+  String get start_message_with_ai {
+    return Intl.message(
+      'Start a message with AI',
+      name: 'start_message_with_ai',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start Conversation`
+  String get start_conversation {
+    return Intl.message(
+      'Start Conversation',
+      name: 'start_conversation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ask questions about the lesson content and get intelligent responses`
+  String get ask_question_about_the_lesson_content {
+    return Intl.message(
+      'Ask questions about the lesson content and get intelligent responses',
+      name: 'ask_question_about_the_lesson_content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Typing...`
+  String get typing {
+    return Intl.message('Typing...', name: 'typing', desc: '', args: []);
+  }
+
+  /// `online`
+  String get online {
+    return Intl.message('online', name: 'online', desc: '', args: []);
+  }
+
+  /// `Start a conversation with AI`
+  String get start_conversation_ai {
+    return Intl.message(
+      'Start a conversation with AI',
+      name: 'start_conversation_ai',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This AI assistant can make mistakes. Always verify important information and use critical thinking when applying the responses to your learning.`
+  String get ai_help_description {
+    return Intl.message(
+      'This AI assistant can make mistakes. Always verify important information and use critical thinking when applying the responses to your learning.',
+      name: 'ai_help_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Explain this lesson to me`
+  String get explain_this_lesson {
+    return Intl.message(
+      'Explain this lesson to me',
+      name: 'explain_this_lesson',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Practice Questions`
+  String get practice_questions {
+    return Intl.message(
+      'Practice Questions',
+      name: 'practice_questions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Summarize the content for me`
+  String get summarize_content {
+    return Intl.message(
+      'Summarize the content for me',
+      name: 'summarize_content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Type Message`
+  String get type_message {
+    return Intl.message(
+      'Type Message',
+      name: 'type_message',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please note`
+  String get please_note {
+    return Intl.message('Please note', name: 'please_note', desc: '', args: []);
+  }
+
+  /// `Chat Cleared`
+  String get chat_cleared {
+    return Intl.message(
+      'Chat Cleared',
+      name: 'chat_cleared',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Loading lesson content for AI assistant...`
+  String get loading_lesson_content_for_ai_assistant {
+    return Intl.message(
+      'Loading lesson content for AI assistant...',
+      name: 'loading_lesson_content_for_ai_assistant',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please wait for lesson content to load...`
+  String get please_wait_for_lesson_content {
+    return Intl.message(
+      'Please wait for lesson content to load...',
+      name: 'please_wait_for_lesson_content',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

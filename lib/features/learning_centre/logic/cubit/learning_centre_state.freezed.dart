@@ -78,6 +78,18 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     TResult Function(SuccessGetCourseContent<T> value)? successGetCourseContent,
     TResult Function(FailedGetCourseContent<T> value)? failedGetCourseContent,
     TResult Function(LessonSelected<T> value)? lessonSelected,
+    TResult Function(LoadingSendMessageToGroqAi<T> value)?
+        loadingSendMessageToGroqAi,
+    TResult Function(SuccessSendMessageToGroqAi<T> value)?
+        successSendMessageToGroqAi,
+    TResult Function(FailedSendMessageToGroqAi<T> value)?
+        failedSendMessageToGroqAi,
+    TResult Function(ChatCleared<T> value)? chatCleared,
+    TResult Function(LoadingTranscribeVideo<T> value)? loadingTranscribeVideo,
+    TResult Function(SuccessTranscribeVideo<T> value)? successTranscribeVideo,
+    TResult Function(FailedTranscribeVideo<T> value)? failedTranscribeVideo,
+    TResult Function(ContentReady<T> value)? contentReady,
+    TResult Function(ContentNotReady<T> value)? contentNotReady,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -126,6 +138,24 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return failedGetCourseContent(_that);
       case LessonSelected() when lessonSelected != null:
         return lessonSelected(_that);
+      case LoadingSendMessageToGroqAi() when loadingSendMessageToGroqAi != null:
+        return loadingSendMessageToGroqAi(_that);
+      case SuccessSendMessageToGroqAi() when successSendMessageToGroqAi != null:
+        return successSendMessageToGroqAi(_that);
+      case FailedSendMessageToGroqAi() when failedSendMessageToGroqAi != null:
+        return failedSendMessageToGroqAi(_that);
+      case ChatCleared() when chatCleared != null:
+        return chatCleared(_that);
+      case LoadingTranscribeVideo() when loadingTranscribeVideo != null:
+        return loadingTranscribeVideo(_that);
+      case SuccessTranscribeVideo() when successTranscribeVideo != null:
+        return successTranscribeVideo(_that);
+      case FailedTranscribeVideo() when failedTranscribeVideo != null:
+        return failedTranscribeVideo(_that);
+      case ContentReady() when contentReady != null:
+        return contentReady(_that);
+      case ContentNotReady() when contentNotReady != null:
+        return contentNotReady(_that);
       case _:
         return orElse();
     }
@@ -180,6 +210,21 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     required TResult Function(FailedGetCourseContent<T> value)
         failedGetCourseContent,
     required TResult Function(LessonSelected<T> value) lessonSelected,
+    required TResult Function(LoadingSendMessageToGroqAi<T> value)
+        loadingSendMessageToGroqAi,
+    required TResult Function(SuccessSendMessageToGroqAi<T> value)
+        successSendMessageToGroqAi,
+    required TResult Function(FailedSendMessageToGroqAi<T> value)
+        failedSendMessageToGroqAi,
+    required TResult Function(ChatCleared<T> value) chatCleared,
+    required TResult Function(LoadingTranscribeVideo<T> value)
+        loadingTranscribeVideo,
+    required TResult Function(SuccessTranscribeVideo<T> value)
+        successTranscribeVideo,
+    required TResult Function(FailedTranscribeVideo<T> value)
+        failedTranscribeVideo,
+    required TResult Function(ContentReady<T> value) contentReady,
+    required TResult Function(ContentNotReady<T> value) contentNotReady,
   }) {
     final _that = this;
     switch (_that) {
@@ -225,6 +270,24 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return failedGetCourseContent(_that);
       case LessonSelected():
         return lessonSelected(_that);
+      case LoadingSendMessageToGroqAi():
+        return loadingSendMessageToGroqAi(_that);
+      case SuccessSendMessageToGroqAi():
+        return successSendMessageToGroqAi(_that);
+      case FailedSendMessageToGroqAi():
+        return failedSendMessageToGroqAi(_that);
+      case ChatCleared():
+        return chatCleared(_that);
+      case LoadingTranscribeVideo():
+        return loadingTranscribeVideo(_that);
+      case SuccessTranscribeVideo():
+        return successTranscribeVideo(_that);
+      case FailedTranscribeVideo():
+        return failedTranscribeVideo(_that);
+      case ContentReady():
+        return contentReady(_that);
+      case ContentNotReady():
+        return contentNotReady(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -273,6 +336,18 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         successGetCourseContent,
     TResult? Function(FailedGetCourseContent<T> value)? failedGetCourseContent,
     TResult? Function(LessonSelected<T> value)? lessonSelected,
+    TResult? Function(LoadingSendMessageToGroqAi<T> value)?
+        loadingSendMessageToGroqAi,
+    TResult? Function(SuccessSendMessageToGroqAi<T> value)?
+        successSendMessageToGroqAi,
+    TResult? Function(FailedSendMessageToGroqAi<T> value)?
+        failedSendMessageToGroqAi,
+    TResult? Function(ChatCleared<T> value)? chatCleared,
+    TResult? Function(LoadingTranscribeVideo<T> value)? loadingTranscribeVideo,
+    TResult? Function(SuccessTranscribeVideo<T> value)? successTranscribeVideo,
+    TResult? Function(FailedTranscribeVideo<T> value)? failedTranscribeVideo,
+    TResult? Function(ContentReady<T> value)? contentReady,
+    TResult? Function(ContentNotReady<T> value)? contentNotReady,
   }) {
     final _that = this;
     switch (_that) {
@@ -320,6 +395,24 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return failedGetCourseContent(_that);
       case LessonSelected() when lessonSelected != null:
         return lessonSelected(_that);
+      case LoadingSendMessageToGroqAi() when loadingSendMessageToGroqAi != null:
+        return loadingSendMessageToGroqAi(_that);
+      case SuccessSendMessageToGroqAi() when successSendMessageToGroqAi != null:
+        return successSendMessageToGroqAi(_that);
+      case FailedSendMessageToGroqAi() when failedSendMessageToGroqAi != null:
+        return failedSendMessageToGroqAi(_that);
+      case ChatCleared() when chatCleared != null:
+        return chatCleared(_that);
+      case LoadingTranscribeVideo() when loadingTranscribeVideo != null:
+        return loadingTranscribeVideo(_that);
+      case SuccessTranscribeVideo() when successTranscribeVideo != null:
+        return successTranscribeVideo(_that);
+      case FailedTranscribeVideo() when failedTranscribeVideo != null:
+        return failedTranscribeVideo(_that);
+      case ContentReady() when contentReady != null:
+        return contentReady(_that);
+      case ContentNotReady() when contentNotReady != null:
+        return contentNotReady(_that);
       case _:
         return null;
     }
@@ -366,6 +459,15 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         successGetCourseContent,
     TResult Function(String error)? failedGetCourseContent,
     TResult Function()? lessonSelected,
+    TResult Function()? loadingSendMessageToGroqAi,
+    TResult Function(String response)? successSendMessageToGroqAi,
+    TResult Function(String error)? failedSendMessageToGroqAi,
+    TResult Function()? chatCleared,
+    TResult Function()? loadingTranscribeVideo,
+    TResult Function(String transcriptString)? successTranscribeVideo,
+    TResult Function(String error)? failedTranscribeVideo,
+    TResult Function()? contentReady,
+    TResult Function()? contentNotReady,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -416,6 +518,24 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return failedGetCourseContent(_that.error);
       case LessonSelected() when lessonSelected != null:
         return lessonSelected();
+      case LoadingSendMessageToGroqAi() when loadingSendMessageToGroqAi != null:
+        return loadingSendMessageToGroqAi();
+      case SuccessSendMessageToGroqAi() when successSendMessageToGroqAi != null:
+        return successSendMessageToGroqAi(_that.response);
+      case FailedSendMessageToGroqAi() when failedSendMessageToGroqAi != null:
+        return failedSendMessageToGroqAi(_that.error);
+      case ChatCleared() when chatCleared != null:
+        return chatCleared();
+      case LoadingTranscribeVideo() when loadingTranscribeVideo != null:
+        return loadingTranscribeVideo();
+      case SuccessTranscribeVideo() when successTranscribeVideo != null:
+        return successTranscribeVideo(_that.transcriptString);
+      case FailedTranscribeVideo() when failedTranscribeVideo != null:
+        return failedTranscribeVideo(_that.error);
+      case ContentReady() when contentReady != null:
+        return contentReady();
+      case ContentNotReady() when contentNotReady != null:
+        return contentNotReady();
       case _:
         return orElse();
     }
@@ -465,6 +585,15 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         successGetCourseContent,
     required TResult Function(String error) failedGetCourseContent,
     required TResult Function() lessonSelected,
+    required TResult Function() loadingSendMessageToGroqAi,
+    required TResult Function(String response) successSendMessageToGroqAi,
+    required TResult Function(String error) failedSendMessageToGroqAi,
+    required TResult Function() chatCleared,
+    required TResult Function() loadingTranscribeVideo,
+    required TResult Function(String transcriptString) successTranscribeVideo,
+    required TResult Function(String error) failedTranscribeVideo,
+    required TResult Function() contentReady,
+    required TResult Function() contentNotReady,
   }) {
     final _that = this;
     switch (_that) {
@@ -512,6 +641,24 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return failedGetCourseContent(_that.error);
       case LessonSelected():
         return lessonSelected();
+      case LoadingSendMessageToGroqAi():
+        return loadingSendMessageToGroqAi();
+      case SuccessSendMessageToGroqAi():
+        return successSendMessageToGroqAi(_that.response);
+      case FailedSendMessageToGroqAi():
+        return failedSendMessageToGroqAi(_that.error);
+      case ChatCleared():
+        return chatCleared();
+      case LoadingTranscribeVideo():
+        return loadingTranscribeVideo();
+      case SuccessTranscribeVideo():
+        return successTranscribeVideo(_that.transcriptString);
+      case FailedTranscribeVideo():
+        return failedTranscribeVideo(_that.error);
+      case ContentReady():
+        return contentReady();
+      case ContentNotReady():
+        return contentNotReady();
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -558,6 +705,15 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         successGetCourseContent,
     TResult? Function(String error)? failedGetCourseContent,
     TResult? Function()? lessonSelected,
+    TResult? Function()? loadingSendMessageToGroqAi,
+    TResult? Function(String response)? successSendMessageToGroqAi,
+    TResult? Function(String error)? failedSendMessageToGroqAi,
+    TResult? Function()? chatCleared,
+    TResult? Function()? loadingTranscribeVideo,
+    TResult? Function(String transcriptString)? successTranscribeVideo,
+    TResult? Function(String error)? failedTranscribeVideo,
+    TResult? Function()? contentReady,
+    TResult? Function()? contentNotReady,
   }) {
     final _that = this;
     switch (_that) {
@@ -607,6 +763,24 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return failedGetCourseContent(_that.error);
       case LessonSelected() when lessonSelected != null:
         return lessonSelected();
+      case LoadingSendMessageToGroqAi() when loadingSendMessageToGroqAi != null:
+        return loadingSendMessageToGroqAi();
+      case SuccessSendMessageToGroqAi() when successSendMessageToGroqAi != null:
+        return successSendMessageToGroqAi(_that.response);
+      case FailedSendMessageToGroqAi() when failedSendMessageToGroqAi != null:
+        return failedSendMessageToGroqAi(_that.error);
+      case ChatCleared() when chatCleared != null:
+        return chatCleared();
+      case LoadingTranscribeVideo() when loadingTranscribeVideo != null:
+        return loadingTranscribeVideo();
+      case SuccessTranscribeVideo() when successTranscribeVideo != null:
+        return successTranscribeVideo(_that.transcriptString);
+      case FailedTranscribeVideo() when failedTranscribeVideo != null:
+        return failedTranscribeVideo(_that.error);
+      case ContentReady() when contentReady != null:
+        return contentReady();
+      case ContentNotReady() when contentNotReady != null:
+        return contentNotReady();
       case _:
         return null;
     }
@@ -1612,6 +1786,371 @@ class LessonSelected<T> implements LearningCentreState<T> {
   @override
   String toString() {
     return 'LearningCentreState<$T>.lessonSelected()';
+  }
+}
+
+/// @nodoc
+
+class LoadingSendMessageToGroqAi<T> implements LearningCentreState<T> {
+  const LoadingSendMessageToGroqAi();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LoadingSendMessageToGroqAi<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.loadingSendMessageToGroqAi()';
+  }
+}
+
+/// @nodoc
+
+class SuccessSendMessageToGroqAi<T> implements LearningCentreState<T> {
+  const SuccessSendMessageToGroqAi({required this.response});
+
+  final String response;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SuccessSendMessageToGroqAiCopyWith<T, SuccessSendMessageToGroqAi<T>>
+      get copyWith => _$SuccessSendMessageToGroqAiCopyWithImpl<T,
+          SuccessSendMessageToGroqAi<T>>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SuccessSendMessageToGroqAi<T> &&
+            (identical(other.response, response) ||
+                other.response == response));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, response);
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.successSendMessageToGroqAi(response: $response)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SuccessSendMessageToGroqAiCopyWith<T, $Res>
+    implements $LearningCentreStateCopyWith<T, $Res> {
+  factory $SuccessSendMessageToGroqAiCopyWith(
+          SuccessSendMessageToGroqAi<T> value,
+          $Res Function(SuccessSendMessageToGroqAi<T>) _then) =
+      _$SuccessSendMessageToGroqAiCopyWithImpl;
+  @useResult
+  $Res call({String response});
+}
+
+/// @nodoc
+class _$SuccessSendMessageToGroqAiCopyWithImpl<T, $Res>
+    implements $SuccessSendMessageToGroqAiCopyWith<T, $Res> {
+  _$SuccessSendMessageToGroqAiCopyWithImpl(this._self, this._then);
+
+  final SuccessSendMessageToGroqAi<T> _self;
+  final $Res Function(SuccessSendMessageToGroqAi<T>) _then;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? response = null,
+  }) {
+    return _then(SuccessSendMessageToGroqAi<T>(
+      response: null == response
+          ? _self.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class FailedSendMessageToGroqAi<T> implements LearningCentreState<T> {
+  const FailedSendMessageToGroqAi({required this.error});
+
+  final String error;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $FailedSendMessageToGroqAiCopyWith<T, FailedSendMessageToGroqAi<T>>
+      get copyWith => _$FailedSendMessageToGroqAiCopyWithImpl<T,
+          FailedSendMessageToGroqAi<T>>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FailedSendMessageToGroqAi<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.failedSendMessageToGroqAi(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $FailedSendMessageToGroqAiCopyWith<T, $Res>
+    implements $LearningCentreStateCopyWith<T, $Res> {
+  factory $FailedSendMessageToGroqAiCopyWith(FailedSendMessageToGroqAi<T> value,
+          $Res Function(FailedSendMessageToGroqAi<T>) _then) =
+      _$FailedSendMessageToGroqAiCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$FailedSendMessageToGroqAiCopyWithImpl<T, $Res>
+    implements $FailedSendMessageToGroqAiCopyWith<T, $Res> {
+  _$FailedSendMessageToGroqAiCopyWithImpl(this._self, this._then);
+
+  final FailedSendMessageToGroqAi<T> _self;
+  final $Res Function(FailedSendMessageToGroqAi<T>) _then;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(FailedSendMessageToGroqAi<T>(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ChatCleared<T> implements LearningCentreState<T> {
+  const ChatCleared();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ChatCleared<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.chatCleared()';
+  }
+}
+
+/// @nodoc
+
+class LoadingTranscribeVideo<T> implements LearningCentreState<T> {
+  const LoadingTranscribeVideo();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LoadingTranscribeVideo<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.loadingTranscribeVideo()';
+  }
+}
+
+/// @nodoc
+
+class SuccessTranscribeVideo<T> implements LearningCentreState<T> {
+  const SuccessTranscribeVideo({required this.transcriptString});
+
+  final String transcriptString;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SuccessTranscribeVideoCopyWith<T, SuccessTranscribeVideo<T>> get copyWith =>
+      _$SuccessTranscribeVideoCopyWithImpl<T, SuccessTranscribeVideo<T>>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SuccessTranscribeVideo<T> &&
+            (identical(other.transcriptString, transcriptString) ||
+                other.transcriptString == transcriptString));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, transcriptString);
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.successTranscribeVideo(transcriptString: $transcriptString)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SuccessTranscribeVideoCopyWith<T, $Res>
+    implements $LearningCentreStateCopyWith<T, $Res> {
+  factory $SuccessTranscribeVideoCopyWith(SuccessTranscribeVideo<T> value,
+          $Res Function(SuccessTranscribeVideo<T>) _then) =
+      _$SuccessTranscribeVideoCopyWithImpl;
+  @useResult
+  $Res call({String transcriptString});
+}
+
+/// @nodoc
+class _$SuccessTranscribeVideoCopyWithImpl<T, $Res>
+    implements $SuccessTranscribeVideoCopyWith<T, $Res> {
+  _$SuccessTranscribeVideoCopyWithImpl(this._self, this._then);
+
+  final SuccessTranscribeVideo<T> _self;
+  final $Res Function(SuccessTranscribeVideo<T>) _then;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? transcriptString = null,
+  }) {
+    return _then(SuccessTranscribeVideo<T>(
+      transcriptString: null == transcriptString
+          ? _self.transcriptString
+          : transcriptString // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class FailedTranscribeVideo<T> implements LearningCentreState<T> {
+  const FailedTranscribeVideo({required this.error});
+
+  final String error;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $FailedTranscribeVideoCopyWith<T, FailedTranscribeVideo<T>> get copyWith =>
+      _$FailedTranscribeVideoCopyWithImpl<T, FailedTranscribeVideo<T>>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FailedTranscribeVideo<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.failedTranscribeVideo(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $FailedTranscribeVideoCopyWith<T, $Res>
+    implements $LearningCentreStateCopyWith<T, $Res> {
+  factory $FailedTranscribeVideoCopyWith(FailedTranscribeVideo<T> value,
+          $Res Function(FailedTranscribeVideo<T>) _then) =
+      _$FailedTranscribeVideoCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$FailedTranscribeVideoCopyWithImpl<T, $Res>
+    implements $FailedTranscribeVideoCopyWith<T, $Res> {
+  _$FailedTranscribeVideoCopyWithImpl(this._self, this._then);
+
+  final FailedTranscribeVideo<T> _self;
+  final $Res Function(FailedTranscribeVideo<T>) _then;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(FailedTranscribeVideo<T>(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ContentReady<T> implements LearningCentreState<T> {
+  const ContentReady();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ContentReady<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.contentReady()';
+  }
+}
+
+/// @nodoc
+
+class ContentNotReady<T> implements LearningCentreState<T> {
+  const ContentNotReady();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ContentNotReady<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.contentNotReady()';
   }
 }
 
