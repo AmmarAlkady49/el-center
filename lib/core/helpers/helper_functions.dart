@@ -1,10 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_learning_app/core/helpers/spacing.dart';
 import 'package:e_learning_app/core/networking/api_constants.dart';
 import 'package:e_learning_app/core/theming/font_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../generated/l10n.dart';
 import '../data/models/course_modules_with_lessons.dart';
 import '../data/models/lesson_module.dart';
 import '../theming/app_colors.dart';
@@ -141,6 +143,25 @@ class HelperFunctions {
       }
     } catch (e) {
       return dateString;
+    }
+  }
+
+  static String formatTimeAgo3(DateTime dateTime) {
+    final now = DateTime.now();
+    final difference = now.difference(dateTime);
+
+    if (difference.inDays > 365) {
+      return '${(difference.inDays / 365).floor()} ${(difference.inDays / 365).floor() == 1 ? 'year' : 'years'} ago';
+    } else if (difference.inDays > 30) {
+      return '${(difference.inDays / 30).floor()} ${(difference.inDays / 30).floor() == 1 ? 'month' : 'months'} ago';
+    } else if (difference.inDays > 0) {
+      return '${difference.inDays} ${difference.inDays == 1 ? 'day' : 'days'} ago';
+    } else if (difference.inHours > 0) {
+      return '${difference.inHours} ${difference.inHours == 1 ? 'hour' : 'hours'} ago';
+    } else if (difference.inMinutes > 0) {
+      return '${difference.inMinutes} ${difference.inMinutes == 1 ? 'minute' : 'minutes'} ago';
+    } else {
+      return 'just now';
     }
   }
 
@@ -427,5 +448,121 @@ class HelperFunctions {
       7: 'Sun',
     };
     return weekdays[weekdayNum] ?? '';
+  }
+
+  static Widget showReportOrDeleteDialog(
+      {required BuildContext context,
+      required void Function()? onPressed,
+      required String title,
+      required String message}) {
+    return Dialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(24.0),
+      ),
+      elevation: 2,
+      shadowColor: Colors.black38,
+      backgroundColor: AppColors.backgroundWiteColor,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20.0),
+        decoration: BoxDecoration(
+          color: AppColors.backgroundWiteColor,
+          borderRadius: BorderRadius.circular(24.0),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // Header with icon
+            Container(
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: AppColors.red.withAlpha(30),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                Icons.report_problem_rounded,
+                size: 32,
+                color: AppColors.red,
+              ),
+            ),
+            verticalSpacing(12),
+
+            // Title
+            Text(
+              title,
+                
+                style: FontHelper.font20BlackW700(context).copyWith(
+                  color: AppColors.darkBlue,
+                  fontSize: 18.sp,
+                )),
+            verticalSpacing(12),
+
+            // Description
+            Text(
+              message,
+              style: FontHelper.font16BlackW500(context).copyWith(
+                color: AppColors.greyBlue,
+                fontSize: 13.sp,
+                height: 1.4,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            verticalSpacing(20),
+
+            // Buttons
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  style: TextButton.styleFrom(
+                    foregroundColor: AppColors.greyBlue,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 10),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: Text(
+                    S.of(context).cancel,
+                    style: FontHelper.font14BlackW500(context)
+                        .copyWith(color: AppColors.greyBlue),
+                  ),
+                ),
+                horizontalSpacing(8),
+                ElevatedButton(
+                  onPressed: onPressed,
+                  // () {
+                  //   cubit.sendReport(
+                  //     query: {
+                  //       "questionId": questionId,
+                  //       "answerId": answerId,
+                  //       "reason": "Spam",
+                  //     },
+                  //   );
+                  //   Navigator.of(context).pop();
+                  // },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.red,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    elevation: 0,
+                  ),
+                  child: Text(
+                    S.of(context).report,
+                    style: FontHelper.font14BlackW500(context)
+                        .copyWith(color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

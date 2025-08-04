@@ -9,6 +9,8 @@ import 'package:retrofit/http.dart';
 import '../../features/authVerification/data/model/active_account_request_body.dart';
 import '../../features/authVerification/data/model/active_account_response_body.dart';
 import '../../features/course_details/data/models/add_course_review_request_body.dart';
+import '../../features/learning_centre/data/model/answer_model_for_q_and_a.dart';
+import '../../features/learning_centre/data/model/question_model_for_q_and_a.dart';
 import '../../features/learning_centre/data/model/quiz_model.dart';
 import '../../features/login/data/models/login_request_body.dart';
 import '../../features/my_courses/data/model/student_enrollments_model.dart';
@@ -100,4 +102,27 @@ abstract class ApiService {
 
   @POST(ApiConstants.enrollmentEnroll)
   Future<String> enrollmentEnroll(@Query('courseId') int courseId);
+
+  @GET(ApiConstants.getAllLessonQuestions)
+  Future<List<QuestionModelForQAndA>> getAllLessonQuestions(
+      @Path('lessonId') int lessonId);
+
+  @GET(ApiConstants.getAllQuestionAnswers)
+  Future<List<AnswerModelForQAndA>> getAllQuestionAnswers(
+      @Path('questionId') int questionId);
+
+  @POST(ApiConstants.sendReport)
+  Future<StandardResponseBody> sendReport(
+      @Queries() Map<String, dynamic> query);
+
+  @DELETE(ApiConstants.deleteAnswer)
+  Future<StandardResponseBody> deleteAnswer(@Path("answerId") int answerId);
+
+  @DELETE(ApiConstants.deleteQuestion)
+  Future<StandardResponseBody> deleteQuestion(
+      @Path("questionId") int questionId);
+
+  @POST(ApiConstants.markAnswerHelpful)
+  Future<StandardResponseBody> markAnswerHelpful(
+      @Queries() Map<String, dynamic> query);
 }

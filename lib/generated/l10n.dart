@@ -2399,6 +2399,101 @@ class S {
       args: [],
     );
   }
+
+  /// `Lesson`
+  String get lesson {
+    return Intl.message('Lesson', name: 'lesson', desc: '', args: []);
+  }
+
+  /// `Edited`
+  String get edited {
+    return Intl.message('Edited', name: 'edited', desc: '', args: []);
+  }
+
+  /// `No response`
+  String get no_response {
+    return Intl.message('No response', name: 'no_response', desc: '', args: []);
+  }
+
+  /// `answers`
+  String get answers {
+    return Intl.message('answers', name: 'answers', desc: '', args: []);
+  }
+
+  /// `report`
+  String get report {
+    return Intl.message('report', name: 'report', desc: '', args: []);
+  }
+
+  /// `delete`
+  String get delete {
+    return Intl.message('delete', name: 'delete', desc: '', args: []);
+  }
+
+  /// `Report Question`
+  String get report_question {
+    return Intl.message(
+      'Report Question',
+      name: 'report_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Report Answer`
+  String get report_answer {
+    return Intl.message(
+      'Report Answer',
+      name: 'report_answer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Report Content`
+  String get report_content {
+    return Intl.message(
+      'Report Content',
+      name: 'report_content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to report this content? This action will notify the moderators.`
+  String get report_description {
+    return Intl.message(
+      'Are you sure you want to report this content? This action will notify the moderators.',
+      name: 'report_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete this content? This action cannot be undone.`
+  String get delete_description {
+    return Intl.message(
+      'Are you sure you want to delete this content? This action cannot be undone.',
+      name: 'delete_description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Report sent successfully`
+  String get report_sent_successfully {
+    return Intl.message(
+      'Report sent successfully',
+      name: 'report_sent_successfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Helpful`
+  String get helpful {
+    return Intl.message('Helpful', name: 'helpful', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

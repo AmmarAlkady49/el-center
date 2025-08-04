@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:e_learning_app/core/data/models/category_model.dart';
 import 'package:e_learning_app/core/data/repo/profile_repo.dart';
+import 'package:e_learning_app/core/helpers/shared_pref_helper.dart';
 import 'package:e_learning_app/features/home/data/repo/home_repo.dart';
 import 'package:e_learning_app/features/home/logic/cubit/home_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,6 +26,7 @@ class HomeCubit extends Cubit<HomeState> {
 
       if (result is api_result.Success<ProfileAccountModel>) {
         emit(HomeState.homeScreenLoaded(profileData: result.data));
+        await SharedPrefHelper.setData('userId', result.data.id);
       } else if (result is api_result.Failure<ProfileAccountModel>) {
         emit(HomeState.homeScreenLoadedError(
             error: result.error.apiErrorModel.message!));
@@ -135,22 +137,22 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   // getAllCategories
-void getAllCategories() async {
-  emit(HomeState.gettingCategories());
-  try {
-    final result = await homeRepo.getAllCategories();
+  void getAllCategories() async {
+    emit(HomeState.gettingCategories());
+    try {
+      final result = await homeRepo.getAllCategories();
 
-    if (result is api_result.Success<List<CategoryModel>>) {
-      emit(HomeState.categoriesLoaded(categories: result.data));
-    } else if (result is api_result.Failure<List<CategoryModel>>) {
-      emit(HomeState.categoriesLoadedError(
-        error:
-            "${result.error.apiErrorModel.message!} (Status Code: ${result.error.apiErrorModel.statusCode})",
-      ));
+      if (result is api_result.Success<List<CategoryModel>>) {
+        emit(HomeState.categoriesLoaded(categories: result.data));
+      } else if (result is api_result.Failure<List<CategoryModel>>) {
+        emit(HomeState.categoriesLoadedError(
+          error:
+              "${result.error.apiErrorModel.message!} (Status Code: ${result.error.apiErrorModel.statusCode})",
+        ));
+      }
+    } catch (error) {
+      log(error.toString());
+      emit(HomeState.categoriesLoadedError(error: error.toString()));
     }
-  } catch (error) {
-    log(error.toString());
-    emit(HomeState.categoriesLoadedError(error: error.toString()));
   }
-}
 }

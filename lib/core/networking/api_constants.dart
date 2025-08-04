@@ -26,6 +26,18 @@ class ApiConstants {
   static const String applyCoupon = "/CouponCode/apply-coupon-code";
   static const String getAllCategories = "/Category/get-all-categories";
   static const String enrollmentEnroll = "Enrollment/enroll";
+  static const String getAllLessonQuestions =
+      "Q_A/get-all-lesson-questions/{lessonId}";
+  static const String getAllQuestionAnswers =
+      "Q_A/get-all-question-answers/{questionId}";
+  static const String sendReport =
+      "Q_A/report-qa";
+  static const String deleteAnswer =
+      "/Q_A/delete-answer/{answerId}";
+  static const String deleteQuestion =
+      "/Q_A/delete-question/{questionId}";
+  static const String markAnswerHelpful =
+      "/Q_A/helpful-qa";
 }
 
 class ApiErrors {

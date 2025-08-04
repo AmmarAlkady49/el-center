@@ -12,3 +12,4 @@ class AppColors {
   static const Color backgroundWiteColor = Color(0xffFBFEFE);
   static const Color red = Color(0xffdf2020);
 }
+

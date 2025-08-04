@@ -5,6 +5,8 @@ import 'package:video_player/video_player.dart';
 
 import '../../../../core/data/models/course_modules_with_lessons.dart';
 import '../../../../core/data/models/lesson_module.dart';
+import '../../data/model/answer_model_for_q_and_a.dart';
+import '../../data/model/question_model_for_q_and_a.dart';
 import '../../data/model/quiz_model.dart';
 
 part 'learning_centre_state.freezed.dart';
@@ -97,4 +99,37 @@ class LearningCentreState<T> with _$LearningCentreState<T> {
   const factory LearningCentreState.contentReady() = ContentReady;
 
   const factory LearningCentreState.contentNotReady() = ContentNotReady;
+
+  const factory LearningCentreState.gettingQAndAtap() =
+      GettingQAndAtap;
+
+  const factory LearningCentreState.successGettingQAndAData({
+    required List<QuestionModelForQAndA> questions,
+    required List<AnswerModelForQAndA> answers,
+  }) = SuccessGettingQAndAData;
+
+  const factory LearningCentreState.failedGettingQAndA({
+    required String error,
+  }) = FailedGettingQAndA;
+
+  const factory LearningCentreState.successSendReport() =
+      SuccessSendReport;
+
+  const factory LearningCentreState.failedSendReport({
+    required String error,
+  }) = FailedSendReport;
+
+  const factory LearningCentreState.successDeleteAnswerOrQuestion() =
+      SuccessDeleteAnswerOrQuestion;
+
+  const factory LearningCentreState.failedDeleteAnswerOrQuestion({
+    required String error,
+  }) = FailedDeleteAnswerOrQuestion;
+
+  const factory LearningCentreState.successMarkAnswerHelpful() =
+      SuccessMarkAnswerHelpful;
+
+  const factory LearningCentreState.failedMarkAnswerHelpful({
+    required String error,
+  }) = FailedMarkAnswerHelpful;
 }

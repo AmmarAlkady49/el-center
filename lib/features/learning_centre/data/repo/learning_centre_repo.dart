@@ -6,6 +6,8 @@ import 'package:e_learning_app/env.dart';
 import '../../../../core/data/models/completed_lesson_model.dart';
 import '../../../../core/data/models/standard_response_body.dart';
 import '../../../../core/networking/api_error_handler.dart';
+import '../model/answer_model_for_q_and_a.dart';
+import '../model/question_model_for_q_and_a.dart';
 import '../model/quiz_model.dart';
 
 class LearningCentreRepo {
@@ -119,5 +121,62 @@ class LearningCentreRepo {
     final id = await requestTranscription(videoUrl);
     final result = await getTranscriptionResult(id);
     return result;
+  }
+
+  Future<List<QuestionModelForQAndA>> getAllLessonQuestions(
+      int lessonId) async {
+    try {
+      final response = await apiService.getAllLessonQuestions(lessonId);
+      return response;
+    } catch (error) {
+      throw ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  Future<List<AnswerModelForQAndA>> getAllQuestionAnswers(
+      int questionId) async {
+    try {
+      final response = await apiService.getAllQuestionAnswers(questionId);
+      return response;
+    } catch (error) {
+      throw ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  Future<StandardResponseBody> sendReport(Map<String, dynamic> query) async {
+    try {
+      final response = await apiService.sendReport(query);
+      return response;
+    } catch (error) {
+      throw "failed to send report ${error.toString()}";
+    }
+  }
+
+  Future<StandardResponseBody> deleteAnswer(int answerId) async {
+    try {
+      final response = await apiService.deleteAnswer(answerId);
+      return response;
+    } catch (error) {
+      throw "failed to delete answer Or Question ${error.toString()}";
+    }
+  }
+
+  Future<StandardResponseBody> deleteQuestion(int questionId) async {
+    try {
+      final response = await apiService.deleteQuestion(questionId);
+      return response;
+    } catch (error) {
+      throw "failed to delete answer Or Question ${error.toString()}";
+    }
+  }
+
+  // mark answer helpful
+  Future<StandardResponseBody> markAnswerHelpful(Map<String, dynamic> query) async {
+    try {
+      final response = await apiService.markAnswerHelpful(query);
+      return response;
+    } catch (error) {
+      throw "failed to mark answer helpful ${error.toString()}";
+    }
   }
 }

@@ -52,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "answer": MessageLookupByLibrary.simpleMessage("اجابة"),
     "answered": MessageLookupByLibrary.simpleMessage("تم الاجابة"),
+    "answers": MessageLookupByLibrary.simpleMessage("الاجابات"),
     "apply": MessageLookupByLibrary.simpleMessage("تطبيق"),
     "article": MessageLookupByLibrary.simpleMessage("مقالة"),
     "article_completed": MessageLookupByLibrary.simpleMessage(
@@ -134,6 +135,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "cybersecurity": MessageLookupByLibrary.simpleMessage("الأمن السيبراني"),
     "data_science": MessageLookupByLibrary.simpleMessage("علوم البيانات"),
     "date_of_birth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
+    "delete": MessageLookupByLibrary.simpleMessage("حذف"),
+    "delete_description": MessageLookupByLibrary.simpleMessage(
+      "هل انت متاكد انك تريد حذف هذا المحتوى؟ هذا الاجراء لا يمكن التراجع عنه.",
+    ),
     "description": MessageLookupByLibrary.simpleMessage("الوصف"),
     "details": MessageLookupByLibrary.simpleMessage("التفاصيل"),
     "didnotReceiveCode": MessageLookupByLibrary.simpleMessage(
@@ -143,6 +148,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "اكتشف مسارك للتعلم مع ElCentre",
     ),
     "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "edited": MessageLookupByLibrary.simpleMessage("تم التعديل"),
     "egp_currency": MessageLookupByLibrary.simpleMessage("ج.م"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
     "emailVerification": MessageLookupByLibrary.simpleMessage(
@@ -196,6 +202,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "help_others_understand": MessageLookupByLibrary.simpleMessage(
       "• ساعد الآخرين على معرفة ما إذا كانت هذه الدورة مناسبة لهم",
     ),
+    "helpful": MessageLookupByLibrary.simpleMessage("مفيد"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "hours": MessageLookupByLibrary.simpleMessage("ساعة"),
     "how_would_you_rate_this_course": MessageLookupByLibrary.simpleMessage(
@@ -227,6 +234,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تعلم تحليل البيانات, ML, و AI",
     ),
     "lectures": MessageLookupByLibrary.simpleMessage("محاضرات"),
+    "lesson": MessageLookupByLibrary.simpleMessage("درس"),
     "lessons": MessageLookupByLibrary.simpleMessage("دروس"),
     "lessons_completed": MessageLookupByLibrary.simpleMessage(
       "الدروس المكتملة",
@@ -295,6 +303,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_quizzes_available": MessageLookupByLibrary.simpleMessage(
       "لا يوجد اختبارات متاحة",
     ),
+    "no_response": MessageLookupByLibrary.simpleMessage("لا يوجد اجابة"),
     "no_reviews_yet": MessageLookupByLibrary.simpleMessage(
       "لا يوجد تقييمات حتى الان.",
     ),
@@ -427,6 +436,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "register": MessageLookupByLibrary.simpleMessage("تسجيل حساب جديد"),
     "remaining": MessageLookupByLibrary.simpleMessage("المتبقي"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+    "report": MessageLookupByLibrary.simpleMessage("إبلاغ"),
+    "report_answer": MessageLookupByLibrary.simpleMessage("ابلاغ عن الاجابة"),
+    "report_content": MessageLookupByLibrary.simpleMessage("ابلاغ عن المحتوى"),
+    "report_description": MessageLookupByLibrary.simpleMessage(
+      "هل انت متاكد انك تريد ابلاغ عن هذا المحتوى؟ هذا الاجراء سوف يرسل للمشرفين.",
+    ),
+    "report_question": MessageLookupByLibrary.simpleMessage("ابلاغ عن السؤال"),
+    "report_sent_successfully": MessageLookupByLibrary.simpleMessage(
+      "تم ارسال الابلاغ بنجاح",
+    ),
     "requirements": MessageLookupByLibrary.simpleMessage("المتطلبات"),
     "resend": MessageLookupByLibrary.simpleMessage("اعادة ارسال"),
     "resendOTP": MessageLookupByLibrary.simpleMessage("اعادة ارسال OTP"),
