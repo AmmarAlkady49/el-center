@@ -90,6 +90,18 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     TResult Function(FailedTranscribeVideo<T> value)? failedTranscribeVideo,
     TResult Function(ContentReady<T> value)? contentReady,
     TResult Function(ContentNotReady<T> value)? contentNotReady,
+    TResult Function(GettingQAndAtap<T> value)? gettingQAndAtap,
+    TResult Function(SuccessGettingQAndAData<T> value)? successGettingQAndAData,
+    TResult Function(FailedGettingQAndA<T> value)? failedGettingQAndA,
+    TResult Function(SuccessSendReport<T> value)? successSendReport,
+    TResult Function(FailedSendReport<T> value)? failedSendReport,
+    TResult Function(SuccessDeleteAnswerOrQuestion<T> value)?
+        successDeleteAnswerOrQuestion,
+    TResult Function(FailedDeleteAnswerOrQuestion<T> value)?
+        failedDeleteAnswerOrQuestion,
+    TResult Function(SuccessMarkAnswerHelpful<T> value)?
+        successMarkAnswerHelpful,
+    TResult Function(FailedMarkAnswerHelpful<T> value)? failedMarkAnswerHelpful,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -156,6 +168,26 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return contentReady(_that);
       case ContentNotReady() when contentNotReady != null:
         return contentNotReady(_that);
+      case GettingQAndAtap() when gettingQAndAtap != null:
+        return gettingQAndAtap(_that);
+      case SuccessGettingQAndAData() when successGettingQAndAData != null:
+        return successGettingQAndAData(_that);
+      case FailedGettingQAndA() when failedGettingQAndA != null:
+        return failedGettingQAndA(_that);
+      case SuccessSendReport() when successSendReport != null:
+        return successSendReport(_that);
+      case FailedSendReport() when failedSendReport != null:
+        return failedSendReport(_that);
+      case SuccessDeleteAnswerOrQuestion()
+          when successDeleteAnswerOrQuestion != null:
+        return successDeleteAnswerOrQuestion(_that);
+      case FailedDeleteAnswerOrQuestion()
+          when failedDeleteAnswerOrQuestion != null:
+        return failedDeleteAnswerOrQuestion(_that);
+      case SuccessMarkAnswerHelpful() when successMarkAnswerHelpful != null:
+        return successMarkAnswerHelpful(_that);
+      case FailedMarkAnswerHelpful() when failedMarkAnswerHelpful != null:
+        return failedMarkAnswerHelpful(_that);
       case _:
         return orElse();
     }
@@ -225,6 +257,20 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         failedTranscribeVideo,
     required TResult Function(ContentReady<T> value) contentReady,
     required TResult Function(ContentNotReady<T> value) contentNotReady,
+    required TResult Function(GettingQAndAtap<T> value) gettingQAndAtap,
+    required TResult Function(SuccessGettingQAndAData<T> value)
+        successGettingQAndAData,
+    required TResult Function(FailedGettingQAndA<T> value) failedGettingQAndA,
+    required TResult Function(SuccessSendReport<T> value) successSendReport,
+    required TResult Function(FailedSendReport<T> value) failedSendReport,
+    required TResult Function(SuccessDeleteAnswerOrQuestion<T> value)
+        successDeleteAnswerOrQuestion,
+    required TResult Function(FailedDeleteAnswerOrQuestion<T> value)
+        failedDeleteAnswerOrQuestion,
+    required TResult Function(SuccessMarkAnswerHelpful<T> value)
+        successMarkAnswerHelpful,
+    required TResult Function(FailedMarkAnswerHelpful<T> value)
+        failedMarkAnswerHelpful,
   }) {
     final _that = this;
     switch (_that) {
@@ -288,6 +334,24 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return contentReady(_that);
       case ContentNotReady():
         return contentNotReady(_that);
+      case GettingQAndAtap():
+        return gettingQAndAtap(_that);
+      case SuccessGettingQAndAData():
+        return successGettingQAndAData(_that);
+      case FailedGettingQAndA():
+        return failedGettingQAndA(_that);
+      case SuccessSendReport():
+        return successSendReport(_that);
+      case FailedSendReport():
+        return failedSendReport(_that);
+      case SuccessDeleteAnswerOrQuestion():
+        return successDeleteAnswerOrQuestion(_that);
+      case FailedDeleteAnswerOrQuestion():
+        return failedDeleteAnswerOrQuestion(_that);
+      case SuccessMarkAnswerHelpful():
+        return successMarkAnswerHelpful(_that);
+      case FailedMarkAnswerHelpful():
+        return failedMarkAnswerHelpful(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -348,6 +412,20 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     TResult? Function(FailedTranscribeVideo<T> value)? failedTranscribeVideo,
     TResult? Function(ContentReady<T> value)? contentReady,
     TResult? Function(ContentNotReady<T> value)? contentNotReady,
+    TResult? Function(GettingQAndAtap<T> value)? gettingQAndAtap,
+    TResult? Function(SuccessGettingQAndAData<T> value)?
+        successGettingQAndAData,
+    TResult? Function(FailedGettingQAndA<T> value)? failedGettingQAndA,
+    TResult? Function(SuccessSendReport<T> value)? successSendReport,
+    TResult? Function(FailedSendReport<T> value)? failedSendReport,
+    TResult? Function(SuccessDeleteAnswerOrQuestion<T> value)?
+        successDeleteAnswerOrQuestion,
+    TResult? Function(FailedDeleteAnswerOrQuestion<T> value)?
+        failedDeleteAnswerOrQuestion,
+    TResult? Function(SuccessMarkAnswerHelpful<T> value)?
+        successMarkAnswerHelpful,
+    TResult? Function(FailedMarkAnswerHelpful<T> value)?
+        failedMarkAnswerHelpful,
   }) {
     final _that = this;
     switch (_that) {
@@ -413,6 +491,26 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return contentReady(_that);
       case ContentNotReady() when contentNotReady != null:
         return contentNotReady(_that);
+      case GettingQAndAtap() when gettingQAndAtap != null:
+        return gettingQAndAtap(_that);
+      case SuccessGettingQAndAData() when successGettingQAndAData != null:
+        return successGettingQAndAData(_that);
+      case FailedGettingQAndA() when failedGettingQAndA != null:
+        return failedGettingQAndA(_that);
+      case SuccessSendReport() when successSendReport != null:
+        return successSendReport(_that);
+      case FailedSendReport() when failedSendReport != null:
+        return failedSendReport(_that);
+      case SuccessDeleteAnswerOrQuestion()
+          when successDeleteAnswerOrQuestion != null:
+        return successDeleteAnswerOrQuestion(_that);
+      case FailedDeleteAnswerOrQuestion()
+          when failedDeleteAnswerOrQuestion != null:
+        return failedDeleteAnswerOrQuestion(_that);
+      case SuccessMarkAnswerHelpful() when successMarkAnswerHelpful != null:
+        return successMarkAnswerHelpful(_that);
+      case FailedMarkAnswerHelpful() when failedMarkAnswerHelpful != null:
+        return failedMarkAnswerHelpful(_that);
       case _:
         return null;
     }
@@ -468,6 +566,17 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     TResult Function(String error)? failedTranscribeVideo,
     TResult Function()? contentReady,
     TResult Function()? contentNotReady,
+    TResult Function()? gettingQAndAtap,
+    TResult Function(List<QuestionModelForQAndA> questions,
+            List<AnswerModelForQAndA> answers)?
+        successGettingQAndAData,
+    TResult Function(String error)? failedGettingQAndA,
+    TResult Function()? successSendReport,
+    TResult Function(String error)? failedSendReport,
+    TResult Function()? successDeleteAnswerOrQuestion,
+    TResult Function(String error)? failedDeleteAnswerOrQuestion,
+    TResult Function()? successMarkAnswerHelpful,
+    TResult Function(String error)? failedMarkAnswerHelpful,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -536,6 +645,26 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return contentReady();
       case ContentNotReady() when contentNotReady != null:
         return contentNotReady();
+      case GettingQAndAtap() when gettingQAndAtap != null:
+        return gettingQAndAtap();
+      case SuccessGettingQAndAData() when successGettingQAndAData != null:
+        return successGettingQAndAData(_that.questions, _that.answers);
+      case FailedGettingQAndA() when failedGettingQAndA != null:
+        return failedGettingQAndA(_that.error);
+      case SuccessSendReport() when successSendReport != null:
+        return successSendReport();
+      case FailedSendReport() when failedSendReport != null:
+        return failedSendReport(_that.error);
+      case SuccessDeleteAnswerOrQuestion()
+          when successDeleteAnswerOrQuestion != null:
+        return successDeleteAnswerOrQuestion();
+      case FailedDeleteAnswerOrQuestion()
+          when failedDeleteAnswerOrQuestion != null:
+        return failedDeleteAnswerOrQuestion(_that.error);
+      case SuccessMarkAnswerHelpful() when successMarkAnswerHelpful != null:
+        return successMarkAnswerHelpful();
+      case FailedMarkAnswerHelpful() when failedMarkAnswerHelpful != null:
+        return failedMarkAnswerHelpful(_that.error);
       case _:
         return orElse();
     }
@@ -594,6 +723,17 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     required TResult Function(String error) failedTranscribeVideo,
     required TResult Function() contentReady,
     required TResult Function() contentNotReady,
+    required TResult Function() gettingQAndAtap,
+    required TResult Function(List<QuestionModelForQAndA> questions,
+            List<AnswerModelForQAndA> answers)
+        successGettingQAndAData,
+    required TResult Function(String error) failedGettingQAndA,
+    required TResult Function() successSendReport,
+    required TResult Function(String error) failedSendReport,
+    required TResult Function() successDeleteAnswerOrQuestion,
+    required TResult Function(String error) failedDeleteAnswerOrQuestion,
+    required TResult Function() successMarkAnswerHelpful,
+    required TResult Function(String error) failedMarkAnswerHelpful,
   }) {
     final _that = this;
     switch (_that) {
@@ -659,6 +799,24 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return contentReady();
       case ContentNotReady():
         return contentNotReady();
+      case GettingQAndAtap():
+        return gettingQAndAtap();
+      case SuccessGettingQAndAData():
+        return successGettingQAndAData(_that.questions, _that.answers);
+      case FailedGettingQAndA():
+        return failedGettingQAndA(_that.error);
+      case SuccessSendReport():
+        return successSendReport();
+      case FailedSendReport():
+        return failedSendReport(_that.error);
+      case SuccessDeleteAnswerOrQuestion():
+        return successDeleteAnswerOrQuestion();
+      case FailedDeleteAnswerOrQuestion():
+        return failedDeleteAnswerOrQuestion(_that.error);
+      case SuccessMarkAnswerHelpful():
+        return successMarkAnswerHelpful();
+      case FailedMarkAnswerHelpful():
+        return failedMarkAnswerHelpful(_that.error);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -714,6 +872,17 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     TResult? Function(String error)? failedTranscribeVideo,
     TResult? Function()? contentReady,
     TResult? Function()? contentNotReady,
+    TResult? Function()? gettingQAndAtap,
+    TResult? Function(List<QuestionModelForQAndA> questions,
+            List<AnswerModelForQAndA> answers)?
+        successGettingQAndAData,
+    TResult? Function(String error)? failedGettingQAndA,
+    TResult? Function()? successSendReport,
+    TResult? Function(String error)? failedSendReport,
+    TResult? Function()? successDeleteAnswerOrQuestion,
+    TResult? Function(String error)? failedDeleteAnswerOrQuestion,
+    TResult? Function()? successMarkAnswerHelpful,
+    TResult? Function(String error)? failedMarkAnswerHelpful,
   }) {
     final _that = this;
     switch (_that) {
@@ -781,6 +950,26 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return contentReady();
       case ContentNotReady() when contentNotReady != null:
         return contentNotReady();
+      case GettingQAndAtap() when gettingQAndAtap != null:
+        return gettingQAndAtap();
+      case SuccessGettingQAndAData() when successGettingQAndAData != null:
+        return successGettingQAndAData(_that.questions, _that.answers);
+      case FailedGettingQAndA() when failedGettingQAndA != null:
+        return failedGettingQAndA(_that.error);
+      case SuccessSendReport() when successSendReport != null:
+        return successSendReport();
+      case FailedSendReport() when failedSendReport != null:
+        return failedSendReport(_that.error);
+      case SuccessDeleteAnswerOrQuestion()
+          when successDeleteAnswerOrQuestion != null:
+        return successDeleteAnswerOrQuestion();
+      case FailedDeleteAnswerOrQuestion()
+          when failedDeleteAnswerOrQuestion != null:
+        return failedDeleteAnswerOrQuestion(_that.error);
+      case SuccessMarkAnswerHelpful() when successMarkAnswerHelpful != null:
+        return successMarkAnswerHelpful();
+      case FailedMarkAnswerHelpful() when failedMarkAnswerHelpful != null:
+        return failedMarkAnswerHelpful(_that.error);
       case _:
         return null;
     }
@@ -2151,6 +2340,443 @@ class ContentNotReady<T> implements LearningCentreState<T> {
   @override
   String toString() {
     return 'LearningCentreState<$T>.contentNotReady()';
+  }
+}
+
+/// @nodoc
+
+class GettingQAndAtap<T> implements LearningCentreState<T> {
+  const GettingQAndAtap();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is GettingQAndAtap<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.gettingQAndAtap()';
+  }
+}
+
+/// @nodoc
+
+class SuccessGettingQAndAData<T> implements LearningCentreState<T> {
+  const SuccessGettingQAndAData(
+      {required final List<QuestionModelForQAndA> questions,
+      required final List<AnswerModelForQAndA> answers})
+      : _questions = questions,
+        _answers = answers;
+
+  final List<QuestionModelForQAndA> _questions;
+  List<QuestionModelForQAndA> get questions {
+    if (_questions is EqualUnmodifiableListView) return _questions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_questions);
+  }
+
+  final List<AnswerModelForQAndA> _answers;
+  List<AnswerModelForQAndA> get answers {
+    if (_answers is EqualUnmodifiableListView) return _answers;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_answers);
+  }
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SuccessGettingQAndADataCopyWith<T, SuccessGettingQAndAData<T>>
+      get copyWith =>
+          _$SuccessGettingQAndADataCopyWithImpl<T, SuccessGettingQAndAData<T>>(
+              this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SuccessGettingQAndAData<T> &&
+            const DeepCollectionEquality()
+                .equals(other._questions, _questions) &&
+            const DeepCollectionEquality().equals(other._answers, _answers));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_questions),
+      const DeepCollectionEquality().hash(_answers));
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.successGettingQAndAData(questions: $questions, answers: $answers)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SuccessGettingQAndADataCopyWith<T, $Res>
+    implements $LearningCentreStateCopyWith<T, $Res> {
+  factory $SuccessGettingQAndADataCopyWith(SuccessGettingQAndAData<T> value,
+          $Res Function(SuccessGettingQAndAData<T>) _then) =
+      _$SuccessGettingQAndADataCopyWithImpl;
+  @useResult
+  $Res call(
+      {List<QuestionModelForQAndA> questions,
+      List<AnswerModelForQAndA> answers});
+}
+
+/// @nodoc
+class _$SuccessGettingQAndADataCopyWithImpl<T, $Res>
+    implements $SuccessGettingQAndADataCopyWith<T, $Res> {
+  _$SuccessGettingQAndADataCopyWithImpl(this._self, this._then);
+
+  final SuccessGettingQAndAData<T> _self;
+  final $Res Function(SuccessGettingQAndAData<T>) _then;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? questions = null,
+    Object? answers = null,
+  }) {
+    return _then(SuccessGettingQAndAData<T>(
+      questions: null == questions
+          ? _self._questions
+          : questions // ignore: cast_nullable_to_non_nullable
+              as List<QuestionModelForQAndA>,
+      answers: null == answers
+          ? _self._answers
+          : answers // ignore: cast_nullable_to_non_nullable
+              as List<AnswerModelForQAndA>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class FailedGettingQAndA<T> implements LearningCentreState<T> {
+  const FailedGettingQAndA({required this.error});
+
+  final String error;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $FailedGettingQAndACopyWith<T, FailedGettingQAndA<T>> get copyWith =>
+      _$FailedGettingQAndACopyWithImpl<T, FailedGettingQAndA<T>>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FailedGettingQAndA<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.failedGettingQAndA(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $FailedGettingQAndACopyWith<T, $Res>
+    implements $LearningCentreStateCopyWith<T, $Res> {
+  factory $FailedGettingQAndACopyWith(FailedGettingQAndA<T> value,
+          $Res Function(FailedGettingQAndA<T>) _then) =
+      _$FailedGettingQAndACopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$FailedGettingQAndACopyWithImpl<T, $Res>
+    implements $FailedGettingQAndACopyWith<T, $Res> {
+  _$FailedGettingQAndACopyWithImpl(this._self, this._then);
+
+  final FailedGettingQAndA<T> _self;
+  final $Res Function(FailedGettingQAndA<T>) _then;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(FailedGettingQAndA<T>(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SuccessSendReport<T> implements LearningCentreState<T> {
+  const SuccessSendReport();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SuccessSendReport<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.successSendReport()';
+  }
+}
+
+/// @nodoc
+
+class FailedSendReport<T> implements LearningCentreState<T> {
+  const FailedSendReport({required this.error});
+
+  final String error;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $FailedSendReportCopyWith<T, FailedSendReport<T>> get copyWith =>
+      _$FailedSendReportCopyWithImpl<T, FailedSendReport<T>>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FailedSendReport<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.failedSendReport(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $FailedSendReportCopyWith<T, $Res>
+    implements $LearningCentreStateCopyWith<T, $Res> {
+  factory $FailedSendReportCopyWith(
+          FailedSendReport<T> value, $Res Function(FailedSendReport<T>) _then) =
+      _$FailedSendReportCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$FailedSendReportCopyWithImpl<T, $Res>
+    implements $FailedSendReportCopyWith<T, $Res> {
+  _$FailedSendReportCopyWithImpl(this._self, this._then);
+
+  final FailedSendReport<T> _self;
+  final $Res Function(FailedSendReport<T>) _then;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(FailedSendReport<T>(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SuccessDeleteAnswerOrQuestion<T> implements LearningCentreState<T> {
+  const SuccessDeleteAnswerOrQuestion();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SuccessDeleteAnswerOrQuestion<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.successDeleteAnswerOrQuestion()';
+  }
+}
+
+/// @nodoc
+
+class FailedDeleteAnswerOrQuestion<T> implements LearningCentreState<T> {
+  const FailedDeleteAnswerOrQuestion({required this.error});
+
+  final String error;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $FailedDeleteAnswerOrQuestionCopyWith<T, FailedDeleteAnswerOrQuestion<T>>
+      get copyWith => _$FailedDeleteAnswerOrQuestionCopyWithImpl<T,
+          FailedDeleteAnswerOrQuestion<T>>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FailedDeleteAnswerOrQuestion<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.failedDeleteAnswerOrQuestion(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $FailedDeleteAnswerOrQuestionCopyWith<T, $Res>
+    implements $LearningCentreStateCopyWith<T, $Res> {
+  factory $FailedDeleteAnswerOrQuestionCopyWith(
+          FailedDeleteAnswerOrQuestion<T> value,
+          $Res Function(FailedDeleteAnswerOrQuestion<T>) _then) =
+      _$FailedDeleteAnswerOrQuestionCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$FailedDeleteAnswerOrQuestionCopyWithImpl<T, $Res>
+    implements $FailedDeleteAnswerOrQuestionCopyWith<T, $Res> {
+  _$FailedDeleteAnswerOrQuestionCopyWithImpl(this._self, this._then);
+
+  final FailedDeleteAnswerOrQuestion<T> _self;
+  final $Res Function(FailedDeleteAnswerOrQuestion<T>) _then;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(FailedDeleteAnswerOrQuestion<T>(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class SuccessMarkAnswerHelpful<T> implements LearningCentreState<T> {
+  const SuccessMarkAnswerHelpful();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SuccessMarkAnswerHelpful<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.successMarkAnswerHelpful()';
+  }
+}
+
+/// @nodoc
+
+class FailedMarkAnswerHelpful<T> implements LearningCentreState<T> {
+  const FailedMarkAnswerHelpful({required this.error});
+
+  final String error;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $FailedMarkAnswerHelpfulCopyWith<T, FailedMarkAnswerHelpful<T>>
+      get copyWith =>
+          _$FailedMarkAnswerHelpfulCopyWithImpl<T, FailedMarkAnswerHelpful<T>>(
+              this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FailedMarkAnswerHelpful<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.failedMarkAnswerHelpful(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $FailedMarkAnswerHelpfulCopyWith<T, $Res>
+    implements $LearningCentreStateCopyWith<T, $Res> {
+  factory $FailedMarkAnswerHelpfulCopyWith(FailedMarkAnswerHelpful<T> value,
+          $Res Function(FailedMarkAnswerHelpful<T>) _then) =
+      _$FailedMarkAnswerHelpfulCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$FailedMarkAnswerHelpfulCopyWithImpl<T, $Res>
+    implements $FailedMarkAnswerHelpfulCopyWith<T, $Res> {
+  _$FailedMarkAnswerHelpfulCopyWithImpl(this._self, this._then);
+
+  final FailedMarkAnswerHelpful<T> _self;
+  final $Res Function(FailedMarkAnswerHelpful<T>) _then;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(FailedMarkAnswerHelpful<T>(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 

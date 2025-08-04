@@ -55,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "answer": MessageLookupByLibrary.simpleMessage("Answer"),
     "answered": MessageLookupByLibrary.simpleMessage("Answered"),
+    "answers": MessageLookupByLibrary.simpleMessage("answers"),
     "apply": MessageLookupByLibrary.simpleMessage("Apply"),
     "article": MessageLookupByLibrary.simpleMessage("Article"),
     "article_completed": MessageLookupByLibrary.simpleMessage(
@@ -137,6 +138,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "cybersecurity": MessageLookupByLibrary.simpleMessage("Cybersecurity"),
     "data_science": MessageLookupByLibrary.simpleMessage("Data Science"),
     "date_of_birth": MessageLookupByLibrary.simpleMessage("Date of Birth"),
+    "delete": MessageLookupByLibrary.simpleMessage("delete"),
+    "delete_description": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to delete this content? This action cannot be undone.",
+    ),
     "description": MessageLookupByLibrary.simpleMessage("Description"),
     "details": MessageLookupByLibrary.simpleMessage("Details"),
     "didnotReceiveCode": MessageLookupByLibrary.simpleMessage(
@@ -148,6 +153,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
+    "edited": MessageLookupByLibrary.simpleMessage("Edited"),
     "egp_currency": MessageLookupByLibrary.simpleMessage("EGP"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailVerification": MessageLookupByLibrary.simpleMessage(
@@ -205,6 +211,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "help_others_understand": MessageLookupByLibrary.simpleMessage(
       "• Help others understand if this course is right for them",
     ),
+    "helpful": MessageLookupByLibrary.simpleMessage("Helpful"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "hours": MessageLookupByLibrary.simpleMessage("hours"),
     "how_would_you_rate_this_course": MessageLookupByLibrary.simpleMessage(
@@ -238,6 +245,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Learn data analysis, ML, and AI",
     ),
     "lectures": MessageLookupByLibrary.simpleMessage("lectures"),
+    "lesson": MessageLookupByLibrary.simpleMessage("Lesson"),
     "lessons": MessageLookupByLibrary.simpleMessage("lessons"),
     "lessons_completed": MessageLookupByLibrary.simpleMessage(
       "Lessons Completed",
@@ -308,6 +316,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_quizzes_available": MessageLookupByLibrary.simpleMessage(
       "No quizzes available",
     ),
+    "no_response": MessageLookupByLibrary.simpleMessage("No response"),
     "no_reviews_yet": MessageLookupByLibrary.simpleMessage("No reviews yet."),
     "now": MessageLookupByLibrary.simpleMessage("now"),
     "of_of": MessageLookupByLibrary.simpleMessage("of"),
@@ -436,6 +445,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "remaining": MessageLookupByLibrary.simpleMessage("Remaining"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
+    "report": MessageLookupByLibrary.simpleMessage("report"),
+    "report_answer": MessageLookupByLibrary.simpleMessage("Report Answer"),
+    "report_content": MessageLookupByLibrary.simpleMessage("Report Content"),
+    "report_description": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to report this content? This action will notify the moderators.",
+    ),
+    "report_question": MessageLookupByLibrary.simpleMessage("Report Question"),
+    "report_sent_successfully": MessageLookupByLibrary.simpleMessage(
+      "Report sent successfully",
+    ),
     "requirements": MessageLookupByLibrary.simpleMessage("Requirements"),
     "resend": MessageLookupByLibrary.simpleMessage("Resend"),
     "resendOTP": MessageLookupByLibrary.simpleMessage("Resend OTP"),

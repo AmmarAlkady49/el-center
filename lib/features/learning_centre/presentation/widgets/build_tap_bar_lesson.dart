@@ -140,7 +140,7 @@ class _BuildTapBarLessonState extends State<BuildTapBarLesson>
               BuildOverviewTapBarView(),
               BuildAiAssistant(cubit: widget.cubit),
               BuildQuizzesTapBarView(),
-              BuildQAndATapBarView(),
+              BuildQAndATapBarView(cubit: widget.cubit),
             ],
           ),
         ),

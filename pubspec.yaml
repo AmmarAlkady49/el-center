@@ -2,7 +2,7 @@ name: e_learning_app
 description: "A new Flutter project."
 publish_to: 'none'
 
-version: 1.0.31+1
+version: 1.0.32+1
 
 environment:
   sdk: ^3.6.1

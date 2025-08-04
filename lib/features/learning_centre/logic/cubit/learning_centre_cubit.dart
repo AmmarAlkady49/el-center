@@ -46,7 +46,6 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
   String? scriptContent;
   bool isContentReady = false;
 
-
   void selectContentOfTheCourse({
     required CourseInfoModel courseInfo,
     required List<CourseModulesWithLessons> modulesWithLessons,
@@ -98,33 +97,32 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
 
   // initalize groq ai assistant
   void sendMessageToGroq(String userMessage) async {
-  
-  if (!isContentReady || scriptContent == null || scriptContent!.isEmpty) {
-    log("Content not ready for AI chat");
-    emit(LearningCentreState.failedSendMessageToGroqAi(
-      error: "Please wait for the lesson content to load completely before asking questions."
-    ));
-    return;
+    if (!isContentReady || scriptContent == null || scriptContent!.isEmpty) {
+      log("Content not ready for AI chat");
+      emit(LearningCentreState.failedSendMessageToGroqAi(
+          error:
+              "Please wait for the lesson content to load completely before asking questions."));
+      return;
+    }
+
+    emit(LearningCentreState.loadingSendMessageToGroqAi());
+    try {
+      final response = await learningCentreRepo.sendMessageToGroq(
+        userMessage,
+        scriptContent!,
+      );
+      final aiResponse = response.data['choices'][0]['message']['content'];
+      log("aiResponse: $aiResponse");
+      emit(
+        LearningCentreState.successSendMessageToGroqAi(response: aiResponse),
+      );
+    } catch (error) {
+      log(error.toString());
+      emit(
+        LearningCentreState.failedSendMessageToGroqAi(error: error.toString()),
+      );
+    }
   }
-  
-  emit(LearningCentreState.loadingSendMessageToGroqAi());
-  try {
-    final response = await learningCentreRepo.sendMessageToGroq(
-      userMessage,
-      scriptContent!,
-    );
-    final aiResponse = response.data['choices'][0]['message']['content'];
-    log("aiResponse: $aiResponse");
-    emit(
-      LearningCentreState.successSendMessageToGroqAi(response: aiResponse),
-    );
-  } catch (error) {
-    log(error.toString());
-    emit(
-      LearningCentreState.failedSendMessageToGroqAi(error: error.toString()),
-    );
-  }
-}
 
   void clearMessages() {
     messages.clear();
@@ -135,37 +133,38 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
 
   // transcription video
   Future<void> transcribeVideo(String videoUrl, LessonModule lesson) async {
-  log("here where transcribe video called");
-  isContentReady = false;
-  emit(LearningCentreState.contentNotReady()); // You'll need to add this state
-  
-  if (lesson.contentType == 'text') {
-    scriptContent = lesson.content ?? '';
-    isContentReady = true;
-    log("text transcripts: $scriptContent");
-    log("lesson content: ${lesson.content}");
-    emit(LearningCentreState.contentReady()); // You'll need to add this state
-    return;
-  }
-  
-  emit(LearningCentreState.loadingTranscribeVideo());
-  try {
-    final transcriptStringResult =
-        await learningCentreRepo.transcribeVideoFromUrl(videoUrl);
-    scriptContent = transcriptStringResult;
-    isContentReady = true;
-    log("scriptContent after transcription: $transcriptStringResult");
-    emit(LearningCentreState.successTranscribeVideo(
-        transcriptString: transcriptStringResult));
-    emit(LearningCentreState.contentReady()); // Signal that content is ready
-
-    log("inside transcribe video: $scriptContent");
-  } catch (error) {
-    log(error.toString());
+    log("here where transcribe video called");
     isContentReady = false;
-    emit(LearningCentreState.failedTranscribeVideo(error: error.toString()));
+    emit(
+        LearningCentreState.contentNotReady()); // You'll need to add this state
+
+    if (lesson.contentType == 'text') {
+      scriptContent = lesson.content ?? '';
+      isContentReady = true;
+      log("text transcripts: $scriptContent");
+      log("lesson content: ${lesson.content}");
+      emit(LearningCentreState.contentReady()); // You'll need to add this state
+      return;
+    }
+
+    emit(LearningCentreState.loadingTranscribeVideo());
+    try {
+      final transcriptStringResult =
+          await learningCentreRepo.transcribeVideoFromUrl(videoUrl);
+      scriptContent = transcriptStringResult;
+      isContentReady = true;
+      log("scriptContent after transcription: $transcriptStringResult");
+      emit(LearningCentreState.successTranscribeVideo(
+          transcriptString: transcriptStringResult));
+      emit(LearningCentreState.contentReady()); // Signal that content is ready
+
+      log("inside transcribe video: $scriptContent");
+    } catch (error) {
+      log(error.toString());
+      isContentReady = false;
+      emit(LearningCentreState.failedTranscribeVideo(error: error.toString()));
+    }
   }
-}
 
   void getAllCourseQuizzes(int courseId) async {
     emit(LearningCentreState.gettingQuizzesByCourse());
@@ -333,6 +332,74 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
       }
     } catch (error) {
       emit(LearningCentreState.failedCompleteLesson(error: error.toString()));
+    }
+  }
+
+  void getAllLessonQuestions(int lessonId) async {
+    emit(LearningCentreState.gettingQAndAtap());
+    try {
+      final getAllQuestionsByLesson =
+          await learningCentreRepo.getAllLessonQuestions(lessonId);
+      // final getAllAnswersByQuestion =
+      //     await learningCentreRepo.getAllQuestionAnswers(questionId);
+
+      final answersListOfLists = await Future.wait(getAllQuestionsByLesson
+          .map((question) =>
+              learningCentreRepo.getAllQuestionAnswers(question.id))
+          .toList());
+      final getAnswersForQuestion =
+          answersListOfLists.expand((answers) => answers).toList();
+      emit(LearningCentreState.successGettingQAndAData(
+          questions: getAllQuestionsByLesson, answers: getAnswersForQuestion));
+    } catch (error) {
+      emit(LearningCentreState.failedGettingQAndA(error: error.toString()));
+    }
+  }
+
+  // send report
+  void sendReport({required Map<String, dynamic> query}) async {
+    try {
+      final apiResponse = await learningCentreRepo.sendReport(query);
+      log("apiResponse: $apiResponse");
+
+      emit(LearningCentreState.successSendReport());
+    } catch (error) {
+      log("error: ${error.toString()}");
+      emit(LearningCentreState.failedSendReport(error: error.toString()));
+    }
+  }
+
+  void deleteAnswer(int answerId) async {
+    try {
+      final apiResponse = await learningCentreRepo.deleteAnswer(answerId);
+      emit(LearningCentreState.successDeleteAnswerOrQuestion());
+      log("apiResponse: $apiResponse");
+    } catch (error) {
+      log("error: ${error.toString()}");
+      emit(LearningCentreState.failedDeleteAnswerOrQuestion(
+          error: error.toString()));
+    }
+  }
+  void deleteQuestion(int questionId) async {
+    try {
+      final apiResponse = await learningCentreRepo.deleteQuestion(questionId);
+      emit(LearningCentreState.successDeleteAnswerOrQuestion());
+      log("apiResponse: $apiResponse");
+    } catch (error) {
+      log("error: ${error.toString()}");
+      emit(LearningCentreState.failedDeleteAnswerOrQuestion(
+          error: error.toString()));
+    }
+  }
+
+  void markAnswerHelpful({required Map<String, dynamic> query}) async {
+    try {
+      final apiResponse = await learningCentreRepo.markAnswerHelpful(query);
+      emit(LearningCentreState.successMarkAnswerHelpful());
+      log("apiResponse: $apiResponse");
+    } catch (error) {
+      log("error: ${error.toString()}");
+      emit(LearningCentreState.failedMarkAnswerHelpful(error: error.toString()));
     }
   }
 }
