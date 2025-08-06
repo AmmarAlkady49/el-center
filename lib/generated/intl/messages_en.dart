@@ -61,13 +61,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "article_completed": MessageLookupByLibrary.simpleMessage(
       "Article Completed",
     ),
+    "ask_question": MessageLookupByLibrary.simpleMessage("Ask Question"),
     "ask_question_about_the_lesson_content":
         MessageLookupByLibrary.simpleMessage(
           "Ask questions about the lesson content and get intelligent responses",
         ),
+    "ask_your_question_here": MessageLookupByLibrary.simpleMessage(
+      "Ask your question here",
+    ),
     "audio": MessageLookupByLibrary.simpleMessage("Audio"),
     "available_languages": MessageLookupByLibrary.simpleMessage(
       "Available Languages",
+    ),
+    "be_first_to_ask_question": MessageLookupByLibrary.simpleMessage(
+      "Be the first to ask a question",
     ),
     "be_specific": MessageLookupByLibrary.simpleMessage(
       "• Be specific about what you liked or didn\'t like",
@@ -139,9 +146,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "data_science": MessageLookupByLibrary.simpleMessage("Data Science"),
     "date_of_birth": MessageLookupByLibrary.simpleMessage("Date of Birth"),
     "delete": MessageLookupByLibrary.simpleMessage("delete"),
+    "delete_answer": MessageLookupByLibrary.simpleMessage("Delete Answer"),
     "delete_description": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to delete this content? This action cannot be undone.",
     ),
+    "delete_question": MessageLookupByLibrary.simpleMessage("Delete Question"),
+    "delete_review": MessageLookupByLibrary.simpleMessage("Delete Review"),
     "description": MessageLookupByLibrary.simpleMessage("Description"),
     "details": MessageLookupByLibrary.simpleMessage("Details"),
     "didnotReceiveCode": MessageLookupByLibrary.simpleMessage(
@@ -153,6 +163,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
+    "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+    "edit_answer": MessageLookupByLibrary.simpleMessage("Edit Answer"),
+    "edit_review": MessageLookupByLibrary.simpleMessage("Edit Review"),
     "edited": MessageLookupByLibrary.simpleMessage("Edited"),
     "egp_currency": MessageLookupByLibrary.simpleMessage("EGP"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
@@ -306,6 +319,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_courses_found": MessageLookupByLibrary.simpleMessage(
       "No courses found",
     ),
+    "no_curriculum_availables": MessageLookupByLibrary.simpleMessage(
+      "No curriculum available",
+    ),
     "no_enrolled_courses": MessageLookupByLibrary.simpleMessage(
       "No enrolled courses",
     ),
@@ -313,6 +329,9 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "No lessons available for this module.",
         ),
+    "no_questions_yet": MessageLookupByLibrary.simpleMessage(
+      "No questions yet",
+    ),
     "no_quizzes_available": MessageLookupByLibrary.simpleMessage(
       "No quizzes available",
     ),
@@ -445,6 +464,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "remaining": MessageLookupByLibrary.simpleMessage("Remaining"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
+    "reply": MessageLookupByLibrary.simpleMessage("Reply"),
+    "reply_to_question": MessageLookupByLibrary.simpleMessage(
+      "Reply to question",
+    ),
     "report": MessageLookupByLibrary.simpleMessage("report"),
     "report_answer": MessageLookupByLibrary.simpleMessage("Report Answer"),
     "report_content": MessageLookupByLibrary.simpleMessage("Report Content"),
@@ -473,9 +496,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "see_all": MessageLookupByLibrary.simpleMessage("See All"),
     "selectCountry": MessageLookupByLibrary.simpleMessage("Select Country"),
+    "send": MessageLookupByLibrary.simpleMessage("Send"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "share_your_thoughts": MessageLookupByLibrary.simpleMessage(
-      "Share your thoughts",
+      "Share your thoughts...",
     ),
     "sign_out": MessageLookupByLibrary.simpleMessage("Sign out"),
     "sign_out_of_your_account": MessageLookupByLibrary.simpleMessage(
@@ -557,6 +581,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "unsupported_content_type": MessageLookupByLibrary.simpleMessage(
       "Unsupported content type",
     ),
+    "update": MessageLookupByLibrary.simpleMessage("Update"),
+    "update_review": MessageLookupByLibrary.simpleMessage("Update Review"),
     "update_your_password": MessageLookupByLibrary.simpleMessage(
       "Update your password",
     ),

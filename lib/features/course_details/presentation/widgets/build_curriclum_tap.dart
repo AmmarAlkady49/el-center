@@ -62,7 +62,7 @@ class _BuildCurriculumTabState extends State<BuildCurriculumTab> {
     final totalDuration = HelperFunctions.calculateSectionDuration(lessons);
 
     return Material(
-      elevation: 2,
+      elevation: 0,
       borderRadius: BorderRadius.circular(16.r),
       color: Colors.white,
       child: Column(
@@ -79,11 +79,15 @@ class _BuildCurriculumTabState extends State<BuildCurriculumTab> {
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black12,
-                    blurRadius: 10.r,
+                    blurRadius: 8.r,
                     offset: const Offset(0, 2),
                   ),
                 ],
-                borderRadius: BorderRadius.circular(16.r),
+                borderRadius: isExpanded
+                    ? BorderRadius.only(
+                        topLeft: Radius.circular(16.r),
+                        topRight: Radius.circular(16.r))
+                    : BorderRadius.circular(16.r),
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -177,9 +181,16 @@ class _BuildCurriculumTabState extends State<BuildCurriculumTab> {
             child: isExpanded
                 ? Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade50,
+                      color: Colors.white,
                       borderRadius:
                           BorderRadius.vertical(bottom: Radius.circular(16.r)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 8.r,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
                     ),
                     child: _buildLessonsForModule(lessons, moduleIndex),
                   )
@@ -366,26 +377,69 @@ class _BuildCurriculumTabState extends State<BuildCurriculumTab> {
         .fold<int>(0, (sum, module) => sum + module.lessons.length);
 
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 4.h),
+      width: double.infinity,
+      padding: EdgeInsets.all(16.w),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            AppColors.mainBlue,
+            AppColors.mainBlue.withAlpha(200),
+          ],
+        ),
+        borderRadius: BorderRadius.circular(16.r),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.mainBlue.withAlpha(80),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "${S.of(context).course} ${S.of(context).curriculum}",
-            style: FontHelper.font20BlackW700(context).copyWith(
-              color: AppColors.darkBlue,
-              fontSize: 18.sp,
-            ),
+          Row(
+            children: [
+              Container(
+                padding: EdgeInsets.all(6.w),
+                decoration: BoxDecoration(
+                  color: Colors.white.withAlpha(60),
+                  borderRadius: BorderRadius.circular(12.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: 8,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: Icon(
+                  Icons.menu_book_rounded,
+                  color: Colors.white,
+                  size: 16.sp,
+                ),
+              ),
+              horizontalSpacing(8),
+              Text(
+                "${S.of(context).course} ${S.of(context).curriculum}",
+                style: FontHelper.font20BlackW700(context).copyWith(
+                  color: Colors.white,
+                  fontSize: 14.sp,
+                  // wordSpacing: -1,
+                ),
+              ),
+            ],
           ),
           verticalSpacing(8),
           Text(
             widget.courseModules.isEmpty
-                ? 'No Curriculum available.'
+                ? S.of(context).no_curriculum_availables
                 : '${widget.courseModules.length} ${S.of(context).modules} • $totalLessons ${S.of(context).lessons}',
-            style: FontHelper.font12lackW400(context).copyWith(
-              fontSize: 14.sp,
-              letterSpacing: -0.2,
-              color: AppColors.greyBlue,
+            style: FontHelper.font15BlackW600(context).copyWith(
+              color: Colors.white,
+              fontSize: 16.sp,
             ),
           ),
         ],
@@ -400,41 +454,19 @@ class _BuildCurriculumTabState extends State<BuildCurriculumTab> {
       children: [
         // Header
         _buildHeader(),
+        verticalSpacing(16),
 
         // Modules List
         Expanded(
-          child: widget.modulesWithLessons.isEmpty
-              ? Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Iconsax.folder_minus,
-                        size: 64.sp,
-                        color: AppColors.greyBlue.withAlpha(100),
-                      ),
-                      verticalSpacing(16),
-                      Text(
-                        'No curriculum available',
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.greyBlue,
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              : ListView.separated(
-                  padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 0.h),
-                  physics: const BouncingScrollPhysics(),
-                  itemCount: widget.modulesWithLessons.length,
-                  separatorBuilder: (context, index) => verticalSpacing(12),
-                  itemBuilder: (context, index) {
-                    return _buildModuleCard(
-                        widget.modulesWithLessons[index], index);
-                  },
-                ),
+          child: ListView.separated(
+            padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 0.h),
+            physics: const BouncingScrollPhysics(),
+            itemCount: widget.modulesWithLessons.length,
+            separatorBuilder: (context, index) => verticalSpacing(12),
+            itemBuilder: (context, index) {
+              return _buildModuleCard(widget.modulesWithLessons[index], index);
+            },
+          ),
         ),
       ],
     );

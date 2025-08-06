@@ -84,9 +84,7 @@ class _LessonPlayerPageState extends State<LessonPlayerPage> {
         builder: (context, state) {
           if (state is LoadingCourseContent && !isContentLoaded) {
             return const Center(
-              child: CupertinoActivityIndicator(
-                color: AppColors.mainBlue,
-              ),
+              child: CupertinoActivityIndicator(),
             );
           } else if (state is FailedGetCourseContent && !isContentLoaded) {
             return Center(

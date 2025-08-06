@@ -74,6 +74,10 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     TResult Function(EnrollmentLoading value)? enrollmentLoading,
     TResult Function(EnrollmentSuccess value)? enrollmentSuccess,
     TResult Function(EnrollmentFailure value)? enrollmentFailure,
+    TResult Function(UpdateCourseReviewSuccess value)?
+        updateCourseReviewSuccess,
+    TResult Function(UpdateCourseReviewFailure value)?
+        updateCourseReviewFailure,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -114,6 +118,10 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return enrollmentSuccess(_that);
       case EnrollmentFailure() when enrollmentFailure != null:
         return enrollmentFailure(_that);
+      case UpdateCourseReviewSuccess() when updateCourseReviewSuccess != null:
+        return updateCourseReviewSuccess(_that);
+      case UpdateCourseReviewFailure() when updateCourseReviewFailure != null:
+        return updateCourseReviewFailure(_that);
       case _:
         return orElse();
     }
@@ -153,6 +161,10 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     required TResult Function(EnrollmentLoading value) enrollmentLoading,
     required TResult Function(EnrollmentSuccess value) enrollmentSuccess,
     required TResult Function(EnrollmentFailure value) enrollmentFailure,
+    required TResult Function(UpdateCourseReviewSuccess value)
+        updateCourseReviewSuccess,
+    required TResult Function(UpdateCourseReviewFailure value)
+        updateCourseReviewFailure,
   }) {
     final _that = this;
     switch (_that) {
@@ -192,6 +204,10 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return enrollmentSuccess(_that);
       case EnrollmentFailure():
         return enrollmentFailure(_that);
+      case UpdateCourseReviewSuccess():
+        return updateCourseReviewSuccess(_that);
+      case UpdateCourseReviewFailure():
+        return updateCourseReviewFailure(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -229,6 +245,10 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     TResult? Function(EnrollmentLoading value)? enrollmentLoading,
     TResult? Function(EnrollmentSuccess value)? enrollmentSuccess,
     TResult? Function(EnrollmentFailure value)? enrollmentFailure,
+    TResult? Function(UpdateCourseReviewSuccess value)?
+        updateCourseReviewSuccess,
+    TResult? Function(UpdateCourseReviewFailure value)?
+        updateCourseReviewFailure,
   }) {
     final _that = this;
     switch (_that) {
@@ -268,6 +288,10 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return enrollmentSuccess(_that);
       case EnrollmentFailure() when enrollmentFailure != null:
         return enrollmentFailure(_that);
+      case UpdateCourseReviewSuccess() when updateCourseReviewSuccess != null:
+        return updateCourseReviewSuccess(_that);
+      case UpdateCourseReviewFailure() when updateCourseReviewFailure != null:
+        return updateCourseReviewFailure(_that);
       case _:
         return null;
     }
@@ -310,6 +334,8 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     TResult Function()? enrollmentLoading,
     TResult Function(String message)? enrollmentSuccess,
     TResult Function(String error)? enrollmentFailure,
+    TResult Function(String message)? updateCourseReviewSuccess,
+    TResult Function(String error)? updateCourseReviewFailure,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -351,6 +377,10 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return enrollmentSuccess(_that.message);
       case EnrollmentFailure() when enrollmentFailure != null:
         return enrollmentFailure(_that.error);
+      case UpdateCourseReviewSuccess() when updateCourseReviewSuccess != null:
+        return updateCourseReviewSuccess(_that.message);
+      case UpdateCourseReviewFailure() when updateCourseReviewFailure != null:
+        return updateCourseReviewFailure(_that.error);
       case _:
         return orElse();
     }
@@ -394,6 +424,8 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     required TResult Function() enrollmentLoading,
     required TResult Function(String message) enrollmentSuccess,
     required TResult Function(String error) enrollmentFailure,
+    required TResult Function(String message) updateCourseReviewSuccess,
+    required TResult Function(String error) updateCourseReviewFailure,
   }) {
     final _that = this;
     switch (_that) {
@@ -434,6 +466,10 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return enrollmentSuccess(_that.message);
       case EnrollmentFailure():
         return enrollmentFailure(_that.error);
+      case UpdateCourseReviewSuccess():
+        return updateCourseReviewSuccess(_that.message);
+      case UpdateCourseReviewFailure():
+        return updateCourseReviewFailure(_that.error);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -476,6 +512,8 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     TResult? Function()? enrollmentLoading,
     TResult? Function(String message)? enrollmentSuccess,
     TResult? Function(String error)? enrollmentFailure,
+    TResult? Function(String message)? updateCourseReviewSuccess,
+    TResult? Function(String error)? updateCourseReviewFailure,
   }) {
     final _that = this;
     switch (_that) {
@@ -516,6 +554,10 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return enrollmentSuccess(_that.message);
       case EnrollmentFailure() when enrollmentFailure != null:
         return enrollmentFailure(_that.error);
+      case UpdateCourseReviewSuccess() when updateCourseReviewSuccess != null:
+        return updateCourseReviewSuccess(_that.message);
+      case UpdateCourseReviewFailure() when updateCourseReviewFailure != null:
+        return updateCourseReviewFailure(_that.error);
       case _:
         return null;
     }
@@ -1630,6 +1672,156 @@ class _$EnrollmentFailureCopyWithImpl<$Res>
     Object? error = null,
   }) {
     return _then(EnrollmentFailure(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class UpdateCourseReviewSuccess
+    with DiagnosticableTreeMixin
+    implements CourseDetailsState {
+  const UpdateCourseReviewSuccess(this.message);
+
+  final String message;
+
+  /// Create a copy of CourseDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UpdateCourseReviewSuccessCopyWith<UpdateCourseReviewSuccess> get copyWith =>
+      _$UpdateCourseReviewSuccessCopyWithImpl<UpdateCourseReviewSuccess>(
+          this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'CourseDetailsState.updateCourseReviewSuccess'))
+      ..add(DiagnosticsProperty('message', message));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UpdateCourseReviewSuccess &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseDetailsState.updateCourseReviewSuccess(message: $message)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UpdateCourseReviewSuccessCopyWith<$Res>
+    implements $CourseDetailsStateCopyWith<$Res> {
+  factory $UpdateCourseReviewSuccessCopyWith(UpdateCourseReviewSuccess value,
+          $Res Function(UpdateCourseReviewSuccess) _then) =
+      _$UpdateCourseReviewSuccessCopyWithImpl;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class _$UpdateCourseReviewSuccessCopyWithImpl<$Res>
+    implements $UpdateCourseReviewSuccessCopyWith<$Res> {
+  _$UpdateCourseReviewSuccessCopyWithImpl(this._self, this._then);
+
+  final UpdateCourseReviewSuccess _self;
+  final $Res Function(UpdateCourseReviewSuccess) _then;
+
+  /// Create a copy of CourseDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(UpdateCourseReviewSuccess(
+      null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class UpdateCourseReviewFailure
+    with DiagnosticableTreeMixin
+    implements CourseDetailsState {
+  const UpdateCourseReviewFailure({required this.error});
+
+  final String error;
+
+  /// Create a copy of CourseDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $UpdateCourseReviewFailureCopyWith<UpdateCourseReviewFailure> get copyWith =>
+      _$UpdateCourseReviewFailureCopyWithImpl<UpdateCourseReviewFailure>(
+          this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'CourseDetailsState.updateCourseReviewFailure'))
+      ..add(DiagnosticsProperty('error', error));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is UpdateCourseReviewFailure &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseDetailsState.updateCourseReviewFailure(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $UpdateCourseReviewFailureCopyWith<$Res>
+    implements $CourseDetailsStateCopyWith<$Res> {
+  factory $UpdateCourseReviewFailureCopyWith(UpdateCourseReviewFailure value,
+          $Res Function(UpdateCourseReviewFailure) _then) =
+      _$UpdateCourseReviewFailureCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$UpdateCourseReviewFailureCopyWithImpl<$Res>
+    implements $UpdateCourseReviewFailureCopyWith<$Res> {
+  _$UpdateCourseReviewFailureCopyWithImpl(this._self, this._then);
+
+  final UpdateCourseReviewFailure _self;
+  final $Res Function(UpdateCourseReviewFailure) _then;
+
+  /// Create a copy of CourseDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(UpdateCourseReviewFailure(
       error: null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable

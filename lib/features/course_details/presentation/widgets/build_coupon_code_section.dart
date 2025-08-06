@@ -1,4 +1,3 @@
-import 'package:e_learning_app/core/helpers/helper_functions.dart';
 import 'package:e_learning_app/features/course_details/logic/cubit/course_details_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../core/helpers/helper_dialogs.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/font_helper.dart';
@@ -294,12 +294,12 @@ class _BuildCouponCodeSectionState extends State<BuildCouponCodeSection>
                                     const Duration(milliseconds: 500), () {
                                   _collapseWidget();
                                 });
-                                HelperFunctions.showSuccess(
+                                HelperDialogs.showSuccess(
                                     S.of(context).coupon_applied, context);
                               } else if (state is CouponFailure) {
                                 widget.courseDetailsCubit.couponController
                                     .clear();
-                                HelperFunctions.showError(state.error, context);
+                                HelperDialogs.showError(state.error, context);
                               }
                             },
                             builder: (context, state) {
@@ -334,7 +334,7 @@ class _BuildCouponCodeSectionState extends State<BuildCouponCodeSection>
                                                 .couponController.text
                                                 .trim()
                                                 .isEmpty) {
-                                              HelperFunctions.showError(
+                                              HelperDialogs.showError(
                                                   'Please enter a coupon code',
                                                   context);
                                               return;

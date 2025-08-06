@@ -1,4 +1,3 @@
-import 'package:e_learning_app/core/helpers/helper_functions.dart';
 import 'package:e_learning_app/core/helpers/modern_dialog_sheet.dart';
 import 'package:e_learning_app/features/signup/logic/cubit/signup_cubit.dart';
 import 'package:e_learning_app/features/signup/presentation/widgets/password_and_confirm_password_statfull_widget.dart';
@@ -6,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/helpers/helper_dialogs.dart';
 import '../../../../core/routing/app_routes.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/widgets/app_text_button.dart';
@@ -68,7 +68,7 @@ class SignupFormContainer extends StatelessWidget {
                     },
                   );
                 } else if (state is Error) {
-                  HelperFunctions.showError(state.error.toString(), context);
+                  HelperDialogs.showError(state.error.toString(), context);
                 }
               },
               buildWhen: (previous, current) => true,

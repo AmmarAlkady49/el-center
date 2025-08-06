@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/font_helper.dart';
@@ -82,37 +83,27 @@ class _BuildQuizzesTapBarViewState extends State<BuildQuizzesTapBarView> {
 
   Widget _buildLoadingState() {
     return Container(
-      width: double.infinity,
-      height: 200.h,
-      padding: EdgeInsets.all(16.w),
+      padding: EdgeInsets.all(20.w),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            padding: EdgeInsets.all(12.w),
-            decoration: BoxDecoration(
-              color: AppColors.mainBlue.withAlpha(175),
-              borderRadius: BorderRadius.circular(12.r),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 8,
-                  offset: const Offset(0, 2),
-                ),
-              ],
-            ),
-            child: CupertinoActivityIndicator(
-              color: Colors.white,
-              radius: 14.sp,
-            ),
-          ),
+          CupertinoActivityIndicator(),
           verticalSpacing(16),
           Text(
             S.of(context).loading_quizzes,
-            style: FontHelper.font15BlackW600(context).copyWith(
+            style: FontHelper.font20BlackW700(context).copyWith(
               color: AppColors.darkBlue,
+              fontSize: 18.sp,
+            ),
+          ),
+          verticalSpacing(8),
+          Text(
+            "Please wait while we load your quizzes...",
+            style: FontHelper.font14BlackW500(context).copyWith(
+              color: AppColors.greyBlue,
               fontSize: 14.sp,
             ),
+            textAlign: TextAlign.center,
           ),
         ],
       ),
@@ -121,64 +112,98 @@ class _BuildQuizzesTapBarViewState extends State<BuildQuizzesTapBarView> {
 
   Widget _buildErrorState(String error) {
     return Container(
-      width: double.infinity,
-      padding: EdgeInsets.all(16.w),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            AppColors.red,
-            AppColors.red.withAlpha(200),
-          ],
-        ),
-        borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.red.withAlpha(100),
-            blurRadius: 12,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
+      padding: EdgeInsets.all(20.w),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            padding: EdgeInsets.all(12.w),
+            padding: EdgeInsets.all(20.w),
             decoration: BoxDecoration(
-              color: Colors.white.withAlpha(60),
-              borderRadius: BorderRadius.circular(12.r),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 8,
-                  offset: const Offset(0, 2),
-                ),
-              ],
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  AppColors.red.withAlpha(50),
+                  AppColors.red.withAlpha(25),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(20.r),
             ),
             child: Icon(
-              Icons.error_outline_rounded,
-              color: Colors.white,
-              size: 24.sp,
+              Iconsax.warning_2,
+              size: 48.sp,
+              color: AppColors.red,
             ),
           ),
-          verticalSpacing(12),
+          verticalSpacing(16),
           Text(
             S.of(context).failed_to_load_quizzes,
-            style: FontHelper.font16BlackW600(context).copyWith(
-              color: Colors.white,
-              fontSize: 15.sp,
-              wordSpacing: -1,
+            style: FontHelper.font20BlackW700(context).copyWith(
+              color: AppColors.darkBlue,
+              fontSize: 18.sp,
             ),
+            textAlign: TextAlign.center,
           ),
           verticalSpacing(8),
           Text(
             error,
             style: FontHelper.font14BlackW500(context).copyWith(
-              color: Colors.white70,
-              fontSize: 12.sp,
+              color: AppColors.greyBlue,
+              fontSize: 14.sp,
             ),
             textAlign: TextAlign.center,
+          ),
+          verticalSpacing(20),
+          Container(
+            width: double.infinity,
+            height: 50.h,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [
+                  AppColors.red,
+                  AppColors.red.withAlpha(190),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(12.r),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.red.withAlpha(90),
+                  offset: Offset(0, 4.h),
+                  blurRadius: 8.r,
+                ),
+              ],
+            ),
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(12.r),
+                onTap: () {
+                  cubit.getAllCourseQuizzes(cubit.conurseInfo!.id);
+                },
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Iconsax.refresh,
+                        color: Colors.white,
+                        size: 20.sp,
+                      ),
+                      horizontalSpacing(8),
+                      Text(
+                        "Try Again",
+                        style: FontHelper.font16WhiteW600(context).copyWith(
+                          fontSize: 16.sp,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
       ),
@@ -187,174 +212,150 @@ class _BuildQuizzesTapBarViewState extends State<BuildQuizzesTapBarView> {
 
   Widget _buildEmptyState() {
     return Container(
-      width: double.infinity,
-      height: 200.h,
-      padding: EdgeInsets.all(16.w),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            AppColors.mainBlue,
-            AppColors.mainBlue.withAlpha(200),
+      padding: EdgeInsets.all(20.w),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              padding: EdgeInsets.all(20.w),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    AppColors.grey.withAlpha(70),
+                    AppColors.grey.withAlpha(50),
+                  ],
+                ),
+                borderRadius: BorderRadius.circular(20.r),
+              ),
+              child: Icon(
+                Iconsax.clipboard_close,
+                size: 48.sp,
+                color: AppColors.greyBlue,
+              ),
+            ),
+            verticalSpacing(16),
+            Text(
+              S.of(context).no_quizzes_available,
+              style: FontHelper.font20BlackW700(context).copyWith(
+                color: AppColors.darkBlue,
+                fontSize: 18.sp,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            verticalSpacing(8),
+            Text(
+              S.of(context).complete_lessons_to_unlock_quizzes,
+              style: FontHelper.font14BlackW500(context).copyWith(
+                color: AppColors.greyBlue,
+                fontSize: 14.sp,
+              ),
+              textAlign: TextAlign.center,
+            ),
           ],
         ),
-        borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.mainBlue.withAlpha(100),
-            blurRadius: 12,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            padding: EdgeInsets.all(12.w),
-            decoration: BoxDecoration(
-              color: Colors.white.withAlpha(60),
-              borderRadius: BorderRadius.circular(12.r),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 8,
-                  offset: const Offset(0, 2),
-                ),
-              ],
-            ),
-            child: Icon(
-              Icons.quiz_outlined,
-              size: 24.sp,
-              color: Colors.white,
-            ),
-          ),
-          verticalSpacing(16.h),
-          Text(
-            S.of(context).no_quizzes_available,
-            style: FontHelper.font16BlackW600(context).copyWith(
-              color: Colors.white,
-              fontSize: 15.sp,
-              wordSpacing: -1,
-            ),
-          ),
-          verticalSpacing(8.h),
-          Text(
-            S.of(context).complete_lessons_to_unlock_quizzes,
-            style: FontHelper.font14BlackW500(context).copyWith(
-              color: Colors.white70,
-              fontSize: 12.sp,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ],
       ),
     );
   }
 
   Widget _buildQuizAvailableState(List<QuizModel> quizzes) {
     return Container(
-      width: double.infinity,
-      padding: EdgeInsets.all(16.w),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            AppColors.mainBlue,
-            AppColors.mainBlue.withAlpha(200),
-          ],
-        ),
-        borderRadius: BorderRadius.circular(16.r),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.mainBlue.withAlpha(100),
-            blurRadius: 12,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
+      padding: EdgeInsets.all(20.w),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            padding: EdgeInsets.all(12.w),
+            padding: EdgeInsets.all(20.w),
             decoration: BoxDecoration(
-              color: Colors.white.withAlpha(60),
-              borderRadius: BorderRadius.circular(12.r),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black12,
-                  blurRadius: 8,
-                  offset: const Offset(0, 2),
-                ),
-              ],
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  AppColors.mainBlue.withAlpha(50),
+                  AppColors.mainBlue.withAlpha(25),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(20.r),
             ),
             child: Icon(
-              Icons.quiz_rounded,
-              size: 24.sp,
-              color: Colors.white,
+              Iconsax.clipboard_tick,
+              size: 48.sp,
+              color: AppColors.mainBlue,
             ),
           ),
-          verticalSpacing(16.h),
+          verticalSpacing(16),
           Text(
             S.of(context).quiz_ready,
-            style: FontHelper.font16BlackW600(context).copyWith(
-              color: Colors.white,
+            style: FontHelper.font20BlackW700(context).copyWith(
+              color: AppColors.darkBlue,
               fontSize: 18.sp,
-              fontWeight: FontWeight.w700,
             ),
           ),
-          verticalSpacing(8.h),
+          verticalSpacing(8),
           Text(
             S.of(context).there_is_quiz_for_this_lesson,
             style: FontHelper.font14BlackW500(context).copyWith(
-              color: Colors.white70,
+              color: AppColors.greyBlue,
               fontSize: 14.sp,
             ),
             textAlign: TextAlign.center,
           ),
-          verticalSpacing(20.h),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(
-                context,
-                AppRoutes.lessonQuiz,
-                arguments: quizzes,
-              );
-            },
-            child: Container(
-              width: double.infinity,
-              padding: EdgeInsets.symmetric(vertical: 14.h, horizontal: 20.w),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12.r),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 8,
-                    offset: const Offset(0, 3),
-                  ),
+          verticalSpacing(20),
+          Container(
+            width: double.infinity,
+            height: 50.h,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [
+                  AppColors.mainBlue,
+                  AppColors.mainBlue.withAlpha(190),
                 ],
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.play_arrow_rounded,
-                    color: AppColors.mainBlue,
-                    size: 20.sp,
+              borderRadius: BorderRadius.circular(12.r),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.mainBlue.withAlpha(90),
+                  offset: Offset(0, 4.h),
+                  blurRadius: 8.r,
+                ),
+              ],
+            ),
+            child: Material(
+              color: Colors.transparent,
+              child: InkWell(
+                borderRadius: BorderRadius.circular(12.r),
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    AppRoutes.lessonQuiz,
+                    arguments: quizzes,
+                  );
+                },
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Iconsax.play,
+                        color: Colors.white,
+                        size: 20.sp,
+                      ),
+                      horizontalSpacing(8),
+                      Text(
+                        S.of(context).start_quiz,
+                        style: FontHelper.font16WhiteW600(context).copyWith(
+                          fontSize: 16.sp,
+                        ),
+                      ),
+                    ],
                   ),
-                  horizontalSpacing(8),
-                  Text(
-                    S.of(context).start_quiz,
-                    style: FontHelper.font16BlackW600(context).copyWith(
-                      color: AppColors.mainBlue,
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
           ),

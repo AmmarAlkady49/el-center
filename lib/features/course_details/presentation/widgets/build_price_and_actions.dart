@@ -1,5 +1,4 @@
 import 'package:e_learning_app/core/data/models/lesson_module.dart';
-import 'package:e_learning_app/core/helpers/helper_functions.dart';
 import 'package:e_learning_app/core/helpers/spacing.dart';
 import 'package:e_learning_app/features/course_details/logic/cubit/course_details_cubit.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../core/data/models/course_info_model.dart';
+import '../../../../core/helpers/helper_dialogs.dart';
 import '../../../../core/routing/app_routes.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/font_helper.dart';
@@ -106,11 +106,11 @@ class BuildPriceAndActions extends StatelessWidget {
           listener: (context, state) {
             if (state is EnrollmentSuccess) {
               cubit.getCourseDetails(courseBasicInfo.id);
-              HelperFunctions.showSuccess(state.message, context);
+              HelperDialogs.showSuccess(state.message, context);
             }
             if (state is EnrollmentFailure) {
               cubit.getCourseDetails(courseBasicInfo.id);
-              HelperFunctions.showError(state.error, context);
+              HelperDialogs.showError(state.error, context);
             }
           },
           builder: (context, state) {

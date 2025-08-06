@@ -1,17 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:e_learning_app/core/helpers/helper_functions.dart';
 import 'package:e_learning_app/core/helpers/spacing.dart';
 import 'package:e_learning_app/core/networking/api_constants.dart';
 import 'package:e_learning_app/core/theming/font_helper.dart';
 import 'package:e_learning_app/features/settings/logic/cubit/settings_cubit.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../core/data/models/profile_account_model.dart';
+import '../../../../core/helpers/helper_dialogs.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/widgets/build_geniric_app_bar.dart';
 import '../../../../generated/l10n.dart';
@@ -215,7 +214,7 @@ class PersonalInfoScreen extends StatelessWidget {
                 value: profileInfo.dateOfBirth,
                 icon: Icons.calendar_month_outlined,
                 readOnly: true,
-                onTap: () => HelperFunctions.selectDate(context),
+                onTap: () => HelperDialogs.selectDate(context),
               ),
               verticalSpacing(20),
               _buildModernTextField(

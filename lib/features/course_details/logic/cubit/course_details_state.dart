@@ -51,4 +51,10 @@ abstract class CourseDetailsState with _$CourseDetailsState {
   const factory CourseDetailsState.enrollmentFailure({
     required String error,
   }) = EnrollmentFailure;
+
+  const factory CourseDetailsState.updateCourseReviewSuccess(String message) =
+      UpdateCourseReviewSuccess;
+  const factory CourseDetailsState.updateCourseReviewFailure({
+    required String error,
+  }) = UpdateCourseReviewFailure;
 }

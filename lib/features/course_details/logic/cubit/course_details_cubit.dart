@@ -9,7 +9,9 @@ import '../../../../core/data/models/course_modules_with_lessons.dart';
 import '../../../../core/data/models/course_review_model.dart';
 import '../../../../core/data/models/lesson_module.dart';
 import '../../../../core/data/models/standard_response_body.dart';
+import '../../../../core/helpers/shared_pref_helper.dart';
 import '../../../../core/networking/api_result.dart';
+import '../../data/models/updata_course_review_request_body.dart';
 import '../../data/repos/course_details_repo.dart';
 import 'course_details_state.dart';
 
@@ -26,10 +28,13 @@ class CourseDetailsCubit extends Cubit<CourseDetailsState> {
   final TextEditingController couponController = TextEditingController();
   String couponCode = '';
   String finalPrice = '';
+  late String userId;
 
   void getCourseDetails(int courseId) async {
     emit(CourseDetailsState.courseDetailsLoading());
     try {
+      final userId = await SharedPrefHelper.getString('userId');
+      this.userId = userId;
       final isEnrolledResponse = await courseDetailsRepo.isEnrolled(courseId);
 
       final courseModules =
@@ -114,6 +119,8 @@ class CourseDetailsCubit extends Cubit<CourseDetailsState> {
   Future<void> emitCourseReviewState(
       int courseId, String review, int rating) async {
     emit(CourseDetailsState.courseReviewLoading());
+
+    log(userId.toString());
     final result =
         await courseDetailsRepo.createCourseReview(courseId, review, rating);
     log(result.toString());
@@ -138,6 +145,26 @@ class CourseDetailsCubit extends Cubit<CourseDetailsState> {
       }
     } catch (e) {
       emit(CourseDetailsState.couponFailure(error: e.toString()));
+    }
+  }
+
+  void updateCourseReview(
+      UpdateCourseReviewRequestBody updateCourseReviewRequestBody) async {
+    try {
+      final result = await courseDetailsRepo
+          .updateCourseReview(updateCourseReviewRequestBody);
+      emit(CourseDetailsState.updateCourseReviewSuccess(result.message));
+    } catch (e) {
+      emit(CourseDetailsState.updateCourseReviewFailure(error: e.toString()));
+    }
+  }
+
+  void deleteCourseReview(int reviewId) async {
+    try {
+      final result = await courseDetailsRepo.deleteCourseReview(reviewId);
+      emit(CourseDetailsState.updateCourseReviewSuccess(result.message));
+    } catch (e) {
+      emit(CourseDetailsState.updateCourseReviewFailure(error: e.toString()));
     }
   }
 }

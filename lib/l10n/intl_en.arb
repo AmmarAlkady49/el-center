@@ -311,7 +311,25 @@
   "report_description" : "Are you sure you want to report this content? This action will notify the moderators.",
   "delete_description" : "Are you sure you want to delete this content? This action cannot be undone.",
   "report_sent_successfully" : "Report sent successfully",
-  "helpful" : "Helpful"
+  "helpful" : "Helpful",
+  "delete_answer" : "Delete Answer",
+  "reply" :"Reply",
+  "reply_to_question" : "Reply to question",
+  "share_your_thoughts" : "Share your thoughts...",
+  "send" : "Send",
+  "edit_answer" : "Edit Answer",
+  "edit" : "Edit",
+  "update" : "Update",
+  "delete_question" : "Delete Question",
+  "ask_question" :  "Ask Question",
+  "be_first_to_ask_question" : "Be the first to ask a question",
+  "no_questions_yet" : "No questions yet",
+  "ask_your_question_here" : "Ask your question here",
+  "no_curriculum_availables" : "No curriculum available",
+  "delete_review" : "Delete Review",
+  "update_review" : "Update Review",
+  "edit_review" : "Edit Review"
+
  
 
 }

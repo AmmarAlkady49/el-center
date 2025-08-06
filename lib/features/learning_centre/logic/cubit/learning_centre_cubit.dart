@@ -380,6 +380,7 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
           error: error.toString()));
     }
   }
+
   void deleteQuestion(int questionId) async {
     try {
       final apiResponse = await learningCentreRepo.deleteQuestion(questionId);
@@ -394,12 +395,66 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
 
   void markAnswerHelpful({required Map<String, dynamic> query}) async {
     try {
-      final apiResponse = await learningCentreRepo.markAnswerHelpful(query);
-      emit(LearningCentreState.successMarkAnswerHelpful());
-      log("apiResponse: $apiResponse");
+      await learningCentreRepo.markAnswerHelpful(query);
+      emit(
+        LearningCentreState.successMarkAnswerHelpful(
+          answerId: query['answerId'],
+          questionId: query['questionId'],
+        ),
+      );
     } catch (error) {
       log("error: ${error.toString()}");
-      emit(LearningCentreState.failedMarkAnswerHelpful(error: error.toString()));
+      emit(
+          LearningCentreState.failedMarkAnswerHelpful(error: error.toString()));
+    }
+  }
+
+  void addAnswer({required int questionId, required String answer}) async {
+    log("questionId: $questionId, answer: $answer");
+    try {
+      await learningCentreRepo.addAnswer(questionId, answer);
+      log("answer added successfully");
+      emit(LearningCentreState.successAddAnswer());
+    } catch (error) {
+      log("error: ${error.toString()}");
+      emit(LearningCentreState.failedAddAnswer(error: error.toString()));
+    }
+  }
+
+  void updateAnswer({required int answerId, required String answer}) async {
+    log("answerId: $answerId, answer: $answer");
+    try {
+      await learningCentreRepo.updateAnswer(answerId, answer);
+      log("answer updated successfully");
+      emit(LearningCentreState.successAddAnswer());
+    } catch (error) {
+      log("error: ${error.toString()}");
+      emit(LearningCentreState.failedAddAnswer(error: error.toString()));
+    }
+  }
+
+  void updateQuestion({required int questionId, required String question}) async {
+    log("questionId: $questionId, question: $question");
+    try {
+      await learningCentreRepo.updateQuestion(questionId, question);
+      log("question updated successfully");
+      emit(LearningCentreState.successAddAnswer());
+    } catch (error) {
+      log("error: ${error.toString()}");
+      emit(LearningCentreState.failedAddAnswer(error: error.toString()));
+    }
+  }
+
+  void addQuestion({required int lessonId, required String question}) async {
+    log("lessonId: $lessonId, question: $question");
+  // emit(LearningCentreState.loadingAddAnswer());  
+    try {
+      await learningCentreRepo.addQuestion(lessonId, question);
+      log("question added successfully");
+      emit(LearningCentreState.successAddAnswer());
+    } catch (error) {
+      log("error: ${error.toString()}");
+      emit(LearningCentreState.failedAddAnswer(error: error.toString()));
     }
   }
 }

@@ -93,6 +93,8 @@ class BuildCourseStatsForOverviewTap extends StatelessWidget {
               color: AppColors.darkBlue,
               fontSize: 14.sp,
             ),
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
             textAlign: TextAlign.center,
           ),
           verticalSpacing(4.h),

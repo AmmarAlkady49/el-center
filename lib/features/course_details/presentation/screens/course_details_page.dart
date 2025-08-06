@@ -1,4 +1,3 @@
-import 'package:e_learning_app/core/helpers/helper_functions.dart';
 import 'package:e_learning_app/core/helpers/spacing.dart';
 import 'package:e_learning_app/features/course_details/logic/cubit/course_details_cubit.dart';
 import 'package:e_learning_app/features/course_details/presentation/widgets/build_course_details_header.dart';
@@ -10,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/data/models/course_info_model.dart';
+import '../../../../core/helpers/helper_dialogs.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../generated/l10n.dart';
 import '../../logic/cubit/course_details_state.dart';
@@ -30,7 +30,7 @@ class CourseDetailsPage extends StatelessWidget {
         listener: (context, state) {
           if (state is CourseReviewSuccess) {
             cubit.getCourseDetails(courseBasicInfo.id);
-            return HelperFunctions.showSuccess(
+            return HelperDialogs.showSuccess(
                 S.of(context).review_submitted, context);
           }
         },
@@ -54,7 +54,8 @@ class CourseDetailsPage extends StatelessWidget {
             return CustomScrollView(
               slivers: [
                 BuildSliverAppBarForCourseDetailsPage(
-                    courseBasicInfo: courseBasicInfo),
+                  courseBasicInfo: courseBasicInfo,
+                ),
                 SliverFillRemaining(
                   hasScrollBody: true,
                   child: Container(

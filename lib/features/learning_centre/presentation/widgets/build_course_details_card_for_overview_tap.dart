@@ -67,14 +67,6 @@ class BuildCourseDetailsCardForOverviewTap extends StatelessWidget {
                 ? '${cubit.conurseInfo!.price!.toStringAsFixed(2)} ${S.of(context).egp_currency}'
                 : S.of(context).free,
           ),
-          verticalSpacing(12),
-          _buildDetailRow(
-            context,
-            icon: Icons.check_circle_outline_rounded,
-            label: 'Status',
-            value: cubit.conurseInfo?.courseStatus ?? 'Active',
-            valueColor: AppColors.mainBlue,
-          ),
         ],
       ),
     );

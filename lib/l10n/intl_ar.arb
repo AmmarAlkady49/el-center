@@ -309,11 +309,35 @@
   "report_answer": "ابلاغ عن الاجابة",
   "report_content": "ابلاغ عن المحتوى",
   "report_description": "هل انت متاكد انك تريد ابلاغ عن هذا المحتوى؟ هذا الاجراء سوف يرسل للمشرفين.",
-  "delete_description" : "هل انت متاكد انك تريد حذف هذا المحتوى؟ هذا الاجراء لا يمكن التراجع عنه.",
-  "report_sent_successfully" : "تم ارسال الابلاغ بنجاح",
-  "helpful" : "مفيد"
-  
+  "delete_description": "هل انت متاكد انك تريد حذف هذا المحتوى؟ هذا الاجراء لا يمكن التراجع عنه.",
+  "report_sent_successfully": "تم ارسال الابلاغ بنجاح",
+  "helpful": "مفيد",
+  "delete_answer": "حذف الاجابة",
+  "reply" :"رد",
+  "reply_to_question" : "رد على السؤال",
+  "share_your_thoughts" : "شارك افكارك...",
+  "send" : "ارسل",
+  "edit_answer" : "تعديل الاجابة",
+  "edit" : "تعديل",
+  "update" : "تحديث",
+  "delete_question" : "حذف السؤال",
+  "ask_question" :  "اسأل سؤال",
+  "be_first_to_ask_question" : "كن اول من يسال سؤال",
+  "no_questions_yet" : "لا يوجد أسئلة حتى الان",
+  "ask_your_question_here" : "اسأل سؤالك هنا",
+  "no_curriculum_availables" : "لا يوجد دروس متاحة",
+  "delete_review" : "حذف التقييم",
+  "update_review" : "تحديث التقييم",
+  "edit_review" : "تعديل التقييم"
 
 
-  
+
+
+
+
+
+
+
+
+
 }
