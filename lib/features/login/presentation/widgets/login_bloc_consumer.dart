@@ -4,7 +4,7 @@ import 'package:e_learning_app/core/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/helpers/helper_functions.dart';
+import '../../../../core/helpers/helper_dialogs.dart';
 import '../../../../core/widgets/app_text_button.dart';
 import '../../../../generated/l10n.dart';
 import '../../data/models/login_request_body.dart';
@@ -30,7 +30,7 @@ class LoginBlocConsumer extends StatelessWidget {
         }
         if (state is Error) {
           log("❌ Error: ${state.error}");
-          return HelperFunctions.showError(state.error, context);
+          return HelperDialogs.showError(state.error, context);
         }
       },
       builder: (context, state) {

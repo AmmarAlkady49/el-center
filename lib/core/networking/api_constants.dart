@@ -38,6 +38,18 @@ class ApiConstants {
       "/Q_A/delete-question/{questionId}";
   static const String markAnswerHelpful =
       "/Q_A/helpful-qa";
+  static const String addAnswer =
+      "/Q_A/add-answer";
+  static const String updateAnswer =
+      "/Q_A/update-answer/{answerId}";
+  static const String updateQuestion  =
+      "/Q_A/update-question/{questionId}";
+  static const String addQuestion  =
+      "/Q_A/add-question";
+  static const String updateCourseReview  =
+      "/CourseReview/update-course-review";
+  static const String deleteCourseReview  =
+      "/CourseReview/delete-course-review/{reviewId}";
 }
 
 class ApiErrors {

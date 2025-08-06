@@ -171,12 +171,50 @@ class LearningCentreRepo {
   }
 
   // mark answer helpful
-  Future<StandardResponseBody> markAnswerHelpful(Map<String, dynamic> query) async {
+  Future<StandardResponseBody> markAnswerHelpful(
+      Map<String, dynamic> query) async {
     try {
       final response = await apiService.markAnswerHelpful(query);
       return response;
     } catch (error) {
-      throw "failed to mark answer helpful ${error.toString()}";
+      throw "failed to mark answer helpful";
+    }
+  }
+
+  Future<StandardResponseBody> addAnswer(int questionId, String answer) async {
+    try {
+      final response = await apiService.addAnswer(questionId, answer);
+      return response;
+    } catch (error) {
+      throw "failed to add answer";
+    }
+  }
+
+
+  Future<StandardResponseBody> updateAnswer(int answerId, String answer) async {
+    try {
+      final response = await apiService.updateAnswer(answerId, answer);
+      return response;
+    } catch (error) {
+      throw "failed to update answer";
+    }
+  }
+
+  Future<StandardResponseBody> updateQuestion(int questionId, String question) async {
+    try {
+      final response = await apiService.updateQuestion(questionId, question);
+      return response;
+    } catch (error) {
+      throw "failed to update question";
+    }
+  }
+
+  Future<StandardResponseBody> addQuestion(int lessonId, String question) async {
+    try {
+      final response = await apiService.addQuestion(lessonId, question);
+      return response;
+    } catch (error) {
+      throw "failed to add question ${error.toString()}";
     }
   }
 }

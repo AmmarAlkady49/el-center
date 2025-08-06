@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:e_learning_app/core/helpers/helper_functions.dart';
 import 'package:e_learning_app/core/helpers/spacing.dart';
 import 'package:e_learning_app/core/theming/font_helper.dart';
 import 'package:e_learning_app/features/course_details/logic/cubit/course_details_cubit.dart';
@@ -14,6 +13,7 @@ import 'package:iconsax/iconsax.dart';
 
 import '../../../../core/data/models/course_info_model.dart';
 import '../../../../core/data/models/lesson_module.dart';
+import '../../../../core/helpers/helper_dialogs.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../generated/l10n.dart';
 import '../../logic/cubit/course_details_state.dart';
@@ -75,17 +75,17 @@ class _PaymentMethodModalState extends State<PaymentMethodModal> {
           setState(() {
             showWebView = false;
           });
-          HelperFunctions.showError(state.error, context);
+          HelperDialogs.showError(state.error, context);
         } else if (state is PaymentSuccess) {
           Future.microtask(() {
             Navigator.of(context).pop();
-            HelperFunctions.showSuccess(S.of(context).payment_success, context);
+            HelperDialogs.showSuccess(S.of(context).payment_success, context);
             widget.cubit.getCourseDetails(widget.courseID);
           });
         } else if (state is FreePaymentSuccess) {
           Future.microtask(() {
             Navigator.of(context).pop();
-            HelperFunctions.showSuccess(S.of(context).payment_success, context);
+            HelperDialogs.showSuccess(S.of(context).payment_success, context);
             widget.cubit.getCourseDetails(widget.courseID);
           });
         }

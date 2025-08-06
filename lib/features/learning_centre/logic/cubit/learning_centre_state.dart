@@ -93,15 +93,14 @@ class LearningCentreState<T> with _$LearningCentreState<T> {
     required String transcriptString,
   }) = SuccessTranscribeVideo;
 
-  const factory LearningCentreState.failedTranscribeVideo({required String error}) =
-      FailedTranscribeVideo;
+  const factory LearningCentreState.failedTranscribeVideo(
+      {required String error}) = FailedTranscribeVideo;
 
   const factory LearningCentreState.contentReady() = ContentReady;
 
   const factory LearningCentreState.contentNotReady() = ContentNotReady;
 
-  const factory LearningCentreState.gettingQAndAtap() =
-      GettingQAndAtap;
+  const factory LearningCentreState.gettingQAndAtap() = GettingQAndAtap;
 
   const factory LearningCentreState.successGettingQAndAData({
     required List<QuestionModelForQAndA> questions,
@@ -112,8 +111,7 @@ class LearningCentreState<T> with _$LearningCentreState<T> {
     required String error,
   }) = FailedGettingQAndA;
 
-  const factory LearningCentreState.successSendReport() =
-      SuccessSendReport;
+  const factory LearningCentreState.successSendReport() = SuccessSendReport;
 
   const factory LearningCentreState.failedSendReport({
     required String error,
@@ -126,10 +124,19 @@ class LearningCentreState<T> with _$LearningCentreState<T> {
     required String error,
   }) = FailedDeleteAnswerOrQuestion;
 
-  const factory LearningCentreState.successMarkAnswerHelpful() =
-      SuccessMarkAnswerHelpful;
+  const factory LearningCentreState.successMarkAnswerHelpful(
+      {required int? answerId,
+      required int? questionId}) = SuccessMarkAnswerHelpful;
 
   const factory LearningCentreState.failedMarkAnswerHelpful({
     required String error,
   }) = FailedMarkAnswerHelpful;
+
+  const factory LearningCentreState.loadingAddAnswer() = LoadingAddAnswer;
+
+  const factory LearningCentreState.successAddAnswer() = SuccessAddAnswer;
+
+  const factory LearningCentreState.failedAddAnswer({
+    required String error,
+  }) = FailedAddAnswer;
 }

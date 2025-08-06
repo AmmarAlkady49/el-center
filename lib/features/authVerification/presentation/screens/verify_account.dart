@@ -1,12 +1,12 @@
 import 'dart:developer';
 
-import 'package:e_learning_app/core/helpers/helper_functions.dart';
 import 'package:e_learning_app/core/theming/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/helpers/helper_dialogs.dart';
 import '../../../../core/routing/app_routes.dart';
 import '../../../../core/theming/font_helper.dart';
 import '../../../../generated/l10n.dart';
@@ -74,11 +74,11 @@ class _VerifyAccountState extends State<VerifyAccount> {
                   listener: (context, state) async {
                     if (state is ActiveAccountError) {
                       log("❌ Error: ${state.error}");
-                      return HelperFunctions.showError(state.error, context);
+                      return HelperDialogs.showError(state.error, context);
                     }
                     if (state is ActiveAccountSuccess) {
                       log("✅ Success: ${state.data}");
-                      HelperFunctions.showSuccess(
+                      HelperDialogs.showSuccess(
                           state.data["message"].toString(), context);
                       await Future.delayed(const Duration(seconds: 2));
                       Navigator.of(context).pushNamedAndRemoveUntil(

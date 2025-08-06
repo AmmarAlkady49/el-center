@@ -1,10 +1,10 @@
-import 'package:e_learning_app/core/helpers/helper_functions.dart';
 import 'package:e_learning_app/features/learning_centre/logic/cubit/learning_centre_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../core/helpers/helper_dialogs.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/font_helper.dart';
@@ -48,7 +48,7 @@ class AiChatBotPage extends StatelessWidget {
           ));
           _scrollToBottom(cubit);
         } else if (state is ChatCleared) {
-          HelperFunctions.showSuccess(S.of(context).chat_cleared, context);
+          HelperDialogs.showSuccess(S.of(context).chat_cleared, context);
         }
       },
       builder: (context, state) {

@@ -5,6 +5,7 @@ import 'package:e_learning_app/features/course_details/presentation/widgets/buil
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../../../../core/data/models/course_info_model.dart';
 import '../../../../core/data/models/course_module_model.dart';
@@ -55,39 +56,70 @@ class _BuildTabSectionState extends State<BuildTabSection>
     return Column(
       children: [
         Container(
+          margin: EdgeInsets.symmetric(horizontal: 0.w, vertical: 8.h),
           decoration: BoxDecoration(
-            color: AppColors.grey.withAlpha(150),
-            borderRadius: BorderRadius.circular(4.r),
-          ),
-          child: TabBar(
-            controller: _tabController,
-            padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 8.w),
-            indicator: BoxDecoration(
-              color: AppColors.backgroundWiteColor,
-              borderRadius: BorderRadius.circular(4.r),
-              border: Border(
-                  bottom: BorderSide(color: AppColors.mainBlue, width: 2.h)),
-            ),
-            labelColor: AppColors.darkGreyBlue,
-            unselectedLabelColor: AppColors.greyBlue,
-            automaticIndicatorColorAdjustment: true,
-            dividerHeight: 0,
-            labelStyle: FontHelper.font15BlackW600(context).copyWith(
-              letterSpacing: -0.5,
-              fontSize: 14.sp,
-            ),
-            labelPadding: EdgeInsets.symmetric(horizontal: 4.w),
-            unselectedLabelStyle: FontHelper.font12lackW400(context).copyWith(
-              letterSpacing: -0.5,
-              fontSize: 14.sp,
-            ),
-            indicatorColor: AppColors.mainBlue,
-            indicatorSize: TabBarIndicatorSize.tab,
-            tabs: [
-              Tab(text: S.of(context).curriculum),
-              Tab(text: S.of(context).overView),
-              Tab(text: S.of(context).reviews),
+            color: AppColors.backgroundWiteColor,
+            borderRadius: BorderRadius.circular(16.r),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black12,
+                blurRadius: 10,
+                offset: const Offset(0, 2),
+              ),
             ],
+            border: Border.all(
+              color: AppColors.grey.withAlpha(60),
+              width: 1,
+            ),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16.r),
+            child: TabBar(
+              controller: _tabController,
+              isScrollable: true,
+              tabAlignment: TabAlignment.start,
+              padding: EdgeInsets.all(6.w),
+              indicator: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    AppColors.mainBlue,
+                    AppColors.mainBlue.withAlpha(200),
+                  ],
+                ),
+                borderRadius: BorderRadius.circular(12.r),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.mainBlue.withAlpha(100),
+                    blurRadius: 8,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
+              ),
+              labelColor: Colors.white,
+              unselectedLabelColor: AppColors.greyBlue,
+              labelStyle: FontHelper.font15BlackW600(context).copyWith(
+                fontSize: 13.sp,
+                fontWeight: FontWeight.w600,
+              ),
+              unselectedLabelStyle: FontHelper.font12lackW400(context).copyWith(
+                fontSize: 13.sp,
+                fontWeight: FontWeight.w500,
+              ),
+              indicatorSize: TabBarIndicatorSize.tab,
+              dividerColor: Colors.transparent,
+              overlayColor: WidgetStateProperty.all(Colors.transparent),
+              splashFactory: NoSplash.splashFactory,
+              tabs: [
+                _buildModernTab(context, Iconsax.book_1,
+                    S.of(context).curriculum, 0, _tabController),
+                _buildModernTab(context, Iconsax.chart_21,
+                    S.of(context).overView, 1, _tabController),
+                _buildModernTab(context, Iconsax.star_1, S.of(context).reviews,
+                    2, _tabController),
+              ],
+            ),
           ),
         ),
         verticalSpacing(16),
@@ -112,6 +144,49 @@ class _BuildTabSectionState extends State<BuildTabSection>
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildModernTab(BuildContext context, IconData icon, String text,
+      int index, TabController tabController) {
+    return AnimatedBuilder(
+      animation: tabController,
+      builder: (context, child) {
+        final isSelected = tabController.index == index;
+        return Container(
+          padding: EdgeInsets.symmetric(horizontal: 0.w, vertical: 12.h),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 200),
+                child: Icon(
+                  icon,
+                  size: isSelected ? 20.sp : 18.sp,
+                  color: isSelected ? Colors.white : AppColors.greyBlue,
+                ),
+              ),
+              horizontalSpacing(8),
+              AnimatedDefaultTextStyle(
+                duration: const Duration(milliseconds: 200),
+                style: isSelected
+                    ? FontHelper.font15BlackW600(context).copyWith(
+                        fontSize: 13.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      )
+                    : FontHelper.font12lackW400(context).copyWith(
+                        fontSize: 13.sp,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.greyBlue,
+                      ),
+                child: Text(text),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

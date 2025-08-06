@@ -1,4 +1,3 @@
-import 'package:e_learning_app/core/helpers/helper_functions.dart';
 import 'package:e_learning_app/core/widgets/build_geniric_app_bar.dart';
 import 'package:e_learning_app/features/course_details/logic/cubit/course_details_cubit.dart';
 import 'package:flutter/cupertino.dart';
@@ -6,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/data/models/course_info_model.dart';
+import '../../../../core/helpers/helper_dialogs.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/networking/api_constants.dart';
 import '../../../../core/theming/app_colors.dart';
@@ -423,7 +423,7 @@ class _WriteReviewPageState extends State<WriteReviewPage>
       required int rating,
       required CourseDetailsCubit cubit}) async {
     if (_selectedRating == 0 || _reviewController.text.trim().isEmpty) {
-      return HelperFunctions.showError(
+      return HelperDialogs.showError(
           S.of(context).please_provide_a_rating, context);
     }
 
@@ -438,7 +438,7 @@ class _WriteReviewPageState extends State<WriteReviewPage>
 
       
     } catch (e) {
-      return HelperFunctions.showError(S.of(context).failed_to_submit, context);
+      return HelperDialogs.showError(S.of(context).failed_to_submit, context);
     } finally {
       setState(() {
         _isSubmitting = false;

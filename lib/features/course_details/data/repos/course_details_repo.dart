@@ -7,6 +7,7 @@ import '../../../../core/data/models/course_review_model.dart';
 import '../../../../core/networking/api_error_handler.dart';
 import '../../../../core/networking/api_service.dart';
 import '../models/add_course_review_request_body.dart';
+import '../models/updata_course_review_request_body.dart';
 
 class CourseDetailsRepo {
   final ApiService apiService;
@@ -83,6 +84,24 @@ class CourseDetailsRepo {
       return ApiResult.success(response);
     } catch (error) {
       throw ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  Future<StandardResponseBody> updateCourseReview(UpdateCourseReviewRequestBody updateCourseReviewRequestBody) async {
+    try {
+      final response = await apiService.updateCourseReview(updateCourseReviewRequestBody);
+      return response;
+    } catch (error) {
+      throw ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+
+  Future<StandardResponseBody> deleteCourseReview(int reviewId) async {
+    try {
+      final response = await apiService.deleteCourseReview(reviewId);
+      return response;
+    } catch (error) {
+      throw error.toString();
     }
   }
 }

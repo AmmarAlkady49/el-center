@@ -58,13 +58,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "article_completed": MessageLookupByLibrary.simpleMessage(
       "تم الانتهاء من المقالة",
     ),
+    "ask_question": MessageLookupByLibrary.simpleMessage("اسأل سؤال"),
     "ask_question_about_the_lesson_content":
         MessageLookupByLibrary.simpleMessage(
           "اسأل سؤال حول محتوى الدرس واحصل على اجابات رائعة",
         ),
+    "ask_your_question_here": MessageLookupByLibrary.simpleMessage(
+      "اسأل سؤالك هنا",
+    ),
     "audio": MessageLookupByLibrary.simpleMessage("صوتي"),
     "available_languages": MessageLookupByLibrary.simpleMessage(
       "اللغات المتاحة",
+    ),
+    "be_first_to_ask_question": MessageLookupByLibrary.simpleMessage(
+      "كن اول من يسال سؤال",
     ),
     "be_specific": MessageLookupByLibrary.simpleMessage(
       "• كن محددًا بشأن ما أعجبك أو لم يعجبك",
@@ -136,9 +143,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "data_science": MessageLookupByLibrary.simpleMessage("علوم البيانات"),
     "date_of_birth": MessageLookupByLibrary.simpleMessage("تاريخ الميلاد"),
     "delete": MessageLookupByLibrary.simpleMessage("حذف"),
+    "delete_answer": MessageLookupByLibrary.simpleMessage("حذف الاجابة"),
     "delete_description": MessageLookupByLibrary.simpleMessage(
       "هل انت متاكد انك تريد حذف هذا المحتوى؟ هذا الاجراء لا يمكن التراجع عنه.",
     ),
+    "delete_question": MessageLookupByLibrary.simpleMessage("حذف السؤال"),
+    "delete_review": MessageLookupByLibrary.simpleMessage("حذف التقييم"),
     "description": MessageLookupByLibrary.simpleMessage("الوصف"),
     "details": MessageLookupByLibrary.simpleMessage("التفاصيل"),
     "didnotReceiveCode": MessageLookupByLibrary.simpleMessage(
@@ -148,6 +158,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "اكتشف مسارك للتعلم مع ElCentre",
     ),
     "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
+    "edit_answer": MessageLookupByLibrary.simpleMessage("تعديل الاجابة"),
+    "edit_review": MessageLookupByLibrary.simpleMessage("تعديل التقييم"),
     "edited": MessageLookupByLibrary.simpleMessage("تم التعديل"),
     "egp_currency": MessageLookupByLibrary.simpleMessage("ج.م"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
@@ -295,11 +308,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_courses_found": MessageLookupByLibrary.simpleMessage(
       "لم يتم العثور على كورسات",
     ),
+    "no_curriculum_availables": MessageLookupByLibrary.simpleMessage(
+      "لا يوجد دروس متاحة",
+    ),
     "no_enrolled_courses": MessageLookupByLibrary.simpleMessage(
       "لا توجد كورسات مسجلة",
     ),
     "no_lessons_available_for_this_module":
         MessageLookupByLibrary.simpleMessage("لا يوجد دروس متاحة لهذا الوحدة."),
+    "no_questions_yet": MessageLookupByLibrary.simpleMessage(
+      "لا يوجد أسئلة حتى الان",
+    ),
     "no_quizzes_available": MessageLookupByLibrary.simpleMessage(
       "لا يوجد اختبارات متاحة",
     ),
@@ -436,6 +455,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "register": MessageLookupByLibrary.simpleMessage("تسجيل حساب جديد"),
     "remaining": MessageLookupByLibrary.simpleMessage("المتبقي"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+    "reply": MessageLookupByLibrary.simpleMessage("رد"),
+    "reply_to_question": MessageLookupByLibrary.simpleMessage("رد على السؤال"),
     "report": MessageLookupByLibrary.simpleMessage("إبلاغ"),
     "report_answer": MessageLookupByLibrary.simpleMessage("ابلاغ عن الاجابة"),
     "report_content": MessageLookupByLibrary.simpleMessage("ابلاغ عن المحتوى"),
@@ -464,9 +485,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "see_all": MessageLookupByLibrary.simpleMessage("إظهار الكل"),
     "selectCountry": MessageLookupByLibrary.simpleMessage("إختر الدولة"),
+    "send": MessageLookupByLibrary.simpleMessage("ارسل"),
     "settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
     "share_your_thoughts": MessageLookupByLibrary.simpleMessage(
-      "مشاركة افكارك",
+      "شارك افكارك...",
     ),
     "sign_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "sign_out_of_your_account": MessageLookupByLibrary.simpleMessage(
@@ -546,6 +568,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "unsupported_content_type": MessageLookupByLibrary.simpleMessage(
       "نوع المحتوى غير مدعوم",
     ),
+    "update": MessageLookupByLibrary.simpleMessage("تحديث"),
+    "update_review": MessageLookupByLibrary.simpleMessage("تحديث التقييم"),
     "update_your_password": MessageLookupByLibrary.simpleMessage(
       "تحديث كلمة المرور الخاصة بك",
     ),

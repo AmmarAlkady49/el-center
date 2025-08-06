@@ -5,15 +5,22 @@ import 'package:e_learning_app/core/helpers/helper_functions.dart';
 import 'package:e_learning_app/core/networking/api_constants.dart';
 import 'package:e_learning_app/core/routing/app_routes.dart';
 import 'package:e_learning_app/features/course_details/logic/cubit/course_details_cubit.dart';
+import 'package:e_learning_app/features/course_details/presentation/widgets/build_small_action_button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../../../../core/data/models/course_info_model.dart';
 import '../../../../core/data/models/course_review_model.dart';
+import '../../../../core/helpers/helper_dialogs.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/font_helper.dart';
 import '../../../../generated/l10n.dart';
+import '../../data/models/updata_course_review_request_body.dart';
+import '../../logic/cubit/course_details_state.dart';
 
 class BuildCourseReviews extends StatelessWidget {
   final List<CourseReviewModel> courseReview;
@@ -30,26 +37,76 @@ class BuildCourseReviews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Future<void> showUpdateCourseReviewBottomSheet({
+    //   required BuildContext context,
+    //   required String title,
+    //   required String buttonText,
+    //   required TextEditingController textEditingController,
+    //   required Function(String) onPressed,
+    // }) {
+    //   return showModalBottomSheet(
+    //     context: context,
+    //     isScrollControlled: true,
+    //     backgroundColor: Colors.transparent,
+    //     builder: (BuildContext context) {
+    //       return UpdateCourseReviewContent(
+    //         title: title,
+    //         buttonText: buttonText,
+    //         textEditingController: textEditingController,
+    //         onPressed: onPressed,
+    //       );
+    //     },
+    //   );
+    // }
+
     log("$isEnrolled is enrolled");
     if (courseReview.isEmpty) {
       return _buildEmptyState(context, isEnrolled: isEnrolled);
     }
 
-    return Column(
-      children: [
-        _buildReviewsHeader(context, isEnrolled: isEnrolled),
-        verticalSpacing(16),
-        Expanded(
-          child: ListView.separated(
-            padding: EdgeInsets.zero,
-            itemCount: courseReview.length,
-            separatorBuilder: (context, index) => verticalSpacing(16),
-            itemBuilder: (context, index) {
-              return _buildReviewCard(context, courseReview[index]);
-            },
-          ),
-        ),
-      ],
+    return BlocConsumer<CourseDetailsCubit, CourseDetailsState>(
+      bloc: cubit,
+      buildWhen: (previous, current) =>
+          current is CourseReviewSuccess ||
+          current is CourseReviewFailure ||
+          current is CourseReviewLoading ||
+          current is UpdateCourseReviewSuccess ||
+          current is UpdateCourseReviewFailure,
+      listenWhen: (previous, current) =>
+          current is CourseReviewSuccess ||
+          current is UpdateCourseReviewSuccess ||
+          current is UpdateCourseReviewFailure,
+      listener: (context, state) {
+        if (state is UpdateCourseReviewSuccess) {
+          cubit.getCourseDetails(courseBasicInfo.id);
+          return HelperDialogs.showSuccess(state.message, context);
+        }
+        if (state is UpdateCourseReviewFailure) {
+          return HelperDialogs.showError(state.error, context);
+        }
+      },
+      builder: (context, state) {
+        if (state is CourseReviewLoading ||
+            state is UpdateCourseReviewSuccess) {
+          return const Center(child: CupertinoActivityIndicator());
+        }
+        return Column(
+          children: [
+            _buildReviewsHeader(context, isEnrolled: isEnrolled),
+            verticalSpacing(16),
+            Expanded(
+              child: ListView.separated(
+                padding: EdgeInsets.zero,
+                itemCount: courseReview.length,
+                separatorBuilder: (context, index) => verticalSpacing(16),
+                itemBuilder: (context, index) {
+                  return _buildReviewCard(context, courseReview[index]);
+                },
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 
@@ -129,14 +186,16 @@ class BuildCourseReviews extends StatelessWidget {
   Widget _buildReviewCard(BuildContext context, CourseReviewModel review) {
     return Container(
       padding: EdgeInsets.all(16.w),
+      margin: EdgeInsets.symmetric(horizontal: 2.w),
       decoration: BoxDecoration(
         color: AppColors.backgroundWiteColor,
         borderRadius: BorderRadius.circular(12.r),
         border: Border.all(color: AppColors.grey.withAlpha(100)),
         boxShadow: [
           BoxShadow(
-            color: AppColors.darkGreyBlue.withAlpha(15),
-            blurRadius: 8.r,
+            // color: AppColors.darkGreyBlue.withAlpha(50),
+            color: Colors.black12,
+            blurRadius: 2.r,
             offset: Offset(0, 2.h),
           ),
         ],
@@ -145,6 +204,7 @@ class BuildCourseReviews extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _buildUserAvatar(review),
               horizontalSpacing(12),
@@ -174,6 +234,49 @@ class BuildCourseReviews extends StatelessWidget {
                   ],
                 ),
               ),
+              if (review.studentId == cubit.userId) ...[
+                BuildSmallActionButton(
+                  onTap: () {
+                    HelperDialogs.updateCourseReviewBottomSheet(
+                      context: context,
+                      title: S.of(context).edit_review,
+                      initialValue: review.reviewContent,
+                      initalRating: review.rating,
+                      buttonText: S.of(context).update,
+                      onPressed: (newReview, newRating) {
+                        cubit.updateCourseReview(
+                          UpdateCourseReviewRequestBody(
+                            id: review.id,
+                            rating: newRating,
+                            reviewContent: newReview,
+                          ),
+                        );
+                      },
+                    );
+                  },
+                  color: AppColors.greyBlue,
+                  icon: Iconsax.edit,
+                ),
+                horizontalSpacing(5),
+                BuildSmallActionButton(
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (_) => HelperDialogs.showReportOrDeleteDialog(
+                          context: context,
+                          onPressed: () {
+                            cubit.deleteCourseReview(review.id);
+                            Navigator.of(context).pop();
+                          },
+                          title: S.of(context).delete_review,
+                          message: S.of(context).delete_description,
+                          buttonText: S.of(context).delete,
+                        ),
+                      );
+                    },
+                    color: AppColors.red,
+                    icon: CupertinoIcons.delete),
+              ]
             ],
           ),
           verticalSpacing(12),

@@ -102,6 +102,9 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     TResult Function(SuccessMarkAnswerHelpful<T> value)?
         successMarkAnswerHelpful,
     TResult Function(FailedMarkAnswerHelpful<T> value)? failedMarkAnswerHelpful,
+    TResult Function(LoadingAddAnswer<T> value)? loadingAddAnswer,
+    TResult Function(SuccessAddAnswer<T> value)? successAddAnswer,
+    TResult Function(FailedAddAnswer<T> value)? failedAddAnswer,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -188,6 +191,12 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return successMarkAnswerHelpful(_that);
       case FailedMarkAnswerHelpful() when failedMarkAnswerHelpful != null:
         return failedMarkAnswerHelpful(_that);
+      case LoadingAddAnswer() when loadingAddAnswer != null:
+        return loadingAddAnswer(_that);
+      case SuccessAddAnswer() when successAddAnswer != null:
+        return successAddAnswer(_that);
+      case FailedAddAnswer() when failedAddAnswer != null:
+        return failedAddAnswer(_that);
       case _:
         return orElse();
     }
@@ -271,6 +280,9 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         successMarkAnswerHelpful,
     required TResult Function(FailedMarkAnswerHelpful<T> value)
         failedMarkAnswerHelpful,
+    required TResult Function(LoadingAddAnswer<T> value) loadingAddAnswer,
+    required TResult Function(SuccessAddAnswer<T> value) successAddAnswer,
+    required TResult Function(FailedAddAnswer<T> value) failedAddAnswer,
   }) {
     final _that = this;
     switch (_that) {
@@ -352,6 +364,12 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return successMarkAnswerHelpful(_that);
       case FailedMarkAnswerHelpful():
         return failedMarkAnswerHelpful(_that);
+      case LoadingAddAnswer():
+        return loadingAddAnswer(_that);
+      case SuccessAddAnswer():
+        return successAddAnswer(_that);
+      case FailedAddAnswer():
+        return failedAddAnswer(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -426,6 +444,9 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         successMarkAnswerHelpful,
     TResult? Function(FailedMarkAnswerHelpful<T> value)?
         failedMarkAnswerHelpful,
+    TResult? Function(LoadingAddAnswer<T> value)? loadingAddAnswer,
+    TResult? Function(SuccessAddAnswer<T> value)? successAddAnswer,
+    TResult? Function(FailedAddAnswer<T> value)? failedAddAnswer,
   }) {
     final _that = this;
     switch (_that) {
@@ -511,6 +532,12 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
         return successMarkAnswerHelpful(_that);
       case FailedMarkAnswerHelpful() when failedMarkAnswerHelpful != null:
         return failedMarkAnswerHelpful(_that);
+      case LoadingAddAnswer() when loadingAddAnswer != null:
+        return loadingAddAnswer(_that);
+      case SuccessAddAnswer() when successAddAnswer != null:
+        return successAddAnswer(_that);
+      case FailedAddAnswer() when failedAddAnswer != null:
+        return failedAddAnswer(_that);
       case _:
         return null;
     }
@@ -575,8 +602,11 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     TResult Function(String error)? failedSendReport,
     TResult Function()? successDeleteAnswerOrQuestion,
     TResult Function(String error)? failedDeleteAnswerOrQuestion,
-    TResult Function()? successMarkAnswerHelpful,
+    TResult Function(int? answerId, int? questionId)? successMarkAnswerHelpful,
     TResult Function(String error)? failedMarkAnswerHelpful,
+    TResult Function()? loadingAddAnswer,
+    TResult Function()? successAddAnswer,
+    TResult Function(String error)? failedAddAnswer,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -662,9 +692,15 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
           when failedDeleteAnswerOrQuestion != null:
         return failedDeleteAnswerOrQuestion(_that.error);
       case SuccessMarkAnswerHelpful() when successMarkAnswerHelpful != null:
-        return successMarkAnswerHelpful();
+        return successMarkAnswerHelpful(_that.answerId, _that.questionId);
       case FailedMarkAnswerHelpful() when failedMarkAnswerHelpful != null:
         return failedMarkAnswerHelpful(_that.error);
+      case LoadingAddAnswer() when loadingAddAnswer != null:
+        return loadingAddAnswer();
+      case SuccessAddAnswer() when successAddAnswer != null:
+        return successAddAnswer();
+      case FailedAddAnswer() when failedAddAnswer != null:
+        return failedAddAnswer(_that.error);
       case _:
         return orElse();
     }
@@ -732,8 +768,12 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     required TResult Function(String error) failedSendReport,
     required TResult Function() successDeleteAnswerOrQuestion,
     required TResult Function(String error) failedDeleteAnswerOrQuestion,
-    required TResult Function() successMarkAnswerHelpful,
+    required TResult Function(int? answerId, int? questionId)
+        successMarkAnswerHelpful,
     required TResult Function(String error) failedMarkAnswerHelpful,
+    required TResult Function() loadingAddAnswer,
+    required TResult Function() successAddAnswer,
+    required TResult Function(String error) failedAddAnswer,
   }) {
     final _that = this;
     switch (_that) {
@@ -814,9 +854,15 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
       case FailedDeleteAnswerOrQuestion():
         return failedDeleteAnswerOrQuestion(_that.error);
       case SuccessMarkAnswerHelpful():
-        return successMarkAnswerHelpful();
+        return successMarkAnswerHelpful(_that.answerId, _that.questionId);
       case FailedMarkAnswerHelpful():
         return failedMarkAnswerHelpful(_that.error);
+      case LoadingAddAnswer():
+        return loadingAddAnswer();
+      case SuccessAddAnswer():
+        return successAddAnswer();
+      case FailedAddAnswer():
+        return failedAddAnswer(_that.error);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -881,8 +927,11 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
     TResult? Function(String error)? failedSendReport,
     TResult? Function()? successDeleteAnswerOrQuestion,
     TResult? Function(String error)? failedDeleteAnswerOrQuestion,
-    TResult? Function()? successMarkAnswerHelpful,
+    TResult? Function(int? answerId, int? questionId)? successMarkAnswerHelpful,
     TResult? Function(String error)? failedMarkAnswerHelpful,
+    TResult? Function()? loadingAddAnswer,
+    TResult? Function()? successAddAnswer,
+    TResult? Function(String error)? failedAddAnswer,
   }) {
     final _that = this;
     switch (_that) {
@@ -967,9 +1016,15 @@ extension LearningCentreStatePatterns<T> on LearningCentreState<T> {
           when failedDeleteAnswerOrQuestion != null:
         return failedDeleteAnswerOrQuestion(_that.error);
       case SuccessMarkAnswerHelpful() when successMarkAnswerHelpful != null:
-        return successMarkAnswerHelpful();
+        return successMarkAnswerHelpful(_that.answerId, _that.questionId);
       case FailedMarkAnswerHelpful() when failedMarkAnswerHelpful != null:
         return failedMarkAnswerHelpful(_that.error);
+      case LoadingAddAnswer() when loadingAddAnswer != null:
+        return loadingAddAnswer();
+      case SuccessAddAnswer() when successAddAnswer != null:
+        return successAddAnswer();
+      case FailedAddAnswer() when failedAddAnswer != null:
+        return failedAddAnswer(_that.error);
       case _:
         return null;
     }
@@ -2696,21 +2751,75 @@ class _$FailedDeleteAnswerOrQuestionCopyWithImpl<T, $Res>
 /// @nodoc
 
 class SuccessMarkAnswerHelpful<T> implements LearningCentreState<T> {
-  const SuccessMarkAnswerHelpful();
+  const SuccessMarkAnswerHelpful(
+      {required this.answerId, required this.questionId});
+
+  final int? answerId;
+  final int? questionId;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SuccessMarkAnswerHelpfulCopyWith<T, SuccessMarkAnswerHelpful<T>>
+      get copyWith => _$SuccessMarkAnswerHelpfulCopyWithImpl<T,
+          SuccessMarkAnswerHelpful<T>>(this, _$identity);
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is SuccessMarkAnswerHelpful<T>);
+            other is SuccessMarkAnswerHelpful<T> &&
+            (identical(other.answerId, answerId) ||
+                other.answerId == answerId) &&
+            (identical(other.questionId, questionId) ||
+                other.questionId == questionId));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, answerId, questionId);
 
   @override
   String toString() {
-    return 'LearningCentreState<$T>.successMarkAnswerHelpful()';
+    return 'LearningCentreState<$T>.successMarkAnswerHelpful(answerId: $answerId, questionId: $questionId)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $SuccessMarkAnswerHelpfulCopyWith<T, $Res>
+    implements $LearningCentreStateCopyWith<T, $Res> {
+  factory $SuccessMarkAnswerHelpfulCopyWith(SuccessMarkAnswerHelpful<T> value,
+          $Res Function(SuccessMarkAnswerHelpful<T>) _then) =
+      _$SuccessMarkAnswerHelpfulCopyWithImpl;
+  @useResult
+  $Res call({int? answerId, int? questionId});
+}
+
+/// @nodoc
+class _$SuccessMarkAnswerHelpfulCopyWithImpl<T, $Res>
+    implements $SuccessMarkAnswerHelpfulCopyWith<T, $Res> {
+  _$SuccessMarkAnswerHelpfulCopyWithImpl(this._self, this._then);
+
+  final SuccessMarkAnswerHelpful<T> _self;
+  final $Res Function(SuccessMarkAnswerHelpful<T>) _then;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? answerId = freezed,
+    Object? questionId = freezed,
+  }) {
+    return _then(SuccessMarkAnswerHelpful<T>(
+      answerId: freezed == answerId
+          ? _self.answerId
+          : answerId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      questionId: freezed == questionId
+          ? _self.questionId
+          : questionId // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
   }
 }
 
@@ -2772,6 +2881,110 @@ class _$FailedMarkAnswerHelpfulCopyWithImpl<T, $Res>
     Object? error = null,
   }) {
     return _then(FailedMarkAnswerHelpful<T>(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class LoadingAddAnswer<T> implements LearningCentreState<T> {
+  const LoadingAddAnswer();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is LoadingAddAnswer<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.loadingAddAnswer()';
+  }
+}
+
+/// @nodoc
+
+class SuccessAddAnswer<T> implements LearningCentreState<T> {
+  const SuccessAddAnswer();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SuccessAddAnswer<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.successAddAnswer()';
+  }
+}
+
+/// @nodoc
+
+class FailedAddAnswer<T> implements LearningCentreState<T> {
+  const FailedAddAnswer({required this.error});
+
+  final String error;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $FailedAddAnswerCopyWith<T, FailedAddAnswer<T>> get copyWith =>
+      _$FailedAddAnswerCopyWithImpl<T, FailedAddAnswer<T>>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is FailedAddAnswer<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'LearningCentreState<$T>.failedAddAnswer(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $FailedAddAnswerCopyWith<T, $Res>
+    implements $LearningCentreStateCopyWith<T, $Res> {
+  factory $FailedAddAnswerCopyWith(
+          FailedAddAnswer<T> value, $Res Function(FailedAddAnswer<T>) _then) =
+      _$FailedAddAnswerCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$FailedAddAnswerCopyWithImpl<T, $Res>
+    implements $FailedAddAnswerCopyWith<T, $Res> {
+  _$FailedAddAnswerCopyWithImpl(this._self, this._then);
+
+  final FailedAddAnswer<T> _self;
+  final $Res Function(FailedAddAnswer<T>) _then;
+
+  /// Create a copy of LearningCentreState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(FailedAddAnswer<T>(
       error: null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable

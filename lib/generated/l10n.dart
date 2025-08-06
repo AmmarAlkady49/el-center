@@ -1045,10 +1045,10 @@ class S {
     );
   }
 
-  /// `Share your thoughts`
+  /// `Share your thoughts...`
   String get share_your_thoughts {
     return Intl.message(
-      'Share your thoughts',
+      'Share your thoughts...',
       name: 'share_your_thoughts',
       desc: '',
       args: [],
@@ -2493,6 +2493,136 @@ class S {
   /// `Helpful`
   String get helpful {
     return Intl.message('Helpful', name: 'helpful', desc: '', args: []);
+  }
+
+  /// `Delete Answer`
+  String get delete_answer {
+    return Intl.message(
+      'Delete Answer',
+      name: 'delete_answer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reply`
+  String get reply {
+    return Intl.message('Reply', name: 'reply', desc: '', args: []);
+  }
+
+  /// `Reply to question`
+  String get reply_to_question {
+    return Intl.message(
+      'Reply to question',
+      name: 'reply_to_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send`
+  String get send {
+    return Intl.message('Send', name: 'send', desc: '', args: []);
+  }
+
+  /// `Edit Answer`
+  String get edit_answer {
+    return Intl.message('Edit Answer', name: 'edit_answer', desc: '', args: []);
+  }
+
+  /// `Edit`
+  String get edit {
+    return Intl.message('Edit', name: 'edit', desc: '', args: []);
+  }
+
+  /// `Update`
+  String get update {
+    return Intl.message('Update', name: 'update', desc: '', args: []);
+  }
+
+  /// `Delete Question`
+  String get delete_question {
+    return Intl.message(
+      'Delete Question',
+      name: 'delete_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ask Question`
+  String get ask_question {
+    return Intl.message(
+      'Ask Question',
+      name: 'ask_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Be the first to ask a question`
+  String get be_first_to_ask_question {
+    return Intl.message(
+      'Be the first to ask a question',
+      name: 'be_first_to_ask_question',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No questions yet`
+  String get no_questions_yet {
+    return Intl.message(
+      'No questions yet',
+      name: 'no_questions_yet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ask your question here`
+  String get ask_your_question_here {
+    return Intl.message(
+      'Ask your question here',
+      name: 'ask_your_question_here',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No curriculum available`
+  String get no_curriculum_availables {
+    return Intl.message(
+      'No curriculum available',
+      name: 'no_curriculum_availables',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Review`
+  String get delete_review {
+    return Intl.message(
+      'Delete Review',
+      name: 'delete_review',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update Review`
+  String get update_review {
+    return Intl.message(
+      'Update Review',
+      name: 'update_review',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit Review`
+  String get edit_review {
+    return Intl.message('Edit Review', name: 'edit_review', desc: '', args: []);
   }
 }
 
