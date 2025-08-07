@@ -2624,6 +2624,21 @@ class S {
   String get edit_review {
     return Intl.message('Edit Review', name: 'edit_review', desc: '', args: []);
   }
+
+  /// `User Profile`
+  String get user_profile {
+    return Intl.message(
+      'User Profile',
+      name: 'user_profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Gender`
+  String get gender {
+    return Intl.message('Gender', name: 'gender', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

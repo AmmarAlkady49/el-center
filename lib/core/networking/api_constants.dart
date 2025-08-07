@@ -50,6 +50,8 @@ class ApiConstants {
       "/CourseReview/update-course-review";
   static const String deleteCourseReview  =
       "/CourseReview/delete-course-review/{reviewId}";
+  static const String updateProfile  =
+      "/Account/edit-profile";
 }
 
 class ApiErrors {

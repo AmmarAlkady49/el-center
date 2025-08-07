@@ -1,13 +1,15 @@
+import 'dart:developer';
+
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_learning_app/core/data/models/update_profile_model.dart';
 import 'package:e_learning_app/core/helpers/spacing.dart';
 import 'package:e_learning_app/core/networking/api_constants.dart';
 import 'package:e_learning_app/core/theming/font_helper.dart';
 import 'package:e_learning_app/features/settings/logic/cubit/settings_cubit.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:e_learning_app/features/settings/presentation/widgets/build_user_info_from_for_user_info_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iconsax/iconsax.dart';
 
 import '../../../../core/data/models/profile_account_model.dart';
 import '../../../../core/helpers/helper_dialogs.dart';
@@ -18,40 +20,45 @@ import '../../logic/cubit/settings_state.dart';
 
 class PersonalInfoScreen extends StatelessWidget {
   final ProfileAccountModel profileInfo;
-  const PersonalInfoScreen({super.key, required this.profileInfo});
+  final SettingsCubit cubit;
+  const PersonalInfoScreen(
+      {super.key, required this.profileInfo, required this.cubit});
 
   @override
   Widget build(BuildContext context) {
-    final cubit = BlocProvider.of<SettingsCubit>(context);
-
     return Scaffold(
-      backgroundColor: AppColors.backgroundWiteColor,
-      appBar: buildGenericAppBar(
-        context,
-        title: S.of(context).personal_information,
-        elevation: 8,
-        backgroundColor: AppColors.mainBlue,
-      ),
-      body: BlocBuilder<SettingsCubit, SettingsState>(
-        bloc: cubit,
-        builder: (context, state) {
-          return SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Column(
-              children: [
-                verticalSpacing(20),
-                _buildProfileSection(context),
-                verticalSpacing(32),
-                _buildPersonalInfoForm(context),
-                verticalSpacing(40),
-                _buildSaveButton(context),
-                verticalSpacing(40),
-              ],
-            ),
-          );
-        },
-      ),
-    );
+        backgroundColor: AppColors.backgroundWiteColor,
+        appBar: buildGenericAppBar(
+          context,
+          title: S.of(context).personal_information,
+          elevation: 8,
+          backgroundColor: AppColors.mainBlue,
+        ),
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              verticalSpacing(20),
+              _buildProfileSection(context),
+              verticalSpacing(6),
+              Text(
+                cubit.emailController.text,
+                style: FontHelper.font16WhiteW600(context).copyWith(
+                  color: AppColors.greyBlue,
+                  fontSize: 14.sp,
+                ),
+              ),
+              verticalSpacing(18),
+              BuildUserInfoFromForUserInfoPage(
+                profileInfo: profileInfo,
+                cubit: cubit,
+              ),
+              verticalSpacing(16),
+              _buildSaveButton(context, cubit),
+              verticalSpacing(10),
+            ],
+          ),
+        ));
   }
 
   Widget _buildProfileSection(BuildContext context) {
@@ -131,241 +138,70 @@ class PersonalInfoScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildPersonalInfoForm(BuildContext context) {
+  Widget _buildSaveButton(BuildContext context, SettingsCubit cubit) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16.r),
-          boxShadow: [
-            BoxShadow(
-              color: AppColors.greyBlue.withAlpha(80),
-              blurRadius: 20,
-              offset: const Offset(0, 4),
-            ),
-          ],
-        ),
-        child: Padding(
-          padding: EdgeInsets.all(20.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  S.of(context).personal_information,
-                  style: FontHelper.font20BlackW700(context).copyWith(
-                    fontSize: 19.sp,
-                    color: AppColors.darkBlue,
-                  ),
-                ),
-              ),
-              // verticalSpacing(8),
-              Divider(
-                // endIndent: 45.w,
-                // indent: 45.w,
-                thickness: 1,
-                color: Colors.grey.shade300,
-              ),
-              verticalSpacing(16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Expanded(
-                    child: _buildModernTextField(
-                      context,
-                      label: S.of(context).firstName,
-                      value: profileInfo.firstName,
-                      icon: Iconsax.user,
+      child: BlocConsumer<SettingsCubit, SettingsState>(
+        bloc: cubit,
+        buildWhen: (previous, current) =>
+            current is ChangeUserInfoLoading ||
+            current is ChangeUserInfoSuccess ||
+            current is ChangeUserInfoError,
+        listenWhen: (previous, current) =>
+            current is ChangeUserInfoLoading ||
+            current is ChangeUserInfoSuccess ||
+            current is ChangeUserInfoError,
+        listener: (context, state) {
+          if (state is ChangeUserInfoSuccess) {
+            log("✅ Success to update profile");
+            cubit.emitSettingsPage();
+            return HelperDialogs.showSuccess("Profile updated", context);
+          } else if (state is ChangeUserInfoError) {
+            log("❌ Error: ${state.error}");
+            return HelperDialogs.showError(state.error, context);
+          }
+        },
+        builder: (context, state) {
+          return ElevatedButton(
+            onPressed: () => state is ChangeUserInfoLoading
+                ? null
+                : cubit.updateProfile(
+                    UpdateProfileModel(
+                      firstName: cubit.fNameController.text,
+                      lastName: cubit.lNameController.text,
+                      phoneNumber: cubit.phoneController.text,
+                      gender: cubit.selectedGender,
+                      dateOfBirth: cubit.dateOfBirthController.text,
+                      bio: cubit.bioController.text,
+                      profilePicture: cubit.profilePictureController.text,
+                      country: 'egypt',
                     ),
                   ),
-                  horizontalSpacing(16),
-                  Expanded(
-                    child: _buildModernTextField(
-                      context,
-                      label: S.of(context).lastName,
-                      value: profileInfo.lastName,
-                      icon: Iconsax.user,
-                    ),
-                  ),
-                ],
+            style: ElevatedButton.styleFrom(
+              backgroundColor: state is ChangeUserInfoLoading
+                  ? AppColors.greyBlue.withAlpha(140)
+                  : AppColors.mainBlue,
+              foregroundColor: Colors.white,
+              minimumSize: Size(double.infinity, 50.h),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16.r),
               ),
-              verticalSpacing(20),
-              _buildModernTextField(
-                context,
-                label: S.of(context).email,
-                value: profileInfo.email,
-                icon: CupertinoIcons.mail,
-                enabled: false,
-              ),
-              verticalSpacing(20),
-              _buildModernTextField(
-                context,
-                label: S.of(context).phoneNumber,
-                value: profileInfo.phoneNumber,
-                icon: Icons.call_outlined,
-              ),
-              verticalSpacing(20),
-              _buildModernTextField(
-                context,
-                label: S.of(context).date_of_birth,
-                value: profileInfo.dateOfBirth,
-                icon: Icons.calendar_month_outlined,
-                readOnly: true,
-                onTap: () => HelperDialogs.selectDate(context),
-              ),
-              verticalSpacing(20),
-              _buildModernTextField(
-                context,
-                label: S.of(context).bio,
-                value: profileInfo.bio ?? S.of(context).no_bio_provided,
-                icon: Icons.description_outlined,
-                maxLines: 3,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildModernTextField(
-    BuildContext context, {
-    required String label,
-    required String value,
-    required IconData icon,
-    bool enabled = true,
-    bool readOnly = false,
-    int maxLines = 1,
-    VoidCallback? onTap,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: FontHelper.font16BlackW600(context).copyWith(
-            color: AppColors.darkBlue,
-            fontSize: 14.sp,
-          ),
-        ),
-        verticalSpacing(8),
-        TextFormField(
-          initialValue: value,
-          enabled: enabled,
-          readOnly: readOnly,
-          maxLines: maxLines,
-          onTap: onTap,
-          style: FontHelper.font16BlackW500(context).copyWith(
-            color: enabled ? AppColors.darkBlue : AppColors.greyBlue,
-          ),
-          decoration: InputDecoration(
-            prefixIcon: Container(
-              margin: EdgeInsets.all(12.w),
-              width: 24.w,
-              height: 24.w,
-              decoration: BoxDecoration(
-                color: AppColors.mainBlue.withAlpha(40),
-                borderRadius: BorderRadius.circular(8.r),
-              ),
-              child: Icon(
-                icon,
-                color: AppColors.mainBlue,
-                size: 18.sp,
+              elevation: 4,
+              shadowColor: Colors.black12,
+            ),
+            child: Text(
+              state is ChangeUserInfoLoading
+                  ? S.of(context).loading
+                  : S.of(context).save_changes,
+              style: FontHelper.font16BlackW600(context).copyWith(
+                color: state is ChangeUserInfoLoading
+                    ? AppColors.greyBlue.withAlpha(200)
+                    : Colors.white,
+                fontSize: 16.sp,
               ),
             ),
-            filled: true,
-            fillColor:
-                enabled ? Colors.white : AppColors.greyBlue.withAlpha(40),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: BorderSide(
-                color: AppColors.mainBlue.withAlpha(100),
-                width: 1.0.w,
-              ),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: BorderSide(
-                color: Colors.grey,
-                width: 1.4.w,
-              ),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.r),
-              borderSide: BorderSide(
-                color: AppColors.mainBlue,
-                width: 1.6.w,
-              ),
-            ),
-            contentPadding: EdgeInsets.symmetric(
-              horizontal: 16.w,
-              vertical: 16.h,
-            ),
-            hintText: "${S.of(context).enter} $label",
-            hintStyle: FontHelper.font12lackW400(context).copyWith(
-              color: AppColors.greyBlue,
-              fontSize: 14.sp,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildSaveButton(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Container(
-        width: double.infinity,
-        height: 56.h,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              AppColors.mainBlue,
-              AppColors.mainBlue.withAlpha(200),
-            ],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-          ),
-          borderRadius: BorderRadius.circular(16.r),
-          boxShadow: [
-            BoxShadow(
-              color: AppColors.mainBlue.withAlpha(60),
-              blurRadius: 20,
-              offset: const Offset(0, 8),
-            ),
-          ],
-        ),
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            onTap: () {},
-            borderRadius: BorderRadius.circular(16.r),
-            child: Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.save,
-                    color: Colors.white,
-                    size: 20.sp,
-                  ),
-                  horizontalSpacing(8),
-                  Text(
-                    S.of(context).save_changes,
-                    style: FontHelper.font16BlackW600(context).copyWith(
-                      color: Colors.white,
-                      fontSize: 16.sp,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+          );
+        },
       ),
     );
   }

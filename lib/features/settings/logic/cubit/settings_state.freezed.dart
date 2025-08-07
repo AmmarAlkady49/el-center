@@ -57,6 +57,9 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
     TResult Function(LoadingSettingsPageError<T> value)?
         loadingSettingsPageError,
     TResult Function(ChangeLanguageSuccess<T> value)? changeLanguageSuccess,
+    TResult Function(ChangeUserInfoLoading<T> value)? changeUserInfoLoading,
+    TResult Function(ChangeUserInfoSuccess<T> value)? changeUserInfoSuccess,
+    TResult Function(ChangeUserInfoError<T> value)? changeUserInfoError,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -71,6 +74,12 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
         return loadingSettingsPageError(_that);
       case ChangeLanguageSuccess() when changeLanguageSuccess != null:
         return changeLanguageSuccess(_that);
+      case ChangeUserInfoLoading() when changeUserInfoLoading != null:
+        return changeUserInfoLoading(_that);
+      case ChangeUserInfoSuccess() when changeUserInfoSuccess != null:
+        return changeUserInfoSuccess(_that);
+      case ChangeUserInfoError() when changeUserInfoError != null:
+        return changeUserInfoError(_that);
       case _:
         return orElse();
     }
@@ -98,6 +107,11 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
         loadingSettingsPageError,
     required TResult Function(ChangeLanguageSuccess<T> value)
         changeLanguageSuccess,
+    required TResult Function(ChangeUserInfoLoading<T> value)
+        changeUserInfoLoading,
+    required TResult Function(ChangeUserInfoSuccess<T> value)
+        changeUserInfoSuccess,
+    required TResult Function(ChangeUserInfoError<T> value) changeUserInfoError,
   }) {
     final _that = this;
     switch (_that) {
@@ -111,6 +125,12 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
         return loadingSettingsPageError(_that);
       case ChangeLanguageSuccess():
         return changeLanguageSuccess(_that);
+      case ChangeUserInfoLoading():
+        return changeUserInfoLoading(_that);
+      case ChangeUserInfoSuccess():
+        return changeUserInfoSuccess(_that);
+      case ChangeUserInfoError():
+        return changeUserInfoError(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -136,6 +156,9 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
     TResult? Function(LoadingSettingsPageError<T> value)?
         loadingSettingsPageError,
     TResult? Function(ChangeLanguageSuccess<T> value)? changeLanguageSuccess,
+    TResult? Function(ChangeUserInfoLoading<T> value)? changeUserInfoLoading,
+    TResult? Function(ChangeUserInfoSuccess<T> value)? changeUserInfoSuccess,
+    TResult? Function(ChangeUserInfoError<T> value)? changeUserInfoError,
   }) {
     final _that = this;
     switch (_that) {
@@ -149,6 +172,12 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
         return loadingSettingsPageError(_that);
       case ChangeLanguageSuccess() when changeLanguageSuccess != null:
         return changeLanguageSuccess(_that);
+      case ChangeUserInfoLoading() when changeUserInfoLoading != null:
+        return changeUserInfoLoading(_that);
+      case ChangeUserInfoSuccess() when changeUserInfoSuccess != null:
+        return changeUserInfoSuccess(_that);
+      case ChangeUserInfoError() when changeUserInfoError != null:
+        return changeUserInfoError(_that);
       case _:
         return null;
     }
@@ -173,6 +202,9 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
     TResult Function(ProfileAccountModel profileInfo)? loadedSettingsPage,
     TResult Function(String error)? loadingSettingsPageError,
     TResult Function(String language)? changeLanguageSuccess,
+    TResult Function()? changeUserInfoLoading,
+    TResult Function()? changeUserInfoSuccess,
+    TResult Function(String error)? changeUserInfoError,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -187,6 +219,12 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
         return loadingSettingsPageError(_that.error);
       case ChangeLanguageSuccess() when changeLanguageSuccess != null:
         return changeLanguageSuccess(_that.language);
+      case ChangeUserInfoLoading() when changeUserInfoLoading != null:
+        return changeUserInfoLoading();
+      case ChangeUserInfoSuccess() when changeUserInfoSuccess != null:
+        return changeUserInfoSuccess();
+      case ChangeUserInfoError() when changeUserInfoError != null:
+        return changeUserInfoError(_that.error);
       case _:
         return orElse();
     }
@@ -213,6 +251,9 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
         loadedSettingsPage,
     required TResult Function(String error) loadingSettingsPageError,
     required TResult Function(String language) changeLanguageSuccess,
+    required TResult Function() changeUserInfoLoading,
+    required TResult Function() changeUserInfoSuccess,
+    required TResult Function(String error) changeUserInfoError,
   }) {
     final _that = this;
     switch (_that) {
@@ -226,6 +267,12 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
         return loadingSettingsPageError(_that.error);
       case ChangeLanguageSuccess():
         return changeLanguageSuccess(_that.language);
+      case ChangeUserInfoLoading():
+        return changeUserInfoLoading();
+      case ChangeUserInfoSuccess():
+        return changeUserInfoSuccess();
+      case ChangeUserInfoError():
+        return changeUserInfoError(_that.error);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -250,6 +297,9 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
     TResult? Function(ProfileAccountModel profileInfo)? loadedSettingsPage,
     TResult? Function(String error)? loadingSettingsPageError,
     TResult? Function(String language)? changeLanguageSuccess,
+    TResult? Function()? changeUserInfoLoading,
+    TResult? Function()? changeUserInfoSuccess,
+    TResult? Function(String error)? changeUserInfoError,
   }) {
     final _that = this;
     switch (_that) {
@@ -263,6 +313,12 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
         return loadingSettingsPageError(_that.error);
       case ChangeLanguageSuccess() when changeLanguageSuccess != null:
         return changeLanguageSuccess(_that.language);
+      case ChangeUserInfoLoading() when changeUserInfoLoading != null:
+        return changeUserInfoLoading();
+      case ChangeUserInfoSuccess() when changeUserInfoSuccess != null:
+        return changeUserInfoSuccess();
+      case ChangeUserInfoError() when changeUserInfoError != null:
+        return changeUserInfoError(_that.error);
       case _:
         return null;
     }
@@ -501,6 +557,111 @@ class _$ChangeLanguageSuccessCopyWithImpl<T, $Res>
       language: null == language
           ? _self.language
           : language // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class ChangeUserInfoLoading<T> implements SettingsState<T> {
+  const ChangeUserInfoLoading();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ChangeUserInfoLoading<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'SettingsState<$T>.changeUserInfoLoading()';
+  }
+}
+
+/// @nodoc
+
+class ChangeUserInfoSuccess<T> implements SettingsState<T> {
+  const ChangeUserInfoSuccess();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ChangeUserInfoSuccess<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'SettingsState<$T>.changeUserInfoSuccess()';
+  }
+}
+
+/// @nodoc
+
+class ChangeUserInfoError<T> implements SettingsState<T> {
+  const ChangeUserInfoError({required this.error});
+
+  final String error;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ChangeUserInfoErrorCopyWith<T, ChangeUserInfoError<T>> get copyWith =>
+      _$ChangeUserInfoErrorCopyWithImpl<T, ChangeUserInfoError<T>>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ChangeUserInfoError<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'SettingsState<$T>.changeUserInfoError(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $ChangeUserInfoErrorCopyWith<T, $Res>
+    implements $SettingsStateCopyWith<T, $Res> {
+  factory $ChangeUserInfoErrorCopyWith(ChangeUserInfoError<T> value,
+          $Res Function(ChangeUserInfoError<T>) _then) =
+      _$ChangeUserInfoErrorCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$ChangeUserInfoErrorCopyWithImpl<T, $Res>
+    implements $ChangeUserInfoErrorCopyWith<T, $Res> {
+  _$ChangeUserInfoErrorCopyWithImpl(this._self, this._then);
+
+  final ChangeUserInfoError<T> _self;
+  final $Res Function(ChangeUserInfoError<T>) _then;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(ChangeUserInfoError<T>(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }

@@ -126,11 +126,14 @@ class AppRouter {
         );
 
       case AppRoutes.personalInformation:
-        final profileInfo = settings.arguments as ProfileAccountModel;
+        // final profileInfo = settings.arguments as ProfileAccountModel;
+        final args = settings.arguments as Map<String, dynamic>;
+        final profileInfo = args['profileInfo'] as ProfileAccountModel;
+        final cubit = args['cubit'] as SettingsCubit;
         return MaterialPageRoute(
           builder: (_) => BlocProvider.value(
             value: getIt<SettingsCubit>(),
-            child: PersonalInfoScreen(profileInfo: profileInfo),
+            child: PersonalInfoScreen(profileInfo: profileInfo, cubit: cubit),
           ),
         );
 
@@ -161,11 +164,11 @@ class AppRouter {
         );
 
       case AppRoutes.aiChatBot:
-      final cubit = settings.arguments as LearningCentreCubit;
+        final cubit = settings.arguments as LearningCentreCubit;
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => getIt<LearningCentreCubit>(),
-            child:  AiChatBotPage(cubit:cubit ),
+            child: AiChatBotPage(cubit: cubit),
           ),
         );
 

@@ -328,7 +328,11 @@
   "no_curriculum_availables" : "لا يوجد دروس متاحة",
   "delete_review" : "حذف التقييم",
   "update_review" : "تحديث التقييم",
-  "edit_review" : "تعديل التقييم"
+  "edit_review" : "تعديل التقييم",
+  "user_profile" : "ملف المستخدم",
+  "gender" : "النوع"
+
+
 
 
 

@@ -8,6 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iconsax/iconsax.dart';
 
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/widgets/build_geniric_app_bar.dart';
@@ -77,8 +78,8 @@ class SettingsPage extends StatelessWidget {
                   verticalSpacing(20),
                   HelperFunctions.showUserImage(
                       state.profileInfo.profilePicture, 50.r, 110.w, 4.w),
-                  verticalSpacing(20),
-                  _buildUserInfo(context, state),
+                  verticalSpacing(10),
+                  _buildUserInfo(context, state,cubit: cubit),
 
                   // Settings options with simpler background
                   Padding(
@@ -86,30 +87,29 @@ class SettingsPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        verticalSpacing(24),
+                        verticalSpacing(16),
                         Text(
                           S.of(context).account_settings,
-                          style: FontHelper.font20BlackW700(context).copyWith(
+                          style: FontHelper.font16BlackW600(context).copyWith(
                             fontSize: 18.sp,
                             color: AppColors.darkBlue,
                           ),
                         ),
-                        verticalSpacing(18),
+                        verticalSpacing(10),
                         _buildModernSettingsSection(context, [
                           _SettingsOption(
                             icon: Icons.person_outline_rounded,
-                            title: S.of(context).personal_information,
+                            title: S.of(context).user_profile,
                             subtitle:
                                 S.of(context).manage_your_personal_information,
                             onTap: () {
                               context.pushNamed(
                                 AppRoutes.personalInformation,
-                                arguments: state.profileInfo,
+                                arguments: {
+                                  "profileInfo": state.profileInfo,
+                                  'cubit': cubit
+                                },
                               );
-                              // Navigator.of(context).pushNamed(
-                              //   AppRoutes.personalInformation,
-                              //   arguments: state.profileInfo,
-                              // );
                             },
                           ),
                           _SettingsOption(
@@ -136,7 +136,6 @@ class SettingsPage extends StatelessWidget {
                             onTap: () {},
                           ),
                         ]),
-                        verticalSpacing(60),
                       ],
                     ),
                   ),
@@ -150,34 +149,44 @@ class SettingsPage extends StatelessWidget {
     );
   }
 
-  Widget _buildUserInfo(BuildContext context, LoadedSettingsPage state) {
+  Widget _buildUserInfo(BuildContext context, LoadedSettingsPage state,
+      {required SettingsCubit cubit}) {
     return Column(
       children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "${state.profileInfo.firstName} ${state.profileInfo.lastName}",
+              style: FontHelper.font16WhiteW600(context).copyWith(
+                color: AppColors.darkBlue,
+                fontSize: 18.sp,
+              ),
+            ),
+            horizontalSpacing(4),
+            GestureDetector(
+              onTap: () {
+                context.pushNamed(
+                  AppRoutes.personalInformation,
+                  arguments: {"profileInfo": state.profileInfo, 'cubit': cubit},
+                );
+              },
+              child: Icon(
+                Iconsax.edit,
+                color: AppColors.mainBlue,
+                size: 20.sp,
+              ),
+            )
+          ],
+        ),
+        verticalSpacing(2),
         Text(
-          "${state.profileInfo.firstName} ${state.profileInfo.lastName}",
-          style: FontHelper.font31WhiteW800(context).copyWith(
-            fontSize: 24.sp,
-            color: AppColors.darkBlue,
+          state.profileInfo.email,
+          style: FontHelper.font16WhiteW500(context).copyWith(
+            color: AppColors.greyBlue,
+            fontSize: 14.sp,
           ),
         ),
-        // verticalSpacing(8),
-        // Container(
-        //   padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-        //   decoration: BoxDecoration(
-        //     color: AppColors.mainBlue.withAlpha(20),
-        //     borderRadius: BorderRadius.circular(20.r),
-        //     border: Border.all(
-        //       color: AppColors.mainBlue.withAlpha(50),
-        //       width: 1,
-        //     ),
-        //   ),
-        //   child: Text(
-        //     state.profileInfo.email,
-        //     style: FontHelper.font16BlackW600(context).copyWith(
-        //       color: AppColors.mainBlue,
-        //     ),
-        //   ),
-        // ),
       ],
     );
   }
@@ -191,7 +200,7 @@ class SettingsPage extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: AppColors.greyBlue.withAlpha(80),
-            blurRadius: 20,
+            blurRadius: 10,
             offset: const Offset(0, 4),
           ),
         ],
@@ -254,66 +263,56 @@ class SettingsPage extends StatelessWidget {
             top: 16.h,
             bottom: !showDivider ? 20.h : 0,
           ),
-          child: Column(
+          child: Row(
             children: [
-              Row(
-                children: [
-                  Container(
-                    width: 40.w,
-                    height: 40.w,
-                    decoration: BoxDecoration(
-                      color: option.isDestructive
-                          ? AppColors.red.withAlpha(30)
-                          : AppColors.mainBlue.withAlpha(30),
-                      borderRadius: BorderRadius.circular(12.r),
-                    ),
-                    child: Icon(
-                      option.icon,
-                      color: option.isDestructive
-                          ? AppColors.red
-                          : AppColors.mainBlue,
-                      size: 22.sp,
-                    ),
-                  ),
-                  horizontalSpacing(16),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          option.title,
-                          style: FontHelper.font16BlackW600(context).copyWith(
-                            color: option.isDestructive
-                                ? AppColors.red
-                                : AppColors.darkBlue,
-                          ),
-                        ),
-                        if (option.subtitle != null) ...[
-                          verticalSpacing(4),
-                          Text(
-                            option.subtitle!,
-                            style: FontHelper.font15BlackW400(context).copyWith(
-                              color: AppColors.greyBlue,
-                              fontSize: 14.sp,
-                            ),
-                          ),
-                        ],
-                      ],
-                    ),
-                  ),
-                  Icon(
-                    Icons.arrow_forward_ios_rounded,
-                    color: AppColors.greyBlue,
-                    size: 17.sp,
-                  ),
-                ],
+              Container(
+                width: 38.w,
+                height: 38.w,
+                decoration: BoxDecoration(
+                  color: option.isDestructive
+                      ? AppColors.red.withAlpha(30)
+                      : AppColors.mainBlue.withAlpha(30),
+                  borderRadius: BorderRadius.circular(12.r),
+                ),
+                child: Icon(
+                  option.icon,
+                  color:
+                      option.isDestructive ? AppColors.red : AppColors.mainBlue,
+                  size: 20.sp,
+                ),
               ),
-              // if (showDivider) ...[
-              //   Divider(
-              //     color: AppColors.grey.withAlpha(175),
-              //     thickness: 1,
-              //   ),
-              // ],
+              horizontalSpacing(12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      option.title,
+                      style: FontHelper.font16BlackW600(context).copyWith(
+                        fontSize: 15.sp,
+                        color: option.isDestructive
+                            ? AppColors.red
+                            : AppColors.darkBlue,
+                      ),
+                    ),
+                    if (option.subtitle != null) ...[
+                      verticalSpacing(2),
+                      Text(
+                        option.subtitle!,
+                        style: FontHelper.font15BlackW400(context).copyWith(
+                          color: AppColors.greyBlue,
+                          fontSize: 14.sp,
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+              Icon(
+                Icons.arrow_forward_ios_rounded,
+                color: AppColors.greyBlue,
+                size: 17.sp,
+              ),
             ],
           ),
         ),

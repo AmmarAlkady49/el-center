@@ -210,6 +210,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "frontend_and_backend": MessageLookupByLibrary.simpleMessage(
       "Frontend, backend, and full-stack",
     ),
+    "gender": MessageLookupByLibrary.simpleMessage("Gender"),
     "go_back": MessageLookupByLibrary.simpleMessage("Go Back"),
     "good": MessageLookupByLibrary.simpleMessage("Good"),
     "good_afternoon": MessageLookupByLibrary.simpleMessage("Good Afternoon"),
@@ -586,6 +587,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "update_your_password": MessageLookupByLibrary.simpleMessage(
       "Update your password",
     ),
+    "user_profile": MessageLookupByLibrary.simpleMessage("User Profile"),
     "verificationFailed": MessageLookupByLibrary.simpleMessage(
       "Verification failed",
     ),

@@ -203,6 +203,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "frontend_and_backend": MessageLookupByLibrary.simpleMessage(
       "فرونت اند, بك اند, و فول ستاك",
     ),
+    "gender": MessageLookupByLibrary.simpleMessage("النوع"),
     "go_back": MessageLookupByLibrary.simpleMessage("العودة"),
     "good": MessageLookupByLibrary.simpleMessage("جيد"),
     "good_afternoon": MessageLookupByLibrary.simpleMessage("صباح الخير"),
@@ -573,6 +574,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "update_your_password": MessageLookupByLibrary.simpleMessage(
       "تحديث كلمة المرور الخاصة بك",
     ),
+    "user_profile": MessageLookupByLibrary.simpleMessage("ملف المستخدم"),
     "verificationFailed": MessageLookupByLibrary.simpleMessage("فشل التحقق"),
     "verificationFailedMessage": MessageLookupByLibrary.simpleMessage(
       "الرمز المرسل غير صحيح، يرجى المحاولة مرة اخرى.",

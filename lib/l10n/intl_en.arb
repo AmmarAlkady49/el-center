@@ -328,7 +328,9 @@
   "no_curriculum_availables" : "No curriculum available",
   "delete_review" : "Delete Review",
   "update_review" : "Update Review",
-  "edit_review" : "Edit Review"
+  "edit_review" : "Edit Review",
+  "user_profile" : "User Profile",
+  "gender" : "Gender"
 
  
 
