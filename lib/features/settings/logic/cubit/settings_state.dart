@@ -13,8 +13,16 @@ class SettingsState<T> with _$SettingsState<T> {
   const factory SettingsState.loadedSettingsPage(
       {required ProfileAccountModel profileInfo}) = LoadedSettingsPage;
 
-  const factory SettingsState.loadingSettingsPageError({required String error}) =
-      LoadingSettingsPageError;
+  const factory SettingsState.loadingSettingsPageError(
+      {required String error}) = LoadingSettingsPageError;
 
-  const factory SettingsState.changeLanguageSuccess({required String language}) = ChangeLanguageSuccess;
+  const factory SettingsState.changeLanguageSuccess(
+      {required String language}) = ChangeLanguageSuccess;
+
+  const factory SettingsState.changeUserInfoLoading() = ChangeUserInfoLoading;
+
+  const factory SettingsState.changeUserInfoSuccess() = ChangeUserInfoSuccess;
+
+  const factory SettingsState.changeUserInfoError({required String error}) =
+      ChangeUserInfoError;
 }

@@ -1,6 +1,8 @@
 import 'dart:developer';
 
+import 'package:e_learning_app/core/data/models/update_profile_model.dart';
 import 'package:e_learning_app/core/helpers/shared_pref_helper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:restart_app/restart_app.dart';
 
@@ -12,16 +14,45 @@ class SettingsCubit extends Cubit<SettingsState> {
   SettingsCubit(this.settingsRepo) : super(SettingsState.initial());
 
   String? selectedLanguage;
+  late TextEditingController fNameController;
+  late TextEditingController lNameController;
+  late TextEditingController emailController;
+  late TextEditingController phoneController;
+  late TextEditingController dateOfBirthController;
+  late TextEditingController bioController;
+  late TextEditingController profilePictureController;
+  String selectedGender = 'male';
 
   void emitSettingsPage() async {
     emit(SettingsState.loadingsettingsPage());
     try {
       final response = await settingsRepo.getProfile();
+      fNameController = TextEditingController(text: response.firstName);
+      lNameController = TextEditingController(text: response.lastName);
+      emailController = TextEditingController(text: response.email);
+      phoneController = TextEditingController(text: response.phoneNumber);
+      dateOfBirthController = TextEditingController(text: response.dateOfBirth);
+      bioController = TextEditingController(text: response.bio);
+      profilePictureController =
+          TextEditingController(text: response.profilePicture);
+      selectedGender = response.gender;
       log('Response: $response');
       emit(SettingsState.loadedSettingsPage(profileInfo: response));
     } catch (e) {
       log('Error: $e');
       emit(SettingsState.loadingSettingsPageError(error: e.toString()));
+    }
+  }
+
+  // change user info
+  void updateProfile(UpdateProfileModel profileInfo) async {
+    emit(SettingsState.changeUserInfoLoading());
+    try {
+      await settingsRepo.updateProfile(profileInfo);
+      emit(SettingsState.changeUserInfoSuccess());
+    } catch (e) {
+      log('Error changing user info: $e');
+      emit(SettingsState.changeUserInfoError(error: e.toString()));
     }
   }
 

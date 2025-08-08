@@ -8,6 +8,7 @@ class FontHelper {
       color: Colors.black,
     );
   }
+
   static TextStyle font10BlackW600(BuildContext context) {
     return _localizedFont(context, FontWeight.w600).copyWith(
       fontSize: 10.sp,

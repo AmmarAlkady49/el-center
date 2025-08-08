@@ -210,6 +210,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "full_access_benefits": MessageLookupByLibrary.simpleMessage(
       "مزايا الوصول الكامل",
     ),
+    "gender": MessageLookupByLibrary.simpleMessage("النوع"),
     "get_access_to_full_course": MessageLookupByLibrary.simpleMessage(
       "احصل علي جميع محتوي الدرس والاختبارات والمحتوى الخاص بالدرس عن طريق التسجيل في كورس الكامل.",
     ),
@@ -584,6 +585,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "update_your_password": MessageLookupByLibrary.simpleMessage(
       "تحديث كلمة المرور الخاصة بك",
     ),
+    "user_profile": MessageLookupByLibrary.simpleMessage("ملف المستخدم"),
     "verificationFailed": MessageLookupByLibrary.simpleMessage("فشل التحقق"),
     "verificationFailedMessage": MessageLookupByLibrary.simpleMessage(
       "الرمز المرسل غير صحيح، يرجى المحاولة مرة اخرى.",

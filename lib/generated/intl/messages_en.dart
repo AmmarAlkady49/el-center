@@ -219,6 +219,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "full_access_benefits": MessageLookupByLibrary.simpleMessage(
       "Full access benefits",
     ),
+    "gender": MessageLookupByLibrary.simpleMessage("Gender"),
     "get_access_to_full_course": MessageLookupByLibrary.simpleMessage(
       "Get access to all lessons, quizzes, and exclusive content by enrolling in the full course.",
     ),
@@ -599,6 +600,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "update_your_password": MessageLookupByLibrary.simpleMessage(
       "Update your password",
     ),
+    "user_profile": MessageLookupByLibrary.simpleMessage("User Profile"),
     "verificationFailed": MessageLookupByLibrary.simpleMessage(
       "Verification failed",
     ),

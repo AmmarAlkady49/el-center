@@ -128,11 +128,14 @@ class AppRouter {
         );
 
       case AppRoutes.personalInformation:
-        final profileInfo = settings.arguments as ProfileAccountModel;
+        // final profileInfo = settings.arguments as ProfileAccountModel;
+        final args = settings.arguments as Map<String, dynamic>;
+        final profileInfo = args['profileInfo'] as ProfileAccountModel;
+        final cubit = args['cubit'] as SettingsCubit;
         return MaterialPageRoute(
           builder: (_) => BlocProvider.value(
             value: getIt<SettingsCubit>(),
-            child: PersonalInfoScreen(profileInfo: profileInfo),
+            child: PersonalInfoScreen(profileInfo: profileInfo, cubit: cubit),
           ),
         );
 

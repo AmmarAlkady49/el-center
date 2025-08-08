@@ -159,4 +159,17 @@ abstract class ApiService {
   Future<StandardResponseBody> deleteCourseReview(
     @Path("reviewId") int reviewId,
   );
+
+  @MultiPart()
+  @PUT(ApiConstants.updateProfile)
+  Future<Map<String, String>> updateProfile(
+    @Part(name: 'FirstName') String firstName,
+    @Part(name: 'LastName') String lastName,
+    @Part(name: 'PhoneNumber') String phoneNumber,
+    @Part(name: 'Gender') String gender,
+    @Part(name: 'DateOfBirth') String dateOfBirth,
+    @Part(name: 'Bio') String bio,
+    @Part(name: 'Country') String country,
+    @Part(name: 'ProfilePicture') String profilePicture,
+  );
 }

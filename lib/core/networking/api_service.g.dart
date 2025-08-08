@@ -976,6 +976,55 @@ class _ApiService implements ApiService {
     return _value;
   }
 
+  @override
+  Future<Map<String, String>> updateProfile(
+    String firstName,
+    String lastName,
+    String phoneNumber,
+    String gender,
+    String dateOfBirth,
+    String bio,
+    String country,
+    String profilePicture,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    _data.fields.add(MapEntry('FirstName', firstName));
+    _data.fields.add(MapEntry('LastName', lastName));
+    _data.fields.add(MapEntry('PhoneNumber', phoneNumber));
+    _data.fields.add(MapEntry('Gender', gender));
+    _data.fields.add(MapEntry('DateOfBirth', dateOfBirth));
+    _data.fields.add(MapEntry('Bio', bio));
+    _data.fields.add(MapEntry('Country', country));
+    _data.fields.add(MapEntry('ProfilePicture', profilePicture));
+    final _options = _setStreamType<Map<String, String>>(
+      Options(
+        method: 'PUT',
+        headers: _headers,
+        extra: _extra,
+        contentType: 'multipart/form-data',
+      )
+          .compose(
+            _dio.options,
+            '/Account/edit-profile',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late Map<String, String> _value;
+    try {
+      _value = _result.data!.cast<String, String>();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||
