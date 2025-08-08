@@ -19,6 +19,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/authVerification/logic/cubit/verification_account_cubit.dart';
 import '../../features/course_details/presentation/screens/course_details_page.dart';
+import '../../features/course_details/presentation/screens/free_article_reading_page_preview.dart';
+import '../../features/course_details/presentation/screens/preview_lesson_page.dart';
 import '../../features/home/presentation/screens/all_categories_page.dart';
 import '../../features/home/presentation/screens/courses_by_category.dart';
 import '../../features/learning_centre/data/model/quiz_model.dart';
@@ -80,7 +82,7 @@ class AppRouter {
         return MaterialPageRoute(
             builder: (_) => BlocProvider(
                   create: (context) => getIt<CourseDetailsCubit>()
-                    ..getCourseDetails(courseBasicInfo.id),
+                    ..getCourseDetails(courseBasicInfo.id, courseBasicInfo),
                   child: CourseDetailsPage(courseBasicInfo: courseBasicInfo),
                 ));
 
@@ -163,12 +165,34 @@ class AppRouter {
           ),
         );
 
+      case AppRoutes.freeArticleReadingPreview:
+        final args = settings.arguments as Map<String, dynamic>;
+        final article = args['lesson'] as LessonModule;
+        final cubit = args['cubit'] as CourseDetailsCubit;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<CourseDetailsCubit>(),
+            child: FreeArticleReadingPagePreview(lesson: article, cubit: cubit),
+          ),
+        );
+
       case AppRoutes.aiChatBot:
         final cubit = settings.arguments as LearningCentreCubit;
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => getIt<LearningCentreCubit>(),
             child: AiChatBotPage(cubit: cubit),
+          ),
+        );
+
+      case AppRoutes.previewLesson:
+        final args = settings.arguments as Map<String, dynamic>;
+        final cubit = args['cubit'] as CourseDetailsCubit;
+        final lesson = args['lesson'] as LessonModule;
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<CourseDetailsCubit>(),
+            child: PreviewLessonPage(cubit: cubit, lesson: lesson),
           ),
         );
 

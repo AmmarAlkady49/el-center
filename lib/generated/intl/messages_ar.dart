@@ -119,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "continueWithGoogle": MessageLookupByLibrary.simpleMessage(
       "متابعة باستخدام جوجل",
     ),
+    "continue_browsing": MessageLookupByLibrary.simpleMessage("متابعة التصفح"),
     "continue_learning": MessageLookupByLibrary.simpleMessage("متابعة التعلم"),
     "correct_answer": MessageLookupByLibrary.simpleMessage("الاجابة الصحيحة"),
     "coupon_applied": MessageLookupByLibrary.simpleMessage(
@@ -170,6 +171,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailVerificationMessage": MessageLookupByLibrary.simpleMessage(
       "يرجى التحقق من بريدك الالكتروني للتحقق من حسابك",
     ),
+    "enjoyed_this_preview": MessageLookupByLibrary.simpleMessage(
+      "استمتعت بمعاينة هذا الدرس?",
+    ),
     "enroll_now": MessageLookupByLibrary.simpleMessage("إنضم الان"),
     "enrolled": MessageLookupByLibrary.simpleMessage("مسجل"),
     "enrolled_courses": MessageLookupByLibrary.simpleMessage(
@@ -203,7 +207,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "frontend_and_backend": MessageLookupByLibrary.simpleMessage(
       "فرونت اند, بك اند, و فول ستاك",
     ),
+    "full_access_benefits": MessageLookupByLibrary.simpleMessage(
+      "مزايا الوصول الكامل",
+    ),
     "gender": MessageLookupByLibrary.simpleMessage("النوع"),
+    "get_access_to_full_course": MessageLookupByLibrary.simpleMessage(
+      "احصل علي جميع محتوي الدرس والاختبارات والمحتوى الخاص بالدرس عن طريق التسجيل في كورس الكامل.",
+    ),
     "go_back": MessageLookupByLibrary.simpleMessage("العودة"),
     "good": MessageLookupByLibrary.simpleMessage("جيد"),
     "good_afternoon": MessageLookupByLibrary.simpleMessage("صباح الخير"),
@@ -438,6 +448,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "practice_questions": MessageLookupByLibrary.simpleMessage(
       "اسئلة التمرين",
     ),
+    "preview": MessageLookupByLibrary.simpleMessage("معاينة"),
     "previous": MessageLookupByLibrary.simpleMessage("السابق"),
     "price": MessageLookupByLibrary.simpleMessage("السعر"),
     "profile": MessageLookupByLibrary.simpleMessage("الحساب"),

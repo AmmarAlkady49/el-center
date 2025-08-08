@@ -120,6 +120,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "continueWithGoogle": MessageLookupByLibrary.simpleMessage(
       "Continue with Google",
     ),
+    "continue_browsing": MessageLookupByLibrary.simpleMessage(
+      "Continue Browsing",
+    ),
     "continue_learning": MessageLookupByLibrary.simpleMessage(
       "Continue Learning",
     ),
@@ -175,6 +178,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailVerificationMessage": MessageLookupByLibrary.simpleMessage(
       "Please check your email to verify your account",
     ),
+    "enjoyed_this_preview": MessageLookupByLibrary.simpleMessage(
+      "Enjoyed this preview?",
+    ),
     "enroll_now": MessageLookupByLibrary.simpleMessage("Enroll Now"),
     "enrolled": MessageLookupByLibrary.simpleMessage("Enrolled"),
     "enrolled_courses": MessageLookupByLibrary.simpleMessage(
@@ -210,7 +216,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "frontend_and_backend": MessageLookupByLibrary.simpleMessage(
       "Frontend, backend, and full-stack",
     ),
+    "full_access_benefits": MessageLookupByLibrary.simpleMessage(
+      "Full access benefits",
+    ),
     "gender": MessageLookupByLibrary.simpleMessage("Gender"),
+    "get_access_to_full_course": MessageLookupByLibrary.simpleMessage(
+      "Get access to all lessons, quizzes, and exclusive content by enrolling in the full course.",
+    ),
     "go_back": MessageLookupByLibrary.simpleMessage("Go Back"),
     "good": MessageLookupByLibrary.simpleMessage("Good"),
     "good_afternoon": MessageLookupByLibrary.simpleMessage("Good Afternoon"),
@@ -447,6 +459,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "practice_questions": MessageLookupByLibrary.simpleMessage(
       "Practice Questions",
     ),
+    "preview": MessageLookupByLibrary.simpleMessage("Preview"),
     "previous": MessageLookupByLibrary.simpleMessage("previous"),
     "price": MessageLookupByLibrary.simpleMessage("Price"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),

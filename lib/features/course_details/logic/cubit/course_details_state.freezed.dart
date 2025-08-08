@@ -78,6 +78,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         updateCourseReviewSuccess,
     TResult Function(UpdateCourseReviewFailure value)?
         updateCourseReviewFailure,
+    TResult Function(LoadingVideo value)? loadingVideo,
+    TResult Function(VideoLoaded value)? videoLoaded,
+    TResult Function(VideoLoadFailed value)? videoLoadFailed,
+    TResult Function(LoadingTextContent value)? loadingTextContent,
+    TResult Function(SuccessTextContent value)? successTextContent,
+    TResult Function(FailedTextContent value)? failedTextContent,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -122,6 +128,18 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return updateCourseReviewSuccess(_that);
       case UpdateCourseReviewFailure() when updateCourseReviewFailure != null:
         return updateCourseReviewFailure(_that);
+      case LoadingVideo() when loadingVideo != null:
+        return loadingVideo(_that);
+      case VideoLoaded() when videoLoaded != null:
+        return videoLoaded(_that);
+      case VideoLoadFailed() when videoLoadFailed != null:
+        return videoLoadFailed(_that);
+      case LoadingTextContent() when loadingTextContent != null:
+        return loadingTextContent(_that);
+      case SuccessTextContent() when successTextContent != null:
+        return successTextContent(_that);
+      case FailedTextContent() when failedTextContent != null:
+        return failedTextContent(_that);
       case _:
         return orElse();
     }
@@ -165,6 +183,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         updateCourseReviewSuccess,
     required TResult Function(UpdateCourseReviewFailure value)
         updateCourseReviewFailure,
+    required TResult Function(LoadingVideo value) loadingVideo,
+    required TResult Function(VideoLoaded value) videoLoaded,
+    required TResult Function(VideoLoadFailed value) videoLoadFailed,
+    required TResult Function(LoadingTextContent value) loadingTextContent,
+    required TResult Function(SuccessTextContent value) successTextContent,
+    required TResult Function(FailedTextContent value) failedTextContent,
   }) {
     final _that = this;
     switch (_that) {
@@ -208,6 +232,18 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return updateCourseReviewSuccess(_that);
       case UpdateCourseReviewFailure():
         return updateCourseReviewFailure(_that);
+      case LoadingVideo():
+        return loadingVideo(_that);
+      case VideoLoaded():
+        return videoLoaded(_that);
+      case VideoLoadFailed():
+        return videoLoadFailed(_that);
+      case LoadingTextContent():
+        return loadingTextContent(_that);
+      case SuccessTextContent():
+        return successTextContent(_that);
+      case FailedTextContent():
+        return failedTextContent(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -249,6 +285,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         updateCourseReviewSuccess,
     TResult? Function(UpdateCourseReviewFailure value)?
         updateCourseReviewFailure,
+    TResult? Function(LoadingVideo value)? loadingVideo,
+    TResult? Function(VideoLoaded value)? videoLoaded,
+    TResult? Function(VideoLoadFailed value)? videoLoadFailed,
+    TResult? Function(LoadingTextContent value)? loadingTextContent,
+    TResult? Function(SuccessTextContent value)? successTextContent,
+    TResult? Function(FailedTextContent value)? failedTextContent,
   }) {
     final _that = this;
     switch (_that) {
@@ -292,6 +334,18 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return updateCourseReviewSuccess(_that);
       case UpdateCourseReviewFailure() when updateCourseReviewFailure != null:
         return updateCourseReviewFailure(_that);
+      case LoadingVideo() when loadingVideo != null:
+        return loadingVideo(_that);
+      case VideoLoaded() when videoLoaded != null:
+        return videoLoaded(_that);
+      case VideoLoadFailed() when videoLoadFailed != null:
+        return videoLoadFailed(_that);
+      case LoadingTextContent() when loadingTextContent != null:
+        return loadingTextContent(_that);
+      case SuccessTextContent() when successTextContent != null:
+        return successTextContent(_that);
+      case FailedTextContent() when failedTextContent != null:
+        return failedTextContent(_that);
       case _:
         return null;
     }
@@ -336,6 +390,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     TResult Function(String error)? enrollmentFailure,
     TResult Function(String message)? updateCourseReviewSuccess,
     TResult Function(String error)? updateCourseReviewFailure,
+    TResult Function()? loadingVideo,
+    TResult Function()? videoLoaded,
+    TResult Function(String error)? videoLoadFailed,
+    TResult Function()? loadingTextContent,
+    TResult Function()? successTextContent,
+    TResult Function()? failedTextContent,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -381,6 +441,18 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return updateCourseReviewSuccess(_that.message);
       case UpdateCourseReviewFailure() when updateCourseReviewFailure != null:
         return updateCourseReviewFailure(_that.error);
+      case LoadingVideo() when loadingVideo != null:
+        return loadingVideo();
+      case VideoLoaded() when videoLoaded != null:
+        return videoLoaded();
+      case VideoLoadFailed() when videoLoadFailed != null:
+        return videoLoadFailed(_that.error);
+      case LoadingTextContent() when loadingTextContent != null:
+        return loadingTextContent();
+      case SuccessTextContent() when successTextContent != null:
+        return successTextContent();
+      case FailedTextContent() when failedTextContent != null:
+        return failedTextContent();
       case _:
         return orElse();
     }
@@ -426,6 +498,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     required TResult Function(String error) enrollmentFailure,
     required TResult Function(String message) updateCourseReviewSuccess,
     required TResult Function(String error) updateCourseReviewFailure,
+    required TResult Function() loadingVideo,
+    required TResult Function() videoLoaded,
+    required TResult Function(String error) videoLoadFailed,
+    required TResult Function() loadingTextContent,
+    required TResult Function() successTextContent,
+    required TResult Function() failedTextContent,
   }) {
     final _that = this;
     switch (_that) {
@@ -470,6 +548,18 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return updateCourseReviewSuccess(_that.message);
       case UpdateCourseReviewFailure():
         return updateCourseReviewFailure(_that.error);
+      case LoadingVideo():
+        return loadingVideo();
+      case VideoLoaded():
+        return videoLoaded();
+      case VideoLoadFailed():
+        return videoLoadFailed(_that.error);
+      case LoadingTextContent():
+        return loadingTextContent();
+      case SuccessTextContent():
+        return successTextContent();
+      case FailedTextContent():
+        return failedTextContent();
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -514,6 +604,12 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
     TResult? Function(String error)? enrollmentFailure,
     TResult? Function(String message)? updateCourseReviewSuccess,
     TResult? Function(String error)? updateCourseReviewFailure,
+    TResult? Function()? loadingVideo,
+    TResult? Function()? videoLoaded,
+    TResult? Function(String error)? videoLoadFailed,
+    TResult? Function()? loadingTextContent,
+    TResult? Function()? successTextContent,
+    TResult? Function()? failedTextContent,
   }) {
     final _that = this;
     switch (_that) {
@@ -558,6 +654,18 @@ extension CourseDetailsStatePatterns on CourseDetailsState {
         return updateCourseReviewSuccess(_that.message);
       case UpdateCourseReviewFailure() when updateCourseReviewFailure != null:
         return updateCourseReviewFailure(_that.error);
+      case LoadingVideo() when loadingVideo != null:
+        return loadingVideo();
+      case VideoLoaded() when videoLoaded != null:
+        return videoLoaded();
+      case VideoLoadFailed() when videoLoadFailed != null:
+        return videoLoadFailed(_that.error);
+      case LoadingTextContent() when loadingTextContent != null:
+        return loadingTextContent();
+      case SuccessTextContent() when successTextContent != null:
+        return successTextContent();
+      case FailedTextContent() when failedTextContent != null:
+        return failedTextContent();
       case _:
         return null;
     }
@@ -1827,6 +1935,218 @@ class _$UpdateCourseReviewFailureCopyWithImpl<$Res>
           : error // ignore: cast_nullable_to_non_nullable
               as String,
     ));
+  }
+}
+
+/// @nodoc
+
+class LoadingVideo with DiagnosticableTreeMixin implements CourseDetailsState {
+  const LoadingVideo();
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'CourseDetailsState.loadingVideo'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is LoadingVideo);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseDetailsState.loadingVideo()';
+  }
+}
+
+/// @nodoc
+
+class VideoLoaded with DiagnosticableTreeMixin implements CourseDetailsState {
+  const VideoLoaded();
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'CourseDetailsState.videoLoaded'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is VideoLoaded);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseDetailsState.videoLoaded()';
+  }
+}
+
+/// @nodoc
+
+class VideoLoadFailed
+    with DiagnosticableTreeMixin
+    implements CourseDetailsState {
+  const VideoLoadFailed({required this.error});
+
+  final String error;
+
+  /// Create a copy of CourseDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $VideoLoadFailedCopyWith<VideoLoadFailed> get copyWith =>
+      _$VideoLoadFailedCopyWithImpl<VideoLoadFailed>(this, _$identity);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(DiagnosticsProperty('type', 'CourseDetailsState.videoLoadFailed'))
+      ..add(DiagnosticsProperty('error', error));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is VideoLoadFailed &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseDetailsState.videoLoadFailed(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $VideoLoadFailedCopyWith<$Res>
+    implements $CourseDetailsStateCopyWith<$Res> {
+  factory $VideoLoadFailedCopyWith(
+          VideoLoadFailed value, $Res Function(VideoLoadFailed) _then) =
+      _$VideoLoadFailedCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$VideoLoadFailedCopyWithImpl<$Res>
+    implements $VideoLoadFailedCopyWith<$Res> {
+  _$VideoLoadFailedCopyWithImpl(this._self, this._then);
+
+  final VideoLoadFailed _self;
+  final $Res Function(VideoLoadFailed) _then;
+
+  /// Create a copy of CourseDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(VideoLoadFailed(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class LoadingTextContent
+    with DiagnosticableTreeMixin
+    implements CourseDetailsState {
+  const LoadingTextContent();
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'CourseDetailsState.loadingTextContent'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is LoadingTextContent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseDetailsState.loadingTextContent()';
+  }
+}
+
+/// @nodoc
+
+class SuccessTextContent
+    with DiagnosticableTreeMixin
+    implements CourseDetailsState {
+  const SuccessTextContent();
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'CourseDetailsState.successTextContent'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is SuccessTextContent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseDetailsState.successTextContent()';
+  }
+}
+
+/// @nodoc
+
+class FailedTextContent
+    with DiagnosticableTreeMixin
+    implements CourseDetailsState {
+  const FailedTextContent();
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'CourseDetailsState.failedTextContent'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is FailedTextContent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CourseDetailsState.failedTextContent()';
   }
 }
 

@@ -80,13 +80,13 @@ class _PaymentMethodModalState extends State<PaymentMethodModal> {
           Future.microtask(() {
             Navigator.of(context).pop();
             HelperDialogs.showSuccess(S.of(context).payment_success, context);
-            widget.cubit.getCourseDetails(widget.courseID);
+            widget.cubit.getCourseDetails(widget.courseID, widget.courseBasicInfo);
           });
         } else if (state is FreePaymentSuccess) {
           Future.microtask(() {
             Navigator.of(context).pop();
             HelperDialogs.showSuccess(S.of(context).payment_success, context);
-            widget.cubit.getCourseDetails(widget.courseID);
+            widget.cubit.getCourseDetails(widget.courseID, widget.courseBasicInfo);
           });
         }
       },

@@ -57,4 +57,17 @@ abstract class CourseDetailsState with _$CourseDetailsState {
   const factory CourseDetailsState.updateCourseReviewFailure({
     required String error,
   }) = UpdateCourseReviewFailure;
+
+  const factory CourseDetailsState.loadingVideo() = LoadingVideo;
+
+  const factory CourseDetailsState.videoLoaded() = VideoLoaded;
+
+  const factory CourseDetailsState.videoLoadFailed({required String error}) =
+      VideoLoadFailed;
+
+  const factory CourseDetailsState.loadingTextContent() = LoadingTextContent;
+
+  const factory CourseDetailsState.successTextContent() = SuccessTextContent;
+
+  const factory CourseDetailsState.failedTextContent() = FailedTextContent;
 }

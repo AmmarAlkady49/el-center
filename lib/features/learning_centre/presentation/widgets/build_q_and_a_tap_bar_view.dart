@@ -72,21 +72,37 @@ class _BuildQAndATapBarViewState extends State<BuildQAndATapBarView> {
             widget.cubit.getAllLessonQuestions(widget.cubit.currentLesson!.id);
           }
           if (state is FailedDeleteAnswerOrQuestion) {
-            return HelperDialogs.showError(state.error, context);
+            return HelperDialogs.showError(
+              state.error,
+              context,
+              topPosition: true,
+            );
           }
           if (state is FailedAddAnswer) {
-            return HelperDialogs.showError(state.error, context);
+            return HelperDialogs.showError(
+              state.error,
+              context,
+              topPosition: true,
+            );
           }
           if (state is SuccessSendReport) {
             return HelperDialogs.showSuccess(
                 S.of(context).report_sent_successfully, context);
           }
           if (state is FailedSendReport) {
-            return HelperDialogs.showError(state.error, context);
+            return HelperDialogs.showError(
+              state.error,
+              context,
+              topPosition: true,
+            );
           }
 
           if (state is FailedMarkAnswerHelpful) {
-            return HelperDialogs.showError(state.error, context);
+            return HelperDialogs.showError(
+              state.error,
+              context,
+              topPosition: true,
+            );
           }
         },
         builder: (context, state) {

@@ -2625,6 +2625,51 @@ class S {
     return Intl.message('Edit Review', name: 'edit_review', desc: '', args: []);
   }
 
+  /// `Preview`
+  String get preview {
+    return Intl.message('Preview', name: 'preview', desc: '', args: []);
+  }
+
+  /// `Full access benefits`
+  String get full_access_benefits {
+    return Intl.message(
+      'Full access benefits',
+      name: 'full_access_benefits',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue Browsing`
+  String get continue_browsing {
+    return Intl.message(
+      'Continue Browsing',
+      name: 'continue_browsing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get access to all lessons, quizzes, and exclusive content by enrolling in the full course.`
+  String get get_access_to_full_course {
+    return Intl.message(
+      'Get access to all lessons, quizzes, and exclusive content by enrolling in the full course.',
+      name: 'get_access_to_full_course',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enjoyed this preview?`
+  String get enjoyed_this_preview {
+    return Intl.message(
+      'Enjoyed this preview?',
+      name: 'enjoyed_this_preview',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `User Profile`
   String get user_profile {
     return Intl.message(

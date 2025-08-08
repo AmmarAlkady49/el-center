@@ -444,6 +444,7 @@ class HelperDialogs {
   // Success SnackBar
   static void showSuccess(String message, BuildContext context) {
     final snackBar = SnackBar(
+      behavior: SnackBarBehavior.floating,
       content: Row(
         textDirection: TextDirection.ltr,
         children: [
@@ -472,7 +473,6 @@ class HelperDialogs {
         ],
       ),
       backgroundColor: const Color(0xFF10B981), // Emerald green
-      behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(18.r),
       ),
@@ -483,7 +483,8 @@ class HelperDialogs {
   }
 
   // Error SnackBar
-  static void showError(String message, BuildContext context) {
+  static void showError(String message, BuildContext context,
+      {bool topPosition = false}) {
     final snackBar = SnackBar(
       content: Row(
         textDirection: TextDirection.ltr,
@@ -513,14 +514,20 @@ class HelperDialogs {
         ],
       ),
       backgroundColor: const Color(0xFFEF4444), // Red
+      margin: topPosition
+          ? EdgeInsets.only(
+              bottom: MediaQuery.of(context).size.height - 160.h,
+              left: 10,
+              right: 10)
+          : null,
       behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(18.r),
       ),
-      // margin: const EdgeInsets.all(16),
       duration: const Duration(seconds: 4),
       elevation: 6,
     );
+
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
