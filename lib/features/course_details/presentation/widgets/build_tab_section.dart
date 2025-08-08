@@ -132,6 +132,7 @@ class _BuildTabSectionState extends State<BuildTabSection>
               BuildCurriculumTab(
                 courseModules: widget.courseModules,
                 modulesWithLessons: widget.modulesWithLessons,
+                cubit: widget.cubit,
               ),
               _buildOverViewTab(context, widget.courseBasicInfo),
               BuildCourseReviews(

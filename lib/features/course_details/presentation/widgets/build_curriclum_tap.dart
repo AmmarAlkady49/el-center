@@ -1,10 +1,13 @@
 import 'package:e_learning_app/core/data/models/course_module_model.dart';
 import 'package:e_learning_app/core/helpers/helper_functions.dart';
+import 'package:e_learning_app/core/routing/app_routes.dart';
+import 'package:e_learning_app/features/course_details/logic/cubit/course_details_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../core/data/models/course_modules_with_lessons.dart';
+import '../../../../core/data/models/lesson_module.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/font_helper.dart';
@@ -13,11 +16,13 @@ import '../../../../generated/l10n.dart';
 class BuildCurriculumTab extends StatefulWidget {
   final List<CourseModuleModel> courseModules;
   final List<CourseModulesWithLessons> modulesWithLessons;
+  final CourseDetailsCubit cubit;
 
   const BuildCurriculumTab({
     super.key,
     required this.courseModules,
     required this.modulesWithLessons,
+    required this.cubit,
   });
 
   @override
@@ -52,8 +57,8 @@ class _BuildCurriculumTabState extends State<BuildCurriculumTab> {
     }
   }
 
-  Widget _buildModuleCard(
-      CourseModulesWithLessons moduleWithLessons, int moduleIndex) {
+  Widget _buildModuleCard(CourseModulesWithLessons moduleWithLessons,
+      int moduleIndex, bool isLastModule) {
     final module = moduleWithLessons.courseModules;
     final lessons = moduleWithLessons.lessons;
     final isExpanded = expandedModules.contains(moduleIndex);
@@ -196,6 +201,9 @@ class _BuildCurriculumTabState extends State<BuildCurriculumTab> {
                   )
                 : const SizedBox.shrink(),
           ),
+          if (isLastModule) ...[
+            verticalSpacing(75),
+          ],
         ],
       ),
     );
@@ -239,7 +247,7 @@ class _BuildCurriculumTabState extends State<BuildCurriculumTab> {
   }
 
   Widget _buildLessonItem(
-      dynamic lesson, int moduleIndex, int lessonIndex, bool isLast) {
+      LessonModule lesson, int moduleIndex, int lessonIndex, bool isLast) {
     final duration = HelperFunctions.formatDuration(lesson.durationInMinutes);
 
     return Container(
@@ -307,34 +315,120 @@ class _BuildCurriculumTabState extends State<BuildCurriculumTab> {
           // Duration
           if (duration.isNotEmpty) ...[
             horizontalSpacing(8),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
-              decoration: BoxDecoration(
-                color: AppColors.greyBlue.withAlpha(20),
-                borderRadius: BorderRadius.circular(8.r),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Iconsax.clock,
-                    size: 12.sp,
-                    color: AppColors.greyBlue,
+            Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                  decoration: BoxDecoration(
+                    color: AppColors.greyBlue.withAlpha(20),
+                    borderRadius: BorderRadius.circular(8.r),
                   ),
-                  horizontalSpacing(4),
-                  Text(
-                    duration,
-                    style: TextStyle(
-                      fontSize: 11.sp,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.greyBlue,
-                    ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Iconsax.clock,
+                        size: 12.sp,
+                        color: AppColors.greyBlue,
+                      ),
+                      horizontalSpacing(4),
+                      Text(
+                        duration,
+                        style: TextStyle(
+                          fontSize: 11.sp,
+                          fontWeight: FontWeight.w500,
+                          color: AppColors.greyBlue,
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+                verticalSpacing(6),
+                if (!widget.cubit.isEnrolled && lesson.isPreview!) ...[
+                  _previewButton(lesson, moduleIndex, lessonIndex),
+                ]
+              ],
             ),
           ],
         ],
+      ),
+    );
+  }
+
+  Widget _previewButton(LessonModule lesson, int moduleIndex, int lessonIndex) {
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20.r),
+        onTap: () {
+          Navigator.of(context).pushNamed(AppRoutes.previewLesson, arguments: {
+            "lesson": lesson,
+            'cubit': widget.cubit,
+          });
+        },
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 5.h),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                AppColors.mainBlue.withAlpha(220),
+                AppColors.mainBlue.withAlpha(170),
+              ],
+            ),
+            borderRadius: BorderRadius.circular(20.r),
+            boxShadow: [
+              BoxShadow(
+                color: AppColors.mainBlue.withAlpha(90),
+                blurRadius: 8,
+                offset: const Offset(0, 2),
+                spreadRadius: 0,
+              ),
+              BoxShadow(
+                color: Colors.white.withAlpha(60),
+                blurRadius: 4,
+                offset: const Offset(0, -1),
+                spreadRadius: 0,
+              ),
+            ],
+            border: Border.all(
+              color: Colors.white.withAlpha(60),
+              width: 1,
+            ),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                padding: EdgeInsets.all(2.w),
+                decoration: BoxDecoration(
+                  color: Colors.white.withAlpha(60),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(
+                  Iconsax.play,
+                  size: 12.sp,
+                  color: Colors.white,
+                ),
+              ),
+              horizontalSpacing(6),
+              Text(S.of(context).preview,
+                  // style: TextStyle(
+                  //   fontSize: 11.sp,
+                  //   fontWeight: FontWeight.w600,
+                  //   color: Colors.white,
+                  //   letterSpacing: 0.3,
+                  // ),
+                  style: FontHelper.font12lackW400(context).copyWith(
+                    fontSize: 10.sp,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                    letterSpacing: 0.3,
+                  )),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -464,7 +558,8 @@ class _BuildCurriculumTabState extends State<BuildCurriculumTab> {
             itemCount: widget.modulesWithLessons.length,
             separatorBuilder: (context, index) => verticalSpacing(12),
             itemBuilder: (context, index) {
-              return _buildModuleCard(widget.modulesWithLessons[index], index);
+              return _buildModuleCard(widget.modulesWithLessons[index], index,
+                  widget.modulesWithLessons.length == index + 1);
             },
           ),
         ),

@@ -11,6 +11,7 @@ import '../../../../core/theming/font_helper.dart';
 import '../../../../generated/l10n.dart';
 import '../../data/model/answer_model_for_q_and_a.dart';
 import '../../data/model/question_model_for_q_and_a.dart';
+import 'build_question_helpful_button.dart';
 
 class BuildQuestionContentForQAndATapBar extends StatelessWidget {
   final QuestionModelForQAndA question;
@@ -90,7 +91,10 @@ class BuildQuestionContentForQAndATapBar extends StatelessWidget {
   Widget _buildActionRow(BuildContext context) {
     return Row(
       children: [
-        _buildAnswerCountBadge(context),
+        BuildQuestionHelpfulButton(
+          question: question,
+          cubit: cubit,
+        ),
         horizontalSpacing(12),
         _buildReplyButton(context),
         if (isCurrentUser) ...[
@@ -100,36 +104,6 @@ class BuildQuestionContentForQAndATapBar extends StatelessWidget {
           _buildDeleteButton(context),
         ],
       ],
-    );
-  }
-
-  Widget _buildAnswerCountBadge(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
-      decoration: BoxDecoration(
-        color: answers.isEmpty
-            ? AppColors.grey.withAlpha(60)
-            : AppColors.mainBlue.withAlpha(60),
-        borderRadius: BorderRadius.circular(12.r),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            Icons.question_answer_outlined,
-            color: answers.isEmpty ? AppColors.grey : AppColors.mainBlue,
-            size: 14.sp,
-          ),
-          horizontalSpacing(4),
-          Text(
-            '${answers.length} ${answers.length == 1 ? S.of(context).answer : S.of(context).answers}',
-            style: FontHelper.font16BlackW500(context).copyWith(
-              color: answers.isEmpty ? AppColors.grey : AppColors.mainBlue,
-              fontSize: 12.sp,
-            ),
-          ),
-        ],
-      ),
     );
   }
 

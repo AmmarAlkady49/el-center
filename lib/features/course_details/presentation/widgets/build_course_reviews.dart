@@ -78,7 +78,7 @@ class BuildCourseReviews extends StatelessWidget {
           current is UpdateCourseReviewFailure,
       listener: (context, state) {
         if (state is UpdateCourseReviewSuccess) {
-          cubit.getCourseDetails(courseBasicInfo.id);
+          cubit.getCourseDetails(courseBasicInfo.id, courseBasicInfo);
           return HelperDialogs.showSuccess(state.message, context);
         }
         if (state is UpdateCourseReviewFailure) {

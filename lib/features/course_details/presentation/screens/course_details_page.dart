@@ -29,7 +29,7 @@ class CourseDetailsPage extends StatelessWidget {
         listenWhen: (previous, current) => current is CourseReviewSuccess,
         listener: (context, state) {
           if (state is CourseReviewSuccess) {
-            cubit.getCourseDetails(courseBasicInfo.id);
+            cubit.getCourseDetails(courseBasicInfo.id, courseBasicInfo);
             return HelperDialogs.showSuccess(
                 S.of(context).review_submitted, context);
           }

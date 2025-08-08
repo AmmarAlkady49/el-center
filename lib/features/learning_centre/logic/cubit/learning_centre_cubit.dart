@@ -365,7 +365,8 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
       emit(LearningCentreState.successSendReport());
     } catch (error) {
       log("error: ${error.toString()}");
-      emit(LearningCentreState.failedSendReport(error: error.toString()));
+      emit(
+          LearningCentreState.failedSendReport(error: "Failed to send report"));
     }
   }
 
@@ -377,7 +378,7 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
     } catch (error) {
       log("error: ${error.toString()}");
       emit(LearningCentreState.failedDeleteAnswerOrQuestion(
-          error: error.toString()));
+          error: "Failed to delete Answer"));
     }
   }
 
@@ -389,7 +390,7 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
     } catch (error) {
       log("error: ${error.toString()}");
       emit(LearningCentreState.failedDeleteAnswerOrQuestion(
-          error: error.toString()));
+          error: "Failed to delete Question"));
     }
   }
 
@@ -404,8 +405,8 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
       );
     } catch (error) {
       log("error: ${error.toString()}");
-      emit(
-          LearningCentreState.failedMarkAnswerHelpful(error: error.toString()));
+      emit(LearningCentreState.failedMarkAnswerHelpful(
+          error: "Failed to mark answer helpful"));
     }
   }
 
@@ -417,7 +418,7 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
       emit(LearningCentreState.successAddAnswer());
     } catch (error) {
       log("error: ${error.toString()}");
-      emit(LearningCentreState.failedAddAnswer(error: error.toString()));
+      emit(LearningCentreState.failedAddAnswer(error: "Failed to add answer"));
     }
   }
 
@@ -429,11 +430,13 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
       emit(LearningCentreState.successAddAnswer());
     } catch (error) {
       log("error: ${error.toString()}");
-      emit(LearningCentreState.failedAddAnswer(error: error.toString()));
+      emit(LearningCentreState.failedAddAnswer(
+          error: "Failed to update answer"));
     }
   }
 
-  void updateQuestion({required int questionId, required String question}) async {
+  void updateQuestion(
+      {required int questionId, required String question}) async {
     log("questionId: $questionId, question: $question");
     try {
       await learningCentreRepo.updateQuestion(questionId, question);
@@ -441,20 +444,22 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
       emit(LearningCentreState.successAddAnswer());
     } catch (error) {
       log("error: ${error.toString()}");
-      emit(LearningCentreState.failedAddAnswer(error: error.toString()));
+      emit(LearningCentreState.failedAddAnswer(
+          error: "Failed to update question"));
     }
   }
 
   void addQuestion({required int lessonId, required String question}) async {
     log("lessonId: $lessonId, question: $question");
-  // emit(LearningCentreState.loadingAddAnswer());  
+    // emit(LearningCentreState.loadingAddAnswer());
     try {
       await learningCentreRepo.addQuestion(lessonId, question);
       log("question added successfully");
       emit(LearningCentreState.successAddAnswer());
     } catch (error) {
       log("error: ${error.toString()}");
-      emit(LearningCentreState.failedAddAnswer(error: error.toString()));
+      emit(
+          LearningCentreState.failedAddAnswer(error: "Failed to add question"));
     }
   }
 }

@@ -1,9 +1,13 @@
 import 'dart:developer';
 
+import 'package:chewie/chewie.dart';
 import 'package:e_learning_app/features/payment/data/repo/payment_repo.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:video_player/video_player.dart';
 
+import '../../../../core/data/models/course_info_model.dart';
 import '../../../../core/data/models/course_module_model.dart';
 import '../../../../core/data/models/course_modules_with_lessons.dart';
 import '../../../../core/data/models/course_review_model.dart';
@@ -11,6 +15,7 @@ import '../../../../core/data/models/lesson_module.dart';
 import '../../../../core/data/models/standard_response_body.dart';
 import '../../../../core/helpers/shared_pref_helper.dart';
 import '../../../../core/networking/api_result.dart';
+import '../../../../core/theming/app_colors.dart';
 import '../../data/models/updata_course_review_request_body.dart';
 import '../../data/repos/course_details_repo.dart';
 import 'course_details_state.dart';
@@ -29,13 +34,19 @@ class CourseDetailsCubit extends Cubit<CourseDetailsState> {
   String couponCode = '';
   String finalPrice = '';
   late String userId;
+  bool isEnrolled = false;
+  VideoPlayerController? videoPlayerController;
+  ChewieController? chewieController;
+  late CourseInfoModel courseInfoModel;
 
-  void getCourseDetails(int courseId) async {
+  void getCourseDetails(int courseId, CourseInfoModel courseinfo) async {
     emit(CourseDetailsState.courseDetailsLoading());
     try {
       final userId = await SharedPrefHelper.getString('userId');
+      courseInfoModel = courseinfo;
       this.userId = userId;
       final isEnrolledResponse = await courseDetailsRepo.isEnrolled(courseId);
+      isEnrolled = isEnrolledResponse;
 
       final courseModules =
           await courseDetailsRepo.getAllCourseModules(courseId);
@@ -165,6 +176,67 @@ class CourseDetailsCubit extends Cubit<CourseDetailsState> {
       emit(CourseDetailsState.updateCourseReviewSuccess(result.message));
     } catch (e) {
       emit(CourseDetailsState.updateCourseReviewFailure(error: e.toString()));
+    }
+  }
+
+  // initialize preview lesson
+  void initializePreviewLesson(LessonModule lesson) async {
+    emit(CourseDetailsState.loadingVideo());
+
+    if (chewieController != null) {
+      chewieController!.dispose();
+    }
+    if (videoPlayerController != null) {
+      videoPlayerController!.dispose();
+    }
+
+    videoPlayerController =
+        VideoPlayerController.networkUrl(Uri.parse(lesson.content!));
+
+    try {
+      await videoPlayerController!.initialize();
+
+      chewieController = ChewieController(
+        videoPlayerController: videoPlayerController!,
+        autoPlay: false,
+        looping: false,
+        aspectRatio: 16 / 9,
+        showOptions: true,
+        allowFullScreen: true,
+        allowMuting: true,
+        showControls: true,
+        materialProgressColors: ChewieProgressColors(
+          playedColor: AppColors.mainBlue,
+          handleColor: AppColors.mainBlue,
+          backgroundColor: AppColors.grey,
+          bufferedColor: AppColors.greyBlue.withAlpha(20),
+        ),
+        placeholder: Container(
+          color: Colors.black.withAlpha(150),
+          child: const Center(
+            child: CupertinoActivityIndicator(color: AppColors.mainBlue),
+          ),
+        ),
+      );
+      emit(CourseDetailsState.videoLoaded(
+          // videoPlayerController: videoPlayerController!,
+          // chewieController: chewieController!,
+          ));
+      log('Video loaded successfully');
+    } catch (e) {
+      log('Error loading video: $e');
+      emit(CourseDetailsState.videoLoadFailed(error: e.toString()));
+      videoPlayerController?.dispose();
+      chewieController?.dispose();
+    }
+  }
+
+    void initializeText(LessonModule lesson) {
+    emit(CourseDetailsState.loadingTextContent());
+    if (lesson.content != null) {
+      emit(CourseDetailsState.successTextContent());
+    } else {
+      emit(CourseDetailsState.failedTextContent());
     }
   }
 }

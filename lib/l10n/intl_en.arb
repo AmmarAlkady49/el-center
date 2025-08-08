@@ -328,7 +328,12 @@
   "no_curriculum_availables" : "No curriculum available",
   "delete_review" : "Delete Review",
   "update_review" : "Update Review",
-  "edit_review" : "Edit Review"
+  "edit_review" : "Edit Review",
+  "preview" : "Preview",
+  "full_access_benefits" : "Full access benefits",
+  "continue_browsing" : "Continue Browsing",
+  "get_access_to_full_course" : "Get access to all lessons, quizzes, and exclusive content by enrolling in the full course.",
+  "enjoyed_this_preview" : "Enjoyed this preview?"
 
  
 

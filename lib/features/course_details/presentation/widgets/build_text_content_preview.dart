@@ -1,211 +1,33 @@
-import 'dart:developer';
-
-import 'package:chewie/chewie.dart';
-import 'package:e_learning_app/core/helpers/spacing.dart';
-import 'package:e_learning_app/core/routing/app_routes.dart';
-import 'package:e_learning_app/core/theming/font_helper.dart';
-import 'package:e_learning_app/features/learning_centre/logic/cubit/learning_centre_cubit.dart';
+import 'package:e_learning_app/core/data/models/lesson_module.dart';
+import 'package:e_learning_app/features/course_details/logic/cubit/course_details_cubit.dart';
+import 'package:e_learning_app/features/course_details/logic/cubit/course_details_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/data/models/lesson_module.dart';
+import '../../../../core/helpers/spacing.dart';
+import '../../../../core/routing/app_routes.dart';
 import '../../../../core/theming/app_colors.dart';
+import '../../../../core/theming/font_helper.dart';
 import '../../../../generated/l10n.dart';
-import '../../logic/cubit/learning_centre_state.dart';
 
-class BuildContentPlayer extends StatefulWidget {
-  final List<LessonModule> lessons;
-  final LearningCentreCubit cubit;
-
-  const BuildContentPlayer(
-      {super.key, required this.lessons, required this.cubit});
-
-  @override
-  State<BuildContentPlayer> createState() => _BuildContentPlayerState();
-}
-
-class _BuildContentPlayerState extends State<BuildContentPlayer> {
-  LessonModule? lastLesson;
-
-  @override
-  void initState() {
-    super.initState();
-    _initializeCurrentLesson();
-  }
-
-  void _initializeCurrentLesson() {
-    if (widget.lessons.isNotEmpty && widget.cubit.currentLesson != null) {
-      final currentLesson = widget.cubit.currentLesson!;
-      lastLesson = currentLesson;
-
-      // Only initialize video if the content type is video
-      if (currentLesson.contentType == 'video' &&
-          currentLesson.content != null) {
-        widget.cubit.initializeVideo(currentLesson.content!);
-        widget.cubit.transcribeVideo(currentLesson.content!, currentLesson);
-      } else if (currentLesson.contentType == 'text' &&
-          currentLesson.content != null) {
-        widget.cubit.initializeText(currentLesson);
-        widget.cubit.transcribeVideo(currentLesson.content!, currentLesson);
-      }
-    }
-  }
-
-  @override
-  void didUpdateWidget(BuildContentPlayer oldWidget) {
-    super.didUpdateWidget(oldWidget);
-
-    // Check if the current lesson has changed
-    final currentLesson = widget.cubit.currentLesson;
-    if (currentLesson != null && currentLesson != lastLesson) {
-      lastLesson = currentLesson;
-
-      // Initialize video for new lesson if it's a video
-      if (currentLesson.contentType == 'video' &&
-          currentLesson.content != null) {
-        widget.cubit.initializeVideo(currentLesson.content!);
-        widget.cubit.transcribeVideo(currentLesson.content!, currentLesson);
-        log("called initailzed video");
-      } else if (currentLesson.contentType == 'text' &&
-          currentLesson.content != null) {
-        widget.cubit.initializeText(currentLesson);
-        widget.cubit.transcribeVideo(currentLesson.content!, currentLesson);
-        log("called initailzed text");
-      }
-    }
-  }
+class BuildTextContentPreview extends StatelessWidget {
+  final CourseDetailsCubit cubit;
+  final LessonModule lesson;
+  const BuildTextContentPreview(
+      {super.key, required this.cubit, required this.lesson});
 
   @override
   Widget build(BuildContext context) {
-    // Get current lesson
-    final currentLesson = widget.cubit.currentLesson;
-
-    if (currentLesson == null) {
-      return Container(
-        height: 217.h,
-        decoration: BoxDecoration(
-            border: BorderDirectional(
-                bottom: BorderSide(color: Colors.black, width: 1.w))),
-        child: Center(
-          child: Text('No lesson selected'),
-        ),
-      );
-    }
-
-    return Container(
-      height: 217.h,
-      decoration: BoxDecoration(
-          border: BorderDirectional(
-              bottom: BorderSide(color: Colors.black, width: 1.w))),
-      child: _buildContentBasedOnType(widget.cubit, currentLesson),
-    );
-  }
-
-  // Rest of your methods remain the same...
-  Widget _buildContentBasedOnType(
-      LearningCentreCubit cubit, LessonModule lesson) {
-    if (lesson.contentType == 'video') {
-      return _buildVideoPlayer(cubit);
-    } else if (lesson.contentType == 'text') {
-      return _buildTextContent(lesson, cubit);
-    } else {
-      return _buildUnsupportedContent();
-    }
-  }
-
-  Widget _buildVideoPlayer(LearningCentreCubit cubit) {
-    return BlocBuilder<LearningCentreCubit, LearningCentreState>(
-      bloc: cubit,
-      buildWhen: (previous, current) =>
-          current is LoadingVideo ||
-          current is VideoLoaded ||
-          current is VideoLoadFailed,
-      builder: (context, state) {
-        if (state is LoadingVideo) {
-          return Container(
-            color: AppColors.darkGreyBlue,
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CupertinoActivityIndicator(color: AppColors.mainBlue),
-                  SizedBox(height: 16),
-                  Text(
-                    S.of(context).loading_video,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        } else if (state is VideoLoaded) {
-          return cubit.chewieController != null
-              ? Chewie(controller: cubit.chewieController!)
-              : Container(
-                  color: AppColors.darkGreyBlue,
-                  child: Center(
-                    child: Text(
-                      S.of(context).failed_to_load_video,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                );
-        } else if (state is VideoLoadFailed) {
-          return Container(
-            color: AppColors.darkGreyBlue,
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.error_outline,
-                    color: Colors.white,
-                    size: 48,
-                  ),
-                  SizedBox(height: 16),
-                  Text(
-                    S.of(context).failed_to_load_video,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    state.error,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white70,
-                      fontSize: 12,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        }
-        return SizedBox.shrink();
-      },
-    );
-  }
-
-  Widget _buildTextContent(LessonModule lesson, LearningCentreCubit cubit) {
-    return BlocBuilder<LearningCentreCubit, LearningCentreState>(
+    return BlocBuilder<CourseDetailsCubit, CourseDetailsState>(
       bloc: cubit,
       buildWhen: (previous, current) => current is SuccessTextContent,
       builder: (context, state) {
         if (state is SuccessTextContent) {
           return GestureDetector(
-            onTap: () => Navigator.pushNamed(context, AppRoutes.articleReading,
+            onTap: () => Navigator.pushNamed(
+                context, AppRoutes.freeArticleReadingPreview,
                 arguments: {'lesson': lesson, 'cubit': cubit}),
             child: Container(
               width: double.infinity,
@@ -428,13 +250,13 @@ class _BuildContentPlayerState extends State<BuildContentPlayer> {
           );
         } else {
           // return _buildUnsupportedContent();
-          return _buildLoadingContent();
+          return _buildLoadingContent(context);
         }
       },
     );
   }
 
-  Widget _buildLoadingContent() {
+  Widget _buildLoadingContent(BuildContext context) {
     return Container(
       color: AppColors.backgroundWiteColor,
       child: Center(
@@ -444,29 +266,6 @@ class _BuildContentPlayerState extends State<BuildContentPlayer> {
             CupertinoActivityIndicator(color: AppColors.mainBlue),
             verticalSpacing(16),
             Text(S.of(context).loading_content,
-                style: FontHelper.font16BlackW600(context).copyWith(
-                  color: AppColors.greyBlue,
-                )),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildUnsupportedContent() {
-    return Container(
-      color: AppColors.backgroundWiteColor,
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.warning_outlined,
-              size: 48.sp,
-              color: AppColors.greyBlue,
-            ),
-            verticalSpacing(16),
-            Text(S.of(context).unsupported_content_type,
                 style: FontHelper.font16BlackW600(context).copyWith(
                   color: AppColors.greyBlue,
                 )),

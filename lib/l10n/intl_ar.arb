@@ -328,7 +328,13 @@
   "no_curriculum_availables" : "لا يوجد دروس متاحة",
   "delete_review" : "حذف التقييم",
   "update_review" : "تحديث التقييم",
-  "edit_review" : "تعديل التقييم"
+  "edit_review" : "تعديل التقييم",
+  "preview" : "معاينة",
+  "full_access_benefits" : "مزايا الوصول الكامل",
+  "continue_browsing" : "متابعة التصفح",
+  "get_access_to_full_course" : "احصل علي جميع محتوي الدرس والاختبارات والمحتوى الخاص بالدرس عن طريق التسجيل في كورس الكامل.",
+  "enjoyed_this_preview" : "استمتعت بمعاينة هذا الدرس?"
+
 
 
 

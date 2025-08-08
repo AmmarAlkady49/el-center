@@ -105,11 +105,11 @@ class BuildPriceAndActions extends StatelessWidget {
               current is EnrollmentFailure,
           listener: (context, state) {
             if (state is EnrollmentSuccess) {
-              cubit.getCourseDetails(courseBasicInfo.id);
+              cubit.getCourseDetails(courseBasicInfo.id, courseBasicInfo);
               HelperDialogs.showSuccess(state.message, context);
             }
             if (state is EnrollmentFailure) {
-              cubit.getCourseDetails(courseBasicInfo.id);
+              cubit.getCourseDetails(courseBasicInfo.id, courseBasicInfo);
               HelperDialogs.showError(state.error, context);
             }
           },
