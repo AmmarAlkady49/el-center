@@ -37,8 +37,6 @@ class BuildQuestionContentForQAndATapBar extends StatelessWidget {
         _buildQuestionContainer(context),
         verticalSpacing(16),
         _buildActionRow(context),
-        verticalSpacing(16),
-        Divider(color: AppColors.grey.withAlpha(90)),
       ],
     );
   }

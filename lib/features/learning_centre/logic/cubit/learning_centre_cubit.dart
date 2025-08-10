@@ -34,6 +34,7 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
   List<CourseModulesWithLessons> modulesWithLessons = [];
   int selectedLessonIndex = 0;
   Set<int> expandedModules = {0};
+  Set<int> expandedQuestions = {};
   int selectedmoduleIndex = 0;
 
   Set<int> completedLessonIds = {};
@@ -256,6 +257,17 @@ class LearningCentreCubit extends Cubit<LearningCentreState> {
       expandedModules.add(index);
     }
     log('toggleModuleExpanded: expandedModules = $expandedModules');
+    // Force a new state emission to trigger rebuild
+    emit(LearningCentreState.moduleExpandedStateChanged());
+  }
+
+  void toggleQuestionExpanded(int index) {
+    if (expandedQuestions.contains(index)) {
+      expandedQuestions.remove(index);
+    } else {
+      expandedQuestions.add(index);
+    }
+    log('toggleQuestionExpanded: expandedQuestions = $expandedQuestions');
     // Force a new state emission to trigger rebuild
     emit(LearningCentreState.moduleExpandedStateChanged());
   }

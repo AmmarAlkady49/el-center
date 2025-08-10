@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:e_learning_app/core/helpers/helper_functions.dart';
 import 'package:e_learning_app/features/learning_centre/logic/cubit/learning_centre_cubit.dart';
 import 'package:e_learning_app/features/learning_centre/presentation/widgets/build_error_state_for_q_and_a_tap_bar_widget.dart';
@@ -98,11 +100,7 @@ class _BuildQAndATapBarViewState extends State<BuildQAndATapBarView> {
           }
 
           if (state is FailedMarkAnswerHelpful) {
-            return HelperDialogs.showError(
-              state.error,
-              context,
-              topPosition: true,
-            );
+            return HelperDialogs.showError(state.error, context);
           }
         },
         builder: (context, state) {
@@ -112,9 +110,7 @@ class _BuildQAndATapBarViewState extends State<BuildQAndATapBarView> {
             );
           } else if (state is SuccessGettingQAndAData) {
             if (state.questions.isEmpty) {
-              return EmptyQAndAWidget(
-                cubit: widget.cubit,
-              );
+              return EmptyQAndAWidget(cubit: widget.cubit);
             }
             return SingleChildScrollView(
               child: Column(
@@ -155,7 +151,23 @@ class _BuildQAndATapBarViewState extends State<BuildQAndATapBarView> {
         final answers = state.answers
             .where((answer) => answer.questionId == question.id)
             .toList();
-        return _buildQuestionCard(question, answers, userId, state);
+
+        return InkWell(
+          onTap: () {
+            widget.cubit.toggleModuleExpanded(index);
+            log("question id: ${question.id}");
+          },
+          child: BlocBuilder<LearningCentreCubit, LearningCentreState>(
+            bloc: widget.cubit,
+            buildWhen: (previous, current) =>
+                current is ModuleExpandedStateChanged,
+            builder: (context, expansionState) {
+              final isExpanded = widget.cubit.expandedModules.contains(index);
+              return _buildQuestionCard(
+                  question, answers, userId, state, isExpanded);
+            },
+          ),
+        );
       },
     );
   }
@@ -164,7 +176,8 @@ class _BuildQAndATapBarViewState extends State<BuildQAndATapBarView> {
       QuestionModelForQAndA question,
       List<AnswerModelForQAndA> answers,
       String userId,
-      LearningCentreState state) {
+      SuccessGettingQAndAData state,
+      bool isExpanded) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       decoration: BoxDecoration(
@@ -184,7 +197,7 @@ class _BuildQAndATapBarViewState extends State<BuildQAndATapBarView> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Question Header
-            _buildQuestionHeader(question),
+            _buildQuestionHeader(question, isExpanded),
 
             verticalSpacing(16),
 
@@ -196,11 +209,9 @@ class _BuildQAndATapBarViewState extends State<BuildQAndATapBarView> {
               userId: userId,
             ),
 
-            verticalSpacing(16),
-
             // Answers Section
-            if (answers.isNotEmpty) ...[
-              verticalSpacing(24),
+            if (answers.isNotEmpty && isExpanded) ...[
+              verticalSpacing(12),
               _buildAnswersSection(answers, userId, state),
             ],
           ],
@@ -209,7 +220,7 @@ class _BuildQAndATapBarViewState extends State<BuildQAndATapBarView> {
     );
   }
 
-  Widget _buildQuestionHeader(QuestionModelForQAndA question) {
+  Widget _buildQuestionHeader(QuestionModelForQAndA question, bool isExpanded) {
     return Row(
       children: [
         HelperFunctions.getInstructorImage(question.creatorImage, 40),
@@ -267,10 +278,14 @@ class _BuildQAndATapBarViewState extends State<BuildQAndATapBarView> {
             color: AppColors.mainBlue.withAlpha(30),
           ),
           child: Center(
-            child: Icon(
-              Icons.keyboard_arrow_down_rounded,
-              color: AppColors.mainBlue,
-              size: 21.sp,
+            child: AnimatedRotation(
+              turns: isExpanded ? 0.5 : 0,
+              duration: const Duration(milliseconds: 300),
+              child: Icon(
+                Icons.keyboard_arrow_down_rounded,
+                color: AppColors.mainBlue,
+                size: 21.sp,
+              ),
             ),
           ),
         ),
@@ -284,7 +299,6 @@ class _BuildQAndATapBarViewState extends State<BuildQAndATapBarView> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Answers List
-
         ListView.separated(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
