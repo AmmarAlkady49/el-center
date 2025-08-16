@@ -23,6 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Correct": MessageLookupByLibrary.simpleMessage("Correct"),
+    "Enter_course_title": MessageLookupByLibrary.simpleMessage(
+      "Enter course title",
+    ),
     "Excellent": MessageLookupByLibrary.simpleMessage("Excellent"),
     "Friday": MessageLookupByLibrary.simpleMessage("Friday"),
     "Good_Job": MessageLookupByLibrary.simpleMessage("Good Job"),
@@ -44,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Account Settings",
     ),
     "active": MessageLookupByLibrary.simpleMessage("Active"),
+    "add_image": MessageLookupByLibrary.simpleMessage("Add Image"),
     "ai_assistant": MessageLookupByLibrary.simpleMessage("AI Assistant"),
     "ai_help_description": MessageLookupByLibrary.simpleMessage(
       "This AI assistant can make mistakes. Always verify important information and use critical thinking when applying the responses to your learning.",
@@ -73,6 +77,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "available_languages": MessageLookupByLibrary.simpleMessage(
       "Available Languages",
     ),
+    "avg_completion_rate": MessageLookupByLibrary.simpleMessage(
+      "Avg. Completion Rate",
+    ),
+    "away_from_completion": MessageLookupByLibrary.simpleMessage(
+      "away from completion",
+    ),
     "be_first_to_ask_question": MessageLookupByLibrary.simpleMessage(
       "Be the first to ask a question",
     ),
@@ -91,20 +101,32 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "browse_courses": MessageLookupByLibrary.simpleMessage("Browse Courses"),
     "by": MessageLookupByLibrary.simpleMessage("by"),
+    "camera": MessageLookupByLibrary.simpleMessage("Camera"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "categories": MessageLookupByLibrary.simpleMessage("Categories"),
+    "category": MessageLookupByLibrary.simpleMessage("Category"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("ع"),
     "change_language": MessageLookupByLibrary.simpleMessage("Change Language"),
     "change_password": MessageLookupByLibrary.simpleMessage("Change Password"),
     "chat_cleared": MessageLookupByLibrary.simpleMessage("Chat Cleared"),
+    "choose_from_gallery": MessageLookupByLibrary.simpleMessage(
+      "Choose from four gallery",
+    ),
     "choose_payment_method": MessageLookupByLibrary.simpleMessage(
       "Choose Payment Method",
     ),
+    "choose_the_best_category_for_your_course":
+        MessageLookupByLibrary.simpleMessage(
+          "Choose the best category for your course",
+        ),
     "choose_the_correct_answer": MessageLookupByLibrary.simpleMessage(
       "Choose the correct answer:",
     ),
     "choose_your_preferred_language": MessageLookupByLibrary.simpleMessage(
       "Choose your preferred language",
+    ),
+    "clear_current_selection": MessageLookupByLibrary.simpleMessage(
+      "Clear current selection",
     ),
     "complete_lessons_to_unlock": MessageLookupByLibrary.simpleMessage(
       "Complete lessons to unlock their quizzes and test your knowledge.",
@@ -116,6 +138,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Complete your enrollment for",
     ),
     "completed": MessageLookupByLibrary.simpleMessage("Completed"),
+    "completion": MessageLookupByLibrary.simpleMessage("Completion"),
+    "completion_rate": MessageLookupByLibrary.simpleMessage("Completion Rate"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage("Confirm Password"),
     "continueWithGoogle": MessageLookupByLibrary.simpleMessage(
       "Continue with Google",
@@ -133,12 +157,28 @@ class MessageLookup extends MessageLookupByLibrary {
       "Coupon code is invalid",
     ),
     "course": MessageLookupByLibrary.simpleMessage("Course"),
+    "course_available": MessageLookupByLibrary.simpleMessage(
+      "Course Avaliable",
+    ),
     "course_content": MessageLookupByLibrary.simpleMessage("Course Content"),
+    "course_created_successfully": MessageLookupByLibrary.simpleMessage(
+      "course created successfully",
+    ),
     "course_description": MessageLookupByLibrary.simpleMessage(
       "Course Description",
     ),
     "course_details": MessageLookupByLibrary.simpleMessage("Course Details"),
+    "course_language": MessageLookupByLibrary.simpleMessage("Course Language"),
+    "course_requirements": MessageLookupByLibrary.simpleMessage(
+      "Course Requirements",
+    ),
+    "course_settings": MessageLookupByLibrary.simpleMessage("Course Settings"),
+    "course_title": MessageLookupByLibrary.simpleMessage("Course Title"),
     "courses": MessageLookupByLibrary.simpleMessage("Courses"),
+    "create_course": MessageLookupByLibrary.simpleMessage("Create Course"),
+    "create_your_first_course": MessageLookupByLibrary.simpleMessage(
+      "Create your first course",
+    ),
     "created": MessageLookupByLibrary.simpleMessage("Created"),
     "cridet_card": MessageLookupByLibrary.simpleMessage("Credit Card"),
     "cridet_card_or_debit": MessageLookupByLibrary.simpleMessage(
@@ -155,6 +195,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "delete_question": MessageLookupByLibrary.simpleMessage("Delete Question"),
     "delete_review": MessageLookupByLibrary.simpleMessage("Delete Review"),
+    "describe_what_student_will_learn_in_this_course":
+        MessageLookupByLibrary.simpleMessage(
+          "Describe what students will learn in this course",
+        ),
     "description": MessageLookupByLibrary.simpleMessage("Description"),
     "details": MessageLookupByLibrary.simpleMessage("Details"),
     "didnotReceiveCode": MessageLookupByLibrary.simpleMessage(
@@ -166,8 +210,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account?",
     ),
+    "duration": MessageLookupByLibrary.simpleMessage("Duration"),
     "edit": MessageLookupByLibrary.simpleMessage("Edit"),
     "edit_answer": MessageLookupByLibrary.simpleMessage("Edit Answer"),
+    "edit_course": MessageLookupByLibrary.simpleMessage("Edit Course"),
     "edit_review": MessageLookupByLibrary.simpleMessage("Edit Review"),
     "edited": MessageLookupByLibrary.simpleMessage("Edited"),
     "egp_currency": MessageLookupByLibrary.simpleMessage("EGP"),
@@ -178,6 +224,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailVerificationMessage": MessageLookupByLibrary.simpleMessage(
       "Please check your email to verify your account",
     ),
+    "enable_ai_assistant": MessageLookupByLibrary.simpleMessage(
+      "Enable AI Assistant",
+    ),
     "enjoyed_this_preview": MessageLookupByLibrary.simpleMessage(
       "Enjoyed this preview?",
     ),
@@ -187,6 +236,16 @@ class MessageLookup extends MessageLookupByLibrary {
       "Enrolled Courses",
     ),
     "enter": MessageLookupByLibrary.simpleMessage("Enter"),
+    "enter_course_price": MessageLookupByLibrary.simpleMessage(
+      "Enter course price (e.g., 299 EGP)",
+    ),
+    "enter_total_course_duration": MessageLookupByLibrary.simpleMessage(
+      "Enter course duration (e.g., 15h)",
+    ),
+    "error": MessageLookupByLibrary.simpleMessage("Error"),
+    "error_while_uploading_image": MessageLookupByLibrary.simpleMessage(
+      "Error while uploading image",
+    ),
     "excellent": MessageLookupByLibrary.simpleMessage("Excellent"),
     "explain_this_lesson": MessageLookupByLibrary.simpleMessage(
       "Explain this lesson to me",
@@ -219,6 +278,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "full_access_benefits": MessageLookupByLibrary.simpleMessage(
       "Full access benefits",
     ),
+    "gallery": MessageLookupByLibrary.simpleMessage("Gallery"),
     "gender": MessageLookupByLibrary.simpleMessage("Gender"),
     "get_access_to_full_course": MessageLookupByLibrary.simpleMessage(
       "Get access to all lessons, quizzes, and exclusive content by enrolling in the full course.",
@@ -238,6 +298,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "• Help others understand if this course is right for them",
     ),
     "helpful": MessageLookupByLibrary.simpleMessage("Helpful"),
+    "hi": MessageLookupByLibrary.simpleMessage("Hi"),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "hours": MessageLookupByLibrary.simpleMessage("hours"),
     "how_would_you_rate_this_course": MessageLookupByLibrary.simpleMessage(
@@ -253,6 +314,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "it_and_software": MessageLookupByLibrary.simpleMessage("IT and Software"),
     "join_now": MessageLookupByLibrary.simpleMessage("Join Now"),
+    "keep_going_you_are": MessageLookupByLibrary.simpleMessage(
+      "Keep going! You\'re",
+    ),
     "keep_it_constructive": MessageLookupByLibrary.simpleMessage(
       "• Keep it constructive and honest",
     ),
@@ -279,6 +343,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "lessons_completed_this_week": MessageLookupByLibrary.simpleMessage(
       "Lessons completed this week",
     ),
+    "list_prerequisites_or_requirements_for_students":
+        MessageLookupByLibrary.simpleMessage(
+          "List prerequisites or requirements for students",
+        ),
     "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
     "loading_content": MessageLookupByLibrary.simpleMessage(
       "Loading content...",
@@ -295,7 +363,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Loading your profile...",
     ),
     "logout": MessageLookupByLibrary.simpleMessage("Logout"),
+    "make_this_course_visible_to_students":
+        MessageLookupByLibrary.simpleMessage(
+          "Make this course visible to students",
+        ),
     "male": MessageLookupByLibrary.simpleMessage("Male"),
+    "manage_content": MessageLookupByLibrary.simpleMessage("Manage Content"),
     "manage_your_personal_information": MessageLookupByLibrary.simpleMessage(
       "Manage your personal information",
     ),
@@ -307,6 +380,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Mobile Development",
     ),
     "mobile_wallet": MessageLookupByLibrary.simpleMessage("Mobile Wallet"),
+    "modify": MessageLookupByLibrary.simpleMessage("Modify"),
     "modules": MessageLookupByLibrary.simpleMessage("modules"),
     "mon": MessageLookupByLibrary.simpleMessage("Mon"),
     "more_details": MessageLookupByLibrary.simpleMessage("More Details"),
@@ -316,6 +390,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "My Learning Journey",
     ),
     "my_profile": MessageLookupByLibrary.simpleMessage("My Profile"),
+    "need_help_getting_started": MessageLookupByLibrary.simpleMessage(
+      "Need help getting started?",
+    ),
     "network_devops": MessageLookupByLibrary.simpleMessage(
       "Networking, DevOps, and more",
     ),
@@ -332,6 +409,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "no_courses_found": MessageLookupByLibrary.simpleMessage(
       "No courses found",
     ),
+    "no_courses_yet": MessageLookupByLibrary.simpleMessage("No Courses Yet"),
     "no_curriculum_availables": MessageLookupByLibrary.simpleMessage(
       "No curriculum available",
     ),
@@ -444,9 +522,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "pleaseEnterYourPhoneNumber": MessageLookupByLibrary.simpleMessage(
       "Please enter your phone number",
     ),
+    "please_enter_course_title": MessageLookupByLibrary.simpleMessage(
+      "Please enter course title",
+    ),
     "please_note": MessageLookupByLibrary.simpleMessage("Please note"),
     "please_provide_a_rating": MessageLookupByLibrary.simpleMessage(
       "Please provide a rating and write a review",
+    ),
+    "please_select_a_category": MessageLookupByLibrary.simpleMessage(
+      "Please select a category",
+    ),
+    "please_select_a_language": MessageLookupByLibrary.simpleMessage(
+      "Please select a language",
+    ),
+    "please_select_a_thumbnail": MessageLookupByLibrary.simpleMessage(
+      "Please select a thumbnail",
     ),
     "please_wait_for_lesson_content": MessageLookupByLibrary.simpleMessage(
       "Please wait for lesson content to load...",
@@ -464,20 +554,30 @@ class MessageLookup extends MessageLookupByLibrary {
     "price": MessageLookupByLibrary.simpleMessage("Price"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "progress": MessageLookupByLibrary.simpleMessage("Progress"),
+    "provide_ai_powerd_help_to_students": MessageLookupByLibrary.simpleMessage(
+      "Provide AI-powered help to students",
+    ),
+    "published": MessageLookupByLibrary.simpleMessage("Published"),
     "q_and_a": MessageLookupByLibrary.simpleMessage("Q&A"),
     "question": MessageLookupByLibrary.simpleMessage("Question"),
     "questions": MessageLookupByLibrary.simpleMessage("Questions"),
+    "quick_actions": MessageLookupByLibrary.simpleMessage("Quick Actions"),
     "quiz_available_for_this_lesson": MessageLookupByLibrary.simpleMessage(
       "Quiz is available for this lesson.",
     ),
     "quiz_ready": MessageLookupByLibrary.simpleMessage("Quiz is ready!"),
     "quizzes": MessageLookupByLibrary.simpleMessage("Quizzes"),
     "ratings": MessageLookupByLibrary.simpleMessage("Ratings"),
+    "reSignin": MessageLookupByLibrary.simpleMessage("Sign in again"),
     "read_article": MessageLookupByLibrary.simpleMessage("Read Article"),
     "reading": MessageLookupByLibrary.simpleMessage("Reading"),
+    "ready_to_inspire": MessageLookupByLibrary.simpleMessage(
+      "Ready to inspire minds today?",
+    ),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "remaining": MessageLookupByLibrary.simpleMessage("Remaining"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
+    "remove_image": MessageLookupByLibrary.simpleMessage("Remove Image"),
     "reply": MessageLookupByLibrary.simpleMessage("Reply"),
     "reply_to_question": MessageLookupByLibrary.simpleMessage(
       "Reply to question",
@@ -510,6 +610,17 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "see_all": MessageLookupByLibrary.simpleMessage("See All"),
     "selectCountry": MessageLookupByLibrary.simpleMessage("Select Country"),
+    "select_category": MessageLookupByLibrary.simpleMessage("Select Category"),
+    "select_course_language": MessageLookupByLibrary.simpleMessage(
+      "Select Course Language",
+    ),
+    "select_image_source": MessageLookupByLibrary.simpleMessage(
+      "Select Image Source",
+    ),
+    "select_the_primary_language_for_instruction":
+        MessageLookupByLibrary.simpleMessage(
+          "Select the primary language for instruction",
+        ),
     "send": MessageLookupByLibrary.simpleMessage("Send"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "share_your_thoughts": MessageLookupByLibrary.simpleMessage(
@@ -534,6 +645,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "start_conversation_ai": MessageLookupByLibrary.simpleMessage(
       "Start a conversation with AI",
     ),
+    "start_creating_courses_message": MessageLookupByLibrary.simpleMessage(
+      "Start creating courses and share your knowledge with the world.",
+    ),
     "start_learning_today": MessageLookupByLibrary.simpleMessage(
       "Start learning today",
     ),
@@ -546,15 +660,27 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "status": MessageLookupByLibrary.simpleMessage("Status"),
     "student": MessageLookupByLibrary.simpleMessage("Student"),
+    "student_enrolled": MessageLookupByLibrary.simpleMessage(
+      "students enrolled",
+    ),
+    "students": MessageLookupByLibrary.simpleMessage("Students"),
     "submit_quiz": MessageLookupByLibrary.simpleMessage("Submit Quiz"),
     "submit_review": MessageLookupByLibrary.simpleMessage("Submit Review"),
+    "success": MessageLookupByLibrary.simpleMessage("Success"),
     "summarize_content": MessageLookupByLibrary.simpleMessage(
       "Summarize the content for me",
     ),
     "sun": MessageLookupByLibrary.simpleMessage("Sun"),
+    "take_a_new_photo": MessageLookupByLibrary.simpleMessage(
+      "Take a new photo",
+    ),
     "tap_the_stars_to_rate_your_experience":
         MessageLookupByLibrary.simpleMessage(
           "Tap the stars to rate your experience with this course.",
+        ),
+    "tap_to_select_an_image_from_camera_or_gallery":
+        MessageLookupByLibrary.simpleMessage(
+          "Tap to select an image from camera or gallery",
         ),
     "teacher": MessageLookupByLibrary.simpleMessage("Teacher"),
     "tell_others_about_your_experience_with_this_course":
@@ -569,18 +695,21 @@ class MessageLookup extends MessageLookupByLibrary {
       "This lesson is an article",
     ),
     "thu": MessageLookupByLibrary.simpleMessage("Thu"),
+    "thumbnail": MessageLookupByLibrary.simpleMessage("Thumbnail"),
     "tips_for_a_helpful_review": MessageLookupByLibrary.simpleMessage(
       "Tips for a helpful review",
     ),
     "total": MessageLookupByLibrary.simpleMessage("Total"),
+    "total_courses": MessageLookupByLibrary.simpleMessage("Total Courses"),
     "total_length": MessageLookupByLibrary.simpleMessage("total length"),
     "total_quizzes": MessageLookupByLibrary.simpleMessage("Total Quizzes"),
+    "total_students": MessageLookupByLibrary.simpleMessage("Total Students"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("Try Again"),
     "try_adjusting_your_search": MessageLookupByLibrary.simpleMessage(
       "Try adjusting your search terms\nor explore our categories below",
     ),
     "tue": MessageLookupByLibrary.simpleMessage("Tue"),
-    "typeYourEmail": MessageLookupByLibrary.simpleMessage("Type your email"),
+    "typeYourEmail": MessageLookupByLibrary.simpleMessage("Enter your email"),
     "typeYourFirstName": MessageLookupByLibrary.simpleMessage(
       "Type your first name",
     ),
@@ -588,7 +717,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Type your last name",
     ),
     "typeYourPassword": MessageLookupByLibrary.simpleMessage(
-      "Type your password",
+      "Enter your password",
     ),
     "type_message": MessageLookupByLibrary.simpleMessage("Type Message"),
     "typing": MessageLookupByLibrary.simpleMessage("Typing..."),
@@ -596,6 +725,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Unsupported content type",
     ),
     "update": MessageLookupByLibrary.simpleMessage("Update"),
+    "update_course": MessageLookupByLibrary.simpleMessage("Update Course"),
     "update_review": MessageLookupByLibrary.simpleMessage("Update Review"),
     "update_your_password": MessageLookupByLibrary.simpleMessage(
       "Update your password",
@@ -615,7 +745,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "very_good": MessageLookupByLibrary.simpleMessage("Very Good"),
     "video": MessageLookupByLibrary.simpleMessage("Video"),
     "view_all": MessageLookupByLibrary.simpleMessage("View All"),
+    "view_analytics": MessageLookupByLibrary.simpleMessage("View Analytics"),
     "view_course": MessageLookupByLibrary.simpleMessage("View Course"),
+    "view_details": MessageLookupByLibrary.simpleMessage("View Details"),
     "was": MessageLookupByLibrary.simpleMessage("was"),
     "web_development": MessageLookupByLibrary.simpleMessage("Web Development"),
     "wed": MessageLookupByLibrary.simpleMessage("Wed"),
@@ -630,5 +762,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "you_save": MessageLookupByLibrary.simpleMessage("you save"),
     "your_courses": MessageLookupByLibrary.simpleMessage("Your Courses"),
     "your_progress": MessageLookupByLibrary.simpleMessage("Your Progress"),
+    "your_teaching_overView": MessageLookupByLibrary.simpleMessage(
+      "Your Teaching Overview",
+    ),
   };
 }
