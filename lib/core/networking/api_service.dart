@@ -1,24 +1,39 @@
 import 'package:dio/dio.dart';
+import 'package:retrofit/http.dart'
+    show
+        RestApi,
+        POST,
+        GET,
+        PUT,
+        DELETE,
+        MultiPart,
+        Part,
+        Path,
+        Query,
+        Queries,
+        Body;
+
 import 'package:e_learning_app/core/data/models/course_module_model.dart';
 import 'package:e_learning_app/core/data/models/paginated_course_response.dart';
 import 'package:e_learning_app/core/data/models/profile_account_model.dart';
 import 'package:e_learning_app/core/networking/api_constants.dart';
-import 'package:e_learning_app/features/login/data/models/login_response_body.dart';
-import 'package:retrofit/http.dart';
+import 'package:e_learning_app/student_features/login/data/models/login_response_body.dart';
 
-import '../../features/authVerification/data/model/active_account_request_body.dart';
-import '../../features/authVerification/data/model/active_account_response_body.dart';
-import '../../features/course_details/data/models/add_course_review_request_body.dart';
-import '../../features/course_details/data/models/updata_course_review_request_body.dart';
-import '../../features/learning_centre/data/model/answer_model_for_q_and_a.dart';
-import '../../features/learning_centre/data/model/question_model_for_q_and_a.dart';
-import '../../features/learning_centre/data/model/quiz_model.dart';
-import '../../features/login/data/models/login_request_body.dart';
-import '../../features/my_courses/data/model/student_enrollments_model.dart';
-import '../../features/signup/data/models/signup_request_body.dart';
-import '../../features/signup/data/models/signup_response_body.dart';
+import '../../student_features/authVerification/data/model/active_account_request_body.dart';
+import '../../student_features/authVerification/data/model/active_account_response_body.dart';
+import '../../student_features/course_details/data/models/add_course_review_request_body.dart';
+import '../../student_features/course_details/data/models/updata_course_review_request_body.dart';
+import '../../student_features/learning_centre/data/model/answer_model_for_q_and_a.dart';
+import '../../student_features/learning_centre/data/model/question_model_for_q_and_a.dart';
+import '../../student_features/learning_centre/data/model/quiz_model.dart';
+import '../../student_features/login/data/models/login_request_body.dart';
+import '../../student_features/my_courses/data/model/student_enrollments_model.dart';
+import '../../student_features/signup/data/models/signup_request_body.dart';
+import '../../student_features/signup/data/models/signup_response_body.dart';
 import '../data/models/category_model.dart';
 import '../data/models/completed_lesson_model.dart';
+import '../data/models/course_enrollments_response_model.dart';
+import '../data/models/course_info_model.dart';
 import '../data/models/course_review_model.dart';
 import '../data/models/lesson_module.dart';
 import '../data/models/standard_response_body.dart';
@@ -171,5 +186,51 @@ abstract class ApiService {
     @Part(name: 'Bio') String bio,
     @Part(name: 'Country') String country,
     @Part(name: 'ProfilePicture') String profilePicture,
+  );
+
+  @GET(ApiConstants.getAllApprovedInstructorCourses)
+  Future<List<CourseInfoModel>> getAllApprovedInstructorCourses(
+    @Path("instructorId") String instructorId,
+  );
+
+  @GET(ApiConstants.getStudentsCount)
+  Future<int> getStudentsCount(
+    @Path("courseId") int courseId,
+  );
+
+  @POST(ApiConstants.addCourse)
+  @MultiPart()
+  Future<StandardResponseBody> addCourse(
+    @Part(name: 'Title') String title,
+    @Part(name: 'Description') String description,
+    @Part(name: 'Requirements') String requirements,
+    @Part(name: 'Price') double price,
+    @Part(name: 'Thumbnail') MultipartFile thumbnailFile,
+    @Part(name: 'IsActive') bool isActive,
+    @Part(name: 'DurationInHours') int durationInHours,
+    @Part(name: 'CategoryId') int categoryId,
+    @Part(name: 'UseAIAssistant') bool useAIAssistant,
+    @Part(name: 'CourseLanguage') String courseLanguage,
+  );
+
+  @GET(ApiConstants.getCourseEnrollments)
+  Future<List<CourseEnrollmentsResponseModel>> getCourseEnrollments(
+    @Query("courseId") int courseId,
+  );
+
+  @PUT(ApiConstants.updateCourse)
+  @MultiPart()
+  Future<StandardResponseBody> updateCourse(
+    @Part(name: 'Id') int id,
+    @Part(name: 'Title') String title,
+    @Part(name: 'Description') String description,
+    @Part(name: 'Requirements') String requirements,
+    @Part(name: 'Price') double price,
+    @Part(name: 'Thumbnail') MultipartFile? thumbnailFile,
+    @Part(name: 'IsActive') bool isActive,
+    @Part(name: 'DurationInHours') int durationInHours,
+    @Part(name: 'CategoryId') int categoryId,
+    @Part(name: 'UseAIAssistant') bool useAIAssistant,
+    @Part(name: 'CourseLanguage') String courseLanguage,
   );
 }

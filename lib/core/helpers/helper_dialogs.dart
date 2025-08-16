@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../features/learning_centre/data/model/question_model_for_q_and_a.dart';
+import '../../student_features/learning_centre/data/model/question_model_for_q_and_a.dart';
 import '../../generated/l10n.dart';
 import '../theming/app_colors.dart';
 import '../theming/font_helper.dart';

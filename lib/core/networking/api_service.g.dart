@@ -299,9 +299,7 @@ class _ApiService implements ApiService {
     late List<LessonModule>? _value;
     try {
       _value = _result.data
-          ?.map(
-            (dynamic i) => LessonModule.fromJson(i as Map<String, dynamic>),
-          )
+          ?.map((dynamic i) => LessonModule.fromJson(i as Map<String, dynamic>))
           .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
@@ -581,9 +579,7 @@ class _ApiService implements ApiService {
     late List<CategoryModel> _value;
     try {
       _value = _result.data!
-          .map(
-            (dynamic i) => CategoryModel.fromJson(i as Map<String, dynamic>),
-          )
+          .map((dynamic i) => CategoryModel.fromJson(i as Map<String, dynamic>))
           .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
@@ -1018,6 +1014,212 @@ class _ApiService implements ApiService {
     late Map<String, String> _value;
     try {
       _value = _result.data!.cast<String, String>();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<CourseInfoModel>> getAllApprovedInstructorCourses(
+    String instructorId,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<List<CourseInfoModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/Course/get-all-approved-instructor-courses/${instructorId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<CourseInfoModel> _value;
+    try {
+      _value = _result.data!
+          .map(
+            (dynamic i) => CourseInfoModel.fromJson(i as Map<String, dynamic>),
+          )
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<int> getStudentsCount(int courseId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<int>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/Enrollment/students-count/${courseId}',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<int>(_options);
+    late int _value;
+    try {
+      _value = _result.data!;
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<StandardResponseBody> addCourse(
+    String title,
+    String description,
+    String requirements,
+    double price,
+    MultipartFile thumbnailFile,
+    bool isActive,
+    int durationInHours,
+    int categoryId,
+    bool useAIAssistant,
+    String courseLanguage,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    _data.fields.add(MapEntry('Title', title));
+    _data.fields.add(MapEntry('Description', description));
+    _data.fields.add(MapEntry('Requirements', requirements));
+    _data.fields.add(MapEntry('Price', price.toString()));
+    _data.files.add(MapEntry('Thumbnail',   thumbnailFile));
+    _data.fields.add(MapEntry('IsActive', isActive.toString()));
+    _data.fields.add(MapEntry('DurationInHours', durationInHours.toString()));
+    _data.fields.add(MapEntry('CategoryId', categoryId.toString()));
+    _data.fields.add(MapEntry('UseAIAssistant', useAIAssistant.toString()));
+    _data.fields.add(MapEntry('CourseLanguage', courseLanguage));
+    final _options = _setStreamType<StandardResponseBody>(
+      Options(
+        method: 'POST',
+        headers: _headers,
+        extra: _extra,
+        contentType: 'multipart/form-data',
+      )
+          .compose(
+            _dio.options,
+            '/Course/add-course',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late StandardResponseBody _value;
+    try {
+      _value = StandardResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<List<CourseEnrollmentsResponseModel>> getCourseEnrollments(
+    int courseId,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'courseId': courseId};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<List<CourseEnrollmentsResponseModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/Enrollment/get-course-enrollments',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<CourseEnrollmentsResponseModel> _value;
+    try {
+      _value = _result.data!
+          .map(
+            (dynamic i) => CourseEnrollmentsResponseModel.fromJson(
+              i as Map<String, dynamic>,
+            ),
+          )
+          .toList();
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<StandardResponseBody> updateCourse(
+    int id,
+    String title,
+    String description,
+    String requirements,
+    double price,
+    MultipartFile? thumbnailFile,
+    bool isActive,
+    int durationInHours,
+    int categoryId,
+    bool useAIAssistant,
+    String courseLanguage,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = FormData();
+    _data.fields.add(MapEntry('Id', id.toString()));
+    _data.fields.add(MapEntry('Title', title));
+    _data.fields.add(MapEntry('Description', description));
+    _data.fields.add(MapEntry('Requirements', requirements));
+    _data.fields.add(MapEntry('Price', price.toString()));
+    if (thumbnailFile != null) {
+      _data.files.add(MapEntry('Thumbnail', thumbnailFile));
+    }
+    _data.fields.add(MapEntry('IsActive', isActive.toString()));
+    _data.fields.add(MapEntry('DurationInHours', durationInHours.toString()));
+    _data.fields.add(MapEntry('CategoryId', categoryId.toString()));
+    _data.fields.add(MapEntry('UseAIAssistant', useAIAssistant.toString()));
+    _data.fields.add(MapEntry('CourseLanguage', courseLanguage));
+    final _options = _setStreamType<StandardResponseBody>(
+      Options(
+        method: 'PUT',
+        headers: _headers,
+        extra: _extra,
+        contentType: 'multipart/form-data',
+      )
+          .compose(
+            _dio.options,
+            '/Course/update-course',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late StandardResponseBody _value;
+    try {
+      _value = StandardResponseBody.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

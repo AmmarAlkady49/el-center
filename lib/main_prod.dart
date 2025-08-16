@@ -13,6 +13,7 @@ void main() async {
 
   await di.setupGetIt();
   final fetchedLang = await SharedPrefHelper.getString("language_code");
+  final userType = await SharedPrefHelper.getString("userType") ?? "Student";
   final languageCode =
       (fetchedLang != null && fetchedLang.isNotEmpty) ? fetchedLang : 'en';
 
@@ -24,7 +25,10 @@ void main() async {
     isLoggedInUser = false;
   }
   // await checkIfUserIsLoggedIn();
-  runApp(ElCenterApp(languageCode: languageCode));
+  runApp(ElCenterApp(
+    languageCode: languageCode,
+    isStudent: userType == "Student",
+  ));
 }
 
 Future<void> checkIfUserIsLoggedIn() async {

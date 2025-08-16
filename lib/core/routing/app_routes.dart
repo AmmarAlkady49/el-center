@@ -5,7 +5,8 @@ class AppRoutes {
   static const String signUpScreen = '/signUpScreen';
   static const String forgotPasswordScreen = '/forgotPasswordScreen';
   static const String verifyEmail = '/verifyEmail';
-  static const String bottomNavigation = '/bottomNavigation';
+  static const String studentBottomNavigation = '/studentBottomNavigation';
+  static const String instructorBottomNavigation = '/instructorBottomNavigation';
   static const String coursesByCategory = '/coursesByCategory';
   static const String courseDetails = '/courseDetails';
   static const String paymentWebView = '/payment_webview';
@@ -19,5 +20,7 @@ class AppRoutes {
   static const String freeArticleReadingPreview = '/freeArticleReadingPreview';
   static const String aiChatBot = '/aiChatBot';
   static const String previewLesson = '/previewLesson';
-
+  static const String yourCoursesPage = '/yourCoursesPage';
+  static const String createNewCourse = '/createNewCoursePage';
+  static const String editCourse = '/editCoursePage';
 }

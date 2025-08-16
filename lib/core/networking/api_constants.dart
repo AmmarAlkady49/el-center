@@ -52,6 +52,17 @@ class ApiConstants {
       "/CourseReview/delete-course-review/{reviewId}";
   static const String updateProfile  =
       "/Account/edit-profile";
+      // instructor
+  static const String getAllApprovedInstructorCourses  =
+      "/Course/get-all-approved-instructor-courses/{instructorId}";
+  static const String getStudentsCount  =
+      "/Enrollment/students-count/{courseId}";
+  static const String getCourseEnrollments  =
+      "/Enrollment/get-course-enrollments";
+  static const String addCourse  =
+      "/Course/add-course";
+  static const String updateCourse  =
+      "/Course/update-course";
 }
 
 class ApiErrors {

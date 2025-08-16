@@ -13,7 +13,7 @@ class CourseInfoModel {
   final DateTime? createdAt;
   final bool? isActive;
   final int? durationInHours;
-  final int? rating;
+  final double? rating;
   final String? instructorId;
   final String? instructorName;
   final int? categoryId;
@@ -21,6 +21,8 @@ class CourseInfoModel {
   final String? courseStatus;
   final String? instructorImage;
   final bool? isDeleted;
+  final bool? useAIAssistant;
+  final String? courseLanguage;
 
   CourseInfoModel({
     required this.id, 
@@ -40,6 +42,8 @@ class CourseInfoModel {
     this.courseStatus,
     this.instructorImage,
     this.isDeleted,
+    this.useAIAssistant,
+    this.courseLanguage
   });
 
   factory CourseInfoModel.fromJson(Map<String, dynamic> json) =>

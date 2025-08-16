@@ -19,7 +19,7 @@ CourseInfoModel _$CourseInfoModelFromJson(Map<String, dynamic> json) =>
           : DateTime.parse(json['createdAt'] as String),
       isActive: json['isActive'] as bool?,
       durationInHours: (json['durationInHours'] as num?)?.toInt(),
-      rating: (json['rating'] as num?)?.toInt(),
+      rating: (json['rating'] as num?)?.toDouble(),
       instructorId: json['instructorId'] as String?,
       instructorName: json['instructorName'] as String?,
       categoryId: (json['categoryId'] as num?)?.toInt(),
@@ -27,6 +27,8 @@ CourseInfoModel _$CourseInfoModelFromJson(Map<String, dynamic> json) =>
       courseStatus: json['courseStatus'] as String?,
       instructorImage: json['instructorImage'] as String?,
       isDeleted: json['isDeleted'] as bool?,
+      useAIAssistant: json['useAIAssistant'] as bool?,
+      courseLanguage: json['courseLanguage'] as String?,
     );
 
 Map<String, dynamic> _$CourseInfoModelToJson(CourseInfoModel instance) =>
@@ -48,4 +50,6 @@ Map<String, dynamic> _$CourseInfoModelToJson(CourseInfoModel instance) =>
       'courseStatus': instance.courseStatus,
       'instructorImage': instance.instructorImage,
       'isDeleted': instance.isDeleted,
+      'useAIAssistant': instance.useAIAssistant,
+      'courseLanguage': instance.courseLanguage,
     };

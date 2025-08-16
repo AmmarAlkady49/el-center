@@ -23,6 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Correct": MessageLookupByLibrary.simpleMessage("صحيح"),
+    "Enter_course_title": MessageLookupByLibrary.simpleMessage(
+      "أدخل عنوان الدورة",
+    ),
     "Excellent": MessageLookupByLibrary.simpleMessage("ممتاز"),
     "Friday": MessageLookupByLibrary.simpleMessage("الجمعة"),
     "Good_Job": MessageLookupByLibrary.simpleMessage("عمل جيد"),
@@ -41,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "account": MessageLookupByLibrary.simpleMessage("الحساب"),
     "account_settings": MessageLookupByLibrary.simpleMessage("اعدادات الحساب"),
     "active": MessageLookupByLibrary.simpleMessage("نشط"),
+    "add_image": MessageLookupByLibrary.simpleMessage("اضافة صورة"),
     "ai_assistant": MessageLookupByLibrary.simpleMessage("مساعدك الذكي"),
     "ai_help_description": MessageLookupByLibrary.simpleMessage(
       "قد يرتكب مساعد الذكاء الاصطناعي هذا أخطاءً. تأكد دائمًا من المعلومات المهمة واستخدم التفكير النقدي عند تطبيق الإجابات على تعلمك.",
@@ -70,6 +74,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "available_languages": MessageLookupByLibrary.simpleMessage(
       "اللغات المتاحة",
     ),
+    "avg_completion_rate": MessageLookupByLibrary.simpleMessage(
+      "معدل اكمال الدروس",
+    ),
+    "away_from_completion": MessageLookupByLibrary.simpleMessage(
+      "قريبا عن الاكتمال",
+    ),
     "be_first_to_ask_question": MessageLookupByLibrary.simpleMessage(
       "كن اول من يسال سؤال",
     ),
@@ -86,22 +96,32 @@ class MessageLookup extends MessageLookupByLibrary {
     "browse_categories": MessageLookupByLibrary.simpleMessage("تصفح الاقسام"),
     "browse_courses": MessageLookupByLibrary.simpleMessage("تصفح الكورسات"),
     "by": MessageLookupByLibrary.simpleMessage("بواسطة"),
+    "camera": MessageLookupByLibrary.simpleMessage("الكاميرا"),
     "cancel": MessageLookupByLibrary.simpleMessage("الغاء"),
     "categories": MessageLookupByLibrary.simpleMessage("الاقسام"),
+    "category": MessageLookupByLibrary.simpleMessage("التصنيف"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("En"),
     "change_language": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
     "change_password": MessageLookupByLibrary.simpleMessage(
       "تغيير كلمة المرور",
     ),
     "chat_cleared": MessageLookupByLibrary.simpleMessage("تم حذف المحادثة"),
+    "choose_from_gallery": MessageLookupByLibrary.simpleMessage(
+      "اختر من المعرض",
+    ),
     "choose_payment_method": MessageLookupByLibrary.simpleMessage(
       "اختر طريقة الدفع",
     ),
+    "choose_the_best_category_for_your_course":
+        MessageLookupByLibrary.simpleMessage("اختر أفضل تصنيف لدورتك"),
     "choose_the_correct_answer": MessageLookupByLibrary.simpleMessage(
       "اختر الاجابة الصحيحة:",
     ),
     "choose_your_preferred_language": MessageLookupByLibrary.simpleMessage(
       "اختر اللغة المفضلة لديك",
+    ),
+    "clear_current_selection": MessageLookupByLibrary.simpleMessage(
+      "حذة الصورة الحاليه",
     ),
     "complete_lessons_to_unlock": MessageLookupByLibrary.simpleMessage(
       "اكمل ,الدروس لفتح الاختبارات والتحقق من معرفتك في الكورس.",
@@ -113,6 +133,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "اكمل تسجيلك ل",
     ),
     "completed": MessageLookupByLibrary.simpleMessage("مكتمل"),
+    "completion": MessageLookupByLibrary.simpleMessage("إكمال"),
+    "completion_rate": MessageLookupByLibrary.simpleMessage("معدل الإكتمال"),
     "confirmPassword": MessageLookupByLibrary.simpleMessage(
       "تاكيد كلمة المرور",
     ),
@@ -130,10 +152,24 @@ class MessageLookup extends MessageLookupByLibrary {
       "كود الخصم غير صحيح",
     ),
     "course": MessageLookupByLibrary.simpleMessage("كورس"),
+    "course_available": MessageLookupByLibrary.simpleMessage("كورس متاح"),
     "course_content": MessageLookupByLibrary.simpleMessage("محتوي الكورس"),
+    "course_created_successfully": MessageLookupByLibrary.simpleMessage(
+      "تم انشاء الدورة بنجاح",
+    ),
     "course_description": MessageLookupByLibrary.simpleMessage("وصف الكورس"),
     "course_details": MessageLookupByLibrary.simpleMessage("تفاصيل الكورس"),
+    "course_language": MessageLookupByLibrary.simpleMessage("لغة الدورة"),
+    "course_requirements": MessageLookupByLibrary.simpleMessage(
+      "متطلبات الدورة",
+    ),
+    "course_settings": MessageLookupByLibrary.simpleMessage("إعدادات الدورة"),
+    "course_title": MessageLookupByLibrary.simpleMessage("عنوان الدورة"),
     "courses": MessageLookupByLibrary.simpleMessage("كورسات"),
+    "create_course": MessageLookupByLibrary.simpleMessage("انشاء كورس"),
+    "create_your_first_course": MessageLookupByLibrary.simpleMessage(
+      "انشاء الكورس الخاص بك",
+    ),
     "created": MessageLookupByLibrary.simpleMessage("تم الانشاء"),
     "cridet_card": MessageLookupByLibrary.simpleMessage("بطاقة الائتمان"),
     "cridet_card_or_debit": MessageLookupByLibrary.simpleMessage(
@@ -150,6 +186,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "delete_question": MessageLookupByLibrary.simpleMessage("حذف السؤال"),
     "delete_review": MessageLookupByLibrary.simpleMessage("حذف التقييم"),
+    "describe_what_student_will_learn_in_this_course":
+        MessageLookupByLibrary.simpleMessage(
+          "صف ما سيتعلمه الطلاب في هذه الدورة",
+        ),
     "description": MessageLookupByLibrary.simpleMessage("الوصف"),
     "details": MessageLookupByLibrary.simpleMessage("التفاصيل"),
     "didnotReceiveCode": MessageLookupByLibrary.simpleMessage(
@@ -159,8 +199,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "اكتشف مسارك للتعلم مع ElCentre",
     ),
     "dontHaveAnAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+    "duration": MessageLookupByLibrary.simpleMessage("المدة"),
     "edit": MessageLookupByLibrary.simpleMessage("تعديل"),
     "edit_answer": MessageLookupByLibrary.simpleMessage("تعديل الاجابة"),
+    "edit_course": MessageLookupByLibrary.simpleMessage("تعديل الكورس"),
     "edit_review": MessageLookupByLibrary.simpleMessage("تعديل التقييم"),
     "edited": MessageLookupByLibrary.simpleMessage("تم التعديل"),
     "egp_currency": MessageLookupByLibrary.simpleMessage("ج.م"),
@@ -171,6 +213,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailVerificationMessage": MessageLookupByLibrary.simpleMessage(
       "يرجى التحقق من بريدك الالكتروني للتحقق من حسابك",
     ),
+    "enable_ai_assistant": MessageLookupByLibrary.simpleMessage(
+      "تفعيل المساعد الذكي",
+    ),
     "enjoyed_this_preview": MessageLookupByLibrary.simpleMessage(
       "استمتعت بمعاينة هذا الدرس?",
     ),
@@ -180,6 +225,16 @@ class MessageLookup extends MessageLookupByLibrary {
       "الكورسات المسجلة",
     ),
     "enter": MessageLookupByLibrary.simpleMessage("ادخل"),
+    "enter_course_price": MessageLookupByLibrary.simpleMessage(
+      "أدخل سعر الدورة (مثال: 299 جنيه)",
+    ),
+    "enter_total_course_duration": MessageLookupByLibrary.simpleMessage(
+      "أدخل مدة الدورة (مثال: 15 س)",
+    ),
+    "error": MessageLookupByLibrary.simpleMessage("خطأ"),
+    "error_while_uploading_image": MessageLookupByLibrary.simpleMessage(
+      "خطأ في تحميل الصورة",
+    ),
     "excellent": MessageLookupByLibrary.simpleMessage("ممتاز"),
     "explain_this_lesson": MessageLookupByLibrary.simpleMessage(
       "اشرح هذا الدرس لي",
@@ -210,6 +265,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "full_access_benefits": MessageLookupByLibrary.simpleMessage(
       "مزايا الوصول الكامل",
     ),
+    "gallery": MessageLookupByLibrary.simpleMessage("المعرض"),
     "gender": MessageLookupByLibrary.simpleMessage("النوع"),
     "get_access_to_full_course": MessageLookupByLibrary.simpleMessage(
       "احصل علي جميع محتوي الدرس والاختبارات والمحتوى الخاص بالدرس عن طريق التسجيل في كورس الكامل.",
@@ -227,6 +283,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "• ساعد الآخرين على معرفة ما إذا كانت هذه الدورة مناسبة لهم",
     ),
     "helpful": MessageLookupByLibrary.simpleMessage("مفيد"),
+    "hi": MessageLookupByLibrary.simpleMessage("أهلا"),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "hours": MessageLookupByLibrary.simpleMessage("ساعة"),
     "how_would_you_rate_this_course": MessageLookupByLibrary.simpleMessage(
@@ -242,6 +299,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "it_and_software": MessageLookupByLibrary.simpleMessage("تقنية وبرمجة"),
     "join_now": MessageLookupByLibrary.simpleMessage("انضم الان"),
+    "keep_going_you_are": MessageLookupByLibrary.simpleMessage("استمر! أنت"),
     "keep_it_constructive": MessageLookupByLibrary.simpleMessage(
       "• اجعل تعليقك بنّاءً وصادقًا",
     ),
@@ -266,6 +324,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "lessons_completed_this_week": MessageLookupByLibrary.simpleMessage(
       "دروس مكتملة هذا الاسبوع",
     ),
+    "list_prerequisites_or_requirements_for_students":
+        MessageLookupByLibrary.simpleMessage(
+          "اذكر المتطلبات أو الشروط المسبقة للطلاب",
+        ),
     "loading": MessageLookupByLibrary.simpleMessage("جاري التحميل..."),
     "loading_content": MessageLookupByLibrary.simpleMessage("تحميل المحتوى..."),
     "loading_lesson_content_for_ai_assistant":
@@ -280,7 +342,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "تحميل ملفك الشخصي...",
     ),
     "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+    "make_this_course_visible_to_students":
+        MessageLookupByLibrary.simpleMessage("اجعل هذه الدورة مرئية للطلاب"),
     "male": MessageLookupByLibrary.simpleMessage("ذكر"),
+    "manage_content": MessageLookupByLibrary.simpleMessage("إدارة المحتوى"),
     "manage_your_personal_information": MessageLookupByLibrary.simpleMessage(
       "ادارة معلوماتك الشخصية",
     ),
@@ -290,6 +355,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "min": MessageLookupByLibrary.simpleMessage("د"),
     "mobile_development": MessageLookupByLibrary.simpleMessage("تطوير موبايل"),
     "mobile_wallet": MessageLookupByLibrary.simpleMessage("محفظة الهاتف"),
+    "modify": MessageLookupByLibrary.simpleMessage("تعديل"),
     "modules": MessageLookupByLibrary.simpleMessage("وحدات"),
     "mon": MessageLookupByLibrary.simpleMessage("الاثنين"),
     "more_details": MessageLookupByLibrary.simpleMessage("تفاصيل اكثر"),
@@ -299,6 +365,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "رحلتي في التعلم",
     ),
     "my_profile": MessageLookupByLibrary.simpleMessage("حسابي"),
+    "need_help_getting_started": MessageLookupByLibrary.simpleMessage(
+      "تحتاج مساعدة في البدء?",
+    ),
     "network_devops": MessageLookupByLibrary.simpleMessage(
       "شبكات, DevOps, و اخرى",
     ),
@@ -318,6 +387,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "no_courses_found": MessageLookupByLibrary.simpleMessage(
       "لم يتم العثور على كورسات",
+    ),
+    "no_courses_yet": MessageLookupByLibrary.simpleMessage(
+      "لا يوجد كورسات حتى الان",
     ),
     "no_curriculum_availables": MessageLookupByLibrary.simpleMessage(
       "لا يوجد دروس متاحة",
@@ -435,6 +507,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "please_provide_a_rating": MessageLookupByLibrary.simpleMessage(
       "يرجى اختيار تقييم وكتابة تقييم",
     ),
+    "please_select_a_thumbnail": MessageLookupByLibrary.simpleMessage(
+      "الرجاء اختيار صورة مصغرة",
+    ),
     "please_wait_for_lesson_content": MessageLookupByLibrary.simpleMessage(
       "يرجى الانتظار حتى يتم تحميل محتوي الدرس",
     ),
@@ -453,20 +528,30 @@ class MessageLookup extends MessageLookupByLibrary {
     "price": MessageLookupByLibrary.simpleMessage("السعر"),
     "profile": MessageLookupByLibrary.simpleMessage("الحساب"),
     "progress": MessageLookupByLibrary.simpleMessage("التقدم"),
+    "provide_ai_powerd_help_to_students": MessageLookupByLibrary.simpleMessage(
+      "تقديم مساعدة مدعومة بالذكاء الاصطناعي للطلاب",
+    ),
+    "published": MessageLookupByLibrary.simpleMessage("منشور"),
     "q_and_a": MessageLookupByLibrary.simpleMessage("س و ج"),
     "question": MessageLookupByLibrary.simpleMessage("سؤال"),
     "questions": MessageLookupByLibrary.simpleMessage("اسئلة"),
+    "quick_actions": MessageLookupByLibrary.simpleMessage("خيارات سريعة"),
     "quiz_available_for_this_lesson": MessageLookupByLibrary.simpleMessage(
       "الاختبار متاح لهذاالدرس.",
     ),
     "quiz_ready": MessageLookupByLibrary.simpleMessage("الاختبار جاهز!"),
     "quizzes": MessageLookupByLibrary.simpleMessage("اختبارات"),
     "ratings": MessageLookupByLibrary.simpleMessage("تقييمات"),
+    "reSignin": MessageLookupByLibrary.simpleMessage("تسجيل الدخول مرة اخرى"),
     "read_article": MessageLookupByLibrary.simpleMessage("قراءة المقالة"),
     "reading": MessageLookupByLibrary.simpleMessage("قراءة"),
+    "ready_to_inspire": MessageLookupByLibrary.simpleMessage(
+      "مستعد لإلهام العقول اليوم؟",
+    ),
     "register": MessageLookupByLibrary.simpleMessage("تسجيل حساب جديد"),
     "remaining": MessageLookupByLibrary.simpleMessage("المتبقي"),
     "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+    "remove_image": MessageLookupByLibrary.simpleMessage("حذف الصورة"),
     "reply": MessageLookupByLibrary.simpleMessage("رد"),
     "reply_to_question": MessageLookupByLibrary.simpleMessage("رد على السؤال"),
     "report": MessageLookupByLibrary.simpleMessage("إبلاغ"),
@@ -497,6 +582,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "see_all": MessageLookupByLibrary.simpleMessage("إظهار الكل"),
     "selectCountry": MessageLookupByLibrary.simpleMessage("إختر الدولة"),
+    "select_category": MessageLookupByLibrary.simpleMessage("حدد التصنيف"),
+    "select_course_language": MessageLookupByLibrary.simpleMessage(
+      "حدد لغة الدورة",
+    ),
+    "select_image_source": MessageLookupByLibrary.simpleMessage(
+      "Select Image Source",
+    ),
+    "select_the_primary_language_for_instruction":
+        MessageLookupByLibrary.simpleMessage("اختر اللغة الأساسية للتدريس"),
     "send": MessageLookupByLibrary.simpleMessage("ارسل"),
     "settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
     "share_your_thoughts": MessageLookupByLibrary.simpleMessage(
@@ -519,6 +613,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "start_conversation_ai": MessageLookupByLibrary.simpleMessage(
       "ابدأ محادثة مع AI",
     ),
+    "start_creating_courses_message": MessageLookupByLibrary.simpleMessage(
+      "ابدأ بإنشاء الدورات التدريبية وشارك معرفتك مع العالم.",
+    ),
     "start_learning_today": MessageLookupByLibrary.simpleMessage(
       "ابدأ التعلم اليوم",
     ),
@@ -531,13 +628,23 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "status": MessageLookupByLibrary.simpleMessage("الحالة"),
     "student": MessageLookupByLibrary.simpleMessage("طالب"),
+    "student_enrolled": MessageLookupByLibrary.simpleMessage("طلاب مسجلين"),
+    "students": MessageLookupByLibrary.simpleMessage("طلاب"),
     "submit_quiz": MessageLookupByLibrary.simpleMessage("تقديم الاختبار"),
     "submit_review": MessageLookupByLibrary.simpleMessage("تقديم التقييم"),
+    "success": MessageLookupByLibrary.simpleMessage("نجاح"),
     "summarize_content": MessageLookupByLibrary.simpleMessage("لخص المحتوى لي"),
     "sun": MessageLookupByLibrary.simpleMessage("الاحد"),
+    "take_a_new_photo": MessageLookupByLibrary.simpleMessage(
+      "احصل على صورة جديدة",
+    ),
     "tap_the_stars_to_rate_your_experience":
         MessageLookupByLibrary.simpleMessage(
           "اضغط على النجوم لتقيم تجربتك في هذا الكورس.",
+        ),
+    "tap_to_select_an_image_from_camera_or_gallery":
+        MessageLookupByLibrary.simpleMessage(
+          "انقر لاختيار صورة من الكاميرا او المعرض",
         ),
     "teacher": MessageLookupByLibrary.simpleMessage("معلم"),
     "tell_others_about_your_experience_with_this_course":
@@ -552,12 +659,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "هذه الدرس مقالة",
     ),
     "thu": MessageLookupByLibrary.simpleMessage("الخميس"),
+    "thumbnail": MessageLookupByLibrary.simpleMessage("الصورة المصغرة"),
     "tips_for_a_helpful_review": MessageLookupByLibrary.simpleMessage(
       "نصائح لتقديم تقييم مفيد",
     ),
     "total": MessageLookupByLibrary.simpleMessage("المجموع"),
+    "total_courses": MessageLookupByLibrary.simpleMessage("إجمالي كورساتك"),
     "total_length": MessageLookupByLibrary.simpleMessage("المدة الكلية"),
     "total_quizzes": MessageLookupByLibrary.simpleMessage("مجموع الاختبارات"),
+    "total_students": MessageLookupByLibrary.simpleMessage("إجمالي الطلاب"),
     "tryAgain": MessageLookupByLibrary.simpleMessage("حاول مرة اخرى"),
     "try_adjusting_your_search": MessageLookupByLibrary.simpleMessage(
       "حاول تصفية بحثك\nاو استكشف اقسام اخرى",
@@ -581,6 +691,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "نوع المحتوى غير مدعوم",
     ),
     "update": MessageLookupByLibrary.simpleMessage("تحديث"),
+    "update_course": MessageLookupByLibrary.simpleMessage("تحديث الدورة"),
     "update_review": MessageLookupByLibrary.simpleMessage("تحديث التقييم"),
     "update_your_password": MessageLookupByLibrary.simpleMessage(
       "تحديث كلمة المرور الخاصة بك",
@@ -598,7 +709,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "very_good": MessageLookupByLibrary.simpleMessage("جيد جدا"),
     "video": MessageLookupByLibrary.simpleMessage("فيديو"),
     "view_all": MessageLookupByLibrary.simpleMessage("اظهار الكل"),
+    "view_analytics": MessageLookupByLibrary.simpleMessage("اظهار التحليلات"),
     "view_course": MessageLookupByLibrary.simpleMessage("اظهار الكورس"),
+    "view_details": MessageLookupByLibrary.simpleMessage("إظهار التفاصيل"),
     "was": MessageLookupByLibrary.simpleMessage("كان"),
     "web_development": MessageLookupByLibrary.simpleMessage("تطوير ويب"),
     "wed": MessageLookupByLibrary.simpleMessage("الاربعاء"),
@@ -611,5 +724,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "you_save": MessageLookupByLibrary.simpleMessage("حافظت"),
     "your_courses": MessageLookupByLibrary.simpleMessage("كورساتك"),
     "your_progress": MessageLookupByLibrary.simpleMessage("تقدمك"),
+    "your_teaching_overView": MessageLookupByLibrary.simpleMessage(
+      "ملخص التعليم الخاص بك",
+    ),
   };
 }
