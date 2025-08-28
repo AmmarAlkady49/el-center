@@ -721,6 +721,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "type_message": MessageLookupByLibrary.simpleMessage("Type Message"),
     "typing": MessageLookupByLibrary.simpleMessage("Typing..."),
+    "unable_to_load_content": MessageLookupByLibrary.simpleMessage(
+      "Unable to Load Content",
+    ),
+    "unable_to_load_content_desc": MessageLookupByLibrary.simpleMessage(
+      "We\'re having trouble loading your learning materials. Check your connection and try again.",
+    ),
     "unsupported_content_type": MessageLookupByLibrary.simpleMessage(
       "Unsupported content type",
     ),

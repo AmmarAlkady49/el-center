@@ -13,13 +13,13 @@ class HomeRepo {
 
   HomeRepo(this.apiService);
 
-  Future<ApiResult<List<CourseInfoModel>>> getAllCourses() async {
+  Future<PaginatedCourseResponse> getAllCourses() async {
     try {
       final response = await apiService.getAllCourses();
 
-      return ApiResult.success(response.data);
+      return response;
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      throw "Failed to fetch all courses ${error.toString()}";
     }
   }
 
@@ -49,7 +49,7 @@ class HomeRepo {
   Future<List<CompletedLessonModel>> getCompletedLessons(int courseId) async {
     try {
       // final response = await apiService.getCompletedLessons(courseId);
-      return await apiService.getCompletedLessons(courseId);
+      return await apiService.getCompletedLessons(courseId) ?? [];
     } catch (error) {
       throw ApiResult.failure(ErrorHandler.handle(error));
     }

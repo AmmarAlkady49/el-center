@@ -268,7 +268,9 @@ extension HomeStatePatterns<T> on HomeState<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? homeScreenLoading,
-    TResult Function(ProfileAccountModel profileData)? homeScreenLoaded,
+    TResult Function(ProfileAccountModel profileData,
+            List<CourseInfoModel> courses, Map<String, int> weeklyProgress)?
+        homeScreenLoaded,
     TResult Function(String error)? homeScreenLoadedError,
     TResult Function()? gettingCourses,
     TResult Function(List<CourseInfoModel> courses)? coursesLoaded,
@@ -290,7 +292,8 @@ extension HomeStatePatterns<T> on HomeState<T> {
       case HomeScreenLoading() when homeScreenLoading != null:
         return homeScreenLoading();
       case HomeScreenLoaded() when homeScreenLoaded != null:
-        return homeScreenLoaded(_that.profileData);
+        return homeScreenLoaded(
+            _that.profileData, _that.courses, _that.weeklyProgress);
       case HomeScreenLoadedError() when homeScreenLoadedError != null:
         return homeScreenLoadedError(_that.error);
       case GettingCourses() when gettingCourses != null:
@@ -338,7 +341,9 @@ extension HomeStatePatterns<T> on HomeState<T> {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() homeScreenLoading,
-    required TResult Function(ProfileAccountModel profileData) homeScreenLoaded,
+    required TResult Function(ProfileAccountModel profileData,
+            List<CourseInfoModel> courses, Map<String, int> weeklyProgress)
+        homeScreenLoaded,
     required TResult Function(String error) homeScreenLoadedError,
     required TResult Function() gettingCourses,
     required TResult Function(List<CourseInfoModel> courses) coursesLoaded,
@@ -360,7 +365,8 @@ extension HomeStatePatterns<T> on HomeState<T> {
       case HomeScreenLoading():
         return homeScreenLoading();
       case HomeScreenLoaded():
-        return homeScreenLoaded(_that.profileData);
+        return homeScreenLoaded(
+            _that.profileData, _that.courses, _that.weeklyProgress);
       case HomeScreenLoadedError():
         return homeScreenLoadedError(_that.error);
       case GettingCourses():
@@ -406,7 +412,9 @@ extension HomeStatePatterns<T> on HomeState<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? homeScreenLoading,
-    TResult? Function(ProfileAccountModel profileData)? homeScreenLoaded,
+    TResult? Function(ProfileAccountModel profileData,
+            List<CourseInfoModel> courses, Map<String, int> weeklyProgress)?
+        homeScreenLoaded,
     TResult? Function(String error)? homeScreenLoadedError,
     TResult? Function()? gettingCourses,
     TResult? Function(List<CourseInfoModel> courses)? coursesLoaded,
@@ -427,7 +435,8 @@ extension HomeStatePatterns<T> on HomeState<T> {
       case HomeScreenLoading() when homeScreenLoading != null:
         return homeScreenLoading();
       case HomeScreenLoaded() when homeScreenLoaded != null:
-        return homeScreenLoaded(_that.profileData);
+        return homeScreenLoaded(
+            _that.profileData, _that.courses, _that.weeklyProgress);
       case HomeScreenLoadedError() when homeScreenLoadedError != null:
         return homeScreenLoadedError(_that.error);
       case GettingCourses() when gettingCourses != null:
@@ -502,9 +511,27 @@ class HomeScreenLoading<T> implements HomeState<T> {
 /// @nodoc
 
 class HomeScreenLoaded<T> implements HomeState<T> {
-  const HomeScreenLoaded({required this.profileData});
+  const HomeScreenLoaded(
+      {required this.profileData,
+      required final List<CourseInfoModel> courses,
+      required final Map<String, int> weeklyProgress})
+      : _courses = courses,
+        _weeklyProgress = weeklyProgress;
 
   final ProfileAccountModel profileData;
+  final List<CourseInfoModel> _courses;
+  List<CourseInfoModel> get courses {
+    if (_courses is EqualUnmodifiableListView) return _courses;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_courses);
+  }
+
+  final Map<String, int> _weeklyProgress;
+  Map<String, int> get weeklyProgress {
+    if (_weeklyProgress is EqualUnmodifiableMapView) return _weeklyProgress;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_weeklyProgress);
+  }
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -519,15 +546,22 @@ class HomeScreenLoaded<T> implements HomeState<T> {
         (other.runtimeType == runtimeType &&
             other is HomeScreenLoaded<T> &&
             (identical(other.profileData, profileData) ||
-                other.profileData == profileData));
+                other.profileData == profileData) &&
+            const DeepCollectionEquality().equals(other._courses, _courses) &&
+            const DeepCollectionEquality()
+                .equals(other._weeklyProgress, _weeklyProgress));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, profileData);
+  int get hashCode => Object.hash(
+      runtimeType,
+      profileData,
+      const DeepCollectionEquality().hash(_courses),
+      const DeepCollectionEquality().hash(_weeklyProgress));
 
   @override
   String toString() {
-    return 'HomeState<$T>.homeScreenLoaded(profileData: $profileData)';
+    return 'HomeState<$T>.homeScreenLoaded(profileData: $profileData, courses: $courses, weeklyProgress: $weeklyProgress)';
   }
 }
 
@@ -538,7 +572,10 @@ abstract mixin class $HomeScreenLoadedCopyWith<T, $Res>
           HomeScreenLoaded<T> value, $Res Function(HomeScreenLoaded<T>) _then) =
       _$HomeScreenLoadedCopyWithImpl;
   @useResult
-  $Res call({ProfileAccountModel profileData});
+  $Res call(
+      {ProfileAccountModel profileData,
+      List<CourseInfoModel> courses,
+      Map<String, int> weeklyProgress});
 }
 
 /// @nodoc
@@ -554,12 +591,22 @@ class _$HomeScreenLoadedCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   $Res call({
     Object? profileData = null,
+    Object? courses = null,
+    Object? weeklyProgress = null,
   }) {
     return _then(HomeScreenLoaded<T>(
       profileData: null == profileData
           ? _self.profileData
           : profileData // ignore: cast_nullable_to_non_nullable
               as ProfileAccountModel,
+      courses: null == courses
+          ? _self._courses
+          : courses // ignore: cast_nullable_to_non_nullable
+              as List<CourseInfoModel>,
+      weeklyProgress: null == weeklyProgress
+          ? _self._weeklyProgress
+          : weeklyProgress // ignore: cast_nullable_to_non_nullable
+              as Map<String, int>,
     ));
   }
 }

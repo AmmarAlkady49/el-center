@@ -10,50 +10,28 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:e_learning_app/core/networking/api_result.dart' as api_result;
 
 import '../../../../core/data/models/course_info_model.dart';
-import '../../../../core/data/models/profile_account_model.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   final ProfileRepo profileRepo;
   final HomeRepo homeRepo;
   HomeCubit(this.profileRepo, this.homeRepo) : super(HomeState.initial());
 
-  // getAppBarData
-  void getAppBarData() async {
+  void emitHomeScreenForStudent() async {
     emit(HomeState.homeScreenLoading());
     try {
-      final result = await profileRepo.getProfile();
-      log(result.toString());
+      final userProfile = await profileRepo.getProfile();
+      await SharedPrefHelper.setData('userId', userProfile.id);
 
-      if (result is api_result.Success<ProfileAccountModel>) {
-        emit(HomeState.homeScreenLoaded(profileData: result.data));
-        await SharedPrefHelper.setData('userId', result.data.id);
-      } else if (result is api_result.Failure<ProfileAccountModel>) {
-        emit(HomeState.homeScreenLoadedError(
-            error: result.error.apiErrorModel.message!));
-      }
+      final getAllCoursesForStudents = await homeRepo.getAllCourses();
+      final weeklyProgressData = await weeklyProgress();
+
+      emit(HomeState.homeScreenLoaded(
+          profileData: userProfile,
+          courses: getAllCoursesForStudents.data,
+          weeklyProgress: weeklyProgressData));
     } catch (error) {
       log(error.toString());
       emit(HomeState.homeScreenLoadedError(error: error.toString()));
-    }
-  }
-
-  // getAllCourses
-  void getAllCourses() async {
-    emit(HomeState.gettingCourses());
-    try {
-      final result = await homeRepo.getAllCourses();
-
-      if (result is api_result.Success<List<CourseInfoModel>>) {
-        emit(HomeState.coursesLoaded(courses: result.data));
-      } else if (result is api_result.Failure<List<CourseInfoModel>>) {
-        emit(HomeState.coursesLoadedError(
-          error:
-              "${result.error.apiErrorModel.message!} (Status Code: ${result.error.apiErrorModel.statusCode}) ${result.error.apiErrorModel.message}",
-        ));
-      }
-    } catch (error) {
-      log(error.toString());
-      emit(HomeState.coursesLoadedError(error: error.toString()));
     }
   }
 
@@ -79,15 +57,17 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  // get weekly progress
-  Future<void> getWeeklyProgress() async {
+  Future<Map<String, int>> weeklyProgress() async {
     try {
       final enrollments = await homeRepo.getStudentEnrollments();
 
+      // هجيب الدروس المكملة لكل كورس
       final completedLessonsLists = await Future.wait(
         enrollments
             .map((course) => homeRepo.getCompletedLessons(course.courseId)),
       );
+
+      log("completedLessonsLists: ${completedLessonsLists.length}");
 
       final now = DateTime.now();
       final weekAgo = now.subtract(const Duration(days: 6));
@@ -108,20 +88,61 @@ class HomeCubit extends Cubit<HomeState> {
 
           if (completedDate.isAfter(weekAgo)) {
             final weekday = _getWeekday(completedDate.weekday);
-
             completedLessonsPerDay[weekday] =
                 completedLessonsPerDay[weekday]! + 1;
           }
         }
       }
 
-      // emit or store it in a state variable
-      emit(HomeState.weeklyProgressLoaded(data: completedLessonsPerDay));
-    } catch (e) {
-      log("Error in weekly progress: $e");
-      emit(HomeState.weeklyProgressError(error: e.toString()));
+      return completedLessonsPerDay;
+    } catch (error) {
+      throw Exception("Failed to fetch weekly progress: $error");
     }
   }
+
+  // get weekly progress
+  // Future<void> getWeeklyProgress() async {
+  //   try {
+  //     final enrollments = await homeRepo.getStudentEnrollments();
+
+  //     final completedLessonsLists = await Future.wait(
+  //       enrollments
+  //           .map((course) => homeRepo.getCompletedLessons(course.courseId)),
+  //     );
+
+  //     final now = DateTime.now();
+  //     final weekAgo = now.subtract(const Duration(days: 6));
+
+  //     final Map<String, int> completedLessonsPerDay = {
+  //       'Mon': 0,
+  //       'Tue': 0,
+  //       'Wed': 0,
+  //       'Thu': 0,
+  //       'Fri': 0,
+  //       'Sat': 0,
+  //       'Sun': 0,
+  //     };
+
+  //     for (final lessons in completedLessonsLists) {
+  //       for (final lesson in lessons) {
+  //         final completedDate = DateTime.parse(lesson.completedDate);
+
+  //         if (completedDate.isAfter(weekAgo)) {
+  //           final weekday = _getWeekday(completedDate.weekday);
+
+  //           completedLessonsPerDay[weekday] =
+  //               completedLessonsPerDay[weekday]! + 1;
+  //         }
+  //       }
+  //     }
+
+  //     // emit or store it in a state variable
+  //     emit(HomeState.weeklyProgressLoaded(data: completedLessonsPerDay));
+  //   } catch (e) {
+  //     log("Error in weekly progress: $e");
+  //     emit(HomeState.weeklyProgressError(error: e.toString()));
+  //   }
+  // }
 
   String _getWeekday(int weekdayNum) {
     const weekdays = {

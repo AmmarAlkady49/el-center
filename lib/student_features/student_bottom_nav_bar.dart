@@ -31,10 +31,7 @@ class _StudentBottomNavBarState extends State<StudentBottomNavBar> {
 
   static List screenOptions = [
     BlocProvider(
-      create: (context) => getIt<HomeCubit>()
-        ..getAllCourses()
-        ..getAppBarData()
-        ..getWeeklyProgress(),
+      create: (context) => getIt<HomeCubit>()..emitHomeScreenForStudent(),
       child: HomePage(),
     ),
     BlocProvider(

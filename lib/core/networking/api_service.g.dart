@@ -463,7 +463,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<List<CompletedLessonModel>> getCompletedLessons(int courseId) async {
+  Future<List<CompletedLessonModel>?> getCompletedLessons(int courseId) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -479,10 +479,10 @@ class _ApiService implements ApiService {
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<CompletedLessonModel> _value;
+    late List<CompletedLessonModel>? _value;
     try {
-      _value = _result.data!
-          .map(
+      _value = _result.data
+          ?.map(
             (dynamic i) =>
                 CompletedLessonModel.fromJson(i as Map<String, dynamic>),
           )
@@ -1102,7 +1102,7 @@ class _ApiService implements ApiService {
     _data.fields.add(MapEntry('Description', description));
     _data.fields.add(MapEntry('Requirements', requirements));
     _data.fields.add(MapEntry('Price', price.toString()));
-    _data.files.add(MapEntry('Thumbnail',   thumbnailFile));
+    _data.files.add(MapEntry('Thumbnail', thumbnailFile));
     _data.fields.add(MapEntry('IsActive', isActive.toString()));
     _data.fields.add(MapEntry('DurationInHours', durationInHours.toString()));
     _data.fields.add(MapEntry('CategoryId', categoryId.toString()));

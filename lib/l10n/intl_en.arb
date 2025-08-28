@@ -397,6 +397,8 @@
   "success": "Success",
   "course_created_successfully": "course created successfully",
   "please_select_a_thumbnail": "Please select a thumbnail",
-  "update_course" : "Update Course",
-  "manage_content" : "Manage Content"
+  "update_course": "Update Course",
+  "manage_content": "Manage Content",
+  "unable_to_load_content": "Unable to Load Content",
+  "unable_to_load_content_desc": "We're having trouble loading your learning materials. Check your connection and try again."
 }

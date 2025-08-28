@@ -47,7 +47,7 @@ class LoginCubit extends Cubit<LoginState> {
         String userType;
 
         if (profileData is api_result.Success<ProfileAccountModel>) {
-          final userTypeValue = profileData.data.userType;
+          final userTypeValue = profileData.userType;
           await SharedPrefHelper.setData('userType', userTypeValue);
           userType = userTypeValue;
         } else {

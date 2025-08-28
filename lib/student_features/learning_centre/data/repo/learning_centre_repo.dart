@@ -37,7 +37,7 @@ class LearningCentreRepo {
   Future<List<CompletedLessonModel>> getCompletedLessons(int courseId) async {
     try {
       final response = await apiService.getCompletedLessons(courseId);
-      return response;
+      return response ?? [];
     } catch (error) {
       throw ApiResult.failure(ErrorHandler.handle(error));
     }
@@ -190,7 +190,6 @@ class LearningCentreRepo {
     }
   }
 
-
   Future<StandardResponseBody> updateAnswer(int answerId, String answer) async {
     try {
       final response = await apiService.updateAnswer(answerId, answer);
@@ -200,7 +199,8 @@ class LearningCentreRepo {
     }
   }
 
-  Future<StandardResponseBody> updateQuestion(int questionId, String question) async {
+  Future<StandardResponseBody> updateQuestion(
+      int questionId, String question) async {
     try {
       final response = await apiService.updateQuestion(questionId, question);
       return response;
@@ -209,7 +209,8 @@ class LearningCentreRepo {
     }
   }
 
-  Future<StandardResponseBody> addQuestion(int lessonId, String question) async {
+  Future<StandardResponseBody> addQuestion(
+      int lessonId, String question) async {
     try {
       final response = await apiService.addQuestion(lessonId, question);
       return response;

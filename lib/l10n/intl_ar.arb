@@ -395,5 +395,7 @@
   "course_created_successfully": "تم انشاء الدورة بنجاح",
   "please_select_a_thumbnail": "الرجاء اختيار صورة مصغرة",
   "update_course": "تحديث الدورة",
-  "manage_content": "إدارة المحتوى"
+  "manage_content": "إدارة المحتوى",
+  "unable_to_load_content" : "لا يمكن تحميل المحتوى",
+  "unable_to_load_content_desc" : "نواجه مشكلة في تحميل موادك التعليمية. تحقق من اتصالك وحاول مرة أخرى"
 }

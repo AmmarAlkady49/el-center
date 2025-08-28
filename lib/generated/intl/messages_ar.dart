@@ -687,6 +687,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "type_message": MessageLookupByLibrary.simpleMessage("اكتب رسالة"),
     "typing": MessageLookupByLibrary.simpleMessage("يكتب..."),
+    "unable_to_load_content": MessageLookupByLibrary.simpleMessage(
+      "لا يمكن تحميل المحتوى",
+    ),
+    "unable_to_load_content_desc": MessageLookupByLibrary.simpleMessage(
+      "نواجه مشكلة في تحميل موادك التعليمية. تحقق من اتصالك وحاول مرة أخرى",
+    ),
     "unsupported_content_type": MessageLookupByLibrary.simpleMessage(
       "نوع المحتوى غير مدعوم",
     ),

@@ -15,6 +15,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/data/models/course_info_model.dart';
 import '../../../../core/helpers/helper_functions.dart';
 import '../../../../generated/l10n.dart';
+import '../../../home/presentation/widgets/error_state_widget.dart';
 import '../../data/model/student_enrollments_model.dart';
 import '../../logic/cubit/my_courses_state.dart';
 
@@ -40,7 +41,14 @@ class MyCoursesPage extends StatelessWidget {
             current is MyCoursesLoadedError,
         builder: (context, state) {
           if (state is MyCoursesLoadedError) {
-            return _buildErrorState(context, state.errorMessage);
+            return ErrorStateWidget(
+              errorMessage: state.errorMessage,
+              customTitle: S.of(context).unable_to_load_content,
+              customSubtitle: S.of(context).unable_to_load_content_desc,
+              onRetry: () {
+                cubit.loadStudentEnrollments();
+              },
+            );
           }
           if (state is MyCoursesLoading) {
             return const Center(child: CupertinoActivityIndicator());
@@ -52,36 +60,6 @@ class MyCoursesPage extends StatelessWidget {
           }
           return const SizedBox.shrink();
         },
-      ),
-    );
-  }
-
-  Widget _buildErrorState(BuildContext context, String errorMessage) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.error_outline_rounded,
-            size: 64.sp,
-            color: Colors.red.shade400,
-          ),
-          verticalSpacing(16),
-          Text(
-            S.of(context).something_went_wrong,
-            style: FontHelper.font15BlackW600(context).copyWith(
-              color: AppColors.darkBlue,
-              fontSize: 18.sp,
-            ),
-          ),
-          verticalSpacing(8),
-          Text(
-            errorMessage,
-            textAlign: TextAlign.center,
-            style: FontHelper.font12lackW400(context)
-                .copyWith(color: Colors.grey.shade600, fontSize: 14.sp),
-          ),
-        ],
       ),
     );
   }

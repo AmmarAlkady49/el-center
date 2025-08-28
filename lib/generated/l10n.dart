@@ -3239,6 +3239,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Unable to Load Content`
+  String get unable_to_load_content {
+    return Intl.message(
+      'Unable to Load Content',
+      name: 'unable_to_load_content',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We're having trouble loading your learning materials. Check your connection and try again.`
+  String get unable_to_load_content_desc {
+    return Intl.message(
+      'We\'re having trouble loading your learning materials. Check your connection and try again.',
+      name: 'unable_to_load_content_desc',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

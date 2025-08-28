@@ -103,7 +103,7 @@ abstract class ApiService {
   Future<StandardResponseBody> completeLesson(@Path("lessonId") int lessonId);
 
   @GET("${ApiConstants.completedLessons}/{courseId}")
-  Future<List<CompletedLessonModel>> getCompletedLessons(
+  Future<List<CompletedLessonModel>?> getCompletedLessons(
       @Path("courseId") int courseId);
 
   @GET(ApiConstants.getStudentEnrollments)

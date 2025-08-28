@@ -13,6 +13,7 @@ import 'package:iconsax/iconsax.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/widgets/build_geniric_app_bar.dart';
 import '../../../../generated/l10n.dart';
+import '../../../home/presentation/widgets/error_state_widget.dart';
 import '../../logic/cubit/settings_state.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -50,25 +51,13 @@ class SettingsPage extends StatelessWidget {
               ),
             );
           } else if (state is LoadingSettingsPageError) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.error_outline,
-                    size: 48.sp,
-                    color: AppColors.red,
-                  ),
-                  verticalSpacing(16),
-                  Text(
-                    state.error,
-                    textAlign: TextAlign.center,
-                    style: FontHelper.font16BlackW500(context).copyWith(
-                      color: AppColors.red,
-                    ),
-                  ),
-                ],
-              ),
+            return ErrorStateWidget(
+              errorMessage: state.error,
+              customTitle: S.of(context).unable_to_load_content,
+              customSubtitle: S.of(context).unable_to_load_content_desc,
+              onRetry: () {
+                cubit.emitSettingsPage();
+              },
             );
           } else if (state is LoadedSettingsPage) {
             return SingleChildScrollView(

@@ -10,8 +10,11 @@ part 'home_state.freezed.dart';
 class HomeState<T> with _$HomeState<T> {
   const factory HomeState.initial() = _Initial;
   const factory HomeState.homeScreenLoading() = HomeScreenLoading;
-  const factory HomeState.homeScreenLoaded(
-      {required ProfileAccountModel profileData}) = HomeScreenLoaded;
+  const factory HomeState.homeScreenLoaded({
+    required ProfileAccountModel profileData,
+    required List<CourseInfoModel> courses,
+    required Map<String, int> weeklyProgress,
+  }) = HomeScreenLoaded;
   const factory HomeState.homeScreenLoadedError({required String error}) =
       HomeScreenLoadedError;
   const factory HomeState.gettingCourses() = GettingCourses;
@@ -22,16 +25,18 @@ class HomeState<T> with _$HomeState<T> {
   const factory HomeState.gettingCoursesByCategory() = GettingCoursesByCategory;
   const factory HomeState.coursesByCategoryLoaded(
       {required List<CourseInfoModel> courses}) = CoursesByCategoryLoaded;
-  const factory HomeState.coursesByCategoryLoadedError({required String error}) =
-      CoursesByCategoryLoadedError;
+  const factory HomeState.coursesByCategoryLoadedError(
+      {required String error}) = CoursesByCategoryLoadedError;
 
-  const factory HomeState.weeklyProgressLoaded({required Map<String, int> data}) = WeeklyProgressLoaded;
+  const factory HomeState.weeklyProgressLoaded(
+      {required Map<String, int> data}) = WeeklyProgressLoaded;
 
   const factory HomeState.weeklyProgressError({required String error}) =
       WeeklyProgressError;
 
   const factory HomeState.gettingCategories() = GettingCategories;
-  const factory HomeState.categoriesLoaded({required List<CategoryModel> categories}) = CategoriesLoaded;
-  const factory HomeState.categoriesLoadedError({required String error}) = CategoriesLoadedError;
-  
+  const factory HomeState.categoriesLoaded(
+      {required List<CategoryModel> categories}) = CategoriesLoaded;
+  const factory HomeState.categoriesLoadedError({required String error}) =
+      CategoriesLoadedError;
 }
