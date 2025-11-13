@@ -100,50 +100,6 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  // get weekly progress
-  // Future<void> getWeeklyProgress() async {
-  //   try {
-  //     final enrollments = await homeRepo.getStudentEnrollments();
-
-  //     final completedLessonsLists = await Future.wait(
-  //       enrollments
-  //           .map((course) => homeRepo.getCompletedLessons(course.courseId)),
-  //     );
-
-  //     final now = DateTime.now();
-  //     final weekAgo = now.subtract(const Duration(days: 6));
-
-  //     final Map<String, int> completedLessonsPerDay = {
-  //       'Mon': 0,
-  //       'Tue': 0,
-  //       'Wed': 0,
-  //       'Thu': 0,
-  //       'Fri': 0,
-  //       'Sat': 0,
-  //       'Sun': 0,
-  //     };
-
-  //     for (final lessons in completedLessonsLists) {
-  //       for (final lesson in lessons) {
-  //         final completedDate = DateTime.parse(lesson.completedDate);
-
-  //         if (completedDate.isAfter(weekAgo)) {
-  //           final weekday = _getWeekday(completedDate.weekday);
-
-  //           completedLessonsPerDay[weekday] =
-  //               completedLessonsPerDay[weekday]! + 1;
-  //         }
-  //       }
-  //     }
-
-  //     // emit or store it in a state variable
-  //     emit(HomeState.weeklyProgressLoaded(data: completedLessonsPerDay));
-  //   } catch (e) {
-  //     log("Error in weekly progress: $e");
-  //     emit(HomeState.weeklyProgressError(error: e.toString()));
-  //   }
-  // }
-
   String _getWeekday(int weekdayNum) {
     const weekdays = {
       1: 'Mon',

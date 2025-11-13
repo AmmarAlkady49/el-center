@@ -341,6 +341,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loading_your_profile": MessageLookupByLibrary.simpleMessage(
       "تحميل ملفك الشخصي...",
     ),
+    "logging_out": MessageLookupByLibrary.simpleMessage("تسجيل الخروج..."),
     "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
     "make_this_course_visible_to_students":
         MessageLookupByLibrary.simpleMessage("اجعل هذه الدورة مرئية للطلاب"),

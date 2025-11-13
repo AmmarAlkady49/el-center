@@ -83,4 +83,20 @@ class SettingsCubit extends Cubit<SettingsState> {
       emit(SettingsState.changeLanguageSuccess(language: 'en'));
     }
   }
+
+  Future<void> logout() async {
+    emit(SettingsState.logoutLoading());
+    try {
+      await settingsRepo.logout();
+      emit(SettingsState.logoutSuccess());
+      // SharedPrefHelper.clearAllData();
+      SharedPrefHelper.removeData("userType");
+      SharedPrefHelper.removeData("userId");
+
+      SharedPrefHelper.clearAllSecuredData();
+    } catch (e) {
+      log('Error during logout: $e');
+      emit(SettingsState.logoutError(error: e.toString()));
+    }
+  }
 }

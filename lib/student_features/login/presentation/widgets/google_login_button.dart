@@ -5,46 +5,36 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../generated/l10n.dart';
+import '../../logic/cubit/login_cubit.dart';
 
-class GoogleLoginButton extends StatefulWidget {
-  const GoogleLoginButton({super.key});
-
-  @override
-  State<GoogleLoginButton> createState() => _GoogleLoginButtonState();
-}
-
-class _GoogleLoginButtonState extends State<GoogleLoginButton> {
-  bool isPressed = false;
+class GoogleLoginButton extends StatelessWidget {
+  final LoginCubit cubit;
+  const GoogleLoginButton({super.key, required this.cubit});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTapDown: (_) => setState(() => isPressed = true),
-      onTapUp: (_) => setState(() => isPressed = false),
-      onTapCancel: () => setState(() => isPressed = false),
       onTap: () {
-        // Handle Google sign in
+        cubit.signinWithGoogle();
       },
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 100),
+      child: Container(
         width: double.infinity,
-        height: 56.h,
+        height: 52.h,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12.r),
           border: Border.all(
-            color: Colors.grey.shade300,
+            color: Colors.black26,
             width: 1.w,
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(isPressed ? 0.02 : 0.04),
-              blurRadius: isPressed ? 4 : 8,
-              offset: Offset(0, isPressed ? 1 : 2),
+              color: Colors.black12,
+              blurRadius: 4,
+              offset: Offset(0, 2),
             ),
           ],
         ),
-        transform: Matrix4.identity()..scale(isPressed ? 0.98 : 1.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -58,7 +48,7 @@ class _GoogleLoginButtonState extends State<GoogleLoginButton> {
               S.of(context).continueWithGoogle,
               style: FontHelper.font16BlackW600(context).copyWith(
                 fontSize: 15.sp,
-                color: Colors.grey.shade700,
+                color: Colors.black,
               ),
             ),
           ],

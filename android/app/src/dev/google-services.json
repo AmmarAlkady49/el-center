@@ -7,6 +7,44 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:699411488492:android:ce41d6167f54cd0e0d4fc9",
+        "android_client_info": {
+          "package_name": "com.elcentre.elearning"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCni1Ch9VKHKpj0gTpP9bFx61KHLuAHcYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699411488492:android:ed9a83b955e842780d4fc9",
+        "android_client_info": {
+          "package_name": "com.elcentre.elearning.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCni1Ch9VKHKpj0gTpP9bFx61KHLuAHcYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:699411488492:android:7656bef2b5807e7b0d4fc9",
         "android_client_info": {
           "package_name": "com.example.e_learning_app"
@@ -29,6 +67,44 @@
         "mobilesdk_app_id": "1:699411488492:android:b0e4b72770ebe8730d4fc9",
         "android_client_info": {
           "package_name": "com.example.e_learning_app.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCni1Ch9VKHKpj0gTpP9bFx61KHLuAHcYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699411488492:android:68c21faf74c5f85f0d4fc9",
+        "android_client_info": {
+          "package_name": "dev.ammaralkady49.el_centre"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCni1Ch9VKHKpj0gTpP9bFx61KHLuAHcYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699411488492:android:afce85e7ca6a9d020d4fc9",
+        "android_client_info": {
+          "package_name": "dev.ammaralkady49.el_centre.dev"
         }
       },
       "oauth_client": [],

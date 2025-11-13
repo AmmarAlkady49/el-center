@@ -60,6 +60,9 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
     TResult Function(ChangeUserInfoLoading<T> value)? changeUserInfoLoading,
     TResult Function(ChangeUserInfoSuccess<T> value)? changeUserInfoSuccess,
     TResult Function(ChangeUserInfoError<T> value)? changeUserInfoError,
+    TResult Function(LogoutLoading<T> value)? logoutLoading,
+    TResult Function(LogoutSuccess<T> value)? logoutSuccess,
+    TResult Function(LogoutError<T> value)? logoutError,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -80,6 +83,12 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
         return changeUserInfoSuccess(_that);
       case ChangeUserInfoError() when changeUserInfoError != null:
         return changeUserInfoError(_that);
+      case LogoutLoading() when logoutLoading != null:
+        return logoutLoading(_that);
+      case LogoutSuccess() when logoutSuccess != null:
+        return logoutSuccess(_that);
+      case LogoutError() when logoutError != null:
+        return logoutError(_that);
       case _:
         return orElse();
     }
@@ -112,6 +121,9 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
     required TResult Function(ChangeUserInfoSuccess<T> value)
         changeUserInfoSuccess,
     required TResult Function(ChangeUserInfoError<T> value) changeUserInfoError,
+    required TResult Function(LogoutLoading<T> value) logoutLoading,
+    required TResult Function(LogoutSuccess<T> value) logoutSuccess,
+    required TResult Function(LogoutError<T> value) logoutError,
   }) {
     final _that = this;
     switch (_that) {
@@ -131,6 +143,12 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
         return changeUserInfoSuccess(_that);
       case ChangeUserInfoError():
         return changeUserInfoError(_that);
+      case LogoutLoading():
+        return logoutLoading(_that);
+      case LogoutSuccess():
+        return logoutSuccess(_that);
+      case LogoutError():
+        return logoutError(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -159,6 +177,9 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
     TResult? Function(ChangeUserInfoLoading<T> value)? changeUserInfoLoading,
     TResult? Function(ChangeUserInfoSuccess<T> value)? changeUserInfoSuccess,
     TResult? Function(ChangeUserInfoError<T> value)? changeUserInfoError,
+    TResult? Function(LogoutLoading<T> value)? logoutLoading,
+    TResult? Function(LogoutSuccess<T> value)? logoutSuccess,
+    TResult? Function(LogoutError<T> value)? logoutError,
   }) {
     final _that = this;
     switch (_that) {
@@ -178,6 +199,12 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
         return changeUserInfoSuccess(_that);
       case ChangeUserInfoError() when changeUserInfoError != null:
         return changeUserInfoError(_that);
+      case LogoutLoading() when logoutLoading != null:
+        return logoutLoading(_that);
+      case LogoutSuccess() when logoutSuccess != null:
+        return logoutSuccess(_that);
+      case LogoutError() when logoutError != null:
+        return logoutError(_that);
       case _:
         return null;
     }
@@ -205,6 +232,9 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
     TResult Function()? changeUserInfoLoading,
     TResult Function()? changeUserInfoSuccess,
     TResult Function(String error)? changeUserInfoError,
+    TResult Function()? logoutLoading,
+    TResult Function()? logoutSuccess,
+    TResult Function(String error)? logoutError,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -225,6 +255,12 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
         return changeUserInfoSuccess();
       case ChangeUserInfoError() when changeUserInfoError != null:
         return changeUserInfoError(_that.error);
+      case LogoutLoading() when logoutLoading != null:
+        return logoutLoading();
+      case LogoutSuccess() when logoutSuccess != null:
+        return logoutSuccess();
+      case LogoutError() when logoutError != null:
+        return logoutError(_that.error);
       case _:
         return orElse();
     }
@@ -254,6 +290,9 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
     required TResult Function() changeUserInfoLoading,
     required TResult Function() changeUserInfoSuccess,
     required TResult Function(String error) changeUserInfoError,
+    required TResult Function() logoutLoading,
+    required TResult Function() logoutSuccess,
+    required TResult Function(String error) logoutError,
   }) {
     final _that = this;
     switch (_that) {
@@ -273,6 +312,12 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
         return changeUserInfoSuccess();
       case ChangeUserInfoError():
         return changeUserInfoError(_that.error);
+      case LogoutLoading():
+        return logoutLoading();
+      case LogoutSuccess():
+        return logoutSuccess();
+      case LogoutError():
+        return logoutError(_that.error);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -300,6 +345,9 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
     TResult? Function()? changeUserInfoLoading,
     TResult? Function()? changeUserInfoSuccess,
     TResult? Function(String error)? changeUserInfoError,
+    TResult? Function()? logoutLoading,
+    TResult? Function()? logoutSuccess,
+    TResult? Function(String error)? logoutError,
   }) {
     final _that = this;
     switch (_that) {
@@ -319,6 +367,12 @@ extension SettingsStatePatterns<T> on SettingsState<T> {
         return changeUserInfoSuccess();
       case ChangeUserInfoError() when changeUserInfoError != null:
         return changeUserInfoError(_that.error);
+      case LogoutLoading() when logoutLoading != null:
+        return logoutLoading();
+      case LogoutSuccess() when logoutSuccess != null:
+        return logoutSuccess();
+      case LogoutError() when logoutError != null:
+        return logoutError(_that.error);
       case _:
         return null;
     }
@@ -659,6 +713,110 @@ class _$ChangeUserInfoErrorCopyWithImpl<T, $Res>
     Object? error = null,
   }) {
     return _then(ChangeUserInfoError<T>(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class LogoutLoading<T> implements SettingsState<T> {
+  const LogoutLoading();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is LogoutLoading<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'SettingsState<$T>.logoutLoading()';
+  }
+}
+
+/// @nodoc
+
+class LogoutSuccess<T> implements SettingsState<T> {
+  const LogoutSuccess();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is LogoutSuccess<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'SettingsState<$T>.logoutSuccess()';
+  }
+}
+
+/// @nodoc
+
+class LogoutError<T> implements SettingsState<T> {
+  const LogoutError({required this.error});
+
+  final String error;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $LogoutErrorCopyWith<T, LogoutError<T>> get copyWith =>
+      _$LogoutErrorCopyWithImpl<T, LogoutError<T>>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LogoutError<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'SettingsState<$T>.logoutError(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $LogoutErrorCopyWith<T, $Res>
+    implements $SettingsStateCopyWith<T, $Res> {
+  factory $LogoutErrorCopyWith(
+          LogoutError<T> value, $Res Function(LogoutError<T>) _then) =
+      _$LogoutErrorCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$LogoutErrorCopyWithImpl<T, $Res>
+    implements $LogoutErrorCopyWith<T, $Res> {
+  _$LogoutErrorCopyWithImpl(this._self, this._then);
+
+  final LogoutError<T> _self;
+  final $Res Function(LogoutError<T>) _then;
+
+  /// Create a copy of SettingsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(LogoutError<T>(
       error: null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable

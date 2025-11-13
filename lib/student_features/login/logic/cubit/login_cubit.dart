@@ -65,6 +65,32 @@ class LoginCubit extends Cubit<LoginState> {
     }
   }
 
+  Future<void> signinWithGoogle() async {
+    emit(LoginState.loading());
+
+    try {
+      await loginRepo.signinWithGoogle();
+
+      final profileData = await profileRepo.getProfile();
+      String userType;
+
+      if (profileData is api_result.Success<ProfileAccountModel>) {
+        final userTypeValue = profileData.userType;
+        await SharedPrefHelper.setData('userType', userTypeValue);
+        userType = userTypeValue;
+      } else {
+        const defaultType = "Student";
+        await SharedPrefHelper.setData('userType', defaultType);
+        userType = defaultType;
+      }
+
+      emit(LoginState.success(userType == "Student"));
+    } catch (error) {
+      log("Error during Google sign-in: $error");
+      emit(LoginState.error(error: error.toString()));
+    }
+  }
+
   Future<void> saveUserToken(String token) async {
     await SharedPrefHelper.setSecuredString("token", token);
     DioFactory.setTokenIntoHeaderAfterLogin(token);
@@ -77,7 +103,7 @@ class LoginCubit extends Cubit<LoginState> {
     }
 
     // Basic pattern for email validation
-    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    final emailRegex = RegExp(r'^[\w\.\+\-]+@([\w\-]+\.)+[a-zA-Z]{2,}$');
     if (!emailRegex.hasMatch(value.trim())) {
       return S.of(context).pleaseEnterAvalidEmail;
     }
@@ -94,9 +120,8 @@ class LoginCubit extends Cubit<LoginState> {
     final password = value.trim();
 
     // Minimum 8 characters, at least one uppercase, one lowercase, one number, one special character
-    final passwordRegex = RegExp(
-      r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\$&*~_])[A-Za-z\d!@#\$&*~_]{8,}$',
-    );
+    final passwordRegex =
+        RegExp(r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$');
 
     if (!passwordRegex.hasMatch(password)) {
       return S.of(context).pleaseEnterAvalidPassword;

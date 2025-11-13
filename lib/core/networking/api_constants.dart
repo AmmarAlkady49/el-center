@@ -2,67 +2,63 @@ import 'package:dio/dio.dart';
 
 class ApiConstants {
   static const String apiBaseUrl = "https://elcentre-api.runasp.net/";
-  static const String baseUrlOfTheImage =
-      "https://elcentre-learn.vercel.app/api";
+  static const String baseUrlOfTheImage = "https://elcentre-api.runasp.net/";
 
-  static const String login = "Account/login";
-  static const String register = "Account/register";
-  static const String activeAccount = "Account/active-account";
-  static const String profile = "Account/profile";
-  static const String getAllCourses = "Course/get-all-courses";
-  static const String getCourse = "Course/get-course";
-  static const String isEnrolled = "Enrollment/is-enrolled";
+  static const String login = "/api/v1/Account/login";
+  static const String register = "/api/v1/Account/register";
+  static const String activeAccount = "/api/v1/Account/active-account";
+  static const String profile = "/api/v1/Account/profile";
+  static const String getAllCourses = "/api/v1/Course/get-all-courses";
+  static const String getCourse = "/api/v1/Course/get-course";
+  static const String isEnrolled = "/api/v1/Enrollment/is-enrolled";
   static const String getAllCourseModules =
-      "/CourseModule/get-all-course-modules";
-  static const String getModuleLessons = "Lesson/get-module-lessons";
-  static const String createPaymentToken = "Payment/create-payment-token";
-  static const String getCourseReview = "CourseReview/get-course-review";
-  static const String addCourseReview = "CourseReview/add-course-review";
-  static const String getAllCourseQuizzes = "/Quiz/get-all-course-quizzes";
-  static const String completeLesson = "Enrollment/complete-lesson";
-  static const String completedLessons = "Enrollment/completed-lessons";
+      "/api/v1/CourseModule/get-all-course-modules";
+  static const String getModuleLessons = "/api/v1/Lesson/get-module-lessons";
+  static const String createPaymentToken =
+      "/api/v1/Payment/create-payment-token";
+  static const String getCourseReview =
+      "/api/v1/CourseReview/get-course-review";
+  static const String addCourseReview =
+      "/api/v1/CourseReview/add-course-review";
+  static const String getAllCourseQuizzes =
+      "/api/v1/Quiz/get-all-course-quizzes";
+  static const String completeLesson = "/api/v1/Enrollment/complete-lesson";
+  static const String completedLessons = "/api/v1/Enrollment/completed-lessons";
   static const String getStudentEnrollments =
-      "/Enrollment/get-student-enrollments";
-  static const String applyCoupon = "/CouponCode/apply-coupon-code";
-  static const String getAllCategories = "/Category/get-all-categories";
-  static const String enrollmentEnroll = "Enrollment/enroll";
+      "/api/v1/Enrollment/get-student-enrollments";
+  static const String applyCoupon = "/api/v1/CouponCode/apply-coupon-code";
+  static const String getAllCategories = "/api/v1/Category/get-all-categories";
+  static const String enrollmentEnroll = "/api/v1/Enrollment/enroll";
   static const String getAllLessonQuestions =
-      "Q_A/get-all-lesson-questions/{lessonId}";
+      "/api/v1/Q_A/get-all-lesson-questions/{lessonId}";
   static const String getAllQuestionAnswers =
-      "Q_A/get-all-question-answers/{questionId}";
-  static const String sendReport =
-      "Q_A/report-qa";
-  static const String deleteAnswer =
-      "/Q_A/delete-answer/{answerId}";
+      "/api/v1/Q_A/get-all-question-answers/{questionId}";
+  static const String sendReport = "/api/v1/Q_A/report-qa";
+  static const String deleteAnswer = "/api/v1/Q_A/delete-answer/{answerId}";
   static const String deleteQuestion =
-      "/Q_A/delete-question/{questionId}";
-  static const String markAnswerHelpful =
-      "/Q_A/helpful-qa";
-  static const String addAnswer =
-      "/Q_A/add-answer";
-  static const String updateAnswer =
-      "/Q_A/update-answer/{answerId}";
-  static const String updateQuestion  =
-      "/Q_A/update-question/{questionId}";
-  static const String addQuestion  =
-      "/Q_A/add-question";
-  static const String updateCourseReview  =
-      "/CourseReview/update-course-review";
-  static const String deleteCourseReview  =
-      "/CourseReview/delete-course-review/{reviewId}";
-  static const String updateProfile  =
-      "/Account/edit-profile";
-      // instructor
-  static const String getAllApprovedInstructorCourses  =
-      "/Course/get-all-approved-instructor-courses/{instructorId}";
-  static const String getStudentsCount  =
-      "/Enrollment/students-count/{courseId}";
-  static const String getCourseEnrollments  =
-      "/Enrollment/get-course-enrollments";
-  static const String addCourse  =
-      "/Course/add-course";
-  static const String updateCourse  =
-      "/Course/update-course";
+      "/api/v1/Q_A/delete-question/{questionId}";
+  static const String markAnswerHelpful = "/api/v1/Q_A/helpful-qa";
+  static const String addAnswer = "/api/v1/Q_A/add-answer";
+  static const String updateAnswer = "/api/v1/Q_A/update-answer/{answerId}";
+  static const String updateQuestion =
+      "/api/v1/Q_A/update-question/{questionId}";
+  static const String addQuestion = "/api/v1/Q_A/add-question";
+  static const String updateCourseReview =
+      "/api/v1/CourseReview/update-course-review";
+  static const String deleteCourseReview =
+      "/api/v1/CourseReview/delete-course-review/{reviewId}";
+  static const String updateProfile = "/api/v1/Account/edit-profile";
+  // instructor
+  static const String getAllApprovedInstructorCourses =
+      "/api/v1/Course/get-all-approved-instructor-courses/{instructorId}";
+  static const String getStudentsCount =
+      "/api/v1/Enrollment/students-count/{courseId}";
+  static const String getCourseEnrollments =
+      "/api/v1/Enrollment/get-course-enrollments";
+  static const String addCourse = "/api/v1/Course/add-course";
+  static const String updateCourse = "/api/v1/Course/update-course";
+  static const String googleLogin = "/api/v1/Account/google-login";
+  static const String logout = "/api/v1/Account/logout";
 }
 
 class ApiErrors {

@@ -6,12 +6,12 @@ platform :android do
     sh "flutter clean"
     sh "flutter build apk --release --flavor prod --target lib/main_prod.dart --no-tree-shake-icons"
     firebase_app_distribution(
-      app: "1:699411488492:android:7656bef2b5807e7b0d4fc9",
+      app: "1:699411488492:android:ce41d6167f54cd0e0d4fc9",
       firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
       android_artifact_type: "APK",
       android_artifact_path: "../build/app/outputs/flutter-apk/app-prod-release.apk",
       testers: "ammaralkady987654@gmail.com , walidtawfik362@gmail.com, mazen.mohamed1393@gmail.com",
-      release_notes: "- added new feature: edit at any course",
+      release_notes: "- back 🥺",
     )
   end
 end
