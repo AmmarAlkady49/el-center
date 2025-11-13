@@ -4,6 +4,8 @@ import 'package:e_learning_app/student_features/onboarding/presentation/widgets/
 import 'package:e_learning_app/student_features/onboarding/presentation/widgets/onboarding_image_and_title.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/helpers/shared_pref_helper.dart';
+
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
 
@@ -64,17 +66,23 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             FloatingProgressIndecator(
               totalPages: onboardingPages.length,
               currentPage: _currentPage,
-              onNextPressed: () {
-                _currentPage == onboardingPages.length - 1
-                    ? Navigator.pushNamedAndRemoveUntil(
-                        context,
-                        AppRoutes.loginScreen,
-                        (route) => false,
-                      )
-                    : _onboardingPageController.nextPage(
-                        duration: const Duration(milliseconds: 300),
-                        curve: Curves.easeInOut,
-                      );
+              onNextPressed: () async {
+                if (_currentPage == onboardingPages.length - 1) {
+                  // ✅ Save that user has completed onboarding
+                  await SharedPrefHelper.setData("hasSeenOnboarding", true);
+
+                  // ✅ Navigate to login screen
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    AppRoutes.loginScreen,
+                    (route) => false,
+                  );
+                } else {
+                  _onboardingPageController.nextPage(
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.easeInOut,
+                  );
+                }
               },
             )
           ],

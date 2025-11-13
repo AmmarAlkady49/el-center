@@ -41,7 +41,7 @@ class SignupCubit extends Cubit<SignupState> {
       return S.of(context).pleaseEnterYourEmail;
     }
     // Basic pattern for email validation
-    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    final emailRegex = RegExp(r'^[\w\.\+\-]+@([\w\-]+\.)+[a-zA-Z]{2,}$');
     if (!emailRegex.hasMatch(value.trim())) {
       return S.of(context).pleaseEnterAvalidEmail;
     }
@@ -52,7 +52,7 @@ class SignupCubit extends Cubit<SignupState> {
     if (value == null || value.trim().isEmpty) {
       return S.of(context).pleaseEnterYourPhoneNumber;
     }
-    if (value.length != 10 || !RegExp(r'^\d+$').hasMatch(value)) {
+    if (!RegExp(r'^\d{7,15}$').hasMatch(value)) {
       return S.of(context).pleaseEnterAvalidPhoneNumber;
     }
     return null;
@@ -62,9 +62,10 @@ class SignupCubit extends Cubit<SignupState> {
     if (value == null || value.trim().isEmpty) {
       return S.of(context).pleaseEnterYourPassword;
     }
-    if (!RegExp(
-            r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')
-        .hasMatch(value)) {
+    final passwordRegex =
+        RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$');
+
+    if (!passwordRegex.hasMatch(value)) {
       return S.of(context).passwordTooWeak;
     }
 

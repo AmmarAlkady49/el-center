@@ -25,4 +25,11 @@ class SettingsState<T> with _$SettingsState<T> {
 
   const factory SettingsState.changeUserInfoError({required String error}) =
       ChangeUserInfoError;
+
+  const factory SettingsState.logoutLoading() = LogoutLoading;
+
+  const factory SettingsState.logoutSuccess() = LogoutSuccess;
+
+  const factory SettingsState.logoutError({required String error}) =
+      LogoutError;
 }

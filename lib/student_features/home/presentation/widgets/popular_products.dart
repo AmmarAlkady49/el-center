@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:e_learning_app/core/networking/api_constants.dart';
 import 'package:e_learning_app/core/theming/font_helper.dart';
 import 'package:e_learning_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,6 @@ class PopularProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final cubit = context.read<HomeCubit>();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -39,7 +39,7 @@ class PopularProducts extends StatelessWidget {
                 instructorName: courses[index].instructorName!,
                 rating: double.parse(courses[index].rating!.toString()),
                 imageAsset:
-                    "https://elcentre-learn.vercel.app/api${courses[index].thumbnail!}",
+                    "${ApiConstants.baseUrlOfTheImage}${courses[index].thumbnail!}",
                 context: context,
               );
             },

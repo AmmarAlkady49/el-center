@@ -233,4 +233,12 @@ abstract class ApiService {
     @Part(name: 'UseAIAssistant') bool useAIAssistant,
     @Part(name: 'CourseLanguage') String courseLanguage,
   );
+
+  @GET(ApiConstants.googleLogin)
+  Future<StandardResponseBody> googleLogin(
+    @Query('role') String role,
+  );
+
+  @POST(ApiConstants.logout)
+  Future<StandardResponseBody> logout();
 }

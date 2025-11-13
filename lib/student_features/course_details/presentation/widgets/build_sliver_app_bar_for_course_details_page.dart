@@ -1,5 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../../../core/data/models/course_info_model.dart';
 import '../../../../core/helpers/spacing.dart';
@@ -52,7 +54,20 @@ class BuildSliverAppBarForCourseDetailsPage extends StatelessWidget {
       actions: [
         _buildAppBarIcons(Icons.favorite_border, () {}),
         horizontalSpacing(8),
-        _buildAppBarIcons(Icons.share, () {}),
+        _buildAppBarIcons(Icons.share, () async {
+          final String webCourseLink =
+              "https://elcentre-learn.vercel.app/courses/${courseBasicInfo.id}";
+
+          await SharePlus.instance.share(
+            ShareParams(
+              text:
+                  "I’m currently taking ${courseBasicInfo.title} on El Centre 📚 \nIt’s taught by ${courseBasicInfo.instructorName} and covers ${courseBasicInfo.categoryName} in an easy and practical way. \nCheck out the course here 👉 $webCourseLink \nOr download the app and join me 👉 [App Link]",
+              title: 'Let’s Learn Together 🎉',
+              // files: [XFile(path)],
+              sharePositionOrigin: const Rect.fromLTWH(0, 0, 0, 0),
+            ),
+          );
+        }),
         horizontalSpacing(8),
       ],
     );

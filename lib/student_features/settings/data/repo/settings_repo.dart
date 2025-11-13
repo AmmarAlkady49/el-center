@@ -1,3 +1,4 @@
+import 'package:e_learning_app/core/data/models/standard_response_body.dart';
 import 'package:e_learning_app/core/networking/api_service.dart';
 
 import '../../../../core/data/models/profile_account_model.dart';
@@ -33,6 +34,15 @@ class SettingsRepo {
       return apiResponse;
     } catch (e) {
       throw Exception('Failed to update profile: $e');
+    }
+  }
+
+  Future<StandardResponseBody> logout() async {
+    try {
+      final apiResponse = await _apiService.logout();
+      return apiResponse;
+    } catch (e) {
+      throw Exception('Failed to logout: $e');
     }
   }
 }

@@ -32,6 +32,13 @@ class SettingsPage extends StatelessWidget {
       ),
       body: BlocBuilder<SettingsCubit, SettingsState>(
         bloc: cubit,
+        buildWhen: (previous, current) =>
+            current is LoadingsettingsPage ||
+            current is LoadedSettingsPage ||
+            current is LoadingSettingsPageError ||
+            current is LogoutLoading ||
+            current is LogoutSuccess ||
+            current is LogoutError,
         builder: (context, state) {
           if (state is LoadingsettingsPage) {
             return Center(
@@ -122,7 +129,9 @@ class SettingsPage extends StatelessWidget {
                             subtitle: S.of(context).sign_out_of_your_account,
                             isLogOut: true,
                             isDestructive: true,
-                            onTap: () {},
+                            onTap: () {
+                              cubit.logout();
+                            },
                           ),
                         ]),
                       ],
@@ -130,6 +139,36 @@ class SettingsPage extends StatelessWidget {
                   ),
                 ],
               ),
+            );
+          } else if (state is LogoutLoading) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const CupertinoActivityIndicator(),
+                  verticalSpacing(16),
+                  Text(
+                    S.of(context).logging_out,
+                    style: FontHelper.font16BlackW500(context).copyWith(
+                      color: AppColors.greyBlue,
+                    ),
+                  ),
+                ],
+              ),
+            );
+          } else if (state is LogoutSuccess) {
+            Future.microtask(() {
+              context.pushNamedAndRemoveUntil(AppRoutes.loginScreen);
+            });
+            return const SizedBox.shrink();
+          } else if (state is LogoutError) {
+            return ErrorStateWidget(
+              errorMessage: state.error,
+              customTitle: S.of(context).unable_to_load_content,
+              customSubtitle: S.of(context).unable_to_load_content_desc,
+              onRetry: () {
+                cubit.emitSettingsPage();
+              },
             );
           }
           return const SizedBox.shrink();

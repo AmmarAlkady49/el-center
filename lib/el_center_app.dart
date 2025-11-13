@@ -11,10 +11,13 @@ import 'generated/l10n.dart';
 class ElCenterApp extends StatelessWidget {
   final String languageCode;
   final bool isStudent;
+  final bool showOnboarding;
+
   const ElCenterApp({
     super.key,
     required this.languageCode,
     required this.isStudent,
+    required this.showOnboarding,
   });
 
   @override
@@ -42,7 +45,9 @@ class ElCenterApp extends StatelessWidget {
             ? isStudent
                 ? AppRoutes.studentBottomNavigation
                 : AppRoutes.instructorBottomNavigation
-            : AppRoutes.onBoardingScreen,
+            : showOnboarding
+                ? AppRoutes.onBoardingScreen
+                : AppRoutes.loginScreen,
         onGenerateRoute: AppRouter.onGenerateRoute,
       ),
     );

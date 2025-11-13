@@ -30,7 +30,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'Account/login',
+            '/api/v1/Account/login',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -60,7 +60,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'Account/register',
+            '/api/v1/Account/register',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -90,7 +90,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'Account/active-account',
+            '/api/v1/Account/active-account',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -117,7 +117,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'Account/profile',
+            '/api/v1/Account/profile',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -144,7 +144,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'Course/get-all-courses',
+            '/api/v1/Course/get-all-courses',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -172,7 +172,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'Course/get-all-courses',
+            '/api/v1/Course/get-all-courses',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -196,7 +196,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'Course/get-all-courses',
+            '/api/v1/Course/get-all-courses',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -224,7 +224,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'Enrollment/is-enrolled',
+            '/api/v1/Enrollment/is-enrolled',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -254,7 +254,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/CourseModule/get-all-course-modules',
+            '/api/v1/CourseModule/get-all-course-modules',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -289,7 +289,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'Lesson/get-module-lessons',
+            '/api/v1/Lesson/get-module-lessons',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -327,7 +327,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'Payment/create-payment-token',
+            '/api/v1/Payment/create-payment-token',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -354,7 +354,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'CourseReview/get-course-review/${courseId}',
+            '/api/v1/CourseReview/get-course-review/${courseId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -389,7 +389,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'CourseReview/add-course-review',
+            '/api/v1/CourseReview/add-course-review',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -416,7 +416,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/Quiz/get-all-course-quizzes',
+            '/api/v1/Quiz/get-all-course-quizzes',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -445,7 +445,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'Enrollment/complete-lesson/${lessonId}',
+            '/api/v1/Enrollment/complete-lesson/${lessonId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -472,7 +472,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'Enrollment/completed-lessons/${courseId}',
+            '/api/v1/Enrollment/completed-lessons/${courseId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -504,7 +504,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/Enrollment/get-student-enrollments',
+            '/api/v1/Enrollment/get-student-enrollments',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -542,7 +542,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/CouponCode/apply-coupon-code',
+            '/api/v1/CouponCode/apply-coupon-code',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -569,7 +569,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/Category/get-all-categories',
+            '/api/v1/Category/get-all-categories',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -598,7 +598,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'Enrollment/enroll',
+            '/api/v1/Enrollment/enroll',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -627,7 +627,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'Q_A/get-all-lesson-questions/${lessonId}',
+            '/api/v1/Q_A/get-all-lesson-questions/${lessonId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -661,7 +661,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'Q_A/get-all-question-answers/${questionId}',
+            '/api/v1/Q_A/get-all-question-answers/${questionId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -694,7 +694,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'Q_A/report-qa',
+            '/api/v1/Q_A/report-qa',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -721,7 +721,7 @@ class _ApiService implements ApiService {
       Options(method: 'DELETE', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/Q_A/delete-answer/${answerId}',
+            '/api/v1/Q_A/delete-answer/${answerId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -748,7 +748,7 @@ class _ApiService implements ApiService {
       Options(method: 'DELETE', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/Q_A/delete-question/${questionId}',
+            '/api/v1/Q_A/delete-question/${questionId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -778,7 +778,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/Q_A/helpful-qa',
+            '/api/v1/Q_A/helpful-qa',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -808,7 +808,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/Q_A/add-answer',
+            '/api/v1/Q_A/add-answer',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -841,7 +841,7 @@ class _ApiService implements ApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/Q_A/add-question',
+            '/api/v1/Q_A/add-question',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -868,7 +868,7 @@ class _ApiService implements ApiService {
       Options(method: 'PUT', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/Q_A/update-answer/${answerId}',
+            '/api/v1/Q_A/update-answer/${answerId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -898,7 +898,7 @@ class _ApiService implements ApiService {
       Options(method: 'PUT', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/Q_A/update-question/${questionId}',
+            '/api/v1/Q_A/update-question/${questionId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -928,7 +928,7 @@ class _ApiService implements ApiService {
       Options(method: 'PUT', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/CourseReview/update-course-review',
+            '/api/v1/CourseReview/update-course-review',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -955,7 +955,7 @@ class _ApiService implements ApiService {
       Options(method: 'DELETE', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/CourseReview/delete-course-review/${reviewId}',
+            '/api/v1/CourseReview/delete-course-review/${reviewId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1004,7 +1004,7 @@ class _ApiService implements ApiService {
       )
           .compose(
             _dio.options,
-            '/Account/edit-profile',
+            '/api/v1/Account/edit-profile',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1033,7 +1033,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/Course/get-all-approved-instructor-courses/${instructorId}',
+            '/api/v1/Course/get-all-approved-instructor-courses/${instructorId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1064,7 +1064,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/Enrollment/students-count/${courseId}',
+            '/api/v1/Enrollment/students-count/${courseId}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1117,7 +1117,7 @@ class _ApiService implements ApiService {
       )
           .compose(
             _dio.options,
-            '/Course/add-course',
+            '/api/v1/Course/add-course',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1146,7 +1146,7 @@ class _ApiService implements ApiService {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            '/Enrollment/get-course-enrollments',
+            '/api/v1/Enrollment/get-course-enrollments',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -1210,7 +1210,61 @@ class _ApiService implements ApiService {
       )
           .compose(
             _dio.options,
-            '/Course/update-course',
+            '/api/v1/Course/update-course',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late StandardResponseBody _value;
+    try {
+      _value = StandardResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<StandardResponseBody> googleLogin(String role) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'role': role};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<StandardResponseBody>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/v1/Account/google-login',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late StandardResponseBody _value;
+    try {
+      _value = StandardResponseBody.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<StandardResponseBody> logout() async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<StandardResponseBody>(
+      Options(method: 'POST', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/api/v1/Account/logout',
             queryParameters: queryParameters,
             data: _data,
           )
