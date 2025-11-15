@@ -110,6 +110,7 @@ class LoginCubit extends Cubit<LoginState> {
 
     return null;
   }
+  
 
   // Function to validate password
   String? validatePassword(String? value, BuildContext context) {

@@ -64,12 +64,9 @@ class LoginBlocConsumer extends StatelessWidget {
         return AppTextButton(
             text: S.of(context).signin,
             onPressed: () {
-              final emailError =
-                  cubit.validateEmail(cubit.emailController.text, context);
-              final passwordError = cubit.validatePassword(
-                  cubit.passwordController.text, context);
+              final isValid = cubit.formKey.currentState!.validate();
 
-              if (emailError == null && passwordError == null) {
+              if (isValid) {
                 cubit.emitLoginState(
                   LoginRequestBody(
                     email: cubit.emailController.text,
