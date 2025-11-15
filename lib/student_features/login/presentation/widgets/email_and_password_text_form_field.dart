@@ -1,6 +1,5 @@
 import 'package:e_learning_app/student_features/login/logic/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -27,17 +26,6 @@ class _EmailAndPasswordTextFormFieldState
   String? _emailError;
   String? _passwordError;
 
-  bool validateAll() {
-    setState(() {
-      _emailError = widget.cubit
-          .validateEmail(widget.cubit.emailController.text, context);
-      _passwordError = widget.cubit
-          .validatePassword(widget.cubit.passwordController.text, context);
-    });
-    return (_emailError == null || _emailError!.isEmpty) &&
-        (_passwordError == null || _passwordError!.isEmpty);
-  }
-
   @override
   Widget build(BuildContext context) {
     final emailController = widget.cubit.emailController;
@@ -62,11 +50,6 @@ class _EmailAndPasswordTextFormFieldState
               keyboardType: TextInputType.emailAddress,
               autofillHints: [AutofillHints.email],
               textInputAction: TextInputAction.next,
-              onChanged: (value) {
-                setState(() {
-                  _emailError = widget.cubit.validateEmail(value, context);
-                });
-              },
             ),
 
             verticalSpacing(16),
@@ -101,14 +84,6 @@ class _EmailAndPasswordTextFormFieldState
                   ),
                 ),
               ),
-              onChanged: (value) {
-                setState(() {
-                  _passwordError = context
-                      .read<LoginCubit>()
-                      .validatePassword(value, context);
-                  ;
-                });
-              },
             ),
           ],
         ),
@@ -116,7 +91,7 @@ class _EmailAndPasswordTextFormFieldState
     );
   }
 
-  _buildCleanTextField({
+  Column _buildCleanTextField({
     required String label,
     required String hintText,
     required TextEditingController controller,
@@ -129,7 +104,6 @@ class _EmailAndPasswordTextFormFieldState
     TextInputAction? textInputAction,
     bool isObscureText = false,
     Widget? suffixIcon,
-    void Function(String)? onChanged,
   }) {
     final hasError = errorText != null && errorText.isNotEmpty;
 
@@ -188,7 +162,15 @@ class _EmailAndPasswordTextFormFieldState
               autofillHints: autofillHints,
               textInputAction: textInputAction,
               obscureText: isObscureText,
-              onChanged: onChanged, // we use this instead of validator
+              cursorColor: Colors.black,
+              validator: (value) {
+                if (label == S.of(context).email) {
+                  return widget.cubit.validateEmail(value, context);
+                } else if (label == S.of(context).password) {
+                  return widget.cubit.validatePassword(value, context);
+                }
+                return null;
+              },
               style: FontHelper.font16BlackW500(context).copyWith(
                 color: Colors.grey.shade800,
                 fontSize: 14.sp,
