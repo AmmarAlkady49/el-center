@@ -363,6 +363,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Loading your profile...",
     ),
     "logging_out": MessageLookupByLibrary.simpleMessage("Logging out..."),
+    "loginFailed": MessageLookupByLibrary.simpleMessage("Login failed"),
     "logout": MessageLookupByLibrary.simpleMessage("Logout"),
     "make_this_course_visible_to_students":
         MessageLookupByLibrary.simpleMessage(

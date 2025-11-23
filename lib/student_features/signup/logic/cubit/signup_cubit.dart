@@ -36,13 +36,11 @@ class SignupCubit extends Cubit<SignupState> {
     return null;
   }
 
-  String? validateEmail(String? value, BuildContext context) {
-    if (value == null || value.trim().isEmpty) {
+  String? validateEmail(String? email, BuildContext context) {
+    if (email == null || email.isEmpty) {
       return S.of(context).pleaseEnterYourEmail;
     }
-    // Basic pattern for email validation
-    final emailRegex = RegExp(r'^[\w\.\+\-]+@([\w\-]+\.)+[a-zA-Z]{2,}$');
-    if (!emailRegex.hasMatch(value.trim())) {
+    if (!email.contains("@")) {
       return S.of(context).pleaseEnterAvalidEmail;
     }
     return null;
@@ -58,17 +56,13 @@ class SignupCubit extends Cubit<SignupState> {
     return null;
   }
 
-  String? validatePassword(String? value, BuildContext context) {
-    if (value == null || value.trim().isEmpty) {
+  String? validatePassword(String? pass, BuildContext context) {
+    if (pass == null || pass.isEmpty) {
       return S.of(context).pleaseEnterYourPassword;
     }
-    final passwordRegex =
-        RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$');
-
-    if (!passwordRegex.hasMatch(value)) {
+    if (pass.length < 6) {
       return S.of(context).passwordTooWeak;
     }
-
     return null;
   }
 

@@ -29,7 +29,6 @@
 - [⚙️ Getting Started](#️-getting-started)
 - [🖼 Screenshots](#-screenshots)
 - [🔗 Related Repositories](#-related-repositories)
-- [🤝 Contributing](#-contributing)
 - [📞 Contact](#-contact)
 
 ---

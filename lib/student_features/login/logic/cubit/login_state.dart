@@ -13,4 +13,10 @@ class LoginState<T> with _$LoginState<T> {
   const factory LoginState.success(bool isStudent) = Success;
 
   const factory LoginState.error({required String error}) = Error;
+
+  const factory LoginState.googleLoginSuccess(T user) = GoogleLoginSuccess;
+
+  const factory LoginState.googleLoginError({required String error}) = GoogleLoginError;
+
+  const factory LoginState.googleLoginLoading() = GoogleLoginLoading;
 }

@@ -401,5 +401,6 @@
   "manage_content": "Manage Content",
   "unable_to_load_content": "Unable to Load Content",
   "unable_to_load_content_desc": "We're having trouble loading your learning materials. Check your connection and try again.",
-  "logging_out": "Logging out..."
+  "logging_out": "Logging out...",
+  "loginFailed" : "Login failed"
 }

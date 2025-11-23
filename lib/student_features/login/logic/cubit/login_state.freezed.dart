@@ -54,6 +54,9 @@ extension LoginStatePatterns<T> on LoginState<T> {
     TResult Function(Loading<T> value)? loading,
     TResult Function(Success<T> value)? success,
     TResult Function(Error<T> value)? error,
+    TResult Function(GoogleLoginSuccess<T> value)? googleLoginSuccess,
+    TResult Function(GoogleLoginError<T> value)? googleLoginError,
+    TResult Function(GoogleLoginLoading<T> value)? googleLoginLoading,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -66,6 +69,12 @@ extension LoginStatePatterns<T> on LoginState<T> {
         return success(_that);
       case Error() when error != null:
         return error(_that);
+      case GoogleLoginSuccess() when googleLoginSuccess != null:
+        return googleLoginSuccess(_that);
+      case GoogleLoginError() when googleLoginError != null:
+        return googleLoginError(_that);
+      case GoogleLoginLoading() when googleLoginLoading != null:
+        return googleLoginLoading(_that);
       case _:
         return orElse();
     }
@@ -90,6 +99,9 @@ extension LoginStatePatterns<T> on LoginState<T> {
     required TResult Function(Loading<T> value) loading,
     required TResult Function(Success<T> value) success,
     required TResult Function(Error<T> value) error,
+    required TResult Function(GoogleLoginSuccess<T> value) googleLoginSuccess,
+    required TResult Function(GoogleLoginError<T> value) googleLoginError,
+    required TResult Function(GoogleLoginLoading<T> value) googleLoginLoading,
   }) {
     final _that = this;
     switch (_that) {
@@ -101,6 +113,12 @@ extension LoginStatePatterns<T> on LoginState<T> {
         return success(_that);
       case Error():
         return error(_that);
+      case GoogleLoginSuccess():
+        return googleLoginSuccess(_that);
+      case GoogleLoginError():
+        return googleLoginError(_that);
+      case GoogleLoginLoading():
+        return googleLoginLoading(_that);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -124,6 +142,9 @@ extension LoginStatePatterns<T> on LoginState<T> {
     TResult? Function(Loading<T> value)? loading,
     TResult? Function(Success<T> value)? success,
     TResult? Function(Error<T> value)? error,
+    TResult? Function(GoogleLoginSuccess<T> value)? googleLoginSuccess,
+    TResult? Function(GoogleLoginError<T> value)? googleLoginError,
+    TResult? Function(GoogleLoginLoading<T> value)? googleLoginLoading,
   }) {
     final _that = this;
     switch (_that) {
@@ -135,6 +156,12 @@ extension LoginStatePatterns<T> on LoginState<T> {
         return success(_that);
       case Error() when error != null:
         return error(_that);
+      case GoogleLoginSuccess() when googleLoginSuccess != null:
+        return googleLoginSuccess(_that);
+      case GoogleLoginError() when googleLoginError != null:
+        return googleLoginError(_that);
+      case GoogleLoginLoading() when googleLoginLoading != null:
+        return googleLoginLoading(_that);
       case _:
         return null;
     }
@@ -158,6 +185,9 @@ extension LoginStatePatterns<T> on LoginState<T> {
     TResult Function()? loading,
     TResult Function(bool isStudent)? success,
     TResult Function(String error)? error,
+    TResult Function(T user)? googleLoginSuccess,
+    TResult Function(String error)? googleLoginError,
+    TResult Function()? googleLoginLoading,
     required TResult orElse(),
   }) {
     final _that = this;
@@ -170,6 +200,12 @@ extension LoginStatePatterns<T> on LoginState<T> {
         return success(_that.isStudent);
       case Error() when error != null:
         return error(_that.error);
+      case GoogleLoginSuccess() when googleLoginSuccess != null:
+        return googleLoginSuccess(_that.user);
+      case GoogleLoginError() when googleLoginError != null:
+        return googleLoginError(_that.error);
+      case GoogleLoginLoading() when googleLoginLoading != null:
+        return googleLoginLoading();
       case _:
         return orElse();
     }
@@ -194,6 +230,9 @@ extension LoginStatePatterns<T> on LoginState<T> {
     required TResult Function() loading,
     required TResult Function(bool isStudent) success,
     required TResult Function(String error) error,
+    required TResult Function(T user) googleLoginSuccess,
+    required TResult Function(String error) googleLoginError,
+    required TResult Function() googleLoginLoading,
   }) {
     final _that = this;
     switch (_that) {
@@ -205,6 +244,12 @@ extension LoginStatePatterns<T> on LoginState<T> {
         return success(_that.isStudent);
       case Error():
         return error(_that.error);
+      case GoogleLoginSuccess():
+        return googleLoginSuccess(_that.user);
+      case GoogleLoginError():
+        return googleLoginError(_that.error);
+      case GoogleLoginLoading():
+        return googleLoginLoading();
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -228,6 +273,9 @@ extension LoginStatePatterns<T> on LoginState<T> {
     TResult? Function()? loading,
     TResult? Function(bool isStudent)? success,
     TResult? Function(String error)? error,
+    TResult? Function(T user)? googleLoginSuccess,
+    TResult? Function(String error)? googleLoginError,
+    TResult? Function()? googleLoginLoading,
   }) {
     final _that = this;
     switch (_that) {
@@ -239,6 +287,12 @@ extension LoginStatePatterns<T> on LoginState<T> {
         return success(_that.isStudent);
       case Error() when error != null:
         return error(_that.error);
+      case GoogleLoginSuccess() when googleLoginSuccess != null:
+        return googleLoginSuccess(_that.user);
+      case GoogleLoginError() when googleLoginError != null:
+        return googleLoginError(_that.error);
+      case GoogleLoginLoading() when googleLoginLoading != null:
+        return googleLoginLoading();
       case _:
         return null;
     }
@@ -407,6 +461,156 @@ class _$ErrorCopyWithImpl<T, $Res> implements $ErrorCopyWith<T, $Res> {
           : error // ignore: cast_nullable_to_non_nullable
               as String,
     ));
+  }
+}
+
+/// @nodoc
+
+class GoogleLoginSuccess<T> implements LoginState<T> {
+  const GoogleLoginSuccess(this.user);
+
+  final T user;
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GoogleLoginSuccessCopyWith<T, GoogleLoginSuccess<T>> get copyWith =>
+      _$GoogleLoginSuccessCopyWithImpl<T, GoogleLoginSuccess<T>>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GoogleLoginSuccess<T> &&
+            const DeepCollectionEquality().equals(other.user, user));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(user));
+
+  @override
+  String toString() {
+    return 'LoginState<$T>.googleLoginSuccess(user: $user)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $GoogleLoginSuccessCopyWith<T, $Res>
+    implements $LoginStateCopyWith<T, $Res> {
+  factory $GoogleLoginSuccessCopyWith(GoogleLoginSuccess<T> value,
+          $Res Function(GoogleLoginSuccess<T>) _then) =
+      _$GoogleLoginSuccessCopyWithImpl;
+  @useResult
+  $Res call({T user});
+}
+
+/// @nodoc
+class _$GoogleLoginSuccessCopyWithImpl<T, $Res>
+    implements $GoogleLoginSuccessCopyWith<T, $Res> {
+  _$GoogleLoginSuccessCopyWithImpl(this._self, this._then);
+
+  final GoogleLoginSuccess<T> _self;
+  final $Res Function(GoogleLoginSuccess<T>) _then;
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? user = freezed,
+  }) {
+    return _then(GoogleLoginSuccess<T>(
+      freezed == user
+          ? _self.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class GoogleLoginError<T> implements LoginState<T> {
+  const GoogleLoginError({required this.error});
+
+  final String error;
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $GoogleLoginErrorCopyWith<T, GoogleLoginError<T>> get copyWith =>
+      _$GoogleLoginErrorCopyWithImpl<T, GoogleLoginError<T>>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GoogleLoginError<T> &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  @override
+  String toString() {
+    return 'LoginState<$T>.googleLoginError(error: $error)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $GoogleLoginErrorCopyWith<T, $Res>
+    implements $LoginStateCopyWith<T, $Res> {
+  factory $GoogleLoginErrorCopyWith(
+          GoogleLoginError<T> value, $Res Function(GoogleLoginError<T>) _then) =
+      _$GoogleLoginErrorCopyWithImpl;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class _$GoogleLoginErrorCopyWithImpl<T, $Res>
+    implements $GoogleLoginErrorCopyWith<T, $Res> {
+  _$GoogleLoginErrorCopyWithImpl(this._self, this._then);
+
+  final GoogleLoginError<T> _self;
+  final $Res Function(GoogleLoginError<T>) _then;
+
+  /// Create a copy of LoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(GoogleLoginError<T>(
+      error: null == error
+          ? _self.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class GoogleLoginLoading<T> implements LoginState<T> {
+  const GoogleLoginLoading();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is GoogleLoginLoading<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  String toString() {
+    return 'LoginState<$T>.googleLoginLoading()';
   }
 }
 

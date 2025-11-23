@@ -47,8 +47,13 @@ class _EmailAndPasswordTextFormFieldState
               isFocused: _emailFocused,
               onFocusChange: (focused) =>
                   setState(() => _emailFocused = focused),
+              onChanged: (value) {
+                if (_emailError != null) {
+                  setState(() => _emailError = null);
+                }
+              },
               keyboardType: TextInputType.emailAddress,
-              autofillHints: [AutofillHints.email],
+              autofillHints: const [AutofillHints.email],
               textInputAction: TextInputAction.next,
             ),
 
@@ -65,9 +70,14 @@ class _EmailAndPasswordTextFormFieldState
               onFocusChange: (focused) {
                 setState(() => _passwordFocused = focused);
               },
+              onChanged: (value) {
+                if (_passwordError != null) {
+                  setState(() => _passwordError = null);
+                }
+              },
               isObscureText: _isObscureText,
               keyboardType: TextInputType.visiblePassword,
-              autofillHints: [AutofillHints.password],
+              autofillHints: const [AutofillHints.password],
               textInputAction: TextInputAction.done,
               suffixIcon: GestureDetector(
                 onTap: () {
@@ -79,7 +89,9 @@ class _EmailAndPasswordTextFormFieldState
                   padding: EdgeInsets.all(12.w),
                   child: Icon(
                     _isObscureText ? Iconsax.eye_slash : Iconsax.eye,
-                    color: Colors.grey.shade500,
+                    color: _passwordFocused
+                        ? AppColors.mainBlue
+                        : Colors.grey.shade500,
                     size: 20.sp,
                   ),
                 ),
@@ -98,6 +110,7 @@ class _EmailAndPasswordTextFormFieldState
     required IconData prefixIcon,
     required bool isFocused,
     required Function(bool) onFocusChange,
+    required Function(String) onChanged,
     String? errorText,
     TextInputType? keyboardType,
     List<String>? autofillHints,
@@ -110,15 +123,20 @@ class _EmailAndPasswordTextFormFieldState
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        // Animated Label
         AnimatedDefaultTextStyle(
           duration: const Duration(milliseconds: 200),
           style: FontHelper.font15BlackW600(context).copyWith(
-            color: isFocused ? AppColors.mainBlue : Colors.grey.shade700,
+            color: hasError
+                ? Colors.red.shade600
+                : (isFocused ? AppColors.mainBlue : Colors.grey.shade700),
             fontSize: isFocused ? 14.sp : 13.sp,
           ),
           child: Text(label),
         ),
-        verticalSpacing(12),
+        verticalSpacing(8),
+
+        // Text Field
         Focus(
           onFocusChange: onFocusChange,
           child: AnimatedContainer(
@@ -162,12 +180,28 @@ class _EmailAndPasswordTextFormFieldState
               autofillHints: autofillHints,
               textInputAction: textInputAction,
               obscureText: isObscureText,
-              cursorColor: Colors.black,
+              cursorColor: AppColors.mainBlue,
+              onChanged: onChanged,
+
+              // Validator only for form validation, doesn't show default error
               validator: (value) {
                 if (label == S.of(context).email) {
-                  return widget.cubit.validateEmail(value, context);
+                  final emailError = widget.cubit.validateEmail(value, context);
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    if (mounted && _emailError != emailError) {
+                      setState(() => _emailError = emailError);
+                    }
+                  });
+                  return emailError != null ? '' : null;
                 } else if (label == S.of(context).password) {
-                  return widget.cubit.validatePassword(value, context);
+                  final passwordError =
+                      widget.cubit.validatePassword(value, context);
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    if (mounted && _passwordError != passwordError) {
+                      setState(() => _passwordError = passwordError);
+                    }
+                  });
+                  return passwordError != null ? '' : null;
                 }
                 return null;
               },
@@ -175,6 +209,7 @@ class _EmailAndPasswordTextFormFieldState
                 color: Colors.grey.shade800,
                 fontSize: 14.sp,
               ),
+
               decoration: InputDecoration(
                 hintText: hintText,
                 hintStyle: FontHelper.font15BlackW400(context).copyWith(
@@ -183,15 +218,21 @@ class _EmailAndPasswordTextFormFieldState
                 ),
                 prefixIcon: Icon(
                   prefixIcon,
-                  color: isFocused ? AppColors.mainBlue : Colors.grey.shade500,
+                  color: hasError
+                      ? Colors.red.shade400
+                      : (isFocused ? AppColors.mainBlue : Colors.grey.shade500),
                   size: 22.sp,
                 ),
                 suffixIcon: suffixIcon,
+                // Remove all borders
                 border: InputBorder.none,
                 enabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
                 errorBorder: InputBorder.none,
                 focusedErrorBorder: InputBorder.none,
+                disabledBorder: InputBorder.none,
+                // Remove error style completely
+                errorStyle: const TextStyle(height: 0, fontSize: 0),
                 contentPadding: EdgeInsets.symmetric(
                   horizontal: 20.w,
                   vertical: 16.h,
@@ -203,20 +244,40 @@ class _EmailAndPasswordTextFormFieldState
             ),
           ),
         ),
-        if (hasError) ...[
-          verticalSpacing(8.h),
-          Padding(
-            padding: EdgeInsets.only(left: 4.w),
-            child: Text(
-              errorText,
-              style: TextStyle(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w500,
-                color: Colors.red.shade600,
-              ),
-            ),
+
+        // Custom Error Message
+        verticalSpacing(hasError ? 8 : 0),
+        AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          height: hasError ? null : 0,
+          child: AnimatedOpacity(
+            opacity: hasError ? 1.0 : 0.0,
+            duration: const Duration(milliseconds: 200),
+            child: hasError
+                ? Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Iconsax.info_circle,
+                        color: Colors.red.shade600,
+                        size: 14.sp,
+                      ),
+                      SizedBox(width: 6.w),
+                      Flexible(
+                        child: Text(
+                          errorText,
+                          style: FontHelper.font12lackW400(context).copyWith(
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.red.shade700,
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                : const SizedBox.shrink(),
           ),
-        ],
+        ),
       ],
     );
   }

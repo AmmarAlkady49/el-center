@@ -19,22 +19,34 @@ class LoginBlocConsumer extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<LoginCubit, LoginState>(
       bloc: cubit,
-      listenWhen: (previous, current) => current is Success || current is Error,
-      buildWhen: (previous, current) => current is Loading || current is Error,
+      listenWhen: (previous, current) =>
+          current is Success ||
+          current is Error ||
+          current is GoogleLoginSuccess ||
+          current is GoogleLoginError,
+      buildWhen: (previous, current) => current is! Success,
       listener: (context, state) {
-        if (state is Success) {
-          state.isStudent
-              ? Navigator.of(context).pushNamedAndRemoveUntil(
-                  AppRoutes.studentBottomNavigation, (route) => false)
-              : Navigator.of(context).pushNamedAndRemoveUntil(
-                  AppRoutes.instructorBottomNavigation, (route) => false);
-        }
-        if (state is Error) {
-          log("❌ Error: ${state.error}");
-          return HelperDialogs.showError(state.error, context);
-        }
+        state.whenOrNull(
+          success: (isStudent) {
+            log("✅ Login successful - User type: ${isStudent ? 'Student' : 'Instructor'}");
+            _navigateBasedOnUserType(context, isStudent);
+          },
+          error: (error) {
+            log("❌ Login Error: $error");
+            HelperDialogs.showError(error, context);
+          },
+          googleLoginSuccess: (isStudent) {
+            log("✅ Google Login successful - User type: ${isStudent ? 'Student' : 'Instructor'}");
+            _navigateBasedOnUserType(context, isStudent);
+          },
+          googleLoginError: (error) {
+            log("❌ Google Login Error: $error");
+            HelperDialogs.showError(error, context);
+          },
+        );
       },
       builder: (context, state) {
+        // Handle loading state
         if (state is Loading) {
           return AppTextButton(
             onPressed: null,
@@ -42,40 +54,65 @@ class LoginBlocConsumer extends StatelessWidget {
             isLoading: true,
           );
         }
+
+        // Handle error state with retry
         if (state is Error) {
           return AppTextButton(
-              text: S.of(context).tryAgain,
-              onPressed: () {
-                final emailError =
-                    cubit.validateEmail(cubit.emailController.text, context);
-                final passwordError = cubit.validatePassword(
-                    cubit.passwordController.text, context);
-
-                if (emailError == null && passwordError == null) {
-                  cubit.emitLoginState(
-                    LoginRequestBody(
-                      email: cubit.emailController.text,
-                      password: cubit.passwordController.text,
-                    ),
-                  );
-                }
-              });
+            text: S.of(context).tryAgain,
+            onPressed: () => _attemptLogin(context),
+          );
         }
-        return AppTextButton(
-            text: S.of(context).signin,
-            onPressed: () {
-              final isValid = cubit.formKey.currentState!.validate();
 
-              if (isValid) {
-                cubit.emitLoginState(
-                  LoginRequestBody(
-                    email: cubit.emailController.text,
-                    password: cubit.passwordController.text,
-                  ),
-                );
-              }
-            });
+        // Handle Google login error state
+        if (state is GoogleLoginError) {
+          return AppTextButton(
+            text: S.of(context).tryAgain,
+            onPressed: () => _attemptLogin(context),
+          );
+        }
+
+        // Default sign-in button
+        return AppTextButton(
+          text: S.of(context).signin,
+          onPressed: () => _attemptLogin(context),
+        );
       },
+    );
+  }
+
+  /// Navigate user based on their account type
+  void _navigateBasedOnUserType(BuildContext context, bool isStudent) {
+    final route = isStudent
+        ? AppRoutes.studentBottomNavigation
+        : AppRoutes.instructorBottomNavigation;
+
+    Navigator.of(context).pushNamedAndRemoveUntil(
+      route,
+      (route) => false,
+    );
+  }
+
+  /// Attempt login with validation
+  void _attemptLogin(BuildContext context) {
+    // Validate form
+    final isValid = cubit.formKey.currentState?.validate() ?? false;
+
+    if (!isValid) {
+      log("⚠️ Form validation failed");
+      return;
+    }
+
+    // Unfocus keyboard
+    FocusScope.of(context).unfocus();
+
+    log("🔄 Attempting login for: ${cubit.emailController.text.trim()}");
+
+    // Emit login state
+    cubit.emitLoginState(
+      LoginRequestBody(
+        email: cubit.emailController.text.trim(),
+        password: cubit.passwordController.text,
+      ),
     );
   }
 }
